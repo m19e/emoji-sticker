@@ -15,7 +15,7 @@ export const Dropzone = () => {
     setUrl(files[0].url)
   }, [])
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
-    onDropAccepted: onDrop,
+    onDrop,
     accept: {
       'image/png': ['.png'],
       'image/jpeg': ['.jpeg', '.jpg'],
