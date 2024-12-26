@@ -5,7 +5,9 @@ import { useDropzone } from 'react-dropzone'
 export const Dropzone = () => {
   const [url, setUrl] = useState<string | undefined>(undefined)
   const onDrop = useCallback((acceptedFiles: File[]) => {
-    if (acceptedFiles.length === 0) return
+    if (acceptedFiles.length === 0) {
+      return
+    }
     const files = acceptedFiles.map((file) => ({
       file,
       url: URL.createObjectURL(file),
