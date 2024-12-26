@@ -1,3 +1,3 @@
-import { atom } from 'jotai'
+import { atomWithReset } from 'jotai/utils'
 
-export const baseImgUrlAtom = atom<string | undefined>(undefined)
+export const baseImgUrlAtom = atomWithReset<string | undefined>(undefined)
