@@ -11,3 +11,8 @@ export const EPR_CATEGORIES_JA = [
   { category: Categories.SYMBOLS, name: '記号' },
   { category: Categories.FLAGS, name: '旗' },
 ]
+
+export const DEFAULT_PREVIEW_CONFIG = {
+  defaultEmoji: '1f60e',
+  defaultCaption: '今の気分はどう？',
+}
