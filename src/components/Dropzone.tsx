@@ -15,11 +15,8 @@ export const Dropzone = () => {
       if (acceptedFiles.length === 0) {
         return
       }
-      const files = acceptedFiles.map((file) => ({
-        file,
-        url: URL.createObjectURL(file),
-      }))
-      setUrl(files[0].url)
+      const [createdUrl] = acceptedFiles.map(URL.createObjectURL)
+      setUrl(createdUrl)
     },
     [setUrl],
   )
