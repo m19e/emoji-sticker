@@ -1,4 +1,5 @@
 'use client'
+import type Konva from 'konva'
 import { useRef } from 'react'
 import { Image, Layer, Stage, Transformer } from 'react-konva'
 import useImage from 'use-image'
@@ -17,12 +18,13 @@ export const Demo = () => {
   }
 
   const [image] = useImage(imageData.src)
-  const transformerRef = useRef(undefined)
-  const imageRef = useRef(undefined)
+  const transformerRef = useRef<Konva.Transformer>(null)
+  const imageRef = useRef<Konva.Image>(null)
 
   const onSelect = () => {
-    // @ts-ignore
-    transformerRef.current?.nodes([imageRef.current])
+    if (imageRef.current) {
+      transformerRef.current?.nodes([imageRef.current])
+    }
   }
 
   return (
@@ -35,7 +37,6 @@ export const Demo = () => {
             y={50}
             width={imageData.width}
             height={imageData.height}
-            // @ts-ignore
             ref={imageRef}
             onClick={onSelect}
             onTap={onSelect}
@@ -43,7 +44,6 @@ export const Demo = () => {
           />
         )}
         <Transformer
-          // @ts-ignore
           ref={transformerRef}
           keepRatio
           rotateAnchorOffset={25}
