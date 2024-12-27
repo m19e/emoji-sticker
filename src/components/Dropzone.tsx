@@ -3,10 +3,12 @@ import { useAtom } from 'jotai'
 import { useCallback } from 'react'
 import { useDropzone } from 'react-dropzone'
 
-import { baseImgUrlAtom } from '@/store/atoms'
+import { baseImgUrlAtom, revokeEffect } from '@/store/atoms'
 
 export const Dropzone = () => {
   const [url, setUrl] = useAtom(baseImgUrlAtom)
+  useAtom(revokeEffect)
+
   const onDrop = useCallback(
     (acceptedFiles: File[]) => {
       if (acceptedFiles.length === 0) {
