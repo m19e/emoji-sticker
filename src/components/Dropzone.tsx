@@ -3,6 +3,7 @@ import { useAtom } from 'jotai'
 import { useCallback } from 'react'
 import { useDropzone } from 'react-dropzone'
 
+import { DROPZONE_ACCEPT_FILE } from '@/constants'
 import { baseImgUrlAtom, revokeEffect } from '@/store/atoms'
 
 export const Dropzone = () => {
@@ -25,11 +26,7 @@ export const Dropzone = () => {
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop,
     maxFiles: 1,
-    accept: {
-      'image/png': ['.png'],
-      'image/jpeg': ['.jpeg', '.jpg'],
-      'image/webp': ['.webp'],
-    },
+    accept: DROPZONE_ACCEPT_FILE,
   })
 
   return (

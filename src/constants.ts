@@ -16,3 +16,9 @@ export const DEFAULT_PREVIEW_CONFIG = {
   defaultEmoji: '1f60e',
   defaultCaption: '今の気分はどう？',
 }
+
+export const DROPZONE_ACCEPT_FILE = {
+  'image/png': ['.png'],
+  'image/jpeg': ['.jpeg', '.jpg'],
+  'image/webp': ['.webp'],
+}
