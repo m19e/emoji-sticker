@@ -28,7 +28,6 @@ export const Dropzone = () => {
 
   return (
     <div {...getRootProps()}>
-      <img src={url} alt={url} />
       <input {...getInputProps()} />
       {isDragActive ? (
         <p>Drop the files here ...</p>
