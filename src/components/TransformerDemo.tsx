@@ -33,8 +33,12 @@ export const Demo = () => {
     }
   }, [selectedShape])
 
+  const onSelect = () => {
+    setSelectedShape(imageRef.current)
+  }
+
   return (
-    <Stage width={window.innerWidth} height={window.innerHeight}>
+    <Stage className="h-screen w-full bg-slate-200" width={500} height={500}>
       <Layer>
         {image && (
           <Image
@@ -45,12 +49,8 @@ export const Demo = () => {
             height={imageData.height}
             // @ts-ignore
             ref={imageRef}
-            onClick={() => {
-              setSelectedShape(imageRef.current)
-            }}
-            onTap={() => {
-              setSelectedShape(imageRef.current)
-            }}
+            onClick={onSelect}
+            onTap={onSelect}
             draggable
           />
         )}
