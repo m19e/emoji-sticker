@@ -61,6 +61,7 @@ export const Demo = () => {
           rotateAnchorOffset={25}
           anchorSize={8}
           anchorCornerRadius={4}
+          rotationSnaps={[0]}
           enabledAnchors={[
             'top-left',
             'top-right',
