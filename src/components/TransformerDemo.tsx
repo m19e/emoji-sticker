@@ -3,11 +3,6 @@ import { useEffect, useRef, useState } from 'react'
 import { Image, Layer, Stage, Transformer } from 'react-konva'
 import useImage from 'use-image'
 
-type SelectNodesObj = { nodes: (nodes: any[]) => void }
-
-const checkHasNodesMethod = (obj: any): obj is SelectNodesObj =>
-  typeof obj !== 'undefined' && 'nodes' in obj
-
 type ImageData = {
   src: string
   width: number
@@ -28,8 +23,8 @@ export const Demo = () => {
 
   useEffect(() => {
     if (selectedShape) {
-      checkHasNodesMethod(transformerRef.current) &&
-        (transformerRef.current as SelectNodesObj).nodes([selectedShape])
+      // @ts-ignore
+      transformerRef.current?.nodes([selectedShape])
     }
   }, [selectedShape])
 
