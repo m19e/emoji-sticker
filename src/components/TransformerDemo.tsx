@@ -1,5 +1,5 @@
 'use client'
-import { useEffect, useRef, useState } from 'react'
+import { useRef } from 'react'
 import { Image, Layer, Stage, Transformer } from 'react-konva'
 import useImage from 'use-image'
 
@@ -17,19 +17,12 @@ export const Demo = () => {
   }
 
   const [image] = useImage(imageData.src)
-  const [selectedShape, setSelectedShape] = useState(undefined)
   const transformerRef = useRef(undefined)
   const imageRef = useRef(undefined)
 
-  useEffect(() => {
-    if (selectedShape) {
-      // @ts-ignore
-      transformerRef.current?.nodes([selectedShape])
-    }
-  }, [selectedShape])
-
   const onSelect = () => {
-    setSelectedShape(imageRef.current)
+    // @ts-ignore
+    transformerRef.current?.nodes([imageRef.current])
   }
 
   return (
