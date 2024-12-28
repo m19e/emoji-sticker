@@ -12,7 +12,7 @@ type ImageData = {
 
 export const Demo = () => {
   const imageData: ImageData = {
-    src: 'https://cdn.jsdelivr.net/gh/jdecked/twemoji@latest/assets/svg/1f914.svg', // SVGファイルのURL
+    src: 'https://cdn.jsdelivr.net/gh/jdecked/twemoji@latest/assets/svg/1f914.svg',
     width: 200,
     height: 200,
   }
