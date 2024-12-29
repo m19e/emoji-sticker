@@ -1,9 +1,10 @@
 'use client'
-import { getSvgUrl } from '@/tools'
 import type Konva from 'konva'
 import { useRef } from 'react'
 import { Image, Transformer } from 'react-konva'
 import useImage from 'use-image'
+
+import { getSvgUrl } from '@/tools'
 
 export const SvgImage = ({ u }: { u: string }) => {
   const [image] = useImage(getSvgUrl(u))
