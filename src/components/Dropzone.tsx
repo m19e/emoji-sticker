@@ -1,5 +1,5 @@
 'use client'
-import { useAtom } from 'jotai'
+import { useAtom, useSetAtom } from 'jotai'
 import { useCallback } from 'react'
 import { useDropzone } from 'react-dropzone'
 
@@ -7,7 +7,7 @@ import { DROPZONE_ACCEPT_FILE } from '@/constants'
 import { baseImgUrlAtom, revokeEffect } from '@/store/atoms'
 
 export const Dropzone = () => {
-  const [url, setUrl] = useAtom(baseImgUrlAtom)
+  const setUrl = useSetAtom(baseImgUrlAtom)
   useAtom(revokeEffect)
 
   const onDrop = useCallback(
