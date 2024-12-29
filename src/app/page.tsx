@@ -1,6 +1,7 @@
 import { BaseImage } from '@/components/BaseImage'
 import { DeleteBaseImageButton } from '@/components/DeleteBaseImageButton'
 import { Dropzone } from '@/components/Dropzone'
+import { Picker } from '@/components/EmojiPicker'
 import { Demo } from '@/components/TransformerDemo'
 
 export default function Home() {
@@ -11,6 +12,7 @@ export default function Home() {
         <Dropzone />
         <DeleteBaseImageButton />
         <Demo />
+        <Picker />
       </main>
     </div>
   )
