@@ -1,16 +1,23 @@
 'use client'
-import dynamic from 'next/dynamic'
-
 import { EmojiStyle } from 'emoji-picker-react'
+import { useSetAtom } from 'jotai'
+import dynamic from 'next/dynamic'
+import { v4 } from 'uuid'
 
 import { DEFAULT_PREVIEW_CONFIG, EPR_CATEGORIES_JA } from '@/constants'
-import { getSvgUrl } from '@/tools'
+import { emojiSvgIdsAtom } from '@/store/atoms'
 
 const EmojiPicker = dynamic(() => import('emoji-picker-react'), {
   ssr: false,
 })
 
 export const Picker = () => {
+  const setEmojis = useSetAtom(emojiSvgIdsAtom)
+
+  const addEmoji = (u: string) => {
+    setEmojis((prev) => [...prev, { id: v4(), u }])
+  }
+
   return (
     <EmojiPicker
       emojiStyle={EmojiStyle.TWITTER}
@@ -18,7 +25,7 @@ export const Picker = () => {
       previewConfig={DEFAULT_PREVIEW_CONFIG}
       skinTonesDisabled
       searchPlaceholder="検索"
-      onEmojiClick={(e) => console.log(getSvgUrl(e.unifiedWithoutSkinTone))}
+      onEmojiClick={(e) => addEmoji(e.unifiedWithoutSkinTone)}
     />
   )
 }
