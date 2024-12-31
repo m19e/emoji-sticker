@@ -2,7 +2,7 @@ import { atomEffect } from 'jotai-effect'
 import { withHistory } from 'jotai-history'
 import { RESET, atomWithReset } from 'jotai/utils'
 
-export const baseImgUrlAtom = atomWithReset<string | undefined>(undefined)
+export const baseImgUrlAtom = atomWithReset<string | null>(null)
 
 export const emojiSvgIdsAtom = atomWithReset<{ id: string; u: string }[]>([])
 
