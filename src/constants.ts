@@ -22,3 +22,8 @@ export const DROPZONE_ACCEPT_FILE = {
   'image/jpeg': ['.jpeg', '.jpg'],
   'image/webp': ['.webp'],
 }
+
+export const ERROR_MESSAGE = {
+  windowIsNotDefined: 'Window is not defined',
+  urlIsNotDefined: 'Url is not defined',
+} as const
