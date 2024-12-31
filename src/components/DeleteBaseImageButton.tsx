@@ -7,5 +7,9 @@ import { baseImgUrlAtom } from '@/store/atoms'
 export const DeleteBaseImageButton = () => {
   const resetBaseImg = useResetAtom(baseImgUrlAtom)
 
-  return <Button onClick={resetBaseImg}>Delete base-image</Button>
+  return (
+    <Button className="text-slate-300" variant="ghost" onClick={resetBaseImg}>
+      Delete base-image
+    </Button>
+  )
 }
