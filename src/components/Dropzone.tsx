@@ -3,6 +3,7 @@ import { useAtom, useSetAtom } from 'jotai'
 import { useCallback } from 'react'
 import { useDropzone } from 'react-dropzone'
 
+import { Button } from '@/components/ui/button'
 import { DROPZONE_ACCEPT_FILE } from '@/constants'
 import { baseImgUrlAtom, revokeEffect } from '@/store/atoms'
 
@@ -27,13 +28,15 @@ export const Dropzone = () => {
   })
 
   return (
-    <div {...getRootProps()}>
-      <input {...getInputProps()} />
-      {isDragActive ? (
-        <p>Drop the files here ...</p>
-      ) : (
-        <p>Drag 'n' drop some files here, or click to select files</p>
-      )}
-    </div>
+    <Button className="text-slate-300" variant="ghost">
+      <div {...getRootProps()}>
+        <input {...getInputProps()} />
+        {isDragActive ? (
+          <p>Drop the files here ...</p>
+        ) : (
+          <p>Click to select files</p>
+        )}
+      </div>
+    </Button>
   )
 }
