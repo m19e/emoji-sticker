@@ -14,9 +14,14 @@ const EmojiPicker = dynamic(() => import('emoji-picker-react'), {
 export const Picker = () => {
   const setEmojis = useSetAtom(emojiSvgIdsAtom)
 
-  const addEmoji = ({ unifiedWithoutSkinTone }: EmojiClickData) => {
-    const emoji = { id: v4(), u: unifiedWithoutSkinTone }
-    setEmojis((prev) => [...prev, emoji])
+  const handleClick = ({ unifiedWithoutSkinTone }: EmojiClickData) => {
+    setEmojis((prev) => [
+      ...prev,
+      {
+        id: v4(),
+        u: unifiedWithoutSkinTone,
+      },
+    ])
   }
 
   return (
@@ -27,7 +32,7 @@ export const Picker = () => {
       previewConfig={DEFAULT_PREVIEW_CONFIG}
       skinTonesDisabled
       searchPlaceholder="検索"
-      onEmojiClick={addEmoji}
+      onEmojiClick={handleClick}
     />
   )
 }
