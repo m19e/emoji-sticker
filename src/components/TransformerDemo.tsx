@@ -5,12 +5,12 @@ import { Image, Layer, Stage } from 'react-konva'
 
 import { SvgImage } from '@/components/SvgImage'
 import { useImageSize } from '@/hooks/useImageSize'
-import { baseImgUrlAtom, emojiSvgIdsAtom } from '@/store/atoms'
+import { baseImgUrlAtom, emojiDatasAtom } from '@/store/atoms'
 import { useMeasure } from 'react-use'
 import useImage from 'use-image'
 
 export const Demo = () => {
-  const emojis = useAtomValue(emojiSvgIdsAtom)
+  const emojis = useAtomValue(emojiDatasAtom)
   const [selectedId, setSelectedId] = useState<string | null>(null)
 
   const url = useAtomValue(baseImgUrlAtom)
