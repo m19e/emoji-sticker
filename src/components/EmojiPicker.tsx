@@ -5,14 +5,14 @@ import dynamic from 'next/dynamic'
 import { v4 } from 'uuid'
 
 import { DEFAULT_PREVIEW_CONFIG, EPR_CATEGORIES_JA } from '@/constants'
-import { emojiSvgIdsAtom } from '@/store/atoms'
+import { emojiDatasAtom } from '@/store/atoms'
 
 const EmojiPicker = dynamic(() => import('emoji-picker-react'), {
   ssr: false,
 })
 
 export const Picker = () => {
-  const setEmojis = useSetAtom(emojiSvgIdsAtom)
+  const setEmojis = useSetAtom(emojiDatasAtom)
 
   const handleClick = ({ unifiedWithoutSkinTone }: EmojiClickData) => {
     setEmojis((prev) => [
