@@ -20,6 +20,7 @@ export const Picker = () => {
 
   return (
     <EmojiPicker
+      className="!fixed bottom-0"
       emojiStyle={EmojiStyle.TWITTER}
       categories={EPR_CATEGORIES_JA}
       previewConfig={DEFAULT_PREVIEW_CONFIG}
