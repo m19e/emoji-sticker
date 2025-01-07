@@ -9,8 +9,8 @@ import { DROPZONE_ACCEPT_FILE } from '@/constants'
 import { baseImgUrlAtom, revokeEffect } from '@/store/atoms'
 
 export const Dropzone = () => {
-  const setUrl = useSetAtom(baseImgUrlAtom)
   useAtom(revokeEffect)
+  const setUrl = useSetAtom(baseImgUrlAtom)
 
   const onDrop = useCallback(
     (acceptedFiles: File[]) => {
@@ -29,11 +29,14 @@ export const Dropzone = () => {
   })
 
   return (
-    <Button className="text-slate-300" variant="ghost">
-      <div {...getRootProps()}>
-        <input {...getInputProps()} />
-        <ImageIcon />
-      </div>
+    <Button
+      {...getRootProps()}
+      className="text-slate-300"
+      variant="ghost"
+      size="icon"
+    >
+      <input {...getInputProps()} />
+      <ImageIcon />
     </Button>
   )
 }
