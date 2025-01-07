@@ -1,5 +1,6 @@
 'use client'
 import { useAtom, useSetAtom } from 'jotai'
+import { Image as ImageIcon } from 'lucide-react'
 import { useCallback } from 'react'
 import { useDropzone } from 'react-dropzone'
 
@@ -21,7 +22,7 @@ export const Dropzone = () => {
     },
     [setUrl],
   )
-  const { getRootProps, getInputProps, isDragActive } = useDropzone({
+  const { getRootProps, getInputProps } = useDropzone({
     onDrop,
     maxFiles: 1,
     accept: DROPZONE_ACCEPT_FILE,
@@ -31,11 +32,7 @@ export const Dropzone = () => {
     <Button className="text-slate-300" variant="ghost">
       <div {...getRootProps()}>
         <input {...getInputProps()} />
-        {isDragActive ? (
-          <p>Drop the files here ...</p>
-        ) : (
-          <p>Click to select files</p>
-        )}
+        <ImageIcon />
       </div>
     </Button>
   )
