@@ -1,3 +1,4 @@
+import { atom } from 'jotai'
 import { atomEffect } from 'jotai-effect'
 import { withHistory } from 'jotai-history'
 import { RESET, atomWithReset } from 'jotai/utils'
@@ -20,3 +21,5 @@ export const revokeEffect = atomEffect((get, set) => {
     prevUrl && URL.revokeObjectURL(prevUrl)
   }
 })
+
+export const isPickerOpenAtom = atom(false)
