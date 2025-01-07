@@ -1,3 +1,4 @@
+import type { EmojiData } from '@/types'
 import { atom } from 'jotai'
 import { atomEffect } from 'jotai-effect'
 import { withHistory } from 'jotai-history'
@@ -5,7 +6,7 @@ import { RESET, atomWithReset } from 'jotai/utils'
 
 export const baseImgUrlAtom = atomWithReset<string | null>(null)
 
-export const emojiSvgIdsAtom = atomWithReset<{ id: string; u: string }[]>([])
+export const emojiDatasAtom = atomWithReset<EmojiData[]>([])
 
 const baseImgUrlHistory = withHistory(baseImgUrlAtom, 2)
 
@@ -17,7 +18,7 @@ const baseImgUrlHistory = withHistory(baseImgUrlAtom, 2)
 export const revokeEffect = atomEffect((get, set) => {
   const [url, prevUrl] = get(baseImgUrlHistory)
   if (typeof url === 'undefined') {
-    set(emojiSvgIdsAtom, RESET)
+    set(emojiDatasAtom, RESET)
     prevUrl && URL.revokeObjectURL(prevUrl)
   }
 })
