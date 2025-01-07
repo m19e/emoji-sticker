@@ -1,5 +1,5 @@
 'use client'
-import { EmojiStyle } from 'emoji-picker-react'
+import { type EmojiClickData, EmojiStyle } from 'emoji-picker-react'
 import { useSetAtom } from 'jotai'
 import dynamic from 'next/dynamic'
 import { v4 } from 'uuid'
@@ -14,8 +14,9 @@ const EmojiPicker = dynamic(() => import('emoji-picker-react'), {
 export const Picker = () => {
   const setEmojis = useSetAtom(emojiSvgIdsAtom)
 
-  const addEmoji = (u: string) => {
-    setEmojis((prev) => [...prev, { id: v4(), u }])
+  const addEmoji = ({ unifiedWithoutSkinTone }: EmojiClickData) => {
+    const emoji = { id: v4(), u: unifiedWithoutSkinTone }
+    setEmojis((prev) => [...prev, emoji])
   }
 
   return (
@@ -26,7 +27,7 @@ export const Picker = () => {
       previewConfig={DEFAULT_PREVIEW_CONFIG}
       skinTonesDisabled
       searchPlaceholder="検索"
-      onEmojiClick={(e) => addEmoji(e.unifiedWithoutSkinTone)}
+      onEmojiClick={addEmoji}
     />
   )
 }
