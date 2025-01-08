@@ -6,8 +6,28 @@ import { Image, Layer, Stage } from 'react-konva'
 import { SvgImage } from '@/components/SvgImage'
 import { useImageSize } from '@/hooks/useImageSize'
 import { baseImgUrlAtom, emojiDatasAtom } from '@/store/atoms'
+import type { Dimensions } from '@/types'
 import { useMeasure } from 'react-use'
 import useImage from 'use-image'
+
+const checkAspectRatio = ({
+  img,
+  parent,
+}: { img: Dimensions; parent: Dimensions }): { isFullWidth: boolean } => {
+  if (img.width === img.height) {
+    return { isFullWidth: true }
+  }
+  const isPortraitImg = img.width < img.height
+
+  if (isPortraitImg) {
+    // h-fullで横幅あふれる場合を計算する
+    const clientWidth = parent.height * (img.width / img.height)
+    const isOverflowX = clientWidth >= parent.width
+    return { isFullWidth: isOverflowX }
+  }
+
+  return { isFullWidth: false }
+}
 
 export const Editor = () => {
   const emojis = useAtomValue(emojiDatasAtom)
