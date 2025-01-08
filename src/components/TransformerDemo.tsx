@@ -11,7 +11,7 @@ import useImage from 'use-image'
 
 export const Demo = () => {
   const emojis = useAtomValue(emojiDatasAtom)
-  const [selectedId, setSelectedId] = useState<string | null>(null)
+  const [selectedEmojiId, setSelectedEmojiId] = useState<string | null>(null)
 
   const url = useAtomValue(baseImgUrlAtom)
   const [dimensions] = useImageSize(url)
@@ -20,11 +20,11 @@ export const Demo = () => {
   const [ref, { width, height }] = useMeasure<HTMLDivElement>()
 
   const handleUnselect = () => {
-    setSelectedId(null)
+    setSelectedEmojiId(null)
   }
 
   const handleSelect = (id: string) => {
-    setSelectedId(id)
+    setSelectedEmojiId(id)
   }
 
   const isFullWidth = dimensions.width >= dimensions.height
@@ -51,7 +51,7 @@ export const Demo = () => {
             <SvgImage
               key={e.id}
               u={e.u}
-              selected={e.id === selectedId}
+              selected={e.id === selectedEmojiId}
               onSelect={() => handleSelect(e.id)}
             />
           ))}
