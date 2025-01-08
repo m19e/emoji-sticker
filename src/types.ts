@@ -4,7 +4,7 @@ export type Dimensions = {
 }
 
 export type UseImageSizeResult = [
-  Dimensions | null,
+  Dimensions,
   { loading: boolean; error: string | null },
 ]
 

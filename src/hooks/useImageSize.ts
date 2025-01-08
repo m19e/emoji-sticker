@@ -26,15 +26,20 @@ const getImageSize = (url: string | null): Promise<Dimensions> => {
   })
 }
 
+const INITIAL_DIMENSIONS = {
+  width: 0,
+  height: 0,
+} as const
+
 export const useImageSize = (url: string | null): UseImageSizeResult => {
-  const [dimensions, setDimensions] = useState<Dimensions | null>(null)
+  const [dimensions, setDimensions] = useState<Dimensions>(INITIAL_DIMENSIONS)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
     const fetch = async () => {
       setLoading(true)
-      setDimensions(null)
+      setDimensions(INITIAL_DIMENSIONS)
       setError(null)
 
       try {
