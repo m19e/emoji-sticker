@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-import { ERROR_MESSAGE } from '@/constants'
+import { ERROR_MESSAGE, INITIAL_DIMENSIONS } from '@/constants'
 import type { Dimensions, UseImageSizeResult } from '@/types'
 
 const getImageSize = (url: string | null): Promise<Dimensions> => {
@@ -25,11 +25,6 @@ const getImageSize = (url: string | null): Promise<Dimensions> => {
     img.src = url
   })
 }
-
-const INITIAL_DIMENSIONS = {
-  width: 0,
-  height: 0,
-} as const
 
 export const useImageSize = (url: string | null): UseImageSizeResult => {
   const [dimensions, setDimensions] = useState<Dimensions>(INITIAL_DIMENSIONS)

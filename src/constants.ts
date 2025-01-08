@@ -27,3 +27,8 @@ export const ERROR_MESSAGE = {
   windowIsNotDefined: 'Window is not defined',
   urlIsNotDefined: 'Url is not defined',
 } as const
+
+export const INITIAL_DIMENSIONS = {
+  width: 0,
+  height: 0,
+} as const
