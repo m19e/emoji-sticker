@@ -27,10 +27,6 @@ export const Demo = () => {
     setSelectedId(id)
   }
 
-  if (dimensions === null) {
-    return null
-  }
-
   const isFullWidth = dimensions.width >= dimensions.height
 
   return (
