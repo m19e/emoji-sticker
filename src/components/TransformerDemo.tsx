@@ -38,7 +38,6 @@ export const Demo = () => {
       }}
     >
       <Stage
-        className="bg-slate-200"
         width={width}
         height={height}
         scaleX={width / dimensions.width}
