@@ -31,38 +31,37 @@ export const Demo = () => {
     return null
   }
 
+  const isFullWidth = dimensions.width >= dimensions.height
+
   return (
-    <>
-      <pre>{JSON.stringify({ width, height }, null, 4)}</pre>
-      <div
-        ref={ref}
-        className="w-full"
-        style={{
-          aspectRatio: `${dimensions.width} / ${dimensions.height}`,
-        }}
+    <div
+      className={isFullWidth ? 'max-h-fit w-full' : 'h-full max-w-fit'}
+      ref={ref}
+      style={{
+        aspectRatio: `${dimensions.width} / ${dimensions.height}`,
+      }}
+    >
+      <Stage
+        className="bg-slate-200"
+        width={width}
+        height={height}
+        scaleX={width / dimensions.width}
+        scaleY={height / dimensions.height}
       >
-        <Stage
-          className="flex-1 bg-slate-200"
-          width={width}
-          height={height}
-          scaleX={width / dimensions.width}
-          scaleY={height / dimensions.height}
-        >
-          <Layer onMouseDown={handleUnselect} onTouchStart={handleUnselect}>
-            <Image image={image} x={0} y={0} />
-          </Layer>
-          <Layer>
-            {emojis.map((e) => (
-              <SvgImage
-                key={e.id}
-                u={e.u}
-                selected={e.id === selectedId}
-                onSelect={() => handleSelect(e.id)}
-              />
-            ))}
-          </Layer>
-        </Stage>
-      </div>
-    </>
+        <Layer onMouseDown={handleUnselect} onTouchStart={handleUnselect}>
+          <Image image={image} x={0} y={0} />
+        </Layer>
+        <Layer>
+          {emojis.map((e) => (
+            <SvgImage
+              key={e.id}
+              u={e.u}
+              selected={e.id === selectedId}
+              onSelect={() => handleSelect(e.id)}
+            />
+          ))}
+        </Layer>
+      </Stage>
+    </div>
   )
 }
