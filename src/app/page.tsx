@@ -2,7 +2,7 @@ import { DeleteBaseImageButton } from '@/components/DeleteBaseImageButton'
 import { Dropzone } from '@/components/Dropzone'
 import { Picker } from '@/components/EmojiPicker'
 import { OpenPickerButton } from '@/components/OpenPickerButton'
-import { Editor } from '@/components/TransformerDemo'
+import { Editor } from '@/components/StickerEditor'
 
 export default function Home() {
   return (
