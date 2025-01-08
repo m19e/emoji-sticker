@@ -9,7 +9,7 @@ import { baseImgUrlAtom, emojiDatasAtom } from '@/store/atoms'
 import { useMeasure } from 'react-use'
 import useImage from 'use-image'
 
-export const Demo = () => {
+export const Editor = () => {
   const emojis = useAtomValue(emojiDatasAtom)
   const [selectedEmojiId, setSelectedEmojiId] = useState<string | null>(null)
 
@@ -31,8 +31,8 @@ export const Demo = () => {
 
   return (
     <div
-      className={isFullWidth ? 'max-h-fit w-full' : 'h-full max-w-fit'}
       ref={ref}
+      className={isFullWidth ? 'max-h-fit w-full' : 'h-full max-w-fit'}
       style={{
         aspectRatio: `${dimensions.width} / ${dimensions.height}`,
       }}

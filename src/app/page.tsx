@@ -2,7 +2,7 @@ import { DeleteBaseImageButton } from '@/components/DeleteBaseImageButton'
 import { Dropzone } from '@/components/Dropzone'
 import { Picker } from '@/components/EmojiPicker'
 import { OpenPickerButton } from '@/components/OpenPickerButton'
-import { Demo } from '@/components/TransformerDemo'
+import { Editor } from '@/components/TransformerDemo'
 
 export default function Home() {
   return (
@@ -13,7 +13,7 @@ export default function Home() {
           <Dropzone />
         </div>
         <div className="flex h-[calc(100%-72px)] w-full flex-col items-center justify-center bg-slate-400">
-          <Demo />
+          <Editor />
         </div>
         <div className="flex justify-end gap-4">
           <OpenPickerButton />
