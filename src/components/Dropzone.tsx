@@ -6,7 +6,8 @@ import { useDropzone } from 'react-dropzone'
 
 import { Button } from '@/components/ui/button'
 import { DROPZONE_ACCEPT_FILE } from '@/constants'
-import { baseImgUrlAtom, revokeEffect } from '@/store/atoms'
+import { baseImgUrlAtom } from '@/store/atoms'
+import { revokeEffect } from '@/store/effects'
 
 export const Dropzone = () => {
   useAtom(revokeEffect)
