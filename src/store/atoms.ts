@@ -9,3 +9,9 @@ export const isPickerOpenAtom = atom(false)
 export const emojiDatasAtom = atomWithReset<EmojiData[]>([])
 
 export const selectedEmojiIdAtom = atomWithReset<string | null>(null)
+
+// Derived atoms
+export const isBaseImgLoadedAtom = atom((get) => {
+  const url = get(baseImgUrlAtom)
+  return url !== null
+})
