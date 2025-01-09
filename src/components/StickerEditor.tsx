@@ -1,14 +1,18 @@
 'use client'
-import { useAtomValue } from 'jotai'
-import { useState } from 'react'
+import { useAtom, useAtomValue } from 'jotai'
+import { RESET } from 'jotai/utils'
 import { Image, Layer, Stage } from 'react-konva'
+import { useMeasure } from 'react-use'
+import useImage from 'use-image'
 
 import { SvgImage } from '@/components/SvgImage'
 import { useImageSize } from '@/hooks/useImageSize'
-import { baseImgUrlAtom, emojiDatasAtom } from '@/store/atoms'
+import {
+  baseImgUrlAtom,
+  emojiDatasAtom,
+  selectedEmojiIdAtom,
+} from '@/store/atoms'
 import type { Dimensions } from '@/types'
-import { useMeasure } from 'react-use'
-import useImage from 'use-image'
 
 const checkAspectRatio = ({
   img,
@@ -31,7 +35,7 @@ const checkAspectRatio = ({
 
 export const Editor = () => {
   const emojis = useAtomValue(emojiDatasAtom)
-  const [selectedEmojiId, setSelectedEmojiId] = useState<string | null>(null)
+  const [selectedEmojiId, setSelectedEmojiId] = useAtom(selectedEmojiIdAtom)
 
   const url = useAtomValue(baseImgUrlAtom)
   const [dimensions] = useImageSize(url)
@@ -40,7 +44,7 @@ export const Editor = () => {
   const [ref, { width, height }] = useMeasure<HTMLDivElement>()
 
   const handleUnselect = () => {
-    setSelectedEmojiId(null)
+    setSelectedEmojiId(RESET)
   }
 
   const handleSelect = (id: string) => {

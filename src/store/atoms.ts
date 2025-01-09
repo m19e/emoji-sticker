@@ -6,7 +6,11 @@ import { RESET, atomWithReset } from 'jotai/utils'
 
 export const baseImgUrlAtom = atomWithReset<string | null>(null)
 
+export const isPickerOpenAtom = atom(false)
+
 export const emojiDatasAtom = atomWithReset<EmojiData[]>([])
+
+export const selectedEmojiIdAtom = atomWithReset<string | null>(null)
 
 const baseImgUrlHistory = withHistory(baseImgUrlAtom, 2)
 
@@ -22,5 +26,3 @@ export const revokeEffect = atomEffect((get, set) => {
     prevUrl && URL.revokeObjectURL(prevUrl)
   }
 })
-
-export const isPickerOpenAtom = atom(false)
