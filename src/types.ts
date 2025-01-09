@@ -12,3 +12,7 @@ export type EmojiData = {
   id: string
   u: string
 }
+
+export type ButtonProps = {
+  disabled?: boolean
+}

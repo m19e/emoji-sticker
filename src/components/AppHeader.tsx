@@ -11,7 +11,7 @@ export const Header = () => {
 
   return (
     <div className="flex justify-between gap-4">
-      {isLoaded && <DeleteBaseImageButton />}
+      <DeleteBaseImageButton disabled={!isLoaded} />
       {isLoaded ? <SaveImageButton /> : <Dropzone />}
     </div>
   )

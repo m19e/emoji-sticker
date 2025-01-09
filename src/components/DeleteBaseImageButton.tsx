@@ -4,8 +4,9 @@ import { Trash2Icon } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
 import { baseImgUrlAtom } from '@/store/atoms'
+import type { ButtonProps } from '@/types'
 
-export const DeleteBaseImageButton = () => {
+export const DeleteBaseImageButton = ({ disabled }: ButtonProps) => {
   const resetBaseImg = useResetAtom(baseImgUrlAtom)
 
   return (
@@ -14,6 +15,7 @@ export const DeleteBaseImageButton = () => {
       variant="ghost"
       size="icon"
       onClick={resetBaseImg}
+      disabled={disabled}
     >
       <Trash2Icon />
     </Button>
