@@ -13,7 +13,7 @@ const baseImgUrlHistory = withHistory(baseImgUrlAtom, 2)
  */
 export const revokeEffect = atomEffect((get, set) => {
   const [url, prevUrl] = get(baseImgUrlHistory)
-  if (typeof url === 'undefined') {
+  if (url === null) {
     set(emojiDatasAtom, RESET)
     prevUrl && URL.revokeObjectURL(prevUrl)
   }
