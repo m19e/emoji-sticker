@@ -8,8 +8,9 @@ import { Button } from '@/components/ui/button'
 import { DROPZONE_ACCEPT_FILE } from '@/constants'
 import { baseImgUrlAtom } from '@/store/atoms'
 import { revokeEffect } from '@/store/effects'
+import type { ButtonProps } from '@/types'
 
-export const Dropzone = () => {
+export const Dropzone = ({ disabled }: ButtonProps) => {
   useAtom(revokeEffect)
   const setUrl = useSetAtom(baseImgUrlAtom)
 
@@ -35,9 +36,10 @@ export const Dropzone = () => {
       className="text-slate-300"
       variant="ghost"
       size="icon"
+      disabled={disabled}
     >
       <input {...getInputProps()} />
-      <ImageIcon />
+      <ImageIcon className="!size-4" />
     </Button>
   )
 }
