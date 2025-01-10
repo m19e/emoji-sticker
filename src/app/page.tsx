@@ -1,7 +1,8 @@
 import { Header } from '@/components/AppHeader'
 import { Picker } from '@/components/EmojiPicker'
-import { OpenPickerButton } from '@/components/button/OpenPickerButton'
 import { Editor } from '@/components/StickerEditor'
+import { DeleteEmojiButton } from '@/components/button/DeleteEmojiButton'
+import { OpenPickerButton } from '@/components/button/OpenPickerButton'
 
 export default function Home() {
   return (
@@ -11,7 +12,8 @@ export default function Home() {
         <div className="flex h-[calc(100%-72px)] flex-col items-center justify-center bg-slate-400">
           <Editor />
         </div>
-        <div className="flex justify-end gap-4">
+        <div className="flex justify-between gap-4">
+          <DeleteEmojiButton />
           <OpenPickerButton />
         </div>
       </main>
