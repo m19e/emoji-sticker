@@ -1,6 +1,6 @@
 'use client'
 import { useResetAtom } from 'jotai/utils'
-import { Trash2Icon } from 'lucide-react'
+import { XIcon } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
 import { baseImgUrlAtom } from '@/store/atoms'
@@ -17,7 +17,7 @@ export const DeleteBaseImageButton = ({ disabled }: ButtonProps) => {
       onClick={resetBaseImg}
       disabled={disabled}
     >
-      <Trash2Icon />
+      <XIcon />
     </Button>
   )
 }
