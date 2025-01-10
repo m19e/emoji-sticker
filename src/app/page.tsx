@@ -1,6 +1,6 @@
 import { Header } from '@/components/AppHeader'
 import { Picker } from '@/components/EmojiPicker'
-import { OpenPickerButton } from '@/components/OpenPickerButton'
+import { OpenPickerButton } from '@/components/button/OpenPickerButton'
 import { Editor } from '@/components/StickerEditor'
 
 export default function Home() {

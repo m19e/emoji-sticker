@@ -1,9 +1,9 @@
 'use client'
 import { useAtomValue } from 'jotai'
 
-import { DeleteBaseImageButton } from '@/components/DeleteBaseImageButton'
+import { DeleteBaseImageButton } from '@/components/button/DeleteBaseImageButton'
 import { Dropzone } from '@/components/Dropzone'
-import { SaveImageButton } from '@/components/SaveImageButton'
+import { SaveImageButton } from '@/components/button/SaveImageButton'
 import { isBaseImgLoadedAtom } from '@/store/atoms'
 
 export const Header = () => {
