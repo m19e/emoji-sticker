@@ -1,8 +1,8 @@
 'use client'
 import { useAtomValue } from 'jotai'
 
-import { DeleteBaseImageButton } from '@/components/button/DeleteBaseImageButton'
 import { Dropzone } from '@/components/Dropzone'
+import { DeleteBaseImageButton } from '@/components/button/DeleteBaseImageButton'
 import { SaveImageButton } from '@/components/button/SaveImageButton'
 import { isBaseImgLoadedAtom } from '@/store/atoms'
 
