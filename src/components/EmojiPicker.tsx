@@ -16,13 +16,8 @@ export const Picker = () => {
   const [open, setOpen] = useAtom(isPickerOpenAtom)
 
   const handleClick = ({ unifiedWithoutSkinTone }: EmojiClickData) => {
-    setEmojis((prev) => [
-      ...prev,
-      {
-        id: v4(),
-        u: unifiedWithoutSkinTone,
-      },
-    ])
+    const id = v4()
+    setEmojis((prev) => [...prev, { id, u: unifiedWithoutSkinTone }])
     setOpen(false)
   }
 
