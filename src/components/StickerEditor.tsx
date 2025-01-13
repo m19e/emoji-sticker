@@ -1,11 +1,14 @@
 'use client'
 import { useAtom, useAtomValue } from 'jotai'
 import { RESET } from 'jotai/utils'
+import { SaveIcon } from 'lucide-react'
 import { Image, Layer, Stage } from 'react-konva'
 import { useMeasure } from 'react-use'
 import useImage from 'use-image'
 
 import { SvgImage } from '@/components/SvgImage'
+import { Button } from '@/components/ui/button'
+import { useCanvasData } from '@/hooks/useCanvasData'
 import { useImageSize } from '@/hooks/useImageSize'
 import {
   baseImgUrlAtom,
@@ -39,9 +42,15 @@ export const Editor = () => {
 
   const url = useAtomValue(baseImgUrlAtom)
   const [dimensions] = useImageSize(url)
-  const [image] = useImage(url ?? '')
+  const [image] = useImage(url ?? '', "anonymous")
 
   const [ref, { width, height }] = useMeasure<HTMLDivElement>()
+
+  const [canvasRef, { save }] = useCanvasData()
+
+  const handleSave = () => {
+    save()
+  }
 
   const handleUnselect = () => {
     setSelectedEmojiId(RESET)
@@ -56,12 +65,15 @@ export const Editor = () => {
   return (
     <div
       ref={ref}
-      className={isFullWidth ? 'max-h-fit w-full' : 'h-full max-w-fit'}
+      className={
+        isFullWidth ? 'relative max-h-fit w-full' : 'relative h-full max-w-fit'
+      }
       style={{
         aspectRatio: `${dimensions.width} / ${dimensions.height}`,
       }}
     >
       <Stage
+        ref={canvasRef}
         width={width}
         height={height}
         scaleX={width / dimensions.width}
@@ -81,6 +93,9 @@ export const Editor = () => {
           ))}
         </Layer>
       </Stage>
+      <Button className="absolute right-0 bottom-0" onClick={handleSave}>
+        <SaveIcon />
+      </Button>
     </div>
   )
 }
