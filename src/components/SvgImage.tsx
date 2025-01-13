@@ -2,8 +2,8 @@
 import type Konva from 'konva'
 import { useEffect, useRef } from 'react'
 import { Image, Transformer } from 'react-konva'
-import useImage from 'use-image'
 
+import { useAnonymousImage } from '@/hooks/useAnonymousImage'
 import { getSvgUrl } from '@/tools'
 
 type Props = {
@@ -13,7 +13,7 @@ type Props = {
 }
 
 export const SvgImage = ({ u, selected, onSelect }: Readonly<Props>) => {
-  const [image] = useImage(getSvgUrl(u))
+  const [image] = useAnonymousImage(getSvgUrl(u))
   const transformerRef = useRef<Konva.Transformer>(null)
   const imageRef = useRef<Konva.Image>(null)
 

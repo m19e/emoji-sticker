@@ -4,10 +4,10 @@ import { RESET } from 'jotai/utils'
 import { SaveIcon } from 'lucide-react'
 import { Image, Layer, Stage } from 'react-konva'
 import { useMeasure } from 'react-use'
-import useImage from 'use-image'
 
 import { SvgImage } from '@/components/SvgImage'
 import { Button } from '@/components/ui/button'
+import { useAnonymousImage } from '@/hooks/useAnonymousImage'
 import { useCanvasData } from '@/hooks/useCanvasData'
 import { useImageSize } from '@/hooks/useImageSize'
 import {
@@ -42,7 +42,7 @@ export const Editor = () => {
 
   const url = useAtomValue(baseImgUrlAtom)
   const [dimensions] = useImageSize(url)
-  const [image] = useImage(url ?? '', "anonymous")
+  const [image] = useAnonymousImage(url ?? '')
 
   const [ref, { width, height }] = useMeasure<HTMLDivElement>()
 
