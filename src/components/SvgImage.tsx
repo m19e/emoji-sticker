@@ -12,7 +12,7 @@ type Props = {
   onSelect: () => void
 }
 
-export const SvgImage = ({ u, selected, onSelect }: Readonly<Props>) => {
+export const SvgImage = ({ u, selected, onSelect }: Props) => {
   const [image] = useAnonymousImage(getSvgUrl(u))
   const transformerRef = useRef<Konva.Transformer>(null)
   const imageRef = useRef<Konva.Image>(null)
