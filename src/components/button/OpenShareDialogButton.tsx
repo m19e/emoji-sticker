@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button'
 import { isShareDialogOpenAtom, selectedEmojiIdAtom } from '@/store/atoms'
 import type { ButtonProps } from '@/types'
 
-export const SaveImageButton = ({ disabled }: ButtonProps) => {
+export const OpenShareDialogButton = ({ disabled }: ButtonProps) => {
   const setOpenDrawer = useSetAtom(isShareDialogOpenAtom)
   const resetSelectedEmojiId = useResetAtom(selectedEmojiIdAtom)
 

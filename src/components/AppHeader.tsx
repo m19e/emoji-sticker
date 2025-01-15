@@ -3,7 +3,7 @@ import { useAtomValue } from 'jotai'
 
 import { Dropzone } from '@/components/Dropzone'
 import { DeleteBaseImageButton } from '@/components/button/DeleteBaseImageButton'
-import { SaveImageButton } from '@/components/button/SaveImageButton'
+import { OpenShareDialogButton } from '@/components/button/OpenShareDialogButton'
 import { isBaseImgLoadedAtom } from '@/store/atoms'
 
 export const Header = () => {
@@ -13,7 +13,7 @@ export const Header = () => {
     <div className="flex justify-between gap-4">
       <DeleteBaseImageButton disabled={!isLoaded} />
       <div>
-        <SaveImageButton disabled={!isLoaded} />
+        <OpenShareDialogButton disabled={!isLoaded} />
         <Dropzone disabled={isLoaded} />
       </div>
     </div>
