@@ -4,11 +4,11 @@ import { useResetAtom } from 'jotai/utils'
 import { ShareIcon } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
-import { isShareDrawerOpenAtom, selectedEmojiIdAtom } from '@/store/atoms'
+import { isShareDialogOpenAtom, selectedEmojiIdAtom } from '@/store/atoms'
 import type { ButtonProps } from '@/types'
 
 export const SaveImageButton = ({ disabled }: ButtonProps) => {
-  const setOpenDrawer = useSetAtom(isShareDrawerOpenAtom)
+  const setOpenDrawer = useSetAtom(isShareDialogOpenAtom)
   const resetSelectedEmojiId = useResetAtom(selectedEmojiIdAtom)
 
   const handleClick = () => {

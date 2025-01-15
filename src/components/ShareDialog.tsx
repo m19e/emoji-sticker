@@ -19,14 +19,14 @@ import {
   DrawerHeader,
   DrawerTitle,
 } from '@/components/ui/drawer'
-import { isShareDrawerOpenAtom } from '@/store/atoms'
+import { isShareDialogOpenAtom } from '@/store/atoms'
 
 type Props = {
   onSave: () => void
 }
 
 export const ShareDialog = ({ onSave }: Props) => {
-  const [open, setOpen] = useAtom(isShareDrawerOpenAtom)
+  const [open, setOpen] = useAtom(isShareDialogOpenAtom)
   const isDesktop = useMedia('(min-width: 640px)')
 
   const handleSave = () => {
