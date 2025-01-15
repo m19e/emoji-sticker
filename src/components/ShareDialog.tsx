@@ -37,9 +37,6 @@ export const ShareDialog = ({ onSave }: Props) => {
   if (isDesktop) {
     return (
       <Dialog open={open} onOpenChange={setOpen}>
-        {/* <DialogTrigger asChild>
-          <Button variant="outline">Edit Profile</Button>
-        </DialogTrigger> */}
         <DialogContent className="sm:max-w-[425px]">
           <DialogHeader>
             <DialogTitle>画像を保存・共有</DialogTitle>
@@ -57,9 +54,6 @@ export const ShareDialog = ({ onSave }: Props) => {
 
   return (
     <Drawer open={open} onOpenChange={setOpen}>
-      {/* <DrawerTrigger asChild>
-        <Button variant="outline">Edit Profile</Button>
-      </DrawerTrigger> */}
       <DrawerContent>
         <DrawerHeader className="text-left">
           <DrawerTitle>画像を保存・共有</DrawerTitle>
