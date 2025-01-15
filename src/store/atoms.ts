@@ -11,6 +11,8 @@ export const emojiDatasAtom = atomWithReset<EmojiData[]>([])
 
 export const selectedEmojiIdAtom = atomWithReset<string | null>(null)
 
+export const isDrawerOpenAtom = atom(false)
+
 // Derived atoms
 export const isBaseImgLoadedAtom = atom((get) => {
   const url = get(baseImgUrlAtom)
