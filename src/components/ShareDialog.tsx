@@ -25,7 +25,7 @@ type Props = {
   onSave: () => void
 }
 
-export const DrawerDialog = ({ onSave }: Props) => {
+export const ShareDialog = ({ onSave }: Props) => {
   const [open, setOpen] = useAtom(isShareDrawerOpenAtom)
   const isDesktop = useMedia('(min-width: 640px)')
 

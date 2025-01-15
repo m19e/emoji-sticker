@@ -1,12 +1,11 @@
 'use client'
 import { useAtom, useAtomValue } from 'jotai'
 import { RESET } from 'jotai/utils'
-import { SaveIcon } from 'lucide-react'
 import { Image, Layer, Stage } from 'react-konva'
 import { useMeasure } from 'react-use'
 
+import { ShareDialog } from '@/components/ShareDialog'
 import { SvgImage } from '@/components/SvgImage'
-import { Button } from '@/components/ui/button'
 import { useAnonymousImage } from '@/hooks/useAnonymousImage'
 import { useCanvasData } from '@/hooks/useCanvasData'
 import { useImageSize } from '@/hooks/useImageSize'
@@ -63,39 +62,37 @@ export const Editor = () => {
   const isFullWidth = dimensions.width >= dimensions.height
 
   return (
-    <div
-      ref={ref}
-      className={
-        isFullWidth ? 'relative max-h-fit w-full' : 'relative h-full max-w-fit'
-      }
-      style={{
-        aspectRatio: `${dimensions.width} / ${dimensions.height}`,
-      }}
-    >
-      <Stage
-        ref={canvasRef}
-        width={width}
-        height={height}
-        scaleX={width / dimensions.width}
-        scaleY={height / dimensions.height}
+    <>
+      <div
+        ref={ref}
+        className={isFullWidth ? 'max-h-fit w-full' : 'h-full max-w-fit'}
+        style={{
+          aspectRatio: `${dimensions.width} / ${dimensions.height}`,
+        }}
       >
-        <Layer onMouseDown={handleUnselect} onTouchStart={handleUnselect}>
-          <Image image={image} x={0} y={0} />
-        </Layer>
-        <Layer>
-          {emojis.map((e) => (
-            <SvgImage
-              key={e.id}
-              u={e.u}
-              selected={e.id === selectedEmojiId}
-              onSelect={() => handleSelect(e.id)}
-            />
-          ))}
-        </Layer>
-      </Stage>
-      <Button className="absolute right-0 bottom-0" onClick={handleSave}>
-        <SaveIcon />
-      </Button>
-    </div>
+        <Stage
+          ref={canvasRef}
+          width={width}
+          height={height}
+          scaleX={width / dimensions.width}
+          scaleY={height / dimensions.height}
+        >
+          <Layer onMouseDown={handleUnselect} onTouchStart={handleUnselect}>
+            <Image image={image} x={0} y={0} />
+          </Layer>
+          <Layer>
+            {emojis.map((e) => (
+              <SvgImage
+                key={e.id}
+                u={e.u}
+                selected={e.id === selectedEmojiId}
+                onSelect={() => handleSelect(e.id)}
+              />
+            ))}
+          </Layer>
+        </Stage>
+      </div>
+      <ShareDialog onSave={handleSave} />
+    </>
   )
 }
