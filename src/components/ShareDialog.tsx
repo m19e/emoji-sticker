@@ -45,7 +45,7 @@ export const ShareDialog = ({ onSave }: Props) => {
             </DialogDescription>
           </DialogHeader>
           <DrawerFooter>
-            <Content onSave={handleSave} />
+            <ShareActions onSave={handleSave} />
           </DrawerFooter>
         </DialogContent>
       </Dialog>
@@ -62,14 +62,14 @@ export const ShareDialog = ({ onSave }: Props) => {
           </DrawerDescription>
         </DrawerHeader>
         <DrawerFooter className="pt-2">
-          <Content onSave={handleSave} />
+          <ShareActions onSave={handleSave} />
         </DrawerFooter>
       </DrawerContent>
     </Drawer>
   )
 }
 
-const Content = ({ onSave }: Props) => {
+const ShareActions = ({ onSave }: Props) => {
   return (
     <div className="grid grid-cols-3 gap-1 place-self-center">
       <Button variant="outline" size="icon">
