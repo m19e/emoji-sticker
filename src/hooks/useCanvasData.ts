@@ -3,7 +3,7 @@ import { type RefObject, useRef } from 'react'
 
 export const useCanvasData = (): [
   RefObject<Konva.Stage | null>,
-  { save: () => void },
+  { save: (pixelRatio: number) => void },
 ] => {
   const canvasRef = useRef<Konva.Stage>(null)
 
@@ -16,14 +16,10 @@ export const useCanvasData = (): [
     document.body.removeChild(link)
   }
 
-  const save = () => {
-    // const pixelRatio = DEFAULT_CANVAS_SIZE / size
-    const uri = canvasRef.current?.toDataURL()
-    console.log(uri)
+  const save = (pixelRatio: number) => {
+    const uri = canvasRef.current?.toDataURL({ pixelRatio })
 
     if (uri) {
-      console.log('run save process')
-
       const fileName = `output.png`
       downloadUri(uri, fileName)
     }
