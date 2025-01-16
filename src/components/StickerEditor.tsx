@@ -47,8 +47,13 @@ export const Editor = () => {
 
   const [canvasRef, { save }] = useCanvasData()
 
+  const isFullWidth = dimensions.width >= dimensions.height
+
   const handleSave = () => {
-    save()
+    const ratio = isFullWidth
+      ? dimensions.width / width
+      : dimensions.height / height
+    save(ratio)
   }
 
   const handleUnselect = () => {
@@ -58,8 +63,6 @@ export const Editor = () => {
   const handleSelect = (id: string) => {
     setSelectedEmojiId(id)
   }
-
-  const isFullWidth = dimensions.width >= dimensions.height
 
   return (
     <>
