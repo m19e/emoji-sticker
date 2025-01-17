@@ -94,6 +94,8 @@ export const Editor = () => {
                 u={e.u}
                 selected={e.id === selectedStickerId}
                 onSelect={() => handleSelect(e.id)}
+                x={dimensions.width / 2}
+                y={dimensions.height / 2}
               />
             ))}
           </Layer>
