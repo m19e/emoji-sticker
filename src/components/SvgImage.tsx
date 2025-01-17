@@ -10,9 +10,13 @@ type Props = {
   u: string
   selected: boolean
   onSelect: () => void
+  x: number
+  y: number
+  // width: number
+  // height: number
 }
 
-export const SvgImage = ({ u, selected, onSelect }: Props) => {
+export const SvgImage = ({ u, selected, onSelect, x, y }: Props) => {
   const [image] = useAnonymousImage(getSvgUrl(u))
   const transformerRef = useRef<Konva.Transformer>(null)
   const imageRef = useRef<Konva.Image>(null)
@@ -25,21 +29,19 @@ export const SvgImage = ({ u, selected, onSelect }: Props) => {
 
   return (
     <>
-      {image && (
-        <Image
-          image={image}
-          x={50}
-          y={50}
-          width={100}
-          height={100}
-          ref={imageRef}
-          onClick={onSelect}
-          onDragStart={onSelect}
-          onTap={onSelect}
-          onTouchStart={onSelect}
-          draggable
-        />
-      )}
+      <Image
+        image={image}
+        x={x}
+        y={y}
+        width={100}
+        height={100}
+        ref={imageRef}
+        onClick={onSelect}
+        onDragStart={onSelect}
+        onTap={onSelect}
+        onTouchStart={onSelect}
+        draggable
+      />
       {selected && (
         <Transformer
           ref={transformerRef}
