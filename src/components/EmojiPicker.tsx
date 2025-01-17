@@ -8,7 +8,7 @@ import { DEFAULT_PREVIEW_CONFIG, EPR_CATEGORIES_JA } from '@/constants'
 import {
   emojiDatasAtom,
   isPickerOpenAtom,
-  selectedEmojiIdAtom,
+  selectedStickerIdAtom,
 } from '@/store/atoms'
 
 const EmojiPicker = dynamic(() => import('emoji-picker-react'), {
@@ -18,11 +18,11 @@ const EmojiPicker = dynamic(() => import('emoji-picker-react'), {
 export const Picker = () => {
   const setEmojis = useSetAtom(emojiDatasAtom)
   const [open, setOpen] = useAtom(isPickerOpenAtom)
-  const setSelectedEmojiId = useSetAtom(selectedEmojiIdAtom)
+  const setSelectedStickerId = useSetAtom(selectedStickerIdAtom)
 
   const handleClick = ({ unifiedWithoutSkinTone }: EmojiClickData) => {
     const id = v4()
-    setSelectedEmojiId(id)
+    setSelectedStickerId(id)
     setEmojis((prev) => [...prev, { id, u: unifiedWithoutSkinTone }])
     setOpen(false)
   }

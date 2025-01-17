@@ -11,7 +11,7 @@ export const emojiDatasAtom = atomWithReset<EmojiData[]>([])
 
 export const rectanglesAtom = atomWithReset<{ id: string }[]>([])
 
-export const selectedEmojiIdAtom = atomWithReset<string | null>(null)
+export const selectedStickerIdAtom = atomWithReset<string | null>(null)
 
 export const isShareDialogOpenAtom = atom(false)
 

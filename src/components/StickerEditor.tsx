@@ -12,7 +12,8 @@ import { useImageSize } from '@/hooks/useImageSize'
 import {
   baseImgUrlAtom,
   emojiDatasAtom,
-  selectedEmojiIdAtom,
+  rectanglesAtom,
+  selectedStickerIdAtom,
 } from '@/store/atoms'
 import type { Dimensions } from '@/types'
 
@@ -37,7 +38,10 @@ const checkAspectRatio = ({
 
 export const Editor = () => {
   const emojis = useAtomValue(emojiDatasAtom)
-  const [selectedEmojiId, setSelectedEmojiId] = useAtom(selectedEmojiIdAtom)
+  const rects = useAtomValue(rectanglesAtom)
+  const [selectedStickerId, setSelectedStickerId] = useAtom(
+    selectedStickerIdAtom,
+  )
 
   const url = useAtomValue(baseImgUrlAtom)
   const [dimensions] = useImageSize(url)
@@ -57,11 +61,11 @@ export const Editor = () => {
   }
 
   const handleUnselect = () => {
-    setSelectedEmojiId(RESET)
+    setSelectedStickerId(RESET)
   }
 
   const handleSelect = (id: string) => {
-    setSelectedEmojiId(id)
+    setSelectedStickerId(id)
   }
 
   return (
@@ -88,7 +92,7 @@ export const Editor = () => {
               <SvgImage
                 key={e.id}
                 u={e.u}
-                selected={e.id === selectedEmojiId}
+                selected={e.id === selectedStickerId}
                 onSelect={() => handleSelect(e.id)}
               />
             ))}

@@ -5,7 +5,7 @@ import { RESET } from 'jotai/utils'
 import {
   baseImgUrlAtom,
   emojiDatasAtom,
-  selectedEmojiIdAtom,
+  selectedStickerIdAtom,
 } from '@/store/atoms'
 
 const baseImgUrlHistory = withHistory(baseImgUrlAtom, 2)
@@ -19,7 +19,7 @@ export const revokeEffect = atomEffect((get, set) => {
   const [url, prevUrl] = get(baseImgUrlHistory)
   if (url === null) {
     set(emojiDatasAtom, RESET)
-    set(selectedEmojiIdAtom, RESET)
+    set(selectedStickerIdAtom, RESET)
     prevUrl && URL.revokeObjectURL(prevUrl)
   }
 })

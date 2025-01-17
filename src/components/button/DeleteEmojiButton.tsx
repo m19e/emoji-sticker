@@ -3,14 +3,14 @@ import { useAtomValue, useSetAtom } from 'jotai'
 import { Trash2Icon } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
-import { emojiDatasAtom, selectedEmojiIdAtom } from '@/store/atoms'
+import { emojiDatasAtom, selectedStickerIdAtom } from '@/store/atoms'
 
 export const DeleteEmojiButton = () => {
-  const selectedEmojiId = useAtomValue(selectedEmojiIdAtom)
+  const selectedStickerId = useAtomValue(selectedStickerIdAtom)
   const setEmojiDatas = useSetAtom(emojiDatasAtom)
 
   const handleClick = () => {
-    setEmojiDatas((p) => p.filter((e) => e.id !== selectedEmojiId))
+    setEmojiDatas((p) => p.filter((e) => e.id !== selectedStickerId))
   }
 
   return (
@@ -19,7 +19,7 @@ export const DeleteEmojiButton = () => {
       variant="ghost"
       size="icon"
       onClick={handleClick}
-      disabled={selectedEmojiId === null}
+      disabled={selectedStickerId === null}
     >
       <Trash2Icon />
     </Button>
