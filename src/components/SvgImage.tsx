@@ -57,7 +57,7 @@ export const SvgImage = ({ u, selected, onSelect, x, y }: Props) => {
             'bottom-right',
           ]}
           boundBoxFunc={(oldBox, newBox) => {
-            if (newBox.height < 50 || newBox.width < 50) {
+            if (newBox.height < 30 || newBox.width < 30) {
               return oldBox
             }
             return newBox
