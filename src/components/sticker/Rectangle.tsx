@@ -40,7 +40,12 @@ export const Rectangle = ({ selected, onSelect, x, y }: Props) => {
           anchorSize={8}
           anchorCornerRadius={4}
           rotationSnaps={[0]}
-          enabledAnchors={['top', 'bottom', 'right', 'left']}
+          enabledAnchors={[
+            'top-center',
+            'bottom-center',
+            'middle-right',
+            'middle-left',
+          ]}
           boundBoxFunc={(oldBox, newBox) => {
             if (newBox.height < 50 || newBox.width < 50) {
               return oldBox
