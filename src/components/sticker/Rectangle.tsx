@@ -47,7 +47,7 @@ export const Rectangle = ({ selected, onSelect, x, y }: Props) => {
             'middle-left',
           ]}
           boundBoxFunc={(oldBox, newBox) => {
-            if (newBox.height < 50 || newBox.width < 50) {
+            if (newBox.height < 15 || newBox.width < 50) {
               return oldBox
             }
             return newBox
