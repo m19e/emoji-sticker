@@ -6,6 +6,7 @@ import { useMeasure } from 'react-use'
 
 import { ShareDialog } from '@/components/ShareDialog'
 import { SvgImage } from '@/components/SvgImage'
+import { Rectangle } from '@/components/sticker/Rectangle'
 import { useAnonymousImage } from '@/hooks/useAnonymousImage'
 import { useCanvasData } from '@/hooks/useCanvasData'
 import { useImageSize } from '@/hooks/useImageSize'
@@ -94,6 +95,15 @@ export const Editor = () => {
                 u={e.u}
                 selected={e.id === selectedStickerId}
                 onSelect={() => handleSelect(e.id)}
+                x={dimensions.width / 2}
+                y={dimensions.height / 2}
+              />
+            ))}
+            {rects.map((r) => (
+              <Rectangle
+                key={r.id}
+                selected={r.id === selectedStickerId}
+                onSelect={() => handleSelect(r.id)}
                 x={dimensions.width / 2}
                 y={dimensions.height / 2}
               />
