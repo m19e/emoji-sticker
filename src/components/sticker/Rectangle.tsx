@@ -25,8 +25,10 @@ export const Rectangle = ({ selected, onSelect, x, y }: Props) => {
       <Rect
         x={x}
         y={y}
-        width={100}
-        height={100}
+        width={200}
+        height={50}
+        fill="gray"
+        cornerRadius={2}
         ref={shapeRef}
         onClick={onSelect}
         onDragStart={onSelect}
