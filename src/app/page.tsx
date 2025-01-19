@@ -1,6 +1,7 @@
 import { Header } from '@/components/AppHeader'
 import { Picker } from '@/components/EmojiPicker'
 import { Editor } from '@/components/StickerEditor'
+import { AddRectStickerButton } from '@/components/button/AddRectStickerButton'
 import { DeleteEmojiButton } from '@/components/button/DeleteEmojiButton'
 import { OpenPickerButton } from '@/components/button/OpenPickerButton'
 
@@ -14,7 +15,10 @@ export default function Home() {
         </div>
         <div className="flex justify-between gap-4">
           <DeleteEmojiButton />
-          <OpenPickerButton />
+          <div>
+            <AddRectStickerButton />
+            <OpenPickerButton />
+          </div>
         </div>
       </main>
       <Picker />
