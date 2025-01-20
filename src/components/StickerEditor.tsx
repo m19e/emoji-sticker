@@ -5,7 +5,7 @@ import { Image, Layer, Stage } from 'react-konva'
 import { useMeasure } from 'react-use'
 
 import { ShareDialog } from '@/components/ShareDialog'
-import { SvgImage } from '@/components/sticker/SvgImage'
+import { Emoji } from '@/components/sticker/Emoji'
 import { Rectangle } from '@/components/sticker/Rectangle'
 import { useAnonymousImage } from '@/hooks/useAnonymousImage'
 import { useCanvasData } from '@/hooks/useCanvasData'
@@ -90,7 +90,7 @@ export const Editor = () => {
           </Layer>
           <Layer>
             {emojis.map((e) => (
-              <SvgImage
+              <Emoji
                 key={e.id}
                 u={e.u}
                 selected={e.id === selectedStickerId}

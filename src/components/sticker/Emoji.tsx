@@ -16,7 +16,7 @@ type Props = {
   // height: number
 }
 
-export const SvgImage = ({ u, selected, onSelect, x, y }: Props) => {
+export const Emoji = ({ u, selected, onSelect, x, y }: Props) => {
   const [image] = useAnonymousImage(getSvgUrl(u))
   const transformerRef = useRef<Konva.Transformer>(null)
   const imageRef = useRef<Konva.Image>(null)
