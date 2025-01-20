@@ -5,7 +5,7 @@ import { Image, Layer, Stage } from 'react-konva'
 import { useMeasure } from 'react-use'
 
 import { ShareDialog } from '@/components/ShareDialog'
-import { SvgImage } from '@/components/SvgImage'
+import { SvgImage } from '@/components/sticker/SvgImage'
 import { Rectangle } from '@/components/sticker/Rectangle'
 import { useAnonymousImage } from '@/hooks/useAnonymousImage'
 import { useCanvasData } from '@/hooks/useCanvasData'
