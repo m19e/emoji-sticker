@@ -8,21 +8,22 @@ import { Image, Layer, Stage } from 'react-konva'
 import { Emoji } from '@/components/sticker/Emoji'
 import { Rectangle } from '@/components/sticker/Rectangle'
 import { useAnonymousImage } from '@/hooks/useAnonymousImage'
-import { useImageSize } from '@/hooks/useImageSize'
 import {
   baseImgUrlAtom,
   emojiDatasAtom,
   rectanglesAtom,
   selectedStickerIdAtom,
 } from '@/store/atoms'
+import type { Dimensions } from '@/types'
 
 type Props = {
   ref: RefObject<Konva.Stage | null>
   width: number
   height: number
+  dimensions: Dimensions
 }
 
-export const Canvas = ({ ref, width, height }: Props) => {
+export const Canvas = ({ ref, width, height, dimensions }: Props) => {
   const emojis = useAtomValue(emojiDatasAtom)
   const rects = useAtomValue(rectanglesAtom)
   const [selectedStickerId, setSelectedStickerId] = useAtom(
@@ -30,7 +31,6 @@ export const Canvas = ({ ref, width, height }: Props) => {
   )
 
   const url = useAtomValue(baseImgUrlAtom)
-  const [dimensions] = useImageSize(url)
   const [image] = useAnonymousImage(url ?? '')
 
   const handleUnselect = () => {
