@@ -46,7 +46,7 @@ export const Emoji = ({ u, selected, onSelect, x, y }: Props) => {
         <Transformer
           ref={transformerRef}
           keepRatio
-          rotateAnchorOffset={25}
+          rotateAnchorOffset={16}
           anchorSize={8}
           anchorCornerRadius={4}
           rotationSnaps={[0]}
@@ -57,7 +57,7 @@ export const Emoji = ({ u, selected, onSelect, x, y }: Props) => {
             'bottom-right',
           ]}
           boundBoxFunc={(oldBox, newBox) => {
-            if (newBox.height < 30 || newBox.width < 30) {
+            if (newBox.height < 25 || newBox.width < 25) {
               return oldBox
             }
             return newBox
