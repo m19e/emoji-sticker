@@ -53,21 +53,21 @@ export const Canvas = ({ ref, width, height, dimensions }: Props) => {
         <Image image={image} x={0} y={0} />
       </Layer>
       <Layer>
-        {emojis.map((e) => (
+        {emojis.map(({ id, u }) => (
           <Emoji
-            key={e.id}
-            u={e.u}
-            selected={e.id === selectedStickerId}
-            onSelect={() => handleSelect(e.id)}
+            key={id}
+            u={u}
+            selected={selectedStickerId === id}
+            onSelect={() => handleSelect(id)}
             x={dimensions.width / 2}
             y={dimensions.height / 2}
           />
         ))}
-        {rects.map((r) => (
+        {rects.map(({ id }) => (
           <Rectangle
-            key={r.id}
-            selected={r.id === selectedStickerId}
-            onSelect={() => handleSelect(r.id)}
+            key={id}
+            selected={selectedStickerId === id}
+            onSelect={() => handleSelect(id)}
             x={dimensions.width / 2}
             y={dimensions.height / 2}
           />
