@@ -1,21 +1,12 @@
 'use client'
-import { useAtom, useAtomValue } from 'jotai'
-import { RESET } from 'jotai/utils'
-import { Image, Layer, Stage } from 'react-konva'
+import { useAtomValue } from 'jotai'
 import { useMeasure } from 'react-use'
 
+import { Canvas } from '@/components/Canvas'
 import { ShareDialog } from '@/components/ShareDialog'
-import { Emoji } from '@/components/sticker/Emoji'
-import { Rectangle } from '@/components/sticker/Rectangle'
-import { useAnonymousImage } from '@/hooks/useAnonymousImage'
 import { useCanvasData } from '@/hooks/useCanvasData'
 import { useImageSize } from '@/hooks/useImageSize'
-import {
-  baseImgUrlAtom,
-  emojiDatasAtom,
-  rectanglesAtom,
-  selectedStickerIdAtom,
-} from '@/store/atoms'
+import { baseImgUrlAtom } from '@/store/atoms'
 import type { Dimensions } from '@/types'
 
 const checkAspectRatio = ({
@@ -38,18 +29,9 @@ const checkAspectRatio = ({
 }
 
 export const Editor = () => {
-  const emojis = useAtomValue(emojiDatasAtom)
-  const rects = useAtomValue(rectanglesAtom)
-  const [selectedStickerId, setSelectedStickerId] = useAtom(
-    selectedStickerIdAtom,
-  )
-
   const url = useAtomValue(baseImgUrlAtom)
   const [dimensions] = useImageSize(url)
-  const [image] = useAnonymousImage(url ?? '')
-
   const [ref, { width, height }] = useMeasure<HTMLDivElement>()
-
   const [canvasRef, { save }] = useCanvasData()
 
   const isFullWidth = dimensions.width >= dimensions.height
@@ -61,14 +43,6 @@ export const Editor = () => {
     save(ratio)
   }
 
-  const handleUnselect = () => {
-    setSelectedStickerId(RESET)
-  }
-
-  const handleSelect = (id: string) => {
-    setSelectedStickerId(id)
-  }
-
   return (
     <>
       <div
@@ -78,38 +52,12 @@ export const Editor = () => {
           aspectRatio: `${dimensions.width} / ${dimensions.height}`,
         }}
       >
-        <Stage
+        <Canvas
           ref={canvasRef}
           width={width}
           height={height}
-          scaleX={width / dimensions.width}
-          scaleY={height / dimensions.height}
-        >
-          <Layer onMouseDown={handleUnselect} onTouchStart={handleUnselect}>
-            <Image image={image} x={0} y={0} />
-          </Layer>
-          <Layer>
-            {emojis.map((e) => (
-              <Emoji
-                key={e.id}
-                u={e.u}
-                selected={e.id === selectedStickerId}
-                onSelect={() => handleSelect(e.id)}
-                x={dimensions.width / 2}
-                y={dimensions.height / 2}
-              />
-            ))}
-            {rects.map((r) => (
-              <Rectangle
-                key={r.id}
-                selected={r.id === selectedStickerId}
-                onSelect={() => handleSelect(r.id)}
-                x={dimensions.width / 2}
-                y={dimensions.height / 2}
-              />
-            ))}
-          </Layer>
-        </Stage>
+          dimensions={dimensions}
+        />
       </div>
       <ShareDialog onSave={handleSave} />
     </>
