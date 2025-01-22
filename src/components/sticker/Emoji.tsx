@@ -46,10 +46,10 @@ export const Emoji = ({ u, selected, onSelect, x, y }: Props) => {
         <Transformer
           ref={transformerRef}
           keepRatio
-          rotateAnchorOffset={16}
           anchorSize={8}
           anchorCornerRadius={4}
           rotationSnaps={[0]}
+          rotateAnchorOffset={16}
           enabledAnchors={[
             'top-left',
             'top-right',

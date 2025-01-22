@@ -42,6 +42,7 @@ export const Rectangle = ({ selected, onSelect, x, y }: Props) => {
           anchorSize={8}
           anchorCornerRadius={4}
           rotationSnaps={[0]}
+          rotateAnchorOffset={16}
           enabledAnchors={[
             'top-center',
             'bottom-center',
