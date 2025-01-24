@@ -7,7 +7,7 @@ export const useCanvasDimensions = (
   const { width, height } = useWindowSize({ initialWidth: 0, initialHeight: 0 })
   const isDesktop = useMedia('(min-width: 640px)')
   const desktopContentsWidth = 384
-  const marginY = 72
+  const marginY = 80
 
   const canvasWidth = isDesktop ? desktopContentsWidth : width
   const canvasHeight = height - marginY

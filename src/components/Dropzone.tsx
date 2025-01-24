@@ -39,7 +39,7 @@ export const Dropzone = ({ disabled }: ButtonProps) => {
       disabled={disabled}
     >
       <input {...getInputProps()} />
-      <ImageIcon className="!size-4" />
+      <ImageIcon />
     </Button>
   )
 }
