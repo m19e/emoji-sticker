@@ -7,14 +7,12 @@ import { Button } from '@/components/ui/button'
 import {
   Dialog,
   DialogContent,
-  DialogDescription,
   DialogHeader,
   DialogTitle,
 } from '@/components/ui/dialog'
 import {
   Drawer,
   DrawerContent,
-  DrawerDescription,
   DrawerFooter,
   DrawerHeader,
   DrawerTitle,
@@ -40,9 +38,6 @@ export const ShareDialog = ({ onSave }: Props) => {
         <DialogContent className="sm:max-w-[425px]">
           <DialogHeader>
             <DialogTitle>画像を保存・共有</DialogTitle>
-            <DialogDescription>
-              Make changes to your profile here. Click save when you're done.
-            </DialogDescription>
           </DialogHeader>
           <DrawerFooter>
             <ShareActions onSave={handleSave} />
@@ -57,9 +52,6 @@ export const ShareDialog = ({ onSave }: Props) => {
       <DrawerContent>
         <DrawerHeader className="text-left">
           <DrawerTitle>画像を保存・共有</DrawerTitle>
-          <DrawerDescription>
-            Make changes to your profile here. Click save when you're done.
-          </DrawerDescription>
         </DrawerHeader>
         <DrawerFooter className="pt-2">
           <ShareActions onSave={handleSave} />
