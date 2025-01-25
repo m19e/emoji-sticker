@@ -32,3 +32,7 @@ export const INITIAL_DIMENSIONS = {
   width: 0,
   height: 0,
 } as const
+
+export const DESKTOP_CONTENTS_WIDTH = 384
+
+export const CANVAS_MARGIN_Y = 80

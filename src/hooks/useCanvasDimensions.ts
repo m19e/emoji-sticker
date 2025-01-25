@@ -1,16 +1,16 @@
 import type { Dimensions } from '@/types'
 import { useMedia, useWindowSize } from 'react-use'
 
+import { CANVAS_MARGIN_Y, DESKTOP_CONTENTS_WIDTH } from '@/constants'
+
 export const useCanvasDimensions = (
   img: Dimensions,
 ): { isFullWidth: boolean } => {
   const { width, height } = useWindowSize({ initialWidth: 0, initialHeight: 0 })
   const isDesktop = useMedia('(min-width: 640px)')
-  const desktopContentsWidth = 384
-  const marginY = 80
 
-  const canvasWidth = isDesktop ? desktopContentsWidth : width
-  const canvasHeight = height - marginY
+  const canvasWidth = isDesktop ? DESKTOP_CONTENTS_WIDTH : width
+  const canvasHeight = height - CANVAS_MARGIN_Y
 
   if (img.width === img.height) {
     return { isFullWidth: true }
