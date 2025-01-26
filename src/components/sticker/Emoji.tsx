@@ -12,11 +12,12 @@ type Props = {
   onSelect: () => void
   x: number
   y: number
+  isDesktop: boolean
   // width: number
   // height: number
 }
 
-export const Emoji = ({ u, selected, onSelect, x, y }: Props) => {
+export const Emoji = ({ u, selected, onSelect, x, y, isDesktop }: Props) => {
   const [image] = useAnonymousImage(getSvgUrl(u))
   const transformerRef = useRef<Konva.Transformer>(null)
   const imageRef = useRef<Konva.Image>(null)
@@ -33,8 +34,8 @@ export const Emoji = ({ u, selected, onSelect, x, y }: Props) => {
         image={image}
         x={x}
         y={y}
-        width={100}
-        height={100}
+        width={160}
+        height={160}
         ref={imageRef}
         onClick={onSelect}
         onDragStart={onSelect}
@@ -46,10 +47,10 @@ export const Emoji = ({ u, selected, onSelect, x, y }: Props) => {
         <Transformer
           ref={transformerRef}
           keepRatio
-          anchorSize={8}
-          anchorCornerRadius={4}
+          anchorSize={isDesktop ? 8 : 16}
+          anchorCornerRadius={isDesktop ? 4 : 8}
           rotationSnaps={[0]}
-          rotateAnchorOffset={16}
+          rotateAnchorOffset={isDesktop ? 16 : 32}
           enabledAnchors={[
             'top-left',
             'top-right',

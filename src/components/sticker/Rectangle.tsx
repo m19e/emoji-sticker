@@ -8,9 +8,10 @@ type Props = {
   onSelect: () => void
   x: number
   y: number
+  isDesktop: boolean
 }
 
-export const Rectangle = ({ selected, onSelect, x, y }: Props) => {
+export const Rectangle = ({ selected, onSelect, x, y, isDesktop }: Props) => {
   const shapeRef = useRef<Konva.Rect>(null)
   const transformerRef = useRef<Konva.Transformer>(null)
 
@@ -25,8 +26,8 @@ export const Rectangle = ({ selected, onSelect, x, y }: Props) => {
       <Rect
         x={x}
         y={y}
-        width={200}
-        height={50}
+        width={240}
+        height={80}
         fill="gray"
         cornerRadius={2}
         ref={shapeRef}
@@ -39,10 +40,10 @@ export const Rectangle = ({ selected, onSelect, x, y }: Props) => {
       {selected && (
         <Transformer
           ref={transformerRef}
-          anchorSize={8}
-          anchorCornerRadius={4}
+          anchorSize={isDesktop ? 8 : 16}
+          anchorCornerRadius={isDesktop ? 4 : 8}
           rotationSnaps={[0]}
-          rotateAnchorOffset={16}
+          rotateAnchorOffset={isDesktop ? 16 : 32}
           enabledAnchors={[
             'top-center',
             'bottom-center',

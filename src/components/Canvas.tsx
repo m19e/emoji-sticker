@@ -4,6 +4,7 @@ import { RESET } from 'jotai/utils'
 import type Konva from 'konva'
 import type { RefObject } from 'react'
 import { Image, Layer, Stage } from 'react-konva'
+import { useMedia } from 'react-use'
 
 import { Emoji } from '@/components/sticker/Emoji'
 import { Rectangle } from '@/components/sticker/Rectangle'
@@ -33,6 +34,8 @@ export const Canvas = ({ ref, width, height, dimensions }: Props) => {
   const url = useAtomValue(baseImgUrlAtom)
   const [image] = useAnonymousImage(url ?? '')
 
+  const isDesktop = useMedia('(min-width: 640px)')
+
   const handleUnselect = () => {
     setSelectedStickerId(RESET)
   }
@@ -61,6 +64,7 @@ export const Canvas = ({ ref, width, height, dimensions }: Props) => {
             onSelect={() => handleSelect(id)}
             x={dimensions.width / 2}
             y={dimensions.height / 2}
+            isDesktop={isDesktop}
           />
         ))}
         {rects.map(({ id }) => (
@@ -70,6 +74,7 @@ export const Canvas = ({ ref, width, height, dimensions }: Props) => {
             onSelect={() => handleSelect(id)}
             x={dimensions.width / 2}
             y={dimensions.height / 2}
+            isDesktop={isDesktop}
           />
         ))}
       </Layer>
