@@ -63,7 +63,12 @@ export const Demo = () => {
 
   return (
     <div className="container-demo flex min-h-dvh items-center justify-center">
-      <animated.div className="card-demo" ref={ref} style={style} />
+      <animated.div
+        // @ts-ignore
+        className="card-demo"
+        ref={ref}
+        style={style}
+      />
     </div>
   )
 }
