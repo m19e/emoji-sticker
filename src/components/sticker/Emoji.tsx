@@ -10,8 +10,11 @@ type Props = {
   u: string
   selected: boolean
   onSelect: () => void
-  x: number
-  y: number
+  position: {
+    x: number
+    y: number
+  }
+  size: number
   isDesktop: boolean
   // width: number
   // height: number

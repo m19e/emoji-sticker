@@ -6,8 +6,11 @@ import { Rect, Transformer } from 'react-konva'
 type Props = {
   selected: boolean
   onSelect: () => void
-  x: number
-  y: number
+  position: {
+    x: number
+    y: number
+  }
+  size: number
   isDesktop: boolean
 }
 

@@ -44,6 +44,11 @@ export const Canvas = ({ ref, width, height, dimensions }: Props) => {
     setSelectedStickerId(id)
   }
 
+  const initialPosition = {
+    x: dimensions.width / 2,
+    y: dimensions.height / 2,
+  }
+
   return (
     <Stage
       ref={ref}
@@ -62,8 +67,8 @@ export const Canvas = ({ ref, width, height, dimensions }: Props) => {
             u={u}
             selected={selectedStickerId === id}
             onSelect={() => handleSelect(id)}
-            x={dimensions.width / 2}
-            y={dimensions.height / 2}
+            position={initialPosition}
+            size={dimensions.width / 5}
             isDesktop={isDesktop}
           />
         ))}
@@ -72,8 +77,8 @@ export const Canvas = ({ ref, width, height, dimensions }: Props) => {
             key={id}
             selected={selectedStickerId === id}
             onSelect={() => handleSelect(id)}
-            x={dimensions.width / 2}
-            y={dimensions.height / 2}
+            position={initialPosition}
+            size={dimensions.width / 3}
             isDesktop={isDesktop}
           />
         ))}
