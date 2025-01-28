@@ -16,3 +16,14 @@ export type EmojiData = {
 export type ButtonProps = {
   disabled?: boolean
 }
+
+export type StickerProps = {
+  selected: boolean
+  onSelect: () => void
+  position: {
+    x: number
+    y: number
+  }
+  size: number
+  isDesktop: boolean
+}

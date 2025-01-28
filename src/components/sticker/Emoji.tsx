@@ -5,22 +5,23 @@ import { Image, Transformer } from 'react-konva'
 
 import { useAnonymousImage } from '@/hooks/useAnonymousImage'
 import { getSvgUrl } from '@/tools'
+import type { StickerProps } from '@/types'
 
 type Props = {
+  /**
+   * Unicode point for Emoji.
+   */
   u: string
-  selected: boolean
-  onSelect: () => void
-  position: {
-    x: number
-    y: number
-  }
-  size: number
-  isDesktop: boolean
-  // width: number
-  // height: number
-}
+} & StickerProps
 
-export const Emoji = ({ u, selected, onSelect, x, y, isDesktop }: Props) => {
+export const Emoji = ({
+  u,
+  selected,
+  onSelect,
+  position,
+  size,
+  isDesktop,
+}: Props) => {
   const [image] = useAnonymousImage(getSvgUrl(u))
   const transformerRef = useRef<Konva.Transformer>(null)
   const imageRef = useRef<Konva.Image>(null)

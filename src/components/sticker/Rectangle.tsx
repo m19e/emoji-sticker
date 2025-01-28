@@ -3,18 +3,15 @@ import type Konva from 'konva'
 import { useEffect, useRef } from 'react'
 import { Rect, Transformer } from 'react-konva'
 
-type Props = {
-  selected: boolean
-  onSelect: () => void
-  position: {
-    x: number
-    y: number
-  }
-  size: number
-  isDesktop: boolean
-}
+import type { StickerProps } from '@/types'
 
-export const Rectangle = ({ selected, onSelect, x, y, isDesktop }: Props) => {
+export const Rectangle = ({
+  selected,
+  onSelect,
+  position,
+  size,
+  isDesktop,
+}: StickerProps) => {
   const shapeRef = useRef<Konva.Rect>(null)
   const transformerRef = useRef<Konva.Transformer>(null)
 
