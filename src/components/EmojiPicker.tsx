@@ -35,6 +35,7 @@ export const Picker = () => {
       categories={EPR_CATEGORIES_JA}
       previewConfig={DEFAULT_PREVIEW_CONFIG}
       skinTonesDisabled
+      autoFocusSearch={false}
       searchPlaceholder="検索"
       onEmojiClick={handleClick}
     />
