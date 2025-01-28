@@ -47,10 +47,10 @@ export const Rectangle = ({
       {selected && (
         <Transformer
           ref={transformerRef}
-          anchorSize={isDesktop ? 8 : 16}
-          anchorCornerRadius={isDesktop ? 4 : 8}
+          anchorSize={isDesktop ? 10 : 16}
+          anchorCornerRadius={isDesktop ? 5 : 8}
+          rotateAnchorOffset={isDesktop ? 20 : 32}
           rotationSnaps={[0]}
-          rotateAnchorOffset={isDesktop ? 16 : 32}
           enabledAnchors={[
             'top-center',
             'bottom-center',
