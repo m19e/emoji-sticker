@@ -21,16 +21,23 @@ export const Rectangle = ({
     }
   }, [selected])
 
+  const width = size
+  const height = size / 4
+  const center = {
+    x: position.x - width / 2,
+    y: position.y - height / 2,
+  }
+
   return (
     <>
       <Rect
-        x={x}
-        y={y}
-        width={240}
-        height={80}
+        ref={shapeRef}
+        width={width}
+        height={height}
+        x={center.x}
+        y={center.y}
         fill="gray"
         cornerRadius={2}
-        ref={shapeRef}
         onClick={onSelect}
         onDragStart={onSelect}
         onTap={onSelect}

@@ -32,15 +32,20 @@ export const Emoji = ({
     }
   }, [selected])
 
+  const center = {
+    x: position.x - size / 2,
+    y: position.y - size / 2,
+  }
+
   return (
     <>
       <Image
-        image={image}
-        x={x}
-        y={y}
-        width={160}
-        height={160}
         ref={imageRef}
+        image={image}
+        width={size}
+        height={size}
+        x={center.x}
+        y={center.y}
         onClick={onSelect}
         onDragStart={onSelect}
         onTap={onSelect}
