@@ -16,7 +16,8 @@
       "all": true,
       "style": {
         "noDefaultExport": "warn",
-        "noImplicitBoolean": "off"
+        "noImplicitBoolean": "off",
+        "useNamingConvention": "off"
       },
       "correctness": {
         "noUnusedImports": "warn",
