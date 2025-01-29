@@ -1,23 +1,86 @@
 'use client'
 import { useResetAtom } from 'jotai/utils'
 import { XIcon } from 'lucide-react'
+import { useMedia } from 'react-use'
 
 import { Button } from '@/components/ui/button'
+import {
+  Dialog,
+  DialogContent,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from '@/components/ui/dialog'
+import {
+  Drawer,
+  DrawerClose,
+  DrawerContent,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerTrigger,
+} from '@/components/ui/drawer'
 import { baseImgUrlAtom } from '@/store/atoms'
 import type { ButtonProps } from '@/types'
 
 export const DeleteBaseImageButton = ({ disabled }: ButtonProps) => {
   const resetBaseImg = useResetAtom(baseImgUrlAtom)
+  const isDesktop = useMedia('(min-width: 640px)')
+
+  if (isDesktop) {
+    return (
+      <Dialog>
+        <DialogTrigger asChild>
+          <Button
+            className="text-slate-300"
+            variant="ghost"
+            size="icon"
+            disabled={disabled}
+          >
+            <XIcon />
+          </Button>
+        </DialogTrigger>
+        <DialogContent className="sm:max-w-[425px]">
+          <DialogHeader>
+            <DialogTitle>画像を削除しますか？</DialogTitle>
+          </DialogHeader>
+          <DialogFooter>
+            <DrawerClose asChild>
+              <Button variant="destructive" onClick={resetBaseImg}>
+                削除
+              </Button>
+            </DrawerClose>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
+    )
+  }
 
   return (
-    <Button
-      className="text-slate-300"
-      variant="ghost"
-      size="icon"
-      onClick={resetBaseImg}
-      disabled={disabled}
-    >
-      <XIcon />
-    </Button>
+    <Drawer>
+      <DrawerTrigger asChild>
+        <Button
+          className="text-slate-300"
+          variant="ghost"
+          size="icon"
+          disabled={disabled}
+        >
+          <XIcon />
+        </Button>
+      </DrawerTrigger>
+      <DrawerContent>
+        <DrawerHeader className="text-left">
+          <DrawerTitle>画像を削除しますか？</DrawerTitle>
+        </DrawerHeader>
+        <DrawerFooter className="pt-2">
+          <DrawerClose asChild>
+            <Button variant="destructive" onClick={resetBaseImg}>
+              削除
+            </Button>
+          </DrawerClose>
+        </DrawerFooter>
+      </DrawerContent>
+    </Drawer>
   )
 }
