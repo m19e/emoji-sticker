@@ -20,7 +20,8 @@ export const useCanvasData = (): [
     const uri = canvasRef.current?.toDataURL({ pixelRatio })
 
     if (uri) {
-      const fileName = `output.png`
+      const ts = Date.now().toString(16)
+      const fileName = `censored-${ts}.png`
       downloadUri(uri, fileName)
     }
   }
