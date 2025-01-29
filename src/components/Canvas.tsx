@@ -61,6 +61,16 @@ export const Canvas = ({ ref, width, height, dimensions }: Props) => {
         <Image image={image} x={0} y={0} />
       </Layer>
       <Layer>
+        {rects.map(({ id }) => (
+          <Rectangle
+            key={id}
+            selected={selectedStickerId === id}
+            onSelect={() => handleSelect(id)}
+            position={initialPosition}
+            size={dimensions.width / 3}
+            isDesktop={isDesktop}
+          />
+        ))}
         {emojis.map(({ id, u }) => (
           <Emoji
             key={id}
@@ -69,16 +79,6 @@ export const Canvas = ({ ref, width, height, dimensions }: Props) => {
             onSelect={() => handleSelect(id)}
             position={initialPosition}
             size={dimensions.width / 5}
-            isDesktop={isDesktop}
-          />
-        ))}
-        {rects.map(({ id }) => (
-          <Rectangle
-            key={id}
-            selected={selectedStickerId === id}
-            onSelect={() => handleSelect(id)}
-            position={initialPosition}
-            size={dimensions.width / 3}
             isDesktop={isDesktop}
           />
         ))}
