@@ -33,7 +33,7 @@ export const ShareDialog = ({ onSave }: Props) => {
   const handleSave = () => {
     onSave()
     setOpen(false)
-    toast('画像を保存しました')
+    toast.success('画像を保存しました')
   }
 
   if (isDesktop) {

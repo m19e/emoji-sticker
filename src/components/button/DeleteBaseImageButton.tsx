@@ -32,7 +32,7 @@ export const DeleteBaseImageButton = ({ disabled }: ButtonProps) => {
   // TODO 画像の削除をToast
   const handleClick = () => {
     resetBaseImg()
-    toast('画像を削除しました')
+    toast.warning('画像を削除しました')
   }
 
   if (isDesktop) {
