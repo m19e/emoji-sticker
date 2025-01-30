@@ -2,6 +2,7 @@
 import { useAtom } from 'jotai'
 import { SaveIcon, Share2Icon } from 'lucide-react'
 import { useMedia } from 'react-use'
+import { toast } from 'sonner'
 
 import { Button } from '@/components/ui/button'
 import {
@@ -25,11 +26,14 @@ type Props = {
 
 export const ShareDialog = ({ onSave }: Props) => {
   const [open, setOpen] = useAtom(isShareDialogOpenAtom)
+
   const isDesktop = useMedia('(min-width: 640px)')
 
+  // TODO 共有アクション時にToastを出す
   const handleSave = () => {
     onSave()
     setOpen(false)
+    toast('画像を保存しました')
   }
 
   if (isDesktop) {

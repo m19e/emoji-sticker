@@ -2,6 +2,7 @@
 import { useResetAtom } from 'jotai/utils'
 import { XIcon } from 'lucide-react'
 import { useMedia } from 'react-use'
+import { toast } from 'sonner'
 
 import { Button } from '@/components/ui/button'
 import {
@@ -28,6 +29,12 @@ export const DeleteBaseImageButton = ({ disabled }: ButtonProps) => {
   const resetBaseImg = useResetAtom(baseImgUrlAtom)
   const isDesktop = useMedia('(min-width: 640px)')
 
+  // TODO 画像の削除をToast
+  const handleClick = () => {
+    resetBaseImg()
+    toast('画像を削除しました')
+  }
+
   if (isDesktop) {
     return (
       <Dialog>
@@ -47,7 +54,7 @@ export const DeleteBaseImageButton = ({ disabled }: ButtonProps) => {
           </DialogHeader>
           <DialogFooter>
             <DrawerClose asChild>
-              <Button variant="destructive" onClick={resetBaseImg}>
+              <Button variant="destructive" onClick={handleClick}>
                 削除
               </Button>
             </DrawerClose>
@@ -75,7 +82,7 @@ export const DeleteBaseImageButton = ({ disabled }: ButtonProps) => {
         </DrawerHeader>
         <DrawerFooter className="pt-2">
           <DrawerClose asChild>
-            <Button variant="destructive" onClick={resetBaseImg}>
+            <Button variant="destructive" onClick={handleClick}>
               削除
             </Button>
           </DrawerClose>
