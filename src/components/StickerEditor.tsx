@@ -14,7 +14,7 @@ export const Editor = () => {
   const url = useAtomValue(baseImgUrlAtom)
   const [dimensions] = useImageSize(url)
   const [ref, { width, height }] = useMeasure<HTMLDivElement>()
-  const [canvasRef, { save }] = useCanvasData()
+  const [canvasRef, { save, share }] = useCanvasData()
 
   const { isFullWidth } = useCanvasDimensions(dimensions)
 
@@ -23,6 +23,13 @@ export const Editor = () => {
       ? dimensions.width / width
       : dimensions.height / height
     save(ratio)
+  }
+
+  const handleShare = async () => {
+    const ratio = isFullWidth
+      ? dimensions.width / width
+      : dimensions.height / height
+    await share(ratio)
   }
 
   const containerStyle = useMemo(() => {
@@ -58,7 +65,7 @@ export const Editor = () => {
           dimensions={dimensions}
         />
       </div>
-      <ShareDialog onSave={handleSave} />
+      <ShareDialog onSave={handleSave} onShare={handleShare} />
     </>
   )
 }

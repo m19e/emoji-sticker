@@ -22,9 +22,10 @@ import { isShareDialogOpenAtom } from '@/store/atoms'
 
 type Props = {
   onSave: () => void
+  onShare: () => Promise<void>
 }
 
-export const ShareDialog = ({ onSave }: Props) => {
+export const ShareDialog = ({ onSave, onShare }: Props) => {
   const [open, setOpen] = useAtom(isShareDialogOpenAtom)
 
   const isDesktop = useMedia('(min-width: 640px)')
@@ -35,6 +36,11 @@ export const ShareDialog = ({ onSave }: Props) => {
     toast.success('画像を保存しました')
   }
 
+  const handleShare = async () => {
+    await onShare()
+    setOpen(false)
+  }
+
   if (isDesktop) {
     return (
       <Dialog open={open} onOpenChange={setOpen}>
@@ -43,7 +49,7 @@ export const ShareDialog = ({ onSave }: Props) => {
             <DialogTitle>画像を保存・共有</DialogTitle>
           </DialogHeader>
           <DrawerFooter>
-            <ShareActions onSave={handleSave} />
+            <ShareActions onSave={handleSave} onShare={handleShare} />
           </DrawerFooter>
         </DialogContent>
       </Dialog>
@@ -57,14 +63,14 @@ export const ShareDialog = ({ onSave }: Props) => {
           <DrawerTitle>画像を保存・共有</DrawerTitle>
         </DrawerHeader>
         <DrawerFooter className="pt-2">
-          <ShareActions onSave={handleSave} />
+          <ShareActions onSave={handleSave} onShare={handleShare} />
         </DrawerFooter>
       </DrawerContent>
     </Drawer>
   )
 }
 
-const ShareActions = ({ onSave }: Props) => {
+const ShareActions = ({ onSave, onShare }: Props) => {
   return (
     <div className="grid grid-cols-3 gap-1 place-self-center">
       <Button variant="outline" size="icon">
@@ -73,7 +79,7 @@ const ShareActions = ({ onSave }: Props) => {
       <Button variant="outline" size="icon" onClick={onSave}>
         <SaveIcon />
       </Button>
-      <Button variant="outline" size="icon">
+      <Button variant="outline" size="icon" onClick={onShare}>
         <Share2Icon />
       </Button>
     </div>
