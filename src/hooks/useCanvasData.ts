@@ -1,6 +1,8 @@
 import type Konva from 'konva'
 import { type RefObject, useRef } from 'react'
 
+type CanvasAction = (pixelRatio: number) => void
+
 export const useCanvasData = (): [
   RefObject<Konva.Stage | null>,
   {
