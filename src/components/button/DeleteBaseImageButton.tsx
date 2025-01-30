@@ -4,6 +4,9 @@ import { XIcon } from 'lucide-react'
 import { useMedia } from 'react-use'
 import { toast } from 'sonner'
 
+import { baseImgUrlAtom } from '@/store/atoms'
+import type { ButtonProps } from '@/types'
+
 import { Button } from '@/components/ui/button'
 import {
   Dialog,
@@ -22,14 +25,11 @@ import {
   DrawerTitle,
   DrawerTrigger,
 } from '@/components/ui/drawer'
-import { baseImgUrlAtom } from '@/store/atoms'
-import type { ButtonProps } from '@/types'
 
 export const DeleteBaseImageButton = ({ disabled }: ButtonProps) => {
   const resetBaseImg = useResetAtom(baseImgUrlAtom)
   const isDesktop = useMedia('(min-width: 640px)')
 
-  // TODO 画像の削除をToast
   const handleClick = () => {
     resetBaseImg()
     toast.warning('画像を削除しました')

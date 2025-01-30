@@ -29,7 +29,6 @@ export const ShareDialog = ({ onSave }: Props) => {
 
   const isDesktop = useMedia('(min-width: 640px)')
 
-  // TODO 共有アクション時にToastを出す
   const handleSave = () => {
     onSave()
     setOpen(false)
