@@ -72,10 +72,7 @@ export const ShareDialog = ({ onSave, onShare }: Props) => {
 
 const ShareActions = ({ onSave, onShare }: Props) => {
   return (
-    <div className="grid grid-cols-3 gap-1 place-self-center">
-      <Button variant="outline" size="icon">
-        X
-      </Button>
+    <div className="grid grid-cols-2 gap-1 place-self-center">
       <Button variant="outline" size="icon" onClick={onSave}>
         <SaveIcon />
       </Button>
