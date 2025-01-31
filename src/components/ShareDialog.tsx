@@ -1,8 +1,12 @@
 'use client'
 import { useAtom } from 'jotai'
-import { SaveIcon, Share2Icon } from 'lucide-react'
 import { useMedia } from 'react-use'
 import { toast } from 'sonner'
+
+import { DialogDescription } from '@radix-ui/react-dialog'
+import { SaveIcon, Share2Icon } from 'lucide-react'
+
+import { isShareDialogOpenAtom } from '@/store/atoms'
 
 import { Button } from '@/components/ui/button'
 import {
@@ -14,11 +18,11 @@ import {
 import {
   Drawer,
   DrawerContent,
+  DrawerDescription,
   DrawerFooter,
   DrawerHeader,
   DrawerTitle,
 } from '@/components/ui/drawer'
-import { isShareDialogOpenAtom } from '@/store/atoms'
 
 type Props = {
   onSave: () => void
@@ -47,6 +51,9 @@ export const ShareDialog = ({ onSave, onShare }: Props) => {
         <DialogContent className="sm:max-w-[425px]">
           <DialogHeader>
             <DialogTitle>画像を保存・共有</DialogTitle>
+            <DialogDescription className="text-muted-foreground text-sm">
+              ※共有から選択すると直接ツイートできます
+            </DialogDescription>
           </DialogHeader>
           <DrawerFooter>
             <ShareActions onSave={handleSave} onShare={handleShare} />
@@ -61,6 +68,9 @@ export const ShareDialog = ({ onSave, onShare }: Props) => {
       <DrawerContent>
         <DrawerHeader className="text-left">
           <DrawerTitle>画像を保存・共有</DrawerTitle>
+          <DrawerDescription>
+            ※共有から選択すると直接ツイートできます
+          </DrawerDescription>
         </DrawerHeader>
         <DrawerFooter className="pt-2">
           <ShareActions onSave={handleSave} onShare={handleShare} />
