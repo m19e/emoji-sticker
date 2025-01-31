@@ -1,7 +1,7 @@
-import type { Dimensions } from '@/types'
 import { useMedia, useWindowSize } from 'react-use'
 
 import { CANVAS_MARGIN_Y, DESKTOP_CONTENTS_WIDTH } from '@/constants'
+import type { Dimensions } from '@/types'
 
 export const useCanvasDimensions = (
   img: Dimensions,

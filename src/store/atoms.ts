@@ -1,6 +1,7 @@
-import type { EmojiData } from '@/types'
 import { atom } from 'jotai'
 import { atomWithReset } from 'jotai/utils'
+
+import type { EmojiData } from '@/types'
 
 // Atoms
 export const baseImgUrlAtom = atomWithReset<string | null>(null)
