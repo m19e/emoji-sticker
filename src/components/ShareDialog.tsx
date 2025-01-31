@@ -74,20 +74,20 @@ const ShareActions = ({ onSave, onShare }: Props) => {
   return (
     <div className="grid grid-cols-2 gap-1 place-self-center">
       <Button
-        className="h-12 w-12"
+        className="h-12 w-12 [&_svg]:size-6"
         variant="outline"
         size="icon"
         onClick={onSave}
       >
-        <SaveIcon className="!size-6" />
+        <SaveIcon />
       </Button>
       <Button
-        className="h-12 w-12"
+        className="h-12 w-12 [&_svg]:size-6"
         variant="outline"
         size="icon"
         onClick={onShare}
       >
-        <Share2Icon className="!size-6" />
+        <Share2Icon />
       </Button>
     </div>
   )
