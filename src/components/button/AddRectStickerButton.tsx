@@ -3,12 +3,13 @@ import { useAtomValue, useSetAtom } from 'jotai'
 import { StickyNoteIcon } from 'lucide-react'
 import { v4 } from 'uuid'
 
-import { Button } from '@/components/ui/button'
 import {
   isBaseImgLoadedAtom,
   rectanglesAtom,
   selectedStickerIdAtom,
 } from '@/store/atoms'
+
+import { Button } from '@/components/ui/button'
 
 export const AddRectStickerButton = () => {
   const isLoaded = useAtomValue(isBaseImgLoadedAtom)

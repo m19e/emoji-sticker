@@ -2,12 +2,13 @@
 import { useAtomValue, useSetAtom } from 'jotai'
 import { Trash2Icon } from 'lucide-react'
 
-import { Button } from '@/components/ui/button'
 import {
   emojiDatasAtom,
   rectanglesAtom,
   selectedStickerIdAtom,
 } from '@/store/atoms'
+
+import { Button } from '@/components/ui/button'
 
 export const DeleteEmojiButton = () => {
   const selectedStickerId = useAtomValue(selectedStickerIdAtom)

@@ -3,9 +3,10 @@ import { useSetAtom } from 'jotai'
 import { useResetAtom } from 'jotai/utils'
 import { ShareIcon } from 'lucide-react'
 
-import { Button } from '@/components/ui/button'
 import { isShareDialogOpenAtom, selectedStickerIdAtom } from '@/store/atoms'
 import type { ButtonProps } from '@/types'
+
+import { Button } from '@/components/ui/button'
 
 export const OpenShareDialogButton = ({ disabled }: ButtonProps) => {
   const setOpenDrawer = useSetAtom(isShareDialogOpenAtom)
