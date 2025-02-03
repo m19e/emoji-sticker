@@ -21,8 +21,8 @@ export const useCanvasDimensions = (img: Dimensions): Return => {
 
   const isPortraitImg = img.width < img.height
 
+  // h-fullで横幅あふれる場合を計算する
   if (isPortraitImg) {
-    // h-fullで横幅あふれる場合を計算する
     const clientWidth = canvasHeight * (img.width / img.height)
     const isOverflowX = clientWidth >= canvasWidth
     return { isFullWidth: isOverflowX }
@@ -32,26 +32,4 @@ export const useCanvasDimensions = (img: Dimensions): Return => {
   const clientHeight = canvasWidth * (img.height / img.width)
   const isOverflowY = clientHeight >= canvasHeight
   return { isFullWidth: !isOverflowY }
-}
-
-export const useCanvasSize = (img: Dimensions) => {
-  const { width, height } = useWindowSize({ initialWidth: 0, initialHeight: 0 })
-  const isDesktop = useMedia('(min-width: 640px)')
-
-  const fullWidth = isDesktop ? DESKTOP_CONTENTS_WIDTH : width
-  const fullHeight = height - CANVAS_MARGIN_Y
-
-  const { isFullWidth } = useCanvasDimensions(img)
-
-  const style = isFullWidth
-    ? {
-        width: fullWidth,
-        height: fullWidth * (img.height / img.width),
-      }
-    : {
-        height: fullHeight,
-        width: fullHeight * (img.width / img.height),
-      }
-
-  return { isFullWidth, canvas: style }
 }

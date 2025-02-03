@@ -4,7 +4,7 @@ import { useAtomValue } from 'jotai'
 import { Canvas } from '@/components/Canvas'
 import { ShareDialog } from '@/components/ShareDialog'
 import { useCanvasData } from '@/hooks/useCanvasData'
-import { useCanvasSize } from '@/hooks/useCanvasDimensions'
+import { useCanvasSize } from '@/hooks/useCanvasSize'
 import { useImageSize } from '@/hooks/useImageSize'
 import { baseImgUrlAtom } from '@/store/atoms'
 
