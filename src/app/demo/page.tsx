@@ -1,5 +1,5 @@
-import { Demo } from '@/components/GestureDemo'
+import { Test } from '@/components/iPhoneTest'
 
 export default function DemoPage() {
-  return <Demo />
+  return <Test />
 }
