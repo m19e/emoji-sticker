@@ -10,7 +10,7 @@ export default function Home() {
     <div className="relative flex justify-center bg-slate-600 font-[family-name:var(--font-geist-sans)]">
       <main className="flex h-dvh w-full flex-col bg-black sm:w-96">
         <Header />
-        <div className="flex h-[calc(100%-72px)] flex-col items-center justify-center bg-slate-400">
+        <div className="flex h-[calc(100%-72px)] flex-col items-center justify-center overflow-hidden bg-slate-400">
           <Editor />
         </div>
         <div className="flex justify-between gap-4">
