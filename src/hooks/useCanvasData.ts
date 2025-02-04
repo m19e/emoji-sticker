@@ -47,6 +47,7 @@ export const useCanvasData = (): [
   }
 
   // TODO Web Share API level2で画像をシェア
+  // TODO 共有時にToast
   const share = async (pixelRatio: number) => {
     if (!isSupported()) {
       return

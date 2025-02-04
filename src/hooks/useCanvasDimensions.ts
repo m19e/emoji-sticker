@@ -7,7 +7,7 @@ type Return = {
   isFullWidth: boolean
 }
 
-// Canvasの高さ・幅をちゃんと計算する
+// FIXME hooksではなくisFullWidthを返すだけの関数にする
 export const useCanvasDimensions = (img: Dimensions): Return => {
   const { width, height } = useWindowSize({ initialWidth: 0, initialHeight: 0 })
   const isDesktop = useMedia('(min-width: 640px)')

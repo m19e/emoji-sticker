@@ -21,6 +21,7 @@ type Props = {
   ref: RefObject<Konva.Stage | null>
   width: number
   height: number
+  // FIXME わかりやすいprops名にする
   dimensions: Dimensions
 }
 
