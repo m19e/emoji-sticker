@@ -10,42 +10,32 @@ import { baseImgUrlAtom } from '@/store/atoms'
 
 export const Editor = () => {
   const url = useAtomValue(baseImgUrlAtom)
-  const [dimensions] = useImageSize(url)
+  const [imgSize] = useImageSize(url)
   const [canvasRef, { save, share }] = useCanvasData()
 
   const {
     isFullWidth,
     canvas: { width, height },
-  } = useCanvasSize(dimensions)
+  } = useCanvasSize(imgSize)
 
   const handleSave = () => {
-    const ratio = isFullWidth
-      ? dimensions.width / width
-      : dimensions.height / height
+    const ratio = isFullWidth ? imgSize.width / width : imgSize.height / height
     save(ratio)
   }
 
   const handleShare = async () => {
-    const ratio = isFullWidth
-      ? dimensions.width / width
-      : dimensions.height / height
+    const ratio = isFullWidth ? imgSize.width / width : imgSize.height / height
     await share(ratio)
   }
 
   return (
     <>
-      {/* <div
-        ref={ref}
-        className={isFullWidth ? 'max-h-fit w-full' : 'h-full max-w-fit'}
-        style={containerStyle}
-      > */}
       <Canvas
         ref={canvasRef}
         width={width}
         height={height}
-        dimensions={dimensions}
+        dimensions={imgSize}
       />
-      {/* </div> */}
       <ShareDialog onSave={handleSave} onShare={handleShare} />
     </>
   )
