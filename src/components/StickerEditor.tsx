@@ -30,12 +30,7 @@ export const Editor = () => {
 
   return (
     <>
-      <Canvas
-        ref={canvasRef}
-        width={width}
-        height={height}
-        dimensions={imgSize}
-      />
+      <Canvas ref={canvasRef} width={width} height={height} imgSize={imgSize} />
       <ShareDialog onSave={handleSave} onShare={handleShare} />
     </>
   )

@@ -22,10 +22,10 @@ type Props = {
   width: number
   height: number
   // FIXME わかりやすいprops名にする
-  dimensions: Dimensions
+  imgSize: Dimensions
 }
 
-export const Canvas = ({ ref, width, height, dimensions }: Props) => {
+export const Canvas = ({ ref, width, height, imgSize }: Props) => {
   const emojis = useAtomValue(emojiDatasAtom)
   const rects = useAtomValue(rectanglesAtom)
   const [selectedStickerId, setSelectedStickerId] = useAtom(
@@ -46,8 +46,8 @@ export const Canvas = ({ ref, width, height, dimensions }: Props) => {
   }
 
   const initialPosition = {
-    x: dimensions.width / 2,
-    y: dimensions.height / 2,
+    x: imgSize.width / 2,
+    y: imgSize.height / 2,
   }
 
   return (
@@ -55,8 +55,8 @@ export const Canvas = ({ ref, width, height, dimensions }: Props) => {
       ref={ref}
       width={width}
       height={height}
-      scaleX={width / dimensions.width}
-      scaleY={height / dimensions.height}
+      scaleX={width / imgSize.width}
+      scaleY={height / imgSize.height}
     >
       <Layer onMouseDown={handleUnselect} onTouchStart={handleUnselect}>
         <Image image={image} x={0} y={0} />
@@ -68,7 +68,7 @@ export const Canvas = ({ ref, width, height, dimensions }: Props) => {
             selected={selectedStickerId === id}
             onSelect={() => handleSelect(id)}
             position={initialPosition}
-            size={dimensions.width / 3}
+            size={imgSize.width / 3}
             isDesktop={isDesktop}
           />
         ))}
@@ -79,7 +79,7 @@ export const Canvas = ({ ref, width, height, dimensions }: Props) => {
             selected={selectedStickerId === id}
             onSelect={() => handleSelect(id)}
             position={initialPosition}
-            size={dimensions.width / 5}
+            size={imgSize.width / 5}
             isDesktop={isDesktop}
           />
         ))}
