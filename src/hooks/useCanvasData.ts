@@ -1,5 +1,6 @@
 import type Konva from 'konva'
 import { type RefObject, useRef } from 'react'
+import { toast } from 'sonner'
 
 type CanvasAction = (pixelRatio: number) => void
 
@@ -59,6 +60,9 @@ export const useCanvasData = (): [
 
     navigator
       .share({ text, url, files: [file] })
+      .then(() => {
+        toast.success('画像を共有しました')
+      })
       .catch((error) => console.error(error))
   }
 
