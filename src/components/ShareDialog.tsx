@@ -3,7 +3,6 @@ import { useAtom } from 'jotai'
 import { useMedia } from 'react-use'
 import { toast } from 'sonner'
 
-import { DialogDescription } from '@radix-ui/react-dialog'
 import { SaveIcon, Share2Icon } from 'lucide-react'
 
 import { isShareDialogOpenAtom } from '@/store/atoms'
@@ -12,6 +11,7 @@ import { Button } from '@/components/ui/button'
 import {
   Dialog,
   DialogContent,
+  DialogDescription,
   DialogFooter,
   DialogHeader,
   DialogTitle,
