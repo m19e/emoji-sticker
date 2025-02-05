@@ -9,6 +9,7 @@ type Args = {
   canvas: Dimensions
 }
 
+// TODO maxWidth, maxHeightをそのまま受け取る
 const getIsFullWidth = ({ img, canvas }: Args) => {
   if (img.width === img.height) {
     return { isFullWidth: true }
@@ -48,6 +49,7 @@ export const useCanvasSize = (img: Dimensions) => {
     [img, maxWidth, maxHeight],
   )
 
+  // TODO わかりやすい命名に
   const style = isFullWidth
     ? {
         width: maxWidth,
