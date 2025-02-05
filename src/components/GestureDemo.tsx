@@ -5,6 +5,7 @@ import React, { useEffect } from 'react'
 
 const useGesture = createUseGesture([dragAction, pinchAction])
 
+// TODO dead codeを削除
 export const Demo = () => {
   useEffect(() => {
     const handler = (e: Event) => e.preventDefault()
