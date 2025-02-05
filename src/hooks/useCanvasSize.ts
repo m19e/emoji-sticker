@@ -10,8 +10,6 @@ type Args = {
   maxHeight: number
 }
 
-// TODO maxWidth, maxHeightをそのまま受け取る
-// TODO isFullWidth => fullWidth
 const getFullWidth = ({
   img,
   maxWidth,
@@ -53,7 +51,6 @@ export const useCanvasSize = (img: Dimensions) => {
     [img, maxWidth, maxHeight],
   )
 
-  // TODO わかりやすい命名に
   const canvas = fullWidth
     ? {
         width: maxWidth,
