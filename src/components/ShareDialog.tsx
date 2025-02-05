@@ -16,14 +16,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from '@/components/ui/dialog'
-import {
-  Drawer,
-  DrawerContent,
-  DrawerDescription,
-  DrawerFooter,
-  DrawerHeader,
-  DrawerTitle,
-} from '@/components/ui/drawer'
+import { Drawer, DrawerContent, DrawerFooter } from '@/components/ui/drawer'
 
 type Props = {
   onSave: () => void
@@ -49,9 +42,11 @@ export const ShareDialog = ({ onSave, onShare }: Props) => {
   if (isDesktop) {
     return (
       <Dialog open={open} onOpenChange={setOpen}>
-        <DialogContent className="sm:max-w-[425px]">
+        <DialogContent className="border-none bg-slate-800 sm:max-w-[425px]">
           <DialogHeader>
-            <DialogTitle>画像を保存・共有</DialogTitle>
+            <DialogTitle className="text-slate-100">
+              画像を保存・共有
+            </DialogTitle>
             <DialogDescription className="text-muted-foreground text-sm">
               ※共有から選択すると直接ツイートできます
             </DialogDescription>
@@ -66,14 +61,14 @@ export const ShareDialog = ({ onSave, onShare }: Props) => {
 
   return (
     <Drawer open={open} onOpenChange={setOpen}>
-      <DrawerContent>
-        <DrawerHeader className="text-left">
-          <DrawerTitle>画像を保存・共有</DrawerTitle>
+      <DrawerContent className="border-none bg-slate-800">
+        {/* <DrawerHeader className="text-left">
+          <DrawerTitle className="text-slate-100">画像を保存・共有</DrawerTitle>
           <DrawerDescription>
             ※共有から選択すると直接ツイートできます
           </DrawerDescription>
-        </DrawerHeader>
-        <DrawerFooter className="pt-2">
+        </DrawerHeader> */}
+        <DrawerFooter className="pt-4">
           <ShareActions onSave={handleSave} onShare={handleShare} />
         </DrawerFooter>
       </DrawerContent>
