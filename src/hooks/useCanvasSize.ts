@@ -6,11 +6,12 @@ import type { Dimensions } from '@/types'
 
 type Args = {
   img: Dimensions
-  canvas: Dimensions
+  maxWidth: number
+  maxHeight: number
 }
 
 // TODO maxWidth, maxHeightをそのまま受け取る
-const getIsFullWidth = ({ img, canvas }: Args) => {
+const getIsFullWidth = ({ img, maxWidth, maxHeight }: Args) => {
   if (img.width === img.height) {
     return { isFullWidth: true }
   }
@@ -19,14 +20,14 @@ const getIsFullWidth = ({ img, canvas }: Args) => {
 
   // h-fullの場合にwidthがあふれる場合を計算する
   if (isPortraitImg) {
-    const clientWidth = canvas.height * (img.width / img.height)
-    const isOverflowX = clientWidth >= canvas.width
+    const canvasWidth = maxHeight * (img.width / img.height)
+    const isOverflowX = canvasWidth >= maxWidth
     return { isFullWidth: isOverflowX }
   }
 
   // w-fullの場合にheightがあふれる場合を計算する
-  const clientHeight = canvas.width * (img.height / img.width)
-  const isOverflowY = clientHeight >= canvas.height
+  const canvasHeight = maxWidth * (img.height / img.width)
+  const isOverflowY = canvasHeight >= maxHeight
   return { isFullWidth: !isOverflowY }
 }
 
@@ -41,16 +42,14 @@ export const useCanvasSize = (img: Dimensions) => {
     () =>
       getIsFullWidth({
         img,
-        canvas: {
-          width: maxWidth,
-          height: maxHeight,
-        },
+        maxWidth,
+        maxHeight,
       }),
     [img, maxWidth, maxHeight],
   )
 
   // TODO わかりやすい命名に
-  const style = isFullWidth
+  const canvas = isFullWidth
     ? {
         width: maxWidth,
         height: maxWidth * (img.height / img.width),
@@ -60,5 +59,5 @@ export const useCanvasSize = (img: Dimensions) => {
         width: maxHeight * (img.width / img.height),
       }
 
-  return { isFullWidth, canvas: style }
+  return { isFullWidth, canvas }
 }
