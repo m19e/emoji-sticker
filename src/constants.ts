@@ -33,6 +33,7 @@ export const INITIAL_DIMENSIONS = {
   height: 0,
 } as const
 
+// TODO デスクトップ時、640pxも検討
 export const DESKTOP_CONTENTS_WIDTH = 384
 
 export const CANVAS_MARGIN_Y = 80

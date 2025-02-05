@@ -46,6 +46,7 @@ export const useCanvasData = (): [
     )
   }
 
+  // TODO 共有内容にテキストを含めることができるか調査する
   const share = async (pixelRatio: number) => {
     if (!isSupported()) {
       return

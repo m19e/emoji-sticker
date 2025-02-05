@@ -10,6 +10,7 @@ import {
 
 import { Button } from '@/components/ui/button'
 
+// TODO 削除可能であるとき、ボタンテキストを表示
 export const DeleteEmojiButton = () => {
   const selectedStickerId = useAtomValue(selectedStickerIdAtom)
   const setEmojiDatas = useSetAtom(emojiDatasAtom)
