@@ -11,9 +11,14 @@ type Args = {
 }
 
 // TODO maxWidth, maxHeightをそのまま受け取る
-const getIsFullWidth = ({ img, maxWidth, maxHeight }: Args) => {
+// TODO isFullWidth => fullWidth
+const getFullWidth = ({
+  img,
+  maxWidth,
+  maxHeight,
+}: Args): { fullWidth: boolean } => {
   if (img.width === img.height) {
-    return { isFullWidth: true }
+    return { fullWidth: true }
   }
 
   const isPortraitImg = img.width < img.height
@@ -22,13 +27,13 @@ const getIsFullWidth = ({ img, maxWidth, maxHeight }: Args) => {
   if (isPortraitImg) {
     const canvasWidth = maxHeight * (img.width / img.height)
     const isOverflowX = canvasWidth >= maxWidth
-    return { isFullWidth: isOverflowX }
+    return { fullWidth: isOverflowX }
   }
 
   // w-fullの場合にheightがあふれる場合を計算する
   const canvasHeight = maxWidth * (img.height / img.width)
   const isOverflowY = canvasHeight >= maxHeight
-  return { isFullWidth: !isOverflowY }
+  return { fullWidth: !isOverflowY }
 }
 
 export const useCanvasSize = (img: Dimensions) => {
@@ -38,9 +43,9 @@ export const useCanvasSize = (img: Dimensions) => {
   const maxWidth = isDesktop ? DESKTOP_CONTENTS_WIDTH : width
   const maxHeight = height - CANVAS_MARGIN_Y
 
-  const { isFullWidth } = useMemo(
+  const { fullWidth } = useMemo(
     () =>
-      getIsFullWidth({
+      getFullWidth({
         img,
         maxWidth,
         maxHeight,
@@ -49,7 +54,7 @@ export const useCanvasSize = (img: Dimensions) => {
   )
 
   // TODO わかりやすい命名に
-  const canvas = isFullWidth
+  const canvas = fullWidth
     ? {
         width: maxWidth,
         height: maxWidth * (img.height / img.width),
@@ -59,5 +64,5 @@ export const useCanvasSize = (img: Dimensions) => {
         width: maxHeight * (img.width / img.height),
       }
 
-  return { isFullWidth, canvas }
+  return { fullWidth, canvas }
 }

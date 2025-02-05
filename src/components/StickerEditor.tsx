@@ -14,17 +14,17 @@ export const Editor = () => {
   const [canvasRef, { save, share }] = useCanvasData()
 
   const {
-    isFullWidth,
+    fullWidth,
     canvas: { width, height },
   } = useCanvasSize(imgSize)
 
   const handleSave = () => {
-    const ratio = isFullWidth ? imgSize.width / width : imgSize.height / height
+    const ratio = fullWidth ? imgSize.width / width : imgSize.height / height
     save(ratio)
   }
 
   const handleShare = async () => {
-    const ratio = isFullWidth ? imgSize.width / width : imgSize.height / height
+    const ratio = fullWidth ? imgSize.width / width : imgSize.height / height
     await share(ratio)
   }
 
