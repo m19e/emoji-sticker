@@ -83,19 +83,23 @@ export const ShareDialog = ({ onSave, onShare }: Props) => {
 
 const ShareActions = ({ onSave, onShare }: Props) => {
   return (
-    <div className="flex justify-end gap-1">
+    <>
       <Button
-        className="h-12 [&_svg]:size-6"
+        className="flex justify-between border-none bg-slate-700 text-slate-100"
         variant="outline"
         onClick={onSave}
       >
-        <SaveIcon />
-        保存する
+        画像を保存する
+        <SaveIcon className="text-slate-300" />
       </Button>
-      <Button className="h-12 [&_svg]:size-6" onClick={onShare}>
-        <Share2Icon />
-        共有する
+      <Button
+        className="flex justify-between border-none bg-slate-700 text-slate-100"
+        variant="outline"
+        onClick={onShare}
+      >
+        画像を共有する
+        <Share2Icon className="text-slate-300" />
       </Button>
-    </div>
+    </>
   )
 }
