@@ -12,6 +12,7 @@ import { Button } from '@/components/ui/button'
 import {
   Dialog,
   DialogContent,
+  DialogFooter,
   DialogHeader,
   DialogTitle,
 } from '@/components/ui/dialog'
@@ -55,9 +56,9 @@ export const ShareDialog = ({ onSave, onShare }: Props) => {
               ※共有から選択すると直接ツイートできます
             </DialogDescription>
           </DialogHeader>
-          <DrawerFooter>
+          <DialogFooter>
             <ShareActions onSave={handleSave} onShare={handleShare} />
-          </DrawerFooter>
+          </DialogFooter>
         </DialogContent>
       </Dialog>
     )
