@@ -37,6 +37,7 @@ export const ShareDialog = ({ onSave, onShare }: Props) => {
   const handleShare = async () => {
     await onShare()
     setOpen(false)
+    toast.success('画像を共有しました')
   }
 
   if (isDesktop) {
