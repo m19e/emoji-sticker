@@ -68,7 +68,7 @@ export const ShareDialog = ({ onSave, onShare }: Props) => {
             ※共有から選択すると直接ツイートできます
           </DrawerDescription>
         </DrawerHeader> */}
-        <DrawerFooter className="pt-4">
+        <DrawerFooter className="py-4">
           <ShareActions onSave={handleSave} onShare={handleShare} />
         </DrawerFooter>
       </DrawerContent>
