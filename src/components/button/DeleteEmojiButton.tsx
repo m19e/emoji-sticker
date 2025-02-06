@@ -1,5 +1,6 @@
 'use client'
 import { useAtomValue, useSetAtom } from 'jotai'
+import { useResetAtom } from 'jotai/utils'
 import { Trash2Icon } from 'lucide-react'
 
 import {
@@ -11,12 +12,15 @@ import {
 import { Button } from '@/components/ui/button'
 
 // TODO 削除可能であるとき、ボタンテキストを表示
+// TODO 削除時に選択ステッカーIDをリセット
 export const DeleteEmojiButton = () => {
   const selectedStickerId = useAtomValue(selectedStickerIdAtom)
+  const resetSelectedId = useResetAtom(selectedStickerIdAtom)
   const setEmojiDatas = useSetAtom(emojiDatasAtom)
   const setRectangles = useSetAtom(rectanglesAtom)
 
   const handleClick = () => {
+    resetSelectedId()
     setEmojiDatas((p) => p.filter((e) => e.id !== selectedStickerId))
     setRectangles((p) => p.filter((r) => r.id !== selectedStickerId))
   }
