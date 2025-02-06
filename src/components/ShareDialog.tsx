@@ -83,20 +83,20 @@ const ShareActions = ({ onSave, onShare }: Props) => {
   return (
     <>
       <Button
-        className="flex justify-between border-none bg-slate-700 px-4 text-lg text-slate-100"
+        className="flex justify-between border-none bg-slate-700 px-4 font-semibold text-lg text-slate-100"
         size="lg"
         onClick={onSave}
       >
         保存する
-        <SaveIcon className="text-slate-300" />
+        <SaveIcon />
       </Button>
       <Button
-        className="flex justify-between border-none bg-slate-700 px-4 text-lg text-slate-100"
+        className="flex justify-between border-none bg-slate-700 px-4 font-semibold text-lg text-slate-100"
         size="lg"
         onClick={onShare}
       >
         共有する
-        <Share2Icon className="text-slate-300" />
+        <Share2Icon />
       </Button>
     </>
   )
