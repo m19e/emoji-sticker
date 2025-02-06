@@ -83,7 +83,7 @@ const ShareActions = ({ onSave, onShare }: Props) => {
   return (
     <>
       <Button
-        className="flex justify-between border-none bg-slate-700 text-lg text-slate-100"
+        className="flex justify-between border-none bg-slate-700 px-4 text-lg text-slate-100"
         size="lg"
         onClick={onSave}
       >
@@ -91,7 +91,7 @@ const ShareActions = ({ onSave, onShare }: Props) => {
         <SaveIcon className="text-slate-300" />
       </Button>
       <Button
-        className="flex justify-between border-none bg-slate-700 text-lg text-slate-100"
+        className="flex justify-between border-none bg-slate-700 px-4 text-lg text-slate-100"
         size="lg"
         onClick={onShare}
       >
