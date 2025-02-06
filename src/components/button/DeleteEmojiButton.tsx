@@ -21,14 +21,23 @@ export const DeleteEmojiButton = () => {
     setRectangles((p) => p.filter((r) => r.id !== selectedStickerId))
   }
 
+  const isSelected = selectedStickerId !== null
+
+  if (isSelected) {
+    return (
+      <Button
+        className="h-10 px-[10px] text-slate-300"
+        variant="ghost"
+        onClick={handleClick}
+      >
+        <Trash2Icon />
+        <span className="font-semibold text-xs">ステッカーを削除</span>
+      </Button>
+    )
+  }
+
   return (
-    <Button
-      className="text-slate-300"
-      variant="ghost"
-      size="icon"
-      onClick={handleClick}
-      disabled={selectedStickerId === null}
-    >
+    <Button className="text-slate-300" variant="ghost" size="icon" disabled>
       <Trash2Icon />
     </Button>
   )
