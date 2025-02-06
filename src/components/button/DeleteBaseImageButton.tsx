@@ -26,6 +26,7 @@ import {
   DrawerTrigger,
 } from '@/components/ui/drawer'
 
+// TODO モバイル時のみダークテーマに
 export const DeleteBaseImageButton = ({ disabled }: ButtonProps) => {
   const resetBaseImg = useResetAtom(baseImgUrlAtom)
   const isDesktop = useMedia('(min-width: 640px)')
@@ -76,13 +77,19 @@ export const DeleteBaseImageButton = ({ disabled }: ButtonProps) => {
           <XIcon />
         </Button>
       </DrawerTrigger>
-      <DrawerContent>
+      <DrawerContent className="border-none bg-slate-800">
         <DrawerHeader className="text-left">
-          <DrawerTitle>画像を削除しますか？</DrawerTitle>
+          <DrawerTitle className="text-slate-100">
+            画像を削除しますか？
+          </DrawerTitle>
         </DrawerHeader>
         <DrawerFooter className="pt-2">
           <DrawerClose asChild>
-            <Button variant="destructive" onClick={handleClick}>
+            <Button
+              className="font-semibold text-lg"
+              variant="destructive"
+              onClick={handleClick}
+            >
               削除
             </Button>
           </DrawerClose>
