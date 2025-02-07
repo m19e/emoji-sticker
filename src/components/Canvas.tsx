@@ -5,8 +5,6 @@ import type Konva from 'konva'
 import type { RefObject } from 'react'
 import { Image, Layer, Stage } from 'react-konva'
 
-import { Emoji } from '@/components/sticker/Emoji'
-import { Rectangle } from '@/components/sticker/Rectangle'
 import { useAnonymousImage } from '@/hooks/useAnonymousImage'
 import { useMediaQuery } from '@/hooks/useMediaQuery'
 import {
@@ -16,6 +14,9 @@ import {
   selectedStickerIdAtom,
 } from '@/store/atoms'
 import type { Dimensions } from '@/types'
+
+import { Emoji } from '@/components/sticker/Emoji'
+import { Rectangle } from '@/components/sticker/Rectangle'
 
 type Props = {
   ref: RefObject<Konva.Stage | null>
