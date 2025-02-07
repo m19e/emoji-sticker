@@ -26,7 +26,6 @@ import {
   DrawerTrigger,
 } from '@/components/ui/drawer'
 
-// TODO モバイル時のみダークテーマに
 export const DeleteBaseImageButton = ({ disabled }: ButtonProps) => {
   const resetBaseImg = useResetAtom(baseImgUrlAtom)
   const isDesktop = useMedia('(min-width: 640px)')

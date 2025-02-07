@@ -25,7 +25,6 @@ type Props = {
 
 // TODO descriptionに展開できる説明UIを作る？
 // TODO デスクトップ時dropdown menuにする？
-// TODO 共有後にToast
 export const ShareDialog = ({ onSave, onShare }: Props) => {
   const [open, setOpen] = useAtom(isShareDialogOpenAtom)
 

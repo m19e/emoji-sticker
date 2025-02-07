@@ -11,8 +11,6 @@ import {
 
 import { Button } from '@/components/ui/button'
 
-// TODO 削除可能であるとき、ボタンテキストを表示
-// TODO 削除時に選択ステッカーIDをリセット
 export const DeleteEmojiButton = () => {
   const selectedStickerId = useAtomValue(selectedStickerIdAtom)
   const resetSelectedId = useResetAtom(selectedStickerIdAtom)
