@@ -1,10 +1,9 @@
 'use client'
 import { useAtom } from 'jotai'
-import { useMedia } from 'react-use'
+import { SaveIcon, Share2Icon } from 'lucide-react'
 import { toast } from 'sonner'
 
-import { SaveIcon, Share2Icon } from 'lucide-react'
-
+import { useMediaQuery } from '@/hooks/useMediaQuery'
 import { isShareDialogOpenAtom } from '@/store/atoms'
 
 import { Button } from '@/components/ui/button'
@@ -25,10 +24,10 @@ type Props = {
 
 // TODO descriptionに展開できる説明UIを作る？
 // TODO デスクトップ時dropdown menuにする？
+// TODO useMediaをhooksにして共通化
 export const ShareDialog = ({ onSave, onShare }: Props) => {
   const [open, setOpen] = useAtom(isShareDialogOpenAtom)
-
-  const isDesktop = useMedia('(min-width: 640px)')
+  const { isDesktop } = useMediaQuery()
 
   const handleSave = () => {
     onSave()

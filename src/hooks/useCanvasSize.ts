@@ -1,7 +1,8 @@
 import { useMemo } from 'react'
-import { useMedia, useWindowSize } from 'react-use'
+import { useWindowSize } from 'react-use'
 
 import { CANVAS_MARGIN_Y, DESKTOP_CONTENTS_WIDTH } from '@/constants'
+import { useMediaQuery } from '@/hooks/useMediaQuery'
 import type { Dimensions } from '@/types'
 
 type Args = {
@@ -36,7 +37,7 @@ const getFullWidth = ({
 
 export const useCanvasSize = (img: Dimensions) => {
   const { width, height } = useWindowSize({ initialWidth: 0, initialHeight: 0 })
-  const isDesktop = useMedia('(min-width: 640px)')
+  const { isDesktop } = useMediaQuery()
 
   const maxWidth = isDesktop ? DESKTOP_CONTENTS_WIDTH : width
   const maxHeight = height - CANVAS_MARGIN_Y

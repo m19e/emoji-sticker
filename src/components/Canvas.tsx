@@ -4,11 +4,11 @@ import { RESET } from 'jotai/utils'
 import type Konva from 'konva'
 import type { RefObject } from 'react'
 import { Image, Layer, Stage } from 'react-konva'
-import { useMedia } from 'react-use'
 
 import { Emoji } from '@/components/sticker/Emoji'
 import { Rectangle } from '@/components/sticker/Rectangle'
 import { useAnonymousImage } from '@/hooks/useAnonymousImage'
+import { useMediaQuery } from '@/hooks/useMediaQuery'
 import {
   baseImgUrlAtom,
   emojiDatasAtom,
@@ -34,7 +34,7 @@ export const Canvas = ({ ref, width, height, imgSize }: Props) => {
   const url = useAtomValue(baseImgUrlAtom)
   const [image] = useAnonymousImage(url ?? '')
 
-  const isDesktop = useMedia('(min-width: 640px)')
+  const { isDesktop } = useMediaQuery()
 
   const handleUnselect = () => {
     setSelectedStickerId(RESET)
