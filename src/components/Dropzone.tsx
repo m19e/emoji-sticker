@@ -4,11 +4,12 @@ import { Image as ImageIcon } from 'lucide-react'
 import { useCallback } from 'react'
 import { useDropzone } from 'react-dropzone'
 
-import { Button } from '@/components/ui/button'
 import { DROPZONE_ACCEPT_FILE } from '@/constants'
 import { baseImgUrlAtom } from '@/store/atoms'
 import { revokeEffect } from '@/store/effects'
 import type { ButtonProps } from '@/types'
+
+import { Button } from '@/components/ui/button'
 
 export const Dropzone = ({ disabled }: ButtonProps) => {
   useAtom(revokeEffect)
