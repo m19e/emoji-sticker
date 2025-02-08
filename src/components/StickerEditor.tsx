@@ -11,7 +11,7 @@ import { baseImgUrlAtom } from '@/store/atoms'
 export const Editor = () => {
   const url = useAtomValue(baseImgUrlAtom)
   const [imgSize] = useImageSize(url)
-  const [, { save, share }] = useCanvasData()
+  const { save, share } = useCanvasData()
 
   const {
     fullWidth,

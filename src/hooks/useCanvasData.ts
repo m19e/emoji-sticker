@@ -4,14 +4,13 @@ import type Konva from 'konva'
 import { canvasRefAtom } from '@/store/atoms'
 
 type CanvasAction = (pixelRatio: number) => void
+type Return = {
+  ref: (ref: Konva.Stage) => void
+  save: CanvasAction
+  share: CanvasAction
+}
 
-export const useCanvasData = (): [
-  (ref: Konva.Stage) => void,
-  {
-    save: CanvasAction
-    share: CanvasAction
-  },
-] => {
+export const useCanvasData = (): Return => {
   const [canvasRef, setCanvasRef] = useAtom(canvasRefAtom)
 
   const downloadUri = (uri: string, name: string) => {
@@ -64,5 +63,5 @@ export const useCanvasData = (): [
       .catch((error) => console.error(error))
   }
 
-  return [setCanvasRef, { save, share }]
+  return { ref: setCanvasRef, save, share }
 }

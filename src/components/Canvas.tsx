@@ -33,7 +33,7 @@ export const Canvas = ({ width, height, imgSize }: Props) => {
 
   const [image] = useAnonymousImage(url ?? '')
   const { isDesktop } = useMediaQuery()
-  const [ref] = useCanvasData()
+  const { ref } = useCanvasData()
 
   const handleUnselect = () => {
     setSelectedStickerId(RESET)
