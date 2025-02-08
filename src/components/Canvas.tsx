@@ -2,7 +2,6 @@
 import { useAtom, useAtomValue } from 'jotai'
 import { RESET } from 'jotai/utils'
 import type Konva from 'konva'
-import type { RefObject } from 'react'
 import { Image, Layer, Stage } from 'react-konva'
 
 import { useAnonymousImage } from '@/hooks/useAnonymousImage'
@@ -19,7 +18,7 @@ import { Emoji } from '@/components/sticker/Emoji'
 import { Rectangle } from '@/components/sticker/Rectangle'
 
 type Props = {
-  ref: RefObject<Konva.Stage | null>
+  ref: (ref: Konva.Stage) => void
   width: number
   height: number
   imgSize: Dimensions

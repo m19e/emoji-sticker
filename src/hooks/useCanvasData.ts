@@ -1,16 +1,18 @@
+import { useAtom } from 'jotai'
 import type Konva from 'konva'
-import { type RefObject, useRef } from 'react'
+
+import { canvasRefAtom } from '@/store/atoms'
 
 type CanvasAction = (pixelRatio: number) => void
 
 export const useCanvasData = (): [
-  RefObject<Konva.Stage | null>,
+  (ref: Konva.Stage) => void,
   {
     save: CanvasAction
     share: CanvasAction
   },
 ] => {
-  const canvasRef = useRef<Konva.Stage>(null)
+  const [canvasRef, setCanvasRef] = useAtom(canvasRefAtom)
 
   const downloadUri = (uri: string, name: string) => {
     const link = document.createElement('a')
@@ -27,7 +29,7 @@ export const useCanvasData = (): [
   }
 
   const save = (pixelRatio: number) => {
-    const uri = canvasRef.current?.toDataURL({ pixelRatio })
+    const uri = canvasRef?.toDataURL({ pixelRatio })
 
     if (uri) {
       const fileName = getFileName()
@@ -51,7 +53,7 @@ export const useCanvasData = (): [
     if (!isSupported()) {
       return
     }
-    const blob = (await canvasRef.current?.toBlob({ pixelRatio })) as Blob
+    const blob = (await canvasRef?.toBlob({ pixelRatio })) as Blob
     const file = new File([blob], getFileName(), { type: blob.type })
 
     const text = '絵文字ステッカー！'
@@ -62,5 +64,5 @@ export const useCanvasData = (): [
       .catch((error) => console.error(error))
   }
 
-  return [canvasRef, { save, share }]
+  return [setCanvasRef, { save, share }]
 }
