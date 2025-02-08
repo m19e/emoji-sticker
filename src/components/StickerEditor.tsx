@@ -11,7 +11,7 @@ import { baseImgUrlAtom } from '@/store/atoms'
 export const Editor = () => {
   const url = useAtomValue(baseImgUrlAtom)
   const [imgSize] = useImageSize(url)
-  const [canvasRef, { save, share }] = useCanvasData()
+  const [, { save, share }] = useCanvasData()
 
   const {
     fullWidth,
@@ -30,7 +30,7 @@ export const Editor = () => {
 
   return (
     <>
-      <Canvas ref={canvasRef} width={width} height={height} imgSize={imgSize} />
+      <Canvas width={width} height={height} imgSize={imgSize} />
       <ShareDialog onSave={handleSave} onShare={handleShare} />
     </>
   )

@@ -1,7 +1,6 @@
 'use client'
 import { useAtom, useAtomValue } from 'jotai'
 import { RESET } from 'jotai/utils'
-import type Konva from 'konva'
 import { Image, Layer, Stage } from 'react-konva'
 
 import { useAnonymousImage } from '@/hooks/useAnonymousImage'
@@ -16,25 +15,25 @@ import type { Dimensions } from '@/types'
 
 import { Emoji } from '@/components/sticker/Emoji'
 import { Rectangle } from '@/components/sticker/Rectangle'
+import { useCanvasData } from '@/hooks/useCanvasData'
 
 type Props = {
-  ref: (ref: Konva.Stage) => void
   width: number
   height: number
   imgSize: Dimensions
 }
 
-export const Canvas = ({ ref, width, height, imgSize }: Props) => {
+export const Canvas = ({ width, height, imgSize }: Props) => {
   const emojis = useAtomValue(emojiDatasAtom)
   const rects = useAtomValue(rectanglesAtom)
   const [selectedStickerId, setSelectedStickerId] = useAtom(
     selectedStickerIdAtom,
   )
-
   const url = useAtomValue(baseImgUrlAtom)
-  const [image] = useAnonymousImage(url ?? '')
 
+  const [image] = useAnonymousImage(url ?? '')
   const { isDesktop } = useMediaQuery()
+  const [ref] = useCanvasData()
 
   const handleUnselect = () => {
     setSelectedStickerId(RESET)
