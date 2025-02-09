@@ -24,7 +24,6 @@ type Props = {
 
 // TODO descriptionに展開できる説明UIを作る？
 // TODO デスクトップ時dropdown menuにする？
-// TODO useMediaをhooksにして共通化
 export const ShareDialog = ({ onSave, onShare }: Props) => {
   const [open, setOpen] = useAtom(isShareDialogOpenAtom)
   const { isDesktop } = useMediaQuery()
