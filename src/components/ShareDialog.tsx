@@ -3,6 +3,7 @@ import { useAtom } from 'jotai'
 import { SaveIcon, Share2Icon } from 'lucide-react'
 import { toast } from 'sonner'
 
+import { useCanvasData } from '@/hooks/useCanvasData'
 import { useMediaQuery } from '@/hooks/useMediaQuery'
 import { isShareDialogOpenAtom } from '@/store/atoms'
 
@@ -24,18 +25,19 @@ type Props = {
 
 // TODO descriptionに展開できる説明UIを作る？
 // TODO デスクトップ時dropdown menuにする？
-export const ShareDialog = ({ onSave, onShare }: Props) => {
+export const ShareDialog = () => {
   const [open, setOpen] = useAtom(isShareDialogOpenAtom)
   const { isDesktop } = useMediaQuery()
+  const { save, share } = useCanvasData()
 
   const handleSave = () => {
-    onSave()
+    save()
     setOpen(false)
     toast.success('画像を保存しました')
   }
 
   const handleShare = async () => {
-    await onShare()
+    await share()
     setOpen(false)
   }
 
