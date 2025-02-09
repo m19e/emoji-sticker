@@ -2,6 +2,7 @@ import { useMemo } from 'react'
 import { useWindowSize } from 'react-use'
 
 import { CANVAS_MARGIN_Y, DESKTOP_CONTENTS_WIDTH } from '@/constants'
+import { useBaseImageSize } from '@/hooks/useBaseImageSize'
 import { useMediaQuery } from '@/hooks/useMediaQuery'
 import type { Dimensions } from '@/types'
 
@@ -35,9 +36,10 @@ const getFullWidth = ({
   return { fullWidth: !isOverflowY }
 }
 
-export const useCanvasSize = (img: Dimensions) => {
+export const useCanvasSize = () => {
   const { width, height } = useWindowSize({ initialWidth: 0, initialHeight: 0 })
   const { isDesktop } = useMediaQuery()
+  const { imgSize: img } = useBaseImageSize()
 
   const maxWidth = isDesktop ? DESKTOP_CONTENTS_WIDTH : width
   const maxHeight = height - CANVAS_MARGIN_Y
