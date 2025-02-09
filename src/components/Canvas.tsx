@@ -6,7 +6,7 @@ import { useCanvasData } from '@/hooks/useCanvasData'
 import { useCanvasSize } from '@/hooks/useCanvasSize'
 
 import { BaseImageLayer } from '@/components/layer/BaseImage'
-import { StickerLayer } from '@/components/layer/StickerLayer'
+import { StickerLayer } from '@/components/layer/Sticker'
 
 export const Canvas = () => {
   const { ref } = useCanvasData()
