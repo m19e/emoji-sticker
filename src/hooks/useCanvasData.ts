@@ -1,17 +1,19 @@
 import { useAtom } from 'jotai'
 import type Konva from 'konva'
 
+import { useCanvasSize } from '@/hooks/useCanvasSize'
 import { canvasRefAtom } from '@/store/atoms'
 
-type CanvasAction = (pixelRatio: number) => void
+type Action = () => void
 type Return = {
   ref: (ref: Konva.Stage) => void
-  save: CanvasAction
-  share: CanvasAction
+  save: Action
+  share: Action
 }
 
 export const useCanvasData = (): Return => {
   const [canvasRef, setCanvasRef] = useAtom(canvasRefAtom)
+  const { pixelRatio } = useCanvasSize()
 
   const downloadUri = (uri: string, name: string) => {
     const link = document.createElement('a')
@@ -27,7 +29,7 @@ export const useCanvasData = (): Return => {
     return `censored-${ts}.png`
   }
 
-  const save = (pixelRatio: number) => {
+  const save = () => {
     const uri = canvasRef?.toDataURL({ pixelRatio })
 
     if (uri) {
@@ -48,7 +50,7 @@ export const useCanvasData = (): Return => {
   }
 
   // TODO 共有内容にテキストを含めることができるか調査する
-  const share = async (pixelRatio: number) => {
+  const share = async () => {
     if (!isSupported()) {
       return
     }
