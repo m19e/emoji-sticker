@@ -54,6 +54,7 @@ export const useCanvasSize = () => {
     [img, maxWidth, maxHeight],
   )
 
+  const pixelRatio = fullWidth ? img.width / maxWidth : img.height / maxHeight
   const canvas = fullWidth
     ? {
         width: maxWidth,
@@ -64,5 +65,5 @@ export const useCanvasSize = () => {
         width: maxHeight * (img.width / img.height),
       }
 
-  return { fullWidth, canvas }
+  return { pixelRatio, canvas }
 }
