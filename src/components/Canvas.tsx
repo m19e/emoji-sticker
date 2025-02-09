@@ -1,19 +1,16 @@
 'use client'
-import { useAtom, useAtomValue } from 'jotai'
-import { RESET } from 'jotai/utils'
-import { Image, Layer, Stage } from 'react-konva'
-
-import { useAnonymousImage } from '@/hooks/useAnonymousImage'
 import { useCanvasData } from '@/hooks/useCanvasData'
 import { useCanvasSize } from '@/hooks/useCanvasSize'
 import { useMediaQuery } from '@/hooks/useMediaQuery'
 import {
-  baseImgUrlAtom,
   emojiDatasAtom,
   rectanglesAtom,
   selectedStickerIdAtom,
 } from '@/store/atoms'
+import { useAtom, useAtomValue } from 'jotai'
+import { Layer, Stage } from 'react-konva'
 
+import { BaseImageLayer } from '@/components/layer/BaseImage'
 import { Emoji } from '@/components/sticker/Emoji'
 import { Rectangle } from '@/components/sticker/Rectangle'
 import { useBaseImageSize } from '@/hooks/useBaseImageSize'
@@ -24,20 +21,13 @@ export const Canvas = () => {
   const [selectedStickerId, setSelectedStickerId] = useAtom(
     selectedStickerIdAtom,
   )
-  const url = useAtomValue(baseImgUrlAtom)
 
-  const [image] = useAnonymousImage(url ?? '')
   const { isDesktop } = useMediaQuery()
   const { ref } = useCanvasData()
-
   const {
     canvas: { width, height },
   } = useCanvasSize()
   const { imgSize } = useBaseImageSize()
-
-  const handleUnselect = () => {
-    setSelectedStickerId(RESET)
-  }
 
   const handleSelect = (id: string) => {
     setSelectedStickerId(id)
@@ -56,9 +46,7 @@ export const Canvas = () => {
       scaleX={width / imgSize.width}
       scaleY={height / imgSize.height}
     >
-      <Layer onMouseDown={handleUnselect} onTouchStart={handleUnselect}>
-        <Image image={image} x={0} y={0} />
-      </Layer>
+      <BaseImageLayer />
       <Layer>
         {rects.map(({ id }) => (
           <Rectangle
