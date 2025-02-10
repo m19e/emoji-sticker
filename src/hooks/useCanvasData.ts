@@ -56,6 +56,7 @@ export const useCanvasData = (): Return => {
     const blob = (await canvasRef?.toBlob({ pixelRatio })) as Blob
     const file = new File([blob], getFileName(), { type: blob.type })
 
+    // FIXME リリース時削除
     const title = 'タイトル'
     const text = '絵文字ステッカー！'
     const url = 'https://emoij-sticker.vercel.app'
