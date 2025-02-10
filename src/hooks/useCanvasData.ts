@@ -1,5 +1,6 @@
 import { useAtom } from 'jotai'
 import type Konva from 'konva'
+import { toast } from 'sonner'
 
 import { useCanvasSize } from '@/hooks/useCanvasSize'
 import { canvasRefAtom } from '@/store/atoms'
@@ -10,6 +11,7 @@ type Return = {
   share: () => Promise<void>
 }
 
+// TODO hooks内でToast
 export const useCanvasData = (): Return => {
   const [canvasRef, setCanvasRef] = useAtom(canvasRefAtom)
   const { pixelRatio } = useCanvasSize()
@@ -34,6 +36,7 @@ export const useCanvasData = (): Return => {
     if (uri) {
       const fileName = getFileName()
       downloadUri(uri, fileName)
+      toast.success('画像を保存しました')
     }
   }
 

@@ -1,7 +1,6 @@
 'use client'
 import { useAtom } from 'jotai'
 import { SaveIcon, Share2Icon } from 'lucide-react'
-import { toast } from 'sonner'
 
 import { useCanvasData } from '@/hooks/useCanvasData'
 import { useMediaQuery } from '@/hooks/useMediaQuery'
@@ -33,7 +32,6 @@ export const ShareDialog = () => {
   const handleSave = () => {
     save()
     setOpen(false)
-    toast.success('画像を保存しました')
   }
 
   const handleShare = async () => {
