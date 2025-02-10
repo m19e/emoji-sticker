@@ -4,11 +4,10 @@ import type Konva from 'konva'
 import { useCanvasSize } from '@/hooks/useCanvasSize'
 import { canvasRefAtom } from '@/store/atoms'
 
-type Action = () => void
 type Return = {
   ref: (ref: Konva.Stage) => void
-  save: Action
-  share: Action
+  save: () => void
+  share: () => void
 }
 
 export const useCanvasData = (): Return => {
