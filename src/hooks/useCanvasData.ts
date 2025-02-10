@@ -7,7 +7,7 @@ import { canvasRefAtom } from '@/store/atoms'
 type Return = {
   ref: (ref: Konva.Stage) => void
   save: () => void
-  share: () => void
+  share: () => Promise<void>
 }
 
 export const useCanvasData = (): Return => {
