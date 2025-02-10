@@ -11,7 +11,6 @@ type Return = {
   share: () => Promise<void>
 }
 
-// TODO hooks内でToast
 export const useCanvasData = (): Return => {
   const [canvasRef, setCanvasRef] = useAtom(canvasRefAtom)
   const { pixelRatio } = useCanvasSize()

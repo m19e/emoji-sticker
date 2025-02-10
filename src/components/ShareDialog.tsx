@@ -9,9 +9,6 @@ import { Button } from '@/components/ui/button'
 import { Drawer, DrawerContent, DrawerFooter } from '@/components/ui/drawer'
 
 // TODO descriptionに展開できる説明UIを作る？
-// TODO デスクトップ時dropdown menuにする？
-// TODO ShareActions削除
-// TODO コメント削除
 // TODO Rename
 export const ShareDialog = () => {
   const [open, setOpen] = useAtom(isShareDialogOpenAtom)
