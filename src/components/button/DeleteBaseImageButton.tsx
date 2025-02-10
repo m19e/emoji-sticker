@@ -1,6 +1,6 @@
 'use client'
 import { useResetAtom } from 'jotai/utils'
-import { XIcon } from 'lucide-react'
+import { Trash2Icon, XIcon } from 'lucide-react'
 import { useMedia } from 'react-use'
 import { toast } from 'sonner'
 
@@ -8,14 +8,6 @@ import { baseImgUrlAtom } from '@/store/atoms'
 import type { ButtonProps } from '@/types'
 
 import { Button } from '@/components/ui/button'
-import {
-  Dialog,
-  DialogContent,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from '@/components/ui/dialog'
 import {
   Drawer,
   DrawerClose,
@@ -25,7 +17,14 @@ import {
   DrawerTitle,
   DrawerTrigger,
 } from '@/components/ui/drawer'
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu'
 
+// TODO デスクトップ時dropdown menu
 export const DeleteBaseImageButton = ({ disabled }: ButtonProps) => {
   const resetBaseImg = useResetAtom(baseImgUrlAtom)
   const isDesktop = useMedia('(min-width: 640px)')
@@ -37,8 +36,8 @@ export const DeleteBaseImageButton = ({ disabled }: ButtonProps) => {
 
   if (isDesktop) {
     return (
-      <Dialog>
-        <DialogTrigger asChild>
+      <DropdownMenu>
+        <DropdownMenuTrigger asChild>
           <Button
             className="text-slate-300"
             variant="ghost"
@@ -47,20 +46,14 @@ export const DeleteBaseImageButton = ({ disabled }: ButtonProps) => {
           >
             <XIcon />
           </Button>
-        </DialogTrigger>
-        <DialogContent className="sm:max-w-[425px]">
-          <DialogHeader>
-            <DialogTitle>画像を削除しますか？</DialogTitle>
-          </DialogHeader>
-          <DialogFooter>
-            <DrawerClose asChild>
-              <Button variant="destructive" onClick={handleClick}>
-                削除
-              </Button>
-            </DrawerClose>
-          </DialogFooter>
-        </DialogContent>
-      </Dialog>
+        </DropdownMenuTrigger>
+        <DropdownMenuContent className="border-none bg-slate-800 text-slate-300">
+          <DropdownMenuItem className="justify-between" onClick={handleClick}>
+            画像を削除する
+            <Trash2Icon className="ml-4" />
+          </DropdownMenuItem>
+        </DropdownMenuContent>
+      </DropdownMenu>
     )
   }
 
