@@ -56,11 +56,12 @@ export const useCanvasData = (): Return => {
     const blob = (await canvasRef?.toBlob({ pixelRatio })) as Blob
     const file = new File([blob], getFileName(), { type: blob.type })
 
+    const title = 'タイトル'
     const text = '絵文字ステッカー！'
     const url = 'https://emoij-sticker.vercel.app'
 
     navigator
-      .share({ text, url, files: [file] })
+      .share({ title, text, url, files: [file] })
       .catch((error) => console.error(error))
   }
 
