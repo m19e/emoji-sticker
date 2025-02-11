@@ -10,7 +10,7 @@ export const Header = () => {
   const isLoaded = useAtomValue(isBaseImgLoadedAtom)
 
   return (
-    <div className="flex justify-between gap-4">
+    <div className="flex justify-between">
       <DeleteBaseImageButton disabled={!isLoaded} />
       <OpenShareDialogButton disabled={!isLoaded} />
     </div>

@@ -15,7 +15,7 @@ export default function Home() {
           <Canvas />
           <ShareDrawer />
         </div>
-        <div className="flex justify-between gap-4">
+        <div className="flex justify-between">
           <DeleteEmojiButton />
           <div>
             <AddRectStickerButton />
