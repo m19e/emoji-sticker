@@ -33,7 +33,7 @@ export const DeleteEmojiButton = () => {
         onClick={handleClick}
       >
         <Trash2Icon />
-        <span className="font-semibold text-xs">ステッカーを削除</span>
+        <span className="font-bold text-xs">ステッカーを削除</span>
       </Button>
     )
   }
