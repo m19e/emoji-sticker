@@ -13,8 +13,6 @@ import {
   DrawerClose,
   DrawerContent,
   DrawerFooter,
-  DrawerHeader,
-  DrawerTitle,
   DrawerTrigger,
 } from '@/components/ui/drawer'
 import {
@@ -68,20 +66,17 @@ export const DeleteBaseImageButton = ({ disabled }: ButtonProps) => {
           <XIcon />
         </Button>
       </DrawerTrigger>
-      <DrawerContent className="border-none bg-slate-800">
-        <DrawerHeader className="text-left">
-          <DrawerTitle className="text-slate-100">
-            画像を削除しますか？
-          </DrawerTitle>
-        </DrawerHeader>
-        <DrawerFooter className="pt-2">
+      <DrawerContent className="border-none bg-slate-800 font-[family-name:var(--font-rounded)]">
+        <DrawerFooter className="pt-4 pb-8">
           <DrawerClose asChild>
             <Button
-              className="font-bold text-lg"
+              className="flex justify-between px-4 font-bold text-lg"
+              size="lg"
               variant="destructive"
               onClick={handleClick}
             >
-              削除
+              画像を削除する
+              <Trash2Icon />
             </Button>
           </DrawerClose>
         </DrawerFooter>
