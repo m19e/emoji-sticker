@@ -17,7 +17,7 @@ import {
 } from '@/components/ui/dropdown-menu'
 
 // TODO Rename
-export const OpenShareDialogButton = ({ disabled }: ButtonProps) => {
+export const ShareButton = ({ disabled }: ButtonProps) => {
   const setOpenDrawer = useSetAtom(isShareDialogOpenAtom)
   const resetSelectedStickerId = useResetAtom(selectedStickerIdAtom)
 
