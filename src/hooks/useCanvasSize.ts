@@ -17,10 +17,6 @@ const getFullWidth = ({
   maxWidth,
   maxHeight,
 }: Args): { fullWidth: boolean } => {
-  if (img.width === img.height) {
-    return { fullWidth: true }
-  }
-
   const isPortraitImg = img.width < img.height
 
   // h-fullの場合にwidthがあふれる場合を計算する
