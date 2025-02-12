@@ -36,7 +36,7 @@ export const Picker = () => {
 
   return (
     <Drawer open={open} onOpenChange={setOpen}>
-      <DrawerContent className="mx-auto w-full items-center border-none bg-slate-800 sm:w-min">
+      <DrawerContent className="mx-auto w-full items-center border-none bg-slate-800 font-[family-name:var(--font-rounded)] sm:w-min">
         <DrawerHeader className="w-96 max-w-full">
           <DrawerTitle className="text-center text-slate-100">
             絵文字を選択

@@ -13,6 +13,7 @@ const geistMono = Geist_Mono({
   variable: '--font-geist-mono',
   subsets: ['latin'],
 })
+// TODO tailwind.configで共通クラス化
 const rounded = M_PLUS_Rounded_1c({
   subsets: ['latin'],
   variable: '--font-rounded',

@@ -25,7 +25,7 @@ export const ShareDrawer = () => {
 
   return (
     <Drawer open={open} onOpenChange={setOpen}>
-      <DrawerContent className="border-none bg-slate-800">
+      <DrawerContent className="border-none bg-slate-800 font-[family-name:var(--font-rounded)]">
         <DrawerFooter className="pt-4 pb-8">
           <Button
             className="flex justify-between border-none bg-slate-700 px-4 font-bold text-lg text-slate-100"
