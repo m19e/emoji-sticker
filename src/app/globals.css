@@ -65,6 +65,7 @@ body {
 @layer base {
   * {
     @apply border-border;
+    @apply !font-rounded;
   }
   body {
     @apply bg-background text-foreground;
