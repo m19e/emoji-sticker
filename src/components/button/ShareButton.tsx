@@ -41,7 +41,7 @@ export const ShareButton = ({ disabled }: ButtonProps) => {
             <ShareIcon />
           </Button>
         </DropdownMenuTrigger>
-        <DropdownMenuContent className="border-none bg-slate-800 font-[family-name:var(--font-rounded)] text-slate-300">
+        <DropdownMenuContent className="border-none bg-slate-800 text-slate-300">
           <DropdownMenuItem className="justify-between" onClick={save}>
             保存する
             <SaveIcon />
