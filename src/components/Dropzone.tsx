@@ -27,8 +27,6 @@ export const Dropzone = () => {
     accept: DROPZONE_ACCEPT_FILE,
   })
 
-  // TODO ヘッダーからcanvasの位置に移動
-
   return (
     <div
       {...getRootProps()}
