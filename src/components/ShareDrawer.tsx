@@ -8,7 +8,6 @@ import { isShareDialogOpenAtom } from '@/store/atoms'
 import { Button } from '@/components/ui/button'
 import { Drawer, DrawerContent, DrawerFooter } from '@/components/ui/drawer'
 
-// TODO descriptionに展開できる説明UIを作る？
 export const ShareDrawer = () => {
   const [open, setOpen] = useAtom(isShareDialogOpenAtom)
   const { save, share } = useCanvasData()
