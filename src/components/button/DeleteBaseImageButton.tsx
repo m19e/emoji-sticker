@@ -22,6 +22,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 
+// キャンセルボタン
 export const DeleteBaseImageButton = ({ disabled }: ButtonProps) => {
   const resetBaseImg = useResetAtom(baseImgUrlAtom)
   const isDesktop = useMedia('(min-width: 640px)')
@@ -70,13 +71,21 @@ export const DeleteBaseImageButton = ({ disabled }: ButtonProps) => {
         <DrawerFooter className="pt-4 pb-8">
           <DrawerClose asChild>
             <Button
-              className="flex justify-between px-4 font-bold text-lg"
+              className="font-bold text-lg"
               size="lg"
               variant="destructive"
               onClick={handleClick}
             >
               画像を削除する
-              <Trash2Icon />
+            </Button>
+          </DrawerClose>
+          <DrawerClose asChild>
+            <Button
+              className="border-none bg-slate-700 px-4 font-bold text-lg text-slate-100"
+              size="lg"
+              variant="outline"
+            >
+              キャンセル
             </Button>
           </DrawerClose>
         </DrawerFooter>
