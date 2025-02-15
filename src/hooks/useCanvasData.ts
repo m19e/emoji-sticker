@@ -1,4 +1,4 @@
-import { sendGAEvent } from '@next/third-parties/google'
+import { sendGTMEvent } from '@next/third-parties/google'
 import { useAtom } from 'jotai'
 import type Konva from 'konva'
 import { toast } from 'sonner'
@@ -35,10 +35,10 @@ export const useCanvasData = (): Return => {
     const uri = canvasRef?.toDataURL({ pixelRatio })
 
     if (uri) {
-      sendGAEvent('event', 'click_save_button', { value: 'SAVE' })
       const fileName = getFileName()
       downloadUri(uri, fileName)
       toast.success('画像を保存しました')
+      sendGTMEvent({ event: 'click_save_button', value: 'SAVE' })
     }
   }
 
@@ -57,7 +57,6 @@ export const useCanvasData = (): Return => {
     if (!isSupported()) {
       return
     }
-    sendGAEvent('event', 'click_share_button', { value: 'SHARE' })
     const blob = (await canvasRef?.toBlob({ pixelRatio })) as Blob
     const file = new File([blob], getFileName(), { type: blob.type })
 
@@ -67,6 +66,7 @@ export const useCanvasData = (): Return => {
     navigator
       .share({ text, url, files: [file] })
       .catch((error) => console.error(error))
+    sendGTMEvent({ event: 'click_share_button', value: 'SHARE' })
   }
 
   return { ref: setCanvasRef, save, share }
