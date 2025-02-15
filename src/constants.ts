@@ -1,5 +1,7 @@
 import { Categories } from 'emoji-picker-react'
 
+export const GA_ID = process.env.NEXT_PUBLIC_GA_ID || ''
+
 export const EPR_CATEGORIES_JA = [
   { category: Categories.SUGGESTED, name: 'よく使う絵文字' },
   { category: Categories.SMILEYS_PEOPLE, name: 'スマイリーと人' },
