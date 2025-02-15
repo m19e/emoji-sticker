@@ -36,7 +36,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ja">
-      <head>{GA_ID && <GoogleAnalytics gaId={GA_ID} debugMode />}</head>
+      <head>{GA_ID && <GoogleAnalytics gaId={GA_ID} />}</head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${rounded.variable} antialiased`}
       >
