@@ -1,4 +1,4 @@
-import { GoogleAnalytics } from '@next/third-parties/google'
+import { GoogleAnalytics, GoogleTagManager } from '@next/third-parties/google'
 import type { Metadata } from 'next'
 import { Geist, Geist_Mono, M_PLUS_Rounded_1c } from 'next/font/google'
 import type { ReactNode } from 'react'
@@ -7,6 +7,7 @@ import { Toaster } from '@/components/ui/sonner'
 import './globals.css'
 
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID || ''
+const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID || ''
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -36,7 +37,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ja">
-      <head>{GA_ID && <GoogleAnalytics gaId={GA_ID} />}</head>
+      <head>
+        {GA_ID && <GoogleAnalytics gaId={GA_ID} />}
+        {GTM_ID && <GoogleTagManager gtmId={GTM_ID} />}
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${rounded.variable} antialiased`}
       >
