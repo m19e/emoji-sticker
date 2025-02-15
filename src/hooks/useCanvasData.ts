@@ -50,7 +50,6 @@ export const useCanvasData = (): Return => {
     )
   }
 
-  // TODO 共有内容にテキストを含めることができるか調査する
   const share = async () => {
     if (!isSupported()) {
       return
@@ -58,13 +57,11 @@ export const useCanvasData = (): Return => {
     const blob = (await canvasRef?.toBlob({ pixelRatio })) as Blob
     const file = new File([blob], getFileName(), { type: blob.type })
 
-    // FIXME リリース時削除
-    const title = 'タイトル'
     const text = '絵文字ステッカー！'
     const url = 'https://emoij-sticker.vercel.app'
 
     navigator
-      .share({ title, text, url, files: [file] })
+      .share({ text, url, files: [file] })
       .catch((error) => console.error(error))
   }
 
