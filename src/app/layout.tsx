@@ -1,4 +1,4 @@
-import { GoogleAnalytics, GoogleTagManager } from '@next/third-parties/google'
+import { GoogleTagManager } from '@next/third-parties/google'
 import type { Metadata } from 'next'
 import { Geist, Geist_Mono, M_PLUS_Rounded_1c } from 'next/font/google'
 import type { ReactNode } from 'react'
@@ -37,10 +37,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ja">
-      <head>
-        {GA_ID && <GoogleAnalytics gaId={GA_ID} />}
-        {GTM_ID && <GoogleTagManager gtmId={GTM_ID} />}
-      </head>
+      <head>{GTM_ID && <GoogleTagManager gtmId={GTM_ID} />}</head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${rounded.variable} antialiased`}
       >
