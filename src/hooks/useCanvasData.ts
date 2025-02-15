@@ -1,3 +1,4 @@
+import { sendGAEvent } from '@next/third-parties/google'
 import { useAtom } from 'jotai'
 import type Konva from 'konva'
 import { toast } from 'sonner'
@@ -11,6 +12,7 @@ type Return = {
   share: () => Promise<void>
 }
 
+// TODO GAでイベント追跡
 export const useCanvasData = (): Return => {
   const [canvasRef, setCanvasRef] = useAtom(canvasRefAtom)
   const { pixelRatio } = useCanvasSize()
@@ -33,6 +35,7 @@ export const useCanvasData = (): Return => {
     const uri = canvasRef?.toDataURL({ pixelRatio })
 
     if (uri) {
+      sendGAEvent('event', 'click_save_button')
       const fileName = getFileName()
       downloadUri(uri, fileName)
       toast.success('画像を保存しました')
@@ -54,6 +57,7 @@ export const useCanvasData = (): Return => {
     if (!isSupported()) {
       return
     }
+    sendGAEvent('event', 'click_share_button')
     const blob = (await canvasRef?.toBlob({ pixelRatio })) as Blob
     const file = new File([blob], getFileName(), { type: blob.type })
 
