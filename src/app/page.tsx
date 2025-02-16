@@ -1,5 +1,5 @@
 import { Header } from '@/components/AppHeader'
-import { Canvas } from '@/components/Canvas'
+import { Container } from '@/components/Container'
 import { Picker } from '@/components/EmojiPicker'
 import { ShareDrawer } from '@/components/ShareDrawer'
 import { AddRectStickerButton } from '@/components/button/AddRectStickerButton'
@@ -12,7 +12,7 @@ export default function Home() {
       <main className="flex h-dvh w-full flex-col bg-slate-950 shadow sm:w-[640px]">
         <Header />
         <div className="flex h-[calc(100%-72px)] flex-col items-center justify-center overflow-hidden bg-slate-400">
-          <Canvas />
+          <Container />
           <ShareDrawer />
         </div>
         <div className="flex justify-between">
