@@ -7,6 +7,7 @@ import { DROPZONE_ACCEPT_FILE } from '@/constants'
 import { baseImgUrlAtom } from '@/store/atoms'
 import { revokeEffect } from '@/store/effects'
 
+// TODO FixUI
 export const Dropzone = () => {
   useAtom(revokeEffect)
   const setUrl = useSetAtom(baseImgUrlAtom)

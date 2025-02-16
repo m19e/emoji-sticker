@@ -11,6 +11,9 @@ import { Dropzone } from '@/components/Dropzone'
 import { BaseImageLayer } from '@/components/layer/BaseImage'
 import { StickerLayer } from '@/components/layer/Sticker'
 
+// TODO アプリのロゴ
+// TODO 免責事項
+// TODO 各種リンク(SNS, github)
 export const Canvas = () => {
   const isLoaded = useAtomValue(isBaseImgLoadedAtom)
 
