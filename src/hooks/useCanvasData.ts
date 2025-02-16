@@ -12,7 +12,6 @@ type Return = {
   share: () => Promise<void>
 }
 
-// TODO GAでイベント追跡
 export const useCanvasData = (): Return => {
   const [canvasRef, setCanvasRef] = useAtom(canvasRefAtom)
   const { pixelRatio } = useCanvasSize()
