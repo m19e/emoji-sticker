@@ -1,4 +1,4 @@
-import { sendGTMEvent } from '@next/third-parties/google'
+import { sendGAEvent } from '@next/third-parties/google'
 import { useAtom } from 'jotai'
 import type Konva from 'konva'
 import { toast } from 'sonner'
@@ -37,7 +37,7 @@ export const useCanvasData = (): Return => {
       const fileName = getFileName()
       downloadUri(uri, fileName)
       toast.success('画像を保存しました')
-      sendGTMEvent({ event: 'click_save_button', value: 'SAVE' })
+      sendGAEvent('event', 'click_save_button', { value: 'SAVE' })
     }
   }
 
@@ -65,7 +65,7 @@ export const useCanvasData = (): Return => {
     navigator
       .share({ text, url, files: [file] })
       .catch((error) => console.error(error))
-    sendGTMEvent({ event: 'click_share_button', value: 'SHARE' })
+    sendGAEvent('event', 'click_share_button', { value: 'SHARE' })
   }
 
   return { ref: setCanvasRef, save, share }

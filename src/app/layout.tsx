@@ -1,4 +1,4 @@
-import { GoogleTagManager } from '@next/third-parties/google'
+import { GoogleAnalytics } from '@next/third-parties/google'
 import type { Metadata } from 'next'
 import { Geist, Geist_Mono, M_PLUS_Rounded_1c } from 'next/font/google'
 import type { ReactNode } from 'react'
@@ -42,7 +42,7 @@ export default function RootLayout({
         {children}
         <Toaster richColors />
       </body>
-      {GTM_ID && <GoogleTagManager gtmId={GTM_ID} />}
+      {GA_ID && <GoogleAnalytics gaId={GA_ID} />}
     </html>
   )
 }
