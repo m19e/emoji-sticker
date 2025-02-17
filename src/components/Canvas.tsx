@@ -8,7 +8,6 @@ import { useCanvasSize } from '@/hooks/useCanvasSize'
 import { BaseImageLayer } from '@/components/layer/BaseImage'
 import { StickerLayer } from '@/components/layer/Sticker'
 
-// TODO コンポーネント分割
 export const Canvas = () => {
   const { ref } = useCanvasData()
   const {
