@@ -36,13 +36,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ja">
-      <head>{GTM_ID && <GoogleTagManager gtmId={GTM_ID} />}</head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${rounded.variable} antialiased`}
       >
         {children}
         <Toaster richColors />
       </body>
+      {GTM_ID && <GoogleTagManager gtmId={GTM_ID} />}
     </html>
   )
 }
