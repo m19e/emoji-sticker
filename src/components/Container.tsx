@@ -3,7 +3,7 @@ import { isBaseImgLoadedAtom } from '@/store/atoms'
 import { useAtomValue } from 'jotai'
 
 import { Canvas } from '@/components/Canvas'
-import { Dropzone } from '@/components/Dropzone'
+import { Unloaded } from '@/components/Unloaded'
 
 export const Container = () => {
   const isLoaded = useAtomValue(isBaseImgLoadedAtom)
@@ -12,5 +12,5 @@ export const Container = () => {
     return <Canvas />
   }
 
-  return <Dropzone />
+  return <Unloaded />
 }
