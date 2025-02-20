@@ -16,6 +16,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 
+// TODO ダークモード対応
 export const ShareButton = ({ disabled }: ButtonProps) => {
   const setOpenDrawer = useSetAtom(isShareDialogOpenAtom)
   const resetSelectedStickerId = useResetAtom(selectedStickerIdAtom)
@@ -32,16 +33,11 @@ export const ShareButton = ({ disabled }: ButtonProps) => {
     return (
       <DropdownMenu onOpenChange={resetSelectedStickerId}>
         <DropdownMenuTrigger asChild>
-          <Button
-            className="text-slate-300"
-            variant="ghost"
-            size="icon"
-            disabled={disabled}
-          >
+          <Button variant="ghost" size="icon" disabled={disabled}>
             <ShareIcon />
           </Button>
         </DropdownMenuTrigger>
-        <DropdownMenuContent className="border-none bg-slate-800 text-slate-300">
+        <DropdownMenuContent>
           <DropdownMenuItem className="justify-between" onClick={save}>
             保存する
             <SaveIcon />
@@ -57,7 +53,6 @@ export const ShareButton = ({ disabled }: ButtonProps) => {
 
   return (
     <Button
-      className="text-slate-300"
       variant="ghost"
       size="icon"
       onClick={handleClick}

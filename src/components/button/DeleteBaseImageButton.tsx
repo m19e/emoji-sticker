@@ -22,6 +22,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 
+// TODO ダークモード対応
 export const DeleteBaseImageButton = ({ disabled }: ButtonProps) => {
   const resetBaseImg = useResetAtom(baseImgUrlAtom)
   const isDesktop = useMedia('(min-width: 640px)')
@@ -35,16 +36,11 @@ export const DeleteBaseImageButton = ({ disabled }: ButtonProps) => {
     return (
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
-          <Button
-            className="text-slate-300"
-            variant="ghost"
-            size="icon"
-            disabled={disabled}
-          >
+          <Button variant="ghost" size="icon" disabled={disabled}>
             <XIcon />
           </Button>
         </DropdownMenuTrigger>
-        <DropdownMenuContent className="border-none bg-slate-800 text-slate-300">
+        <DropdownMenuContent>
           <DropdownMenuItem className="justify-between" onClick={handleClick}>
             画像を削除する
             <Trash2Icon className="ml-4" />
@@ -57,16 +53,11 @@ export const DeleteBaseImageButton = ({ disabled }: ButtonProps) => {
   return (
     <Drawer>
       <DrawerTrigger asChild>
-        <Button
-          className="text-slate-300"
-          variant="ghost"
-          size="icon"
-          disabled={disabled}
-        >
+        <Button variant="ghost" size="icon" disabled={disabled}>
           <XIcon />
         </Button>
       </DrawerTrigger>
-      <DrawerContent className="border-none bg-slate-800">
+      <DrawerContent>
         <DrawerFooter className="pt-4 pb-8">
           <DrawerClose asChild>
             <Button
@@ -80,7 +71,7 @@ export const DeleteBaseImageButton = ({ disabled }: ButtonProps) => {
           </DrawerClose>
           <DrawerClose asChild>
             <Button
-              className="border-none bg-slate-700 px-4 font-bold text-lg text-slate-100"
+              className="px-4 font-bold text-lg"
               size="lg"
               variant="outline"
             >

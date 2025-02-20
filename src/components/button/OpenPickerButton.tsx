@@ -6,6 +6,7 @@ import { isBaseImgLoadedAtom, isPickerOpenAtom } from '@/store/atoms'
 
 import { Button } from '@/components/ui/button'
 
+// TODO ダークモード対応
 export const OpenPickerButton = () => {
   const setOpenPicker = useSetAtom(isPickerOpenAtom)
   const isLoaded = useAtomValue(isBaseImgLoadedAtom)
@@ -16,7 +17,6 @@ export const OpenPickerButton = () => {
 
   return (
     <Button
-      className="text-slate-300"
       variant="ghost"
       size="icon"
       onClick={handleClick}

@@ -11,6 +11,7 @@ import {
 
 import { Button } from '@/components/ui/button'
 
+// TODO ダークモード対応
 export const DeleteEmojiButton = () => {
   const selectedStickerId = useAtomValue(selectedStickerIdAtom)
   const resetSelectedId = useResetAtom(selectedStickerIdAtom)
@@ -27,11 +28,7 @@ export const DeleteEmojiButton = () => {
 
   if (isSelected) {
     return (
-      <Button
-        className="h-10 px-[10px] text-slate-300"
-        variant="ghost"
-        onClick={handleClick}
-      >
+      <Button className="h-10 px-[10px]" variant="ghost" onClick={handleClick}>
         <Trash2Icon />
         <span className="font-bold text-xs">ステッカーを削除</span>
       </Button>
@@ -39,7 +36,7 @@ export const DeleteEmojiButton = () => {
   }
 
   return (
-    <Button className="text-slate-300" variant="ghost" size="icon" disabled>
+    <Button variant="ghost" size="icon" disabled>
       <Trash2Icon />
     </Button>
   )
