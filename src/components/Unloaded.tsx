@@ -6,7 +6,7 @@ import { Dropzone } from '@/components/Dropzone'
 // TODO 各種リンク(SNS, github)
 export const Unloaded = () => {
   return (
-    <div className="h-full w-full">
+    <div className="grid h-full w-full place-items-center">
       <Dropzone />
     </div>
   )
