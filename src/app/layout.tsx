@@ -7,7 +7,6 @@ import { Toaster } from '@/components/ui/sonner'
 import './globals.css'
 
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID || ''
-const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID || ''
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
