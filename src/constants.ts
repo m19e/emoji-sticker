@@ -23,6 +23,8 @@ export const DROPZONE_ACCEPT_FILE = {
   'image/webp': ['.webp'],
 }
 
+export const OUTPUT_MIME_TYPE = 'image/jpeg'
+
 export const ERROR_MESSAGE = {
   windowIsNotDefined: 'Window is not defined',
   urlIsNotDefined: 'Url is not defined',

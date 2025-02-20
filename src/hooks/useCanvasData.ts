@@ -3,11 +3,11 @@ import { useAtom } from 'jotai'
 import type Konva from 'konva'
 import { toast } from 'sonner'
 
+import { OUTPUT_MIME_TYPE } from '@/constants'
 import { useCanvasSize } from '@/hooks/useCanvasSize'
 import { canvasRefAtom } from '@/store/atoms'
 
-// FIXME => constants.ts
-const OUTPUT_MIME_TYPE = 'image/jpeg'
+// FIXME 定数 => constants.ts
 
 type Return = {
   ref: (ref: Konva.Stage) => void
