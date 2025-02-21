@@ -61,7 +61,7 @@ export const DeleteBaseImageButton = ({ disabled }: ButtonProps) => {
         <DrawerFooter className="pt-4 pb-8">
           <DrawerClose asChild>
             <Button
-              className="font-bold text-lg"
+              className="bg-red-700 font-bold text-lg"
               size="lg"
               variant="destructive"
               onClick={handleClick}
