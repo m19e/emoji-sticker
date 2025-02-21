@@ -8,6 +8,8 @@ import { isShareDialogOpenAtom } from '@/store/atoms'
 import { Button } from '@/components/ui/button'
 import { Drawer, DrawerContent, DrawerFooter } from '@/components/ui/drawer'
 
+// TODO discordのドロワー配色を参考に
+// TODO ダークモード対応
 export const ShareDrawer = () => {
   const [open, setOpen] = useAtom(isShareDialogOpenAtom)
   const { save, share } = useCanvasData()
@@ -24,19 +26,21 @@ export const ShareDrawer = () => {
 
   return (
     <Drawer open={open} onOpenChange={setOpen}>
-      <DrawerContent className="border-none bg-slate-800">
+      <DrawerContent>
         <DrawerFooter className="pt-4 pb-8">
           <Button
-            className="flex justify-between border-none bg-slate-700 px-4 font-bold text-lg text-slate-100"
+            className="flex justify-between px-4 font-bold text-lg"
             size="lg"
+            variant="outline"
             onClick={handleSave}
           >
             保存する
             <SaveIcon />
           </Button>
           <Button
-            className="flex justify-between border-none bg-slate-700 px-4 font-bold text-lg text-slate-100"
+            className="flex justify-between px-4 font-bold text-lg"
             size="lg"
+            variant="outline"
             onClick={handleShare}
           >
             共有する
