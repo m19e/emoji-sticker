@@ -22,6 +22,7 @@ const EmojiPicker = dynamic(() => import('emoji-picker-react'), {
   ssr: false,
 })
 
+// TODO ダークモード対応
 export const Picker = () => {
   const setEmojis = useSetAtom(emojiDatasAtom)
   const [open, setOpen] = useAtom(isPickerOpenAtom)
@@ -36,11 +37,9 @@ export const Picker = () => {
 
   return (
     <Drawer open={open} onOpenChange={setOpen}>
-      <DrawerContent className="mx-auto w-full items-center border-none bg-slate-800 sm:w-min">
+      <DrawerContent className="mx-auto w-full items-center sm:w-min">
         <DrawerHeader className="w-96 max-w-full">
-          <DrawerTitle className="text-center text-slate-100">
-            絵文字を選択
-          </DrawerTitle>
+          <DrawerTitle className="text-center">絵文字を選択</DrawerTitle>
         </DrawerHeader>
         <div className="overflow-x-hidden p-4 pt-0">
           <EmojiPicker
