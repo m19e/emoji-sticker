@@ -32,7 +32,7 @@ export const Dropzone = () => {
   return (
     <div
       {...getRootProps()}
-      className="aspect-[2/1] w-2/3 min-w-80 rounded-3xl border border-slate-500 bg-slate-800 p-2 shadow sm:p-4"
+      className="aspect-[2/1] w-2/3 min-w-80 rounded-2xl border border-slate-500 bg-slate-800 p-2 shadow sm:p-4"
     >
       <input {...getInputProps()} />
       <div className="grid h-full w-full place-items-center rounded-xl border-2 border-slate-500 border-dashed">
