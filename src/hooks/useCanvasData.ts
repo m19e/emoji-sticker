@@ -7,17 +7,12 @@ import { OUTPUT_MIME_TYPE } from '@/constants'
 import { useCanvasSize } from '@/hooks/useCanvasSize'
 import { canvasRefAtom } from '@/store/atoms'
 
-// FIXME 定数 => constants.ts
-
 type Return = {
   ref: (ref: Konva.Stage) => void
   save: () => void
   share: () => Promise<void>
 }
 
-// FIXME pixelRatio: 画像が大きくなりすぎる
-// FIXME => 縦横比は正しいがjpeg入力→png出力の場合に圧縮されずに大きくなる
-// FIXME => 出力形式を.jpgに固定
 export const useCanvasData = (): Return => {
   const [canvasRef, setCanvasRef] = useAtom(canvasRefAtom)
   const { pixelRatio } = useCanvasSize()
