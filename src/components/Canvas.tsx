@@ -8,6 +8,7 @@ import { useCanvasSize } from '@/hooks/useCanvasSize'
 import { BaseImageLayer } from '@/components/layer/BaseImage'
 import { StickerLayer } from '@/components/layer/Sticker'
 
+// TODO コンテキストメニューを無効化
 export const Canvas = () => {
   const { ref } = useCanvasData()
   const {
