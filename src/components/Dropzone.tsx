@@ -32,11 +32,11 @@ export const Dropzone = () => {
   return (
     <div
       {...getRootProps()}
-      className="aspect-[2/1] w-2/3 min-w-80 rounded-2xl border border-slate-500 bg-slate-800 p-2 shadow sm:p-4"
+      className="aspect-[2/1] w-2/3 min-w-80 rounded-2xl bg-zinc-600 p-2 shadow sm:p-3"
     >
       <input {...getInputProps()} />
-      <div className="grid h-full w-full place-items-center rounded-xl border-2 border-slate-500 border-dashed">
-        <div className="flex flex-col items-center font-bold text-slate-300">
+      <div className="grid h-full w-full place-items-center rounded-xl border-2 border-zinc-500 border-dashed">
+        <div className="flex flex-col items-center font-bold text-zinc-50">
           <span>タップ / クリック</span>
           <span className="font-medium text-sm">または</span>
           <span>ドロップして画像を追加</span>
