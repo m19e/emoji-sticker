@@ -8,10 +8,10 @@ import { OpenPickerButton } from '@/components/button/OpenPickerButton'
 
 export default function Home() {
   return (
-    <div className="relative flex justify-center bg-slate-600">
-      <main className="flex h-dvh w-full flex-col bg-slate-950 shadow sm:w-[640px]">
+    <div className="relative flex justify-center bg-zinc-800">
+      <main className="flex h-dvh w-full flex-col bg-zinc-900 shadow sm:w-[640px]">
         <Header />
-        <div className="flex h-[calc(100%-72px)] flex-col items-center justify-center overflow-hidden bg-slate-400">
+        <div className="flex h-[calc(100%-72px)] flex-col items-center justify-center overflow-hidden bg-zinc-700 shadow-inner">
           <Container />
           <ShareDrawer />
         </div>
