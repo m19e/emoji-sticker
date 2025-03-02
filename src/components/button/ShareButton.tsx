@@ -37,7 +37,7 @@ export const ShareButton = ({ disabled }: ButtonProps) => {
             <ShareIcon />
           </Button>
         </DropdownMenuTrigger>
-        <DropdownMenuContent>
+        <DropdownMenuContent className="bg-zinc-900">
           <DropdownMenuItem className="justify-between" onClick={save}>
             保存する
             <SaveIcon />

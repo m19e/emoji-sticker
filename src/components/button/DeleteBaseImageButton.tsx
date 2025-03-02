@@ -40,7 +40,7 @@ export const DeleteBaseImageButton = ({ disabled }: ButtonProps) => {
             <XIcon />
           </Button>
         </DropdownMenuTrigger>
-        <DropdownMenuContent>
+        <DropdownMenuContent className="bg-zinc-900">
           <DropdownMenuItem className="justify-between" onClick={handleClick}>
             画像を削除する
             <Trash2Icon className="ml-4" />
