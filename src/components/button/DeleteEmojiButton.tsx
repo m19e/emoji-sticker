@@ -11,6 +11,7 @@ import {
 
 import { Button } from '@/components/ui/button'
 
+// TODO ちゃんと選択状態でdisabledする
 export const DeleteEmojiButton = () => {
   const selectedStickerId = useAtomValue(selectedStickerIdAtom)
   const resetSelectedId = useResetAtom(selectedStickerIdAtom)
@@ -25,18 +26,17 @@ export const DeleteEmojiButton = () => {
 
   const isSelected = selectedStickerId !== null
 
-  if (isSelected) {
-    return (
-      <Button className="h-10 px-[10px]" variant="ghost" onClick={handleClick}>
-        <Trash2Icon />
-        <span className="font-bold text-xs">ステッカーを削除</span>
-      </Button>
-    )
-  }
-
   return (
-    <Button variant="ghost" size="icon" disabled>
+    <Button
+      className="h-10 px-[10px]"
+      variant="ghost"
+      onClick={handleClick}
+      disabled={!isSelected}
+    >
       <Trash2Icon />
+      {isSelected && (
+        <span className="font-bold text-xs">ステッカーを削除</span>
+      )}
     </Button>
   )
 }
