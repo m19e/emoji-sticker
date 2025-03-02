@@ -29,7 +29,7 @@ export const ShareDrawer = () => {
       <DrawerContent>
         <DrawerFooter className="pt-4 pb-8">
           <Button
-            className="flex justify-between px-4 font-bold text-lg"
+            className="flex justify-between bg-zinc-700 px-4 font-bold text-lg"
             size="lg"
             variant="outline"
             onClick={handleSave}
@@ -38,7 +38,7 @@ export const ShareDrawer = () => {
             <SaveIcon />
           </Button>
           <Button
-            className="flex justify-between px-4 font-bold text-lg"
+            className="flex justify-between bg-zinc-700 px-4 font-bold text-lg"
             size="lg"
             variant="outline"
             onClick={handleShare}
