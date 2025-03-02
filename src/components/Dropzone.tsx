@@ -33,10 +33,10 @@ export const Dropzone = () => {
   return (
     <div
       {...getRootProps()}
-      className="aspect-[2/1] w-2/3 min-w-80 rounded-2xl bg-zinc-600 p-2 shadow sm:p-3"
+      className="aspect-[2/1] w-2/3 min-w-80 rounded-2xl bg-zinc-500 p-2 shadow sm:p-3"
     >
       <input {...getInputProps()} />
-      <div className="grid h-full w-full place-items-center rounded-xl border-2 border-zinc-500 border-dashed">
+      <div className="grid h-full w-full place-items-center rounded-xl border-2 border-zinc-400 border-dashed">
         <div className="flex flex-col items-center font-bold text-zinc-50">
           <span>タップ / クリック</span>
           <span className="font-medium text-sm">または</span>
