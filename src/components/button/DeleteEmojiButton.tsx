@@ -11,7 +11,6 @@ import {
 
 import { Button } from '@/components/ui/button'
 
-// TODO ちゃんと選択状態でdisabledする
 export const DeleteEmojiButton = () => {
   const selectedStickerId = useAtomValue(selectedStickerIdAtom)
   const resetSelectedId = useResetAtom(selectedStickerIdAtom)

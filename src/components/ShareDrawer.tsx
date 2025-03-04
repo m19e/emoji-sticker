@@ -8,8 +8,6 @@ import { isShareDialogOpenAtom } from '@/store/atoms'
 import { Button } from '@/components/ui/button'
 import { Drawer, DrawerContent, DrawerFooter } from '@/components/ui/drawer'
 
-// TODO discordのドロワー配色を参考に
-// TODO ダークモード対応
 export const ShareDrawer = () => {
   const [open, setOpen] = useAtom(isShareDialogOpenAtom)
   const { save, share } = useCanvasData()

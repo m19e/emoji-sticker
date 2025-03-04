@@ -7,7 +7,6 @@ import { DROPZONE_ACCEPT_FILE } from '@/constants'
 import { baseImgUrlAtom } from '@/store/atoms'
 import { revokeEffect } from '@/store/effects'
 
-// TODO ダークモード対応
 // TODO FixUI
 // TODO discordのdropzoneを参考にアイコンを配置
 export const Dropzone = () => {
