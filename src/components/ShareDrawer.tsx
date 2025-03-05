@@ -8,6 +8,7 @@ import { isShareDialogOpenAtom } from '@/store/atoms'
 import { Button } from '@/components/ui/button'
 import { Drawer, DrawerContent, DrawerFooter } from '@/components/ui/drawer'
 
+// TODO header, descを.sr-only
 export const ShareDrawer = () => {
   const [open, setOpen] = useAtom(isShareDialogOpenAtom)
   const { save, share } = useCanvasData()
