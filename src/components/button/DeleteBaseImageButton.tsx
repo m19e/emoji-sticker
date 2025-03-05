@@ -69,9 +69,9 @@ export const DeleteBaseImageButton = ({ disabled }: ButtonProps) => {
         <DrawerFooter className="pt-4 pb-8">
           <DrawerClose asChild>
             <Button
-              className="bg-zinc-700 font-bold text-lg text-red-500 hover:text-red-600"
+              className="bg-red-700 font-bold text-lg"
               size="lg"
-              variant="outline"
+              variant="destructive"
               onClick={handleClick}
             >
               画像を削除する
@@ -79,7 +79,7 @@ export const DeleteBaseImageButton = ({ disabled }: ButtonProps) => {
           </DrawerClose>
           <DrawerClose asChild>
             <Button
-              className="bg-zinc-700 px-4 font-bold text-lg"
+              className="bg-zinc-700 font-bold text-lg"
               size="lg"
               variant="outline"
             >
