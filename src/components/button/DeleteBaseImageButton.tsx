@@ -1,9 +1,9 @@
 'use client'
 import { useResetAtom } from 'jotai/utils'
 import { Trash2Icon, XIcon } from 'lucide-react'
-import { useMedia } from 'react-use'
 import { toast } from 'sonner'
 
+import { useMediaQuery } from '@/hooks/useMediaQuery'
 import { baseImgUrlAtom } from '@/store/atoms'
 import type { ButtonProps } from '@/types'
 
@@ -23,9 +23,10 @@ import {
 } from '@/components/ui/dropdown-menu'
 
 // TODO header, descを.sr-only
+// TODO 共通化したhooksで置換
 export const DeleteBaseImageButton = ({ disabled }: ButtonProps) => {
   const resetBaseImg = useResetAtom(baseImgUrlAtom)
-  const isDesktop = useMedia('(min-width: 640px)')
+  const { isDesktop } = useMediaQuery()
 
   const handleClick = () => {
     resetBaseImg()
