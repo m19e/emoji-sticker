@@ -6,9 +6,16 @@ import { useCanvasData } from '@/hooks/useCanvasData'
 import { isShareDialogOpenAtom } from '@/store/atoms'
 
 import { Button } from '@/components/ui/button'
-import { Drawer, DrawerContent, DrawerFooter } from '@/components/ui/drawer'
+import {
+  Drawer,
+  DrawerContent,
+  DrawerDescription,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerTitle,
+} from '@/components/ui/drawer'
 
-// TODO header, descを.sr-only
+// TODO Headerを.sr-only
 export const ShareDrawer = () => {
   const [open, setOpen] = useAtom(isShareDialogOpenAtom)
   const { save, share } = useCanvasData()
@@ -26,6 +33,12 @@ export const ShareDrawer = () => {
   return (
     <Drawer open={open} onOpenChange={setOpen}>
       <DrawerContent>
+        <DrawerHeader className="sr-only">
+          <DrawerTitle>編集した画像を共有する</DrawerTitle>
+          <DrawerDescription>
+            編集した画像を保存・共有できます
+          </DrawerDescription>
+        </DrawerHeader>
         <DrawerFooter className="pt-4 pb-8">
           <Button
             className="flex justify-between bg-zinc-700 px-4 font-bold text-lg"

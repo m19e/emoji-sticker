@@ -12,7 +12,10 @@ import {
   Drawer,
   DrawerClose,
   DrawerContent,
+  DrawerDescription,
   DrawerFooter,
+  DrawerHeader,
+  DrawerTitle,
   DrawerTrigger,
 } from '@/components/ui/drawer'
 import {
@@ -22,7 +25,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 
-// TODO header, descを.sr-only
+// TODO Headerを.sr-only
 // TODO 共通化したhooksで置換
 export const DeleteBaseImageButton = ({ disabled }: ButtonProps) => {
   const resetBaseImg = useResetAtom(baseImgUrlAtom)
@@ -59,6 +62,10 @@ export const DeleteBaseImageButton = ({ disabled }: ButtonProps) => {
         </Button>
       </DrawerTrigger>
       <DrawerContent>
+        <DrawerHeader className="sr-only">
+          <DrawerTitle>画像を削除する</DrawerTitle>
+          <DrawerDescription>読み込んだ画像を削除しますか？</DrawerDescription>
+        </DrawerHeader>
         <DrawerFooter className="pt-4 pb-8">
           <DrawerClose asChild>
             <Button
