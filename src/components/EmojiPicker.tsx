@@ -23,7 +23,6 @@ const EmojiPicker = dynamic(() => import('emoji-picker-react'), {
   ssr: false,
 })
 
-// TODO SR-only drawer description
 // TODO ピッカーの初期絵文字にマイナス配置
 export const Picker = () => {
   const setEmojis = useSetAtom(emojiDatasAtom)

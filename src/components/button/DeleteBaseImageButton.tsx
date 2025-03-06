@@ -25,8 +25,6 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 
-// TODO Headerを.sr-only
-// TODO 共通化したhooksで置換
 export const DeleteBaseImageButton = ({ disabled }: ButtonProps) => {
   const resetBaseImg = useResetAtom(baseImgUrlAtom)
   const { isDesktop } = useMediaQuery()

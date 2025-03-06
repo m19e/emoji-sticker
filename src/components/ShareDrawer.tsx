@@ -15,7 +15,6 @@ import {
   DrawerTitle,
 } from '@/components/ui/drawer'
 
-// TODO Headerを.sr-only
 export const ShareDrawer = () => {
   const [open, setOpen] = useAtom(isShareDialogOpenAtom)
   const { save, share } = useCanvasData()
