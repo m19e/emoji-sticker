@@ -14,6 +14,7 @@ import {
 import {
   Drawer,
   DrawerContent,
+  DrawerDescription,
   DrawerHeader,
   DrawerTitle,
 } from '@/components/ui/drawer'
@@ -22,6 +23,8 @@ const EmojiPicker = dynamic(() => import('emoji-picker-react'), {
   ssr: false,
 })
 
+// TODO SR-only drawer description
+// TODO ピッカーの初期絵文字にマイナス配置
 export const Picker = () => {
   const setEmojis = useSetAtom(emojiDatasAtom)
   const [open, setOpen] = useAtom(isPickerOpenAtom)
@@ -39,6 +42,9 @@ export const Picker = () => {
       <DrawerContent className="mx-auto w-full items-center sm:w-min">
         <DrawerHeader className="w-96 max-w-full">
           <DrawerTitle className="text-center">絵文字を選択</DrawerTitle>
+          <DrawerDescription className="sr-only">
+            画像に貼りつける絵文字を選択してください
+          </DrawerDescription>
         </DrawerHeader>
         <div className="overflow-x-hidden p-4 pt-0">
           <EmojiPicker
