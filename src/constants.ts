@@ -4,6 +4,7 @@ import { getSvgUrl } from '@/tools'
 
 export const EPR_CATEGORIES_JA = [
   { category: Categories.SUGGESTED, name: 'よく使う絵文字' },
+  { category: Categories.CUSTOM, name: '情報を隠す' },
   { category: Categories.SMILEYS_PEOPLE, name: 'スマイリーと人' },
   { category: Categories.ANIMALS_NATURE, name: '動物と自然' },
   { category: Categories.FOOD_DRINK, name: 'フードとドリンク' },

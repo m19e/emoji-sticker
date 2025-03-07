@@ -4,7 +4,14 @@ import { useAtom, useSetAtom } from 'jotai'
 import dynamic from 'next/dynamic'
 import { v4 } from 'uuid'
 
-import { DEFAULT_PREVIEW_CONFIG, EPR_CATEGORIES_JA } from '@/constants'
+import {
+  CUSTOM_EMOJIS,
+  DEFAULT_PREVIEW_CONFIG,
+  EPR_CATEGORIES_JA,
+  HIDDEN_EMOJIS,
+  type HIDDEN_EMOJIS_ID,
+  HIDDEN_EMOJIS_UNICODE,
+} from '@/constants'
 import {
   emojiDatasAtom,
   isPickerOpenAtom,
@@ -31,10 +38,16 @@ export const Picker = () => {
   const [open, setOpen] = useAtom(isPickerOpenAtom)
   const setSelectedStickerId = useSetAtom(selectedStickerIdAtom)
 
-  const handleClick = ({ unifiedWithoutSkinTone }: EmojiClickData) => {
+  const handleClick = (data: EmojiClickData) => {
+    // TODO Remove debug print
+    console.log(data)
+
+    const { isCustom, unified } = data
+    const u = isCustom ? HIDDEN_EMOJIS[unified as HIDDEN_EMOJIS_ID] : unified
+
     const id = v4()
     setSelectedStickerId(id)
-    setEmojis((prev) => [...prev, { id, u: unifiedWithoutSkinTone }])
+    setEmojis((prev) => [...prev, { id, u }])
     setOpen(false)
   }
 
@@ -50,10 +63,12 @@ export const Picker = () => {
         <div className="w-96 max-w-full overflow-x-hidden p-4">
           <EmojiPicker
             className="!flex"
+            theme={Theme.DARK}
             emojiStyle={EmojiStyle.TWITTER}
             categories={EPR_CATEGORIES_JA}
             previewConfig={DEFAULT_PREVIEW_CONFIG}
-            theme={Theme.DARK}
+            hiddenEmojis={HIDDEN_EMOJIS_UNICODE}
+            customEmojis={CUSTOM_EMOJIS}
             skinTonesDisabled
             autoFocusSearch={false}
             searchPlaceholder="検索"
