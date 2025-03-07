@@ -41,13 +41,13 @@ export const Picker = () => {
   return (
     <Drawer open={open} onOpenChange={setOpen}>
       <DrawerContent className="mx-auto w-full items-center sm:w-min">
-        <DrawerHeader className="w-96 max-w-full">
-          <DrawerTitle className="text-center">絵文字を選択</DrawerTitle>
-          <DrawerDescription className="sr-only">
+        <DrawerHeader className="sr-only">
+          <DrawerTitle>絵文字を選択</DrawerTitle>
+          <DrawerDescription>
             画像に貼りつける絵文字を選択してください
           </DrawerDescription>
         </DrawerHeader>
-        <div className="overflow-x-hidden p-4 pt-0">
+        <div className="overflow-x-hidden p-4">
           <EmojiPicker
             className="!flex"
             emojiStyle={EmojiStyle.TWITTER}
