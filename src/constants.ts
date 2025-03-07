@@ -1,7 +1,7 @@
+import { getSvgUrl } from '@/tools'
 import { Categories } from 'emoji-picker-react'
 
-import { getSvgUrl } from '@/tools'
-
+// Emoji Picker
 export const EPR_CATEGORIES_JA = [
   { category: Categories.SUGGESTED, name: 'よく使う絵文字' },
   { category: Categories.CUSTOM, name: '情報を隠す' },
@@ -21,61 +21,59 @@ export const DEFAULT_PREVIEW_CONFIG = {
 }
 
 export const HIDDEN_EMOJIS = {
-  minus: '2796',
-  open_hands: '1f450',
+  two_hearts: '1f495',
   innocent: '1f607',
+  open_hands: '1f450',
   sunglasses: '1f60e',
   hundred: '1f4af',
+  heart_eyes: '1f60d',
   earth_asia: '1f30f',
+  see_no_evil: '1f648',
+  minus: '2796',
+  thumbsup: '1f44d',
 } as const
 
 export type HIDDEN_EMOJIS_ID = keyof typeof HIDDEN_EMOJIS
 
 export const HIDDEN_EMOJIS_UNICODE = Object.values(HIDDEN_EMOJIS)
 
+export const CUSTOM_EMOJIS_NAMES: { [id in HIDDEN_EMOJIS_ID]: string[] } = {
+  two_hearts: ['two hearts'],
+  innocent: ['innocent', 'smiling face with halo'],
+  open_hands: ['open hands', 'open hands sign'],
+  sunglasses: ['sunglasses', 'smiling face with sunglasses'],
+  hundred: ['100', 'hundred points symbol'],
+  heart_eyes: ['heart eyes', 'smiling face with heart-shaped eyes'],
+  earth_asia: ['earth asia', 'earth globe asia-australia'],
+  see_no_evil: ['see no evil', 'see-no-evil monkey'],
+  minus: ['heavy minus sign'],
+  thumbsup: ['+1', 'thumbsup', 'thumbs up sign'],
+}
+
+const CUSTOM_EMOJIS_IDS: HIDDEN_EMOJIS_ID[] = [
+  'two_hearts', // 💕
+  'innocent', // 😇
+  'open_hands', // 👐
+  'sunglasses', // 😎
+  'hundred', // 💯
+  'heart_eyes', // 😍
+  'earth_asia', // 🌏
+  'see_no_evil', // 🙈
+  'minus', // ➖
+  'thumbsup', // 👍
+]
+
 export const CUSTOM_EMOJIS: {
   id: HIDDEN_EMOJIS_ID
   names: string[]
   imgUrl: string
-}[] = [
-  {
-    // ➖
-    id: 'minus',
-    names: ['heavy minus sign', 'hide'],
-    imgUrl: getSvgUrl(HIDDEN_EMOJIS.minus),
-  },
-  {
-    // 👐
-    id: 'open_hands',
-    names: ['open hands', 'open hands sign', 'hide'],
-    imgUrl: getSvgUrl(HIDDEN_EMOJIS.open_hands),
-  },
-  {
-    // 😇
-    id: 'innocent',
-    names: ['innocent', 'smiling face with halo', 'hide'],
-    imgUrl: getSvgUrl(HIDDEN_EMOJIS.innocent),
-  },
-  {
-    // 😎
-    id: 'sunglasses',
-    names: ['sunglasses', 'smiling face with sunglasses', 'hide'],
-    imgUrl: getSvgUrl(HIDDEN_EMOJIS.sunglasses),
-  },
-  {
-    // 💯
-    id: 'hundred',
-    names: ['100', 'hundred points symbol', 'hide'],
-    imgUrl: getSvgUrl(HIDDEN_EMOJIS.hundred),
-  },
-  {
-    // 🌏
-    id: 'earth_asia',
-    names: ['earth asia', 'earth globe asia-australia', 'hide'],
-    imgUrl: getSvgUrl(HIDDEN_EMOJIS.earth_asia),
-  },
-] as const
+}[] = CUSTOM_EMOJIS_IDS.map((id) => ({
+  id,
+  names: [...CUSTOM_EMOJIS_NAMES[id], 'hide'],
+  imgUrl: getSvgUrl(HIDDEN_EMOJIS[id]),
+}))
 
+// Dropzone
 export const DROPZONE_ACCEPT_FILE = {
   'image/png': ['.png'],
   'image/jpeg': ['.jpeg', '.jpg'],
