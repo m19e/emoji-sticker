@@ -1,5 +1,5 @@
 'use client'
-import { type EmojiClickData, EmojiStyle } from 'emoji-picker-react'
+import { type EmojiClickData, EmojiStyle, Theme } from 'emoji-picker-react'
 import { useAtom, useSetAtom } from 'jotai'
 import dynamic from 'next/dynamic'
 import { v4 } from 'uuid'
@@ -24,6 +24,8 @@ const EmojiPicker = dynamic(() => import('emoji-picker-react'), {
 })
 
 // TODO ピッカーの初期絵文字にマイナス配置
+// TODO ダークモード
+// TODO DrawerTitle .sr-only
 export const Picker = () => {
   const setEmojis = useSetAtom(emojiDatasAtom)
   const [open, setOpen] = useAtom(isPickerOpenAtom)
@@ -51,6 +53,7 @@ export const Picker = () => {
             emojiStyle={EmojiStyle.TWITTER}
             categories={EPR_CATEGORIES_JA}
             previewConfig={DEFAULT_PREVIEW_CONFIG}
+            theme={Theme.DARK}
             skinTonesDisabled
             autoFocusSearch={false}
             searchPlaceholder="検索"
