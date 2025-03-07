@@ -22,7 +22,7 @@ const rounded = M_PLUS_Rounded_1c({
   weight: ['400', '700'],
 })
 
-// TODO メタデータ設定
+// TODO メタデータ設定(文字隠しってマイナス記号らしい)
 export const metadata: Metadata = {
   title: '絵文字ステッカー！|画像に絵文字を貼るアプリ',
   description:
