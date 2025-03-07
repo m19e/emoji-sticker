@@ -47,7 +47,7 @@ export const Picker = () => {
             画像に貼りつける絵文字を選択してください
           </DrawerDescription>
         </DrawerHeader>
-        <div className="overflow-x-hidden p-4">
+        <div className="w-96 max-w-full overflow-x-hidden p-4">
           <EmojiPicker
             className="!flex"
             emojiStyle={EmojiStyle.TWITTER}
