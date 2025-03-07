@@ -71,7 +71,7 @@ export const Picker = () => {
             customEmojis={CUSTOM_EMOJIS}
             skinTonesDisabled
             autoFocusSearch={false}
-            searchPlaceholder="検索"
+            searchPlaceholder="絵文字を検索"
             onEmojiClick={handleClick}
           />
         </div>
