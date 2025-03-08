@@ -30,17 +30,31 @@ const EmojiPicker = dynamic(() => import('emoji-picker-react'), {
   ssr: false,
 })
 
-// TODO ピッカーの初期絵文字にマイナス配置
-// TODO ダークモード
-// TODO DrawerTitle .sr-only
 export const Picker = () => {
   const setEmojis = useSetAtom(emojiDatasAtom)
   const [open, setOpen] = useAtom(isPickerOpenAtom)
   const setSelectedStickerId = useSetAtom(selectedStickerIdAtom)
 
   const handleClick = (data: EmojiClickData) => {
-    // TODO Remove debug print
-    console.log(data)
+    if (!data.isCustom) {
+      // TODO Remove debug print
+      const name = data.names[0].split(' ').join('_')
+      console.log(
+        JSON.stringify(
+          [
+            {
+              [name]: data.unified,
+            },
+            {
+              names: data.names,
+            },
+            [name, `// ${data.emoji}`],
+          ],
+          null,
+          2,
+        ),
+      )
+    }
 
     const { isCustom, unified } = data
     const u = isCustom ? HIDDEN_EMOJIS[unified as HIDDEN_EMOJIS_ID] : unified
