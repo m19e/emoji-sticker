@@ -56,6 +56,7 @@ export const useCanvasData = (): Return => {
     )
   }
 
+  // TODO サポートされていなかった場合のToast
   const share = async () => {
     if (!isSupported()) {
       return
