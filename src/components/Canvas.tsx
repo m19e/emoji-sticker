@@ -23,6 +23,7 @@ export const Canvas = () => {
       height={height}
       scaleX={width / imgSize.width}
       scaleY={height / imgSize.height}
+      onContextMenu={(ke) => ke.evt.preventDefault()}
     >
       <BaseImageLayer />
       <StickerLayer img={imgSize} />
