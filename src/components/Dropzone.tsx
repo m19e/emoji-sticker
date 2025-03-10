@@ -1,5 +1,6 @@
 'use client'
 import { useAtom, useSetAtom } from 'jotai'
+import { FileImageIcon } from 'lucide-react'
 import { useCallback } from 'react'
 import { useDropzone } from 'react-dropzone'
 
@@ -32,13 +33,17 @@ export const Dropzone = () => {
   return (
     <div
       {...getRootProps()}
-      className="aspect-[2/1] w-2/3 min-w-80 rounded-2xl bg-zinc-500 p-2 shadow sm:p-3"
+      className="relative aspect-[2/1] w-2/3 min-w-80 rounded-2xl bg-zinc-500 p-2 shadow sm:p-3"
     >
       <input {...getInputProps()} />
-      <div className="grid h-full w-full place-items-center rounded-xl border-2 border-zinc-400 border-dashed">
-        <div className="flex flex-col items-center font-bold text-zinc-50">
+      <div className="h-full w-full rounded-xl border-2 border-zinc-400 border-dashed" />
+      <div className="absolute bottom-0 left-0 flex aspect-[3/2] w-full flex-col items-center justify-between gap-2 py-4 sm:gap-4 sm:py-7">
+        <div className="grid size-24 place-items-center rounded-lg bg-zinc-300 p-2 shadow sm:size-32">
+          <FileImageIcon className="size-16 text-zinc-600 sm:size-24" />
+        </div>
+        <div className="flex flex-col items-center font-bold text-zinc-50 sm:text-lg">
           <span>タップ / クリック</span>
-          <span className="font-medium text-sm">または</span>
+          <span className="font-medium text-sm sm:text-base">または</span>
           <span>ドロップして画像を追加</span>
         </div>
       </div>
