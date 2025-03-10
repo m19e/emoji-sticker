@@ -37,7 +37,7 @@ export const Dropzone = () => {
     >
       <input {...getInputProps()} />
       <div className="h-full w-full rounded-xl border-2 border-zinc-400 border-dashed" />
-      <div className="absolute bottom-0 left-0 flex aspect-[3/2] w-full flex-col items-center justify-between gap-2 py-4 sm:gap-4 sm:py-7">
+      <div className="absolute bottom-0 left-0 flex aspect-[3/2] w-full flex-col items-center justify-between py-5 sm:gap-4 sm:py-7">
         <div className="grid size-24 place-items-center rounded-lg bg-zinc-300 p-2 shadow sm:size-32">
           <FileImageIcon className="size-16 text-zinc-600 sm:size-24" />
         </div>
