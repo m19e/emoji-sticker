@@ -11,7 +11,7 @@ export default function Home() {
     <div className="relative flex justify-center bg-zinc-800">
       <main className="flex h-dvh w-full flex-col bg-zinc-900 shadow sm:w-[640px]">
         <Header />
-        <div className="flex h-[calc(100%-72px)] flex-col items-center justify-center overflow-hidden bg-zinc-600 shadow-inner">
+        <div className="canvas-section">
           <Container />
           <ShareDrawer />
         </div>
