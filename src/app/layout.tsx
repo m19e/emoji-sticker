@@ -22,11 +22,11 @@ const rounded = M_PLUS_Rounded_1c({
   weight: ['400', '700'],
 })
 
-// TODO メタデータ設定(文字隠しってマイナス記号らしい)
+// TODO メタデータ設定
 export const metadata: Metadata = {
   title: '絵文字ステッカー！ | 画像に絵文字を貼るアプリ',
   description:
-    '「絵文字ステッカー！」は画像に絵文字を貼りつけたり情報を隠すことができる無料のWebアプリです。',
+    '「絵文字ステッカー！」は画像に絵文字を貼りつけたり情報を隠すことができる無料の画像編集アプリです。',
 }
 
 // TODO vercel analytics
