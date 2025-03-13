@@ -1,4 +1,4 @@
-'use client'
+import { Contact } from '@/components/Contact'
 import { Dropzone } from '@/components/Dropzone'
 
 // TODO アプリのロゴ,フォント決め
@@ -6,8 +6,10 @@ import { Dropzone } from '@/components/Dropzone'
 // TODO 各種リンク(SNS, github)
 export const Unloaded = () => {
   return (
-    <div className="grid h-full w-full place-items-center">
+    <div className="grid h-full w-full place-items-center py-4">
+      <div />
       <Dropzone />
+      <Contact />
     </div>
   )
 }
