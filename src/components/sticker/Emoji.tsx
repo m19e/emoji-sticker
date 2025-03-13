@@ -3,8 +3,7 @@ import type Konva from 'konva'
 import { useEffect, useRef } from 'react'
 import { Image, Transformer } from 'react-konva'
 
-import { useAnonymousImage } from '@/hooks/useAnonymousImage'
-import { getSvgUrl } from '@/tools'
+import { useEmojiImage } from '@/hooks/useEmojiImage'
 import type { StickerProps } from '@/types'
 
 type Props = {
@@ -12,17 +11,20 @@ type Props = {
    * Unicode point for Emoji.
    */
   u: string
+  fallback: string
 } & StickerProps
 
+// FIXME 絵文字のunicodeポイントにハイフンが入る場合、画像が表示されない
 export const Emoji = ({
   u,
+  fallback,
   selected,
   onSelect,
   position,
   size,
   isDesktop,
 }: Props) => {
-  const [image] = useAnonymousImage(getSvgUrl(u))
+  const { image } = useEmojiImage({ u, fallback })
   const transformerRef = useRef<Konva.Transformer>(null)
   const imageRef = useRef<Konva.Image>(null)
 

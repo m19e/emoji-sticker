@@ -47,10 +47,11 @@ export const StickerLayer = ({ img }: Props) => {
           isDesktop={isDesktop}
         />
       ))}
-      {emojis.map(({ id, u }) => (
+      {emojis.map(({ id, u, fallback }) => (
         <Emoji
           key={id}
           u={u}
+          fallback={fallback}
           selected={selectedStickerId === id}
           onSelect={() => handleSelect(id)}
           position={initialPosition}

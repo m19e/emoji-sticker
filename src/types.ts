@@ -11,6 +11,7 @@ export type UseImageSizeResult = [
 export type EmojiData = {
   id: string
   u: string
+  fallback: string
 }
 
 export type ButtonProps = {

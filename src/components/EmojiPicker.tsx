@@ -17,6 +17,7 @@ import {
   isPickerOpenAtom,
   selectedStickerIdAtom,
 } from '@/store/atoms'
+import { convertToValidTwemojiCodepoint } from '@/tools'
 
 import {
   Drawer,
@@ -56,12 +57,14 @@ export const Picker = () => {
       )
     }
 
-    const { isCustom, unified } = data
-    const u = isCustom ? HIDDEN_EMOJIS[unified as HIDDEN_EMOJIS_ID] : unified
+    const { isCustom, unified, imageUrl: fallback } = data
+    const u = isCustom
+      ? HIDDEN_EMOJIS[unified as HIDDEN_EMOJIS_ID]
+      : convertToValidTwemojiCodepoint(unified)
 
     const id = v4()
     setSelectedStickerId(id)
-    setEmojis((prev) => [...prev, { id, u }])
+    setEmojis((prev) => [...prev, { id, u, fallback }])
     setOpen(false)
   }
 
