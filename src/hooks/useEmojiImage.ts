@@ -1,11 +1,12 @@
 import { useAnonymousImage } from '@/hooks/useAnonymousImage'
 import { getSvgUrl } from '@/tools'
 
-// TODO props type
-export const useEmojiImage = ({
-  u,
-  fallback,
-}: { u: string; fallback: string }) => {
+type Args = {
+  u: string
+  fallback: string
+}
+
+export const useEmojiImage = ({ u, fallback }: Args) => {
   const [image, status] = useAnonymousImage(getSvgUrl(u))
   const [fallbackImage] = useAnonymousImage(fallback)
 

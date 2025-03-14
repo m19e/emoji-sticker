@@ -14,7 +14,7 @@ type Props = {
   fallback: string
 } & StickerProps
 
-// FIXME 絵文字のunicodeポイントにハイフンが入る場合、画像が表示されない
+// FIXME 一部絵文字のunicodeポイントとtwemojiのコードポイントが一致せず、画像が取得できない
 export const Emoji = ({
   u,
   fallback,
