@@ -14,7 +14,6 @@ type Props = {
   fallback: string
 } & StickerProps
 
-// FIXME 一部絵文字のunicodeポイントとtwemojiのコードポイントが一致せず、画像が取得できない
 export const Emoji = ({
   u,
   fallback,
