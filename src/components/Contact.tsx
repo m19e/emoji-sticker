@@ -1,6 +1,5 @@
 import { Separator } from '@/components/ui/separator'
 
-// TODO リンクwithアイコン
 export const Contact = () => {
   return (
     <div className="flex gap-2 p-1 text-sm text-zinc-200">
