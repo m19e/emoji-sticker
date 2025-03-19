@@ -82,9 +82,10 @@ export const DROPZONE_ACCEPT_FILE = {
 
 export const OUTPUT_MIME_TYPE = 'image/jpeg'
 
+// FIXME SNAKE_CASE
 export const ERROR_MESSAGE = {
-  windowIsNotDefined: 'Window is not defined',
-  urlIsNotDefined: 'Url is not defined',
+  WINDOW_IS_NOT_DEFINED: 'Window is not defined',
+  URL_IS_NOT_DEFINED: 'Url is not defined',
 } as const
 
 export const INITIAL_DIMENSIONS = {

@@ -6,10 +6,10 @@ import type { Dimensions, UseImageSizeResult } from '@/types'
 const getImageSize = (url: string | null): Promise<Dimensions> => {
   return new Promise((resolve, reject) => {
     if (typeof window === 'undefined') {
-      return reject(ERROR_MESSAGE.windowIsNotDefined)
+      return reject(ERROR_MESSAGE.WINDOW_IS_NOT_DEFINED)
     }
     if (!url) {
-      return reject(ERROR_MESSAGE.urlIsNotDefined)
+      return reject(ERROR_MESSAGE.URL_IS_NOT_DEFINED)
     }
 
     const img = new Image()
