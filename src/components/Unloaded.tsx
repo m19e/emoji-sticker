@@ -2,6 +2,9 @@ import { Contact } from '@/components/Contact'
 import { Dropzone } from '@/components/Dropzone'
 
 // TODO アプリのロゴ,フォント決め
+// 絵文字
+// ステッカー！
+// みたいなロゴ
 // TODO 免責事項
 export const Unloaded = () => {
   return (
