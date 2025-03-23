@@ -71,6 +71,7 @@ export default {
       },
       fontFamily: {
         rounded: ['var(--font-rounded)'],
+        rampart: ['var(--font-rampart)'],
       },
     },
   },

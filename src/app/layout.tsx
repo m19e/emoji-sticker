@@ -1,6 +1,11 @@
 import { GoogleAnalytics } from '@next/third-parties/google'
 import type { Metadata } from 'next'
-import { Geist, Geist_Mono, M_PLUS_Rounded_1c } from 'next/font/google'
+import {
+  Geist,
+  Geist_Mono,
+  M_PLUS_Rounded_1c,
+  Rampart_One,
+} from 'next/font/google'
 import type { ReactNode } from 'react'
 
 import { Toaster } from '@/components/ui/sonner'
@@ -21,6 +26,11 @@ const rounded = M_PLUS_Rounded_1c({
   variable: '--font-rounded',
   weight: ['400', '700'],
 })
+const rampart = Rampart_One({
+  subsets: ['latin'],
+  variable: '--font-rampart',
+  weight: ['400'],
+})
 
 // TODO メタデータ設定
 export const metadata: Metadata = {
@@ -38,7 +48,7 @@ export default function RootLayout({
   return (
     <html lang="ja" className="dark">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${rounded.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${rounded.variable} ${rampart.variable} antialiased`}
       >
         {children}
         <Toaster richColors />
