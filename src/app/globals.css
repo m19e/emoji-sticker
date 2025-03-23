@@ -75,3 +75,7 @@ body {
 .canvas-section {
   @apply flex h-[calc(100%-72px)] flex-col items-center justify-center overflow-hidden bg-zinc-600 shadow-inner
 }
+
+.logo > span {
+  @apply !font-rampart;
+}
