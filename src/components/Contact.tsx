@@ -2,7 +2,7 @@ import { Separator } from '@/components/ui/separator'
 
 export const Contact = () => {
   return (
-    <div className="flex gap-2 p-1 text-xs text-zinc-200 sm:text-sm">
+    <div className="flex gap-2 p-1 text-sm text-zinc-200">
       <span>©2025</span>
       <span>m19e</span>
       <Separator
