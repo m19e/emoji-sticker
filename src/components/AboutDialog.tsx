@@ -34,7 +34,7 @@ export const AboutDialog = () => {
         </DialogDescription>
         <DialogDescription>※画像データの取り扱いについて</DialogDescription>
         <DialogDescription>
-          このアプリは画像編集を利用者の端末内ブラウザ内でのみ行っており、読み込んだ画像を外部に送信することはありません。画像の内容がサーバーに保存されたり、外部に漏洩する心配はありません。
+          このアプリは画像編集処理を利用者の端末内でのみ行っており、読み込んだ画像を外部に送信することはありません。画像の内容がサーバーに保存されたり、外部に漏洩する心配はありません。
         </DialogDescription>
       </DialogContent>
     </Dialog>
