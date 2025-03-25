@@ -2,7 +2,6 @@
 import { InfoIcon } from 'lucide-react'
 import { useState } from 'react'
 
-import { Logo } from '@/components/Logo'
 import { Button } from '@/components/ui/button'
 import {
   Dialog,
@@ -12,6 +11,8 @@ import {
   DialogTitle,
   DialogTrigger,
 } from '@/components/ui/dialog'
+
+import { Logo } from '@/components/Logo'
 
 // TODO 免責事項はAccordionで
 export const AboutDialog = () => {
