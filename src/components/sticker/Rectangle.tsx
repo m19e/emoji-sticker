@@ -52,11 +52,12 @@ export const Rectangle = ({
           anchorCornerRadius={isDesktop ? 5 : 8}
           rotateAnchorOffset={isDesktop ? 20 : 32}
           rotationSnaps={[0]}
+          keepRatio={false}
           enabledAnchors={[
-            'top-center',
-            'bottom-center',
-            'middle-right',
-            'middle-left',
+            'top-left',
+            'top-right',
+            'bottom-left',
+            'bottom-right',
           ]}
           boundBoxFunc={(oldBox, newBox) => {
             if (newBox.height < 12 || newBox.width < 36) {
