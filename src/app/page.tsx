@@ -6,7 +6,6 @@ import { AddRectStickerButton } from '@/components/button/AddRectStickerButton'
 import { DeleteEmojiButton } from '@/components/button/DeleteEmojiButton'
 import { OpenPickerButton } from '@/components/button/OpenPickerButton'
 
-// TODO ShareDrawerを末尾に移動
 export default function Home() {
   return (
     <div className="relative flex justify-center bg-zinc-800">
