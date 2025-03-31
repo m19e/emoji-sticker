@@ -5,7 +5,6 @@ import { Rect, Transformer } from 'react-konva'
 
 import type { StickerProps } from '@/types'
 
-// TODO snap direction
 export const Rectangle = ({
   selected,
   onSelect,
