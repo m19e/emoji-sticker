@@ -13,6 +13,12 @@ import {
 } from '@/components/ui/dialog'
 
 import { Logo } from '@/components/Logo'
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from './ui/accordion'
 
 // TODO 免責事項はAccordionで
 export const AboutDialog = () => {
@@ -33,10 +39,18 @@ export const AboutDialog = () => {
         <DialogDescription>
           「絵文字ステッカー！」は画像に絵文字を貼りつけて装飾したり、情報を隠すことのできる画像編集アプリです。
         </DialogDescription>
-        <DialogDescription>※画像データの取り扱いについて</DialogDescription>
-        <DialogDescription>
-          このアプリは画像編集処理を利用者の端末内でのみ行っており、読み込んだ画像を外部に送信することはありません。画像の内容がサーバーに保存されたり、外部に漏洩する心配はありません。
-        </DialogDescription>
+        <Accordion
+          type="single"
+          collapsible
+          className="w-full text-muted-foreground"
+        >
+          <AccordionItem value="item-1">
+            <AccordionTrigger>画像データの取り扱いについて</AccordionTrigger>
+            <AccordionContent>
+              このアプリは画像編集処理を利用者の端末内でのみ行っており、読み込んだ画像を外部に送信することはありません。画像の内容がサーバーに保存されたり、外部に漏洩する心配はありません。
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
       </DialogContent>
     </Dialog>
   )
