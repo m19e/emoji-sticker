@@ -1,5 +1,4 @@
 'use client'
-// biome-ignore lint/style/noNamespaceImport: <explanation>
 import * as DropdownMenuPrimitive from '@radix-ui/react-dropdown-menu'
 import { Check, ChevronRight, Circle } from 'lucide-react'
 import React from 'react'
