@@ -30,7 +30,11 @@ export const AboutDialog = () => {
           <InfoIcon />
         </Button>
       </DialogTrigger>
-      <DialogContent className="place-items-center">
+      <DialogContent
+        className="place-items-center"
+        onOpenAutoFocus={(e) => e.preventDefault()}
+        onCloseAutoFocus={(e) => e.preventDefault()}
+      >
         <DialogHeader>
           <DialogTitle>このアプリについて</DialogTitle>
         </DialogHeader>
