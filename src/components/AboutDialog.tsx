@@ -39,8 +39,8 @@ export const AboutDialog = () => {
         </DialogHeader>
         <Logo />
         <Accordion
-          type="multiple"
-          defaultValue={['item-1']}
+          type="single"
+          defaultValue="item-1"
           className="w-full max-w-80"
         >
           <AccordionItem value="item-1">
