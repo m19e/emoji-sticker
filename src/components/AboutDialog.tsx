@@ -2,6 +2,12 @@
 import { InfoIcon } from 'lucide-react'
 import { useState } from 'react'
 
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from '@/components/ui/accordion'
 import { Button } from '@/components/ui/button'
 import {
   Dialog,
@@ -13,14 +19,7 @@ import {
 } from '@/components/ui/dialog'
 
 import { Logo } from '@/components/Logo'
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from './ui/accordion'
 
-// TODO 免責事項はAccordionで
 export const AboutDialog = () => {
   const [open, setOpen] = useState(true)
 
