@@ -9,14 +9,7 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion'
 import { Button } from '@/components/ui/button'
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from '@/components/ui/dialog'
+import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog'
 
 import { Logo } from '@/components/Logo'
 
@@ -35,13 +28,7 @@ export const AboutDialog = () => {
         onOpenAutoFocus={(e) => e.preventDefault()}
         onCloseAutoFocus={(e) => e.preventDefault()}
       >
-        <DialogHeader>
-          <DialogTitle>このアプリについて</DialogTitle>
-        </DialogHeader>
         <Logo />
-        <DialogDescription>
-          「絵文字ステッカー！」は画像に絵文字を貼りつけて装飾したり、情報を隠すことのできる画像編集アプリです。
-        </DialogDescription>
         <Accordion
           type="single"
           collapsible
