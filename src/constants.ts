@@ -50,6 +50,7 @@ export const CUSTOM_EMOJIS_NAMES: { [id in HIDDEN_EMOJIS_ID]: string[] } = {
   thumbsup: ['+1', 'thumbsup', 'thumbs up sign'],
 }
 
+// TODO 増やす
 const CUSTOM_EMOJIS_IDS: HIDDEN_EMOJIS_ID[] = [
   'two_hearts', // 💕
   'innocent', // 😇
