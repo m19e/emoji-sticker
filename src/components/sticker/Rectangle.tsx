@@ -53,7 +53,7 @@ export const Rectangle = ({
           rotateAnchorOffset={isDesktop ? 20 : 32}
           rotationSnaps={[0]}
           keepRatio={false}
-          enabledAnchors={StickerSnap.CORNER}
+          enabledAnchors={isDesktop ? StickerSnap.CORNER : StickerSnap.CENTER}
           boundBoxFunc={(oldBox, newBox) => {
             if (newBox.height < 12 || newBox.width < 36) {
               return oldBox
