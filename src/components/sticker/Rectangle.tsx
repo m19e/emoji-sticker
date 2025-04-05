@@ -3,6 +3,7 @@ import type Konva from 'konva'
 import { useEffect, useRef } from 'react'
 import { Rect, Transformer } from 'react-konva'
 
+import { StickerSnap } from '@/constants'
 import type { StickerProps } from '@/types'
 
 export const Rectangle = ({
@@ -52,12 +53,7 @@ export const Rectangle = ({
           rotateAnchorOffset={isDesktop ? 20 : 32}
           rotationSnaps={[0]}
           keepRatio={false}
-          enabledAnchors={[
-            'top-left',
-            'top-right',
-            'bottom-left',
-            'bottom-right',
-          ]}
+          enabledAnchors={StickerSnap.CORNER}
           boundBoxFunc={(oldBox, newBox) => {
             if (newBox.height < 12 || newBox.width < 36) {
               return oldBox

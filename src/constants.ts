@@ -97,3 +97,9 @@ export const INITIAL_DIMENSIONS = {
 export const DESKTOP_CONTENTS_WIDTH = 640
 
 export const CANVAS_MARGIN_Y = 80
+
+// Stickers
+export const StickerSnap = {
+  CENTER: ['top-center', 'bottom-center', 'middle-right', 'middle-left'],
+  CORNER: ['top-left', 'top-right', 'bottom-left', 'bottom-right'],
+}

@@ -3,6 +3,7 @@ import type Konva from 'konva'
 import { useEffect, useRef } from 'react'
 import { Image, Transformer } from 'react-konva'
 
+import { StickerSnap } from '@/constants'
 import { useEmojiImage } from '@/hooks/useEmojiImage'
 import type { StickerProps } from '@/types'
 
@@ -61,12 +62,7 @@ export const Emoji = ({
           anchorCornerRadius={isDesktop ? 5 : 8}
           rotateAnchorOffset={isDesktop ? 20 : 32}
           rotationSnaps={[0]}
-          enabledAnchors={[
-            'top-left',
-            'top-right',
-            'bottom-left',
-            'bottom-right',
-          ]}
+          enabledAnchors={StickerSnap.CORNER}
           boundBoxFunc={(oldBox, newBox) => {
             if (newBox.height < 25 || newBox.width < 25) {
               return oldBox
