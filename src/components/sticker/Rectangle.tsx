@@ -6,6 +6,7 @@ import { Rect, Transformer } from 'react-konva'
 import { StickerSnap } from '@/constants'
 import type { StickerProps } from '@/types'
 
+// TODO モバイル時だけスナップを角でなく中央に
 export const Rectangle = ({
   selected,
   onSelect,
