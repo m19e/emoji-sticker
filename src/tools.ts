@@ -19,10 +19,7 @@ const CODEPOINT_MATCH: Record<string, string> = {
   '0037-fe0f-20e3': '37-20e3', // 7️⃣
   '0038-fe0f-20e3': '38-20e3', // 8️⃣
   '0039-fe0f-20e3': '39-20e3', // 9️⃣
-  '269b-fe0f': '269b', // ⚛️
-  '1f549-fe0f': '1f549', // 🕉️
-  '262e-fe0f': '262e', // ☮️
-  '26a7-fe0f': '26a7', // ⚧️
+  '1f441-fe0f-200d-1f5e8-fe0f': '1f441-200d-1f5e8', // 👁️‍🗨️
 }
 
 export const convertToValidTwemojiCodepoint = (u: string) =>
