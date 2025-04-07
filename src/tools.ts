@@ -1,6 +1,9 @@
 export const getSvgUrl = (u: string) =>
   `https://cdn.jsdelivr.net/gh/jdecked/twemoji@latest/assets/svg/${u}.svg`
 
+// TODO 対応絵文字増やす
+// TODO ⚛️🕉️☮️⚧️
+// TODO 🅰️🅱️🅾️🅿️
 const CODEPOINT_MATCH: Record<string, string> = {
   '00a9-fe0f': 'a9', // ©️
   '00ae-fe0f': 'ae', // ®️
@@ -16,6 +19,10 @@ const CODEPOINT_MATCH: Record<string, string> = {
   '0037-fe0f-20e3': '37-20e3', // 7️⃣
   '0038-fe0f-20e3': '38-20e3', // 8️⃣
   '0039-fe0f-20e3': '39-20e3', // 9️⃣
+  '269b-fe0f': '269b', // ⚛️
+  '1f549-fe0f': '1f549', // 🕉️
+  '262e-fe0f': '262e', // ☮️
+  '26a7-fe0f': '26a7', // ⚧️
 }
 
 export const convertToValidTwemojiCodepoint = (u: string) =>
