@@ -1,9 +1,14 @@
 export const getSvgUrl = (u: string) =>
   `https://cdn.jsdelivr.net/gh/jdecked/twemoji@latest/assets/svg/${u}.svg`
 
+const REGEXP = /-fe0f$/
+
+const checkSuffix = (u: string) => u.match(REGEXP) && u.split('-').length === 2
+
+const trimSuffix = (u: string) => (checkSuffix(u) ? u.split('-')[0] : u)
+
 // TODO 対応絵文字増やす
 // TODO ⚛️🕉️☮️⚧️
-// TODO 🅰️🅱️🅾️🅿️
 const CODEPOINT_MATCH: Record<string, string> = {
   '00a9-fe0f': 'a9', // ©️
   '00ae-fe0f': 'ae', // ®️
@@ -23,4 +28,4 @@ const CODEPOINT_MATCH: Record<string, string> = {
 }
 
 export const convertToValidTwemojiCodepoint = (u: string) =>
-  CODEPOINT_MATCH[u] ?? u
+  CODEPOINT_MATCH[u] ?? trimSuffix(u)
