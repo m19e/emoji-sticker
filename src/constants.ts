@@ -30,6 +30,7 @@ export const HIDDEN_EMOJIS = {
   earth_asia: '1f30f',
   see_no_evil: '1f648',
   minus: '2796',
+  dark_sunglasses: '1f576',
   thumbsup: '1f44d',
 } as const
 
@@ -47,6 +48,7 @@ const CUSTOM_EMOJIS_NAMES: { [id in HIDDEN_EMOJIS_ID]: string[] } = {
   earth_asia: ['earth asia', 'earth globe asia-australia'],
   see_no_evil: ['see no evil', 'see-no-evil monkey'],
   minus: ['heavy minus sign'],
+  dark_sunglasses: ['sunglasses', 'dark sunglasses'],
   thumbsup: ['+1', 'thumbsup', 'thumbs up sign'],
 }
 
@@ -61,6 +63,7 @@ const CUSTOM_EMOJIS_IDS: HIDDEN_EMOJIS_ID[] = [
   'earth_asia', // 🌏
   'see_no_evil', // 🙈
   'minus', // ➖
+  'dark_sunglasses', // 🕶️
   'thumbsup', // 👍
 ]
 
