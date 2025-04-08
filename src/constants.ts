@@ -32,6 +32,15 @@ export const HIDDEN_EMOJIS = {
   minus: '2796',
   dark_sunglasses: '1f576',
   thumbsup: '1f44d',
+  joy: '1f602',
+  // Crown
+  // Relaxed
+  // Fire
+  // sparkling_heart
+  // peace_symbol IMAGE
+  // stuck_out_tongue_winking_eye
+  // confetti_ball
+  // headphone
 } as const
 
 export type HIDDEN_EMOJIS_ID = keyof typeof HIDDEN_EMOJIS
@@ -50,6 +59,7 @@ const CUSTOM_EMOJIS_NAMES: { [id in HIDDEN_EMOJIS_ID]: string[] } = {
   minus: ['heavy minus sign'],
   dark_sunglasses: ['sunglasses', 'dark sunglasses'],
   thumbsup: ['+1', 'thumbsup', 'thumbs up sign'],
+  joy: ['joy', 'face with tears of joy'],
 }
 
 // TODO 増やす
@@ -65,6 +75,7 @@ const CUSTOM_EMOJIS_IDS: HIDDEN_EMOJIS_ID[] = [
   'minus', // ➖
   'dark_sunglasses', // 🕶️
   'thumbsup', // 👍
+  'joy', // 😂
 ]
 
 export const CUSTOM_EMOJIS: {
