@@ -35,12 +35,12 @@ export const HIDDEN_EMOJIS = {
   joy: '1f602',
   crown: '1f451',
   relaxed: '263a',
-  // fire
-  // sparkling_heart
-  // peace_symbol
-  // stuck_out_tongue_winking_eye
-  // confetti_ball
-  // headphone
+  fire: '1f525',
+  sparkling_heart: '1f496',
+  peace_symbol: '262e',
+  stuck_out_tongue_winking_eye: '1f61c',
+  confetti_ball: '1f38a',
+  headphone: '1f3a7',
 } as const
 
 export type HIDDEN_EMOJIS_ID = keyof typeof HIDDEN_EMOJIS
@@ -62,6 +62,15 @@ const CUSTOM_EMOJIS_NAMES: { [id in HIDDEN_EMOJIS_ID]: string[] } = {
   joy: ['joy', 'face with tears of joy'],
   crown: ['crown'],
   relaxed: ['relaxed', 'white smiling face'],
+  fire: ['fire'],
+  sparkling_heart: ['sparkling heart'],
+  peace_symbol: ['peace symbol'],
+  stuck_out_tongue_winking_eye: [
+    'stuck out tongue winking eye',
+    'face with stuck-out tongue and winking eye',
+  ],
+  confetti_ball: ['confetti ball'],
+  headphone: ['headphone', 'headphones'],
 }
 
 // TODO 増やす
@@ -80,6 +89,12 @@ const CUSTOM_EMOJIS_IDS: HIDDEN_EMOJIS_ID[] = [
   'joy', // 😂
   'crown', // 👑
   'relaxed', // ☺️
+  'fire', // 🔥
+  'sparkling_heart', // 💖
+  'peace_symbol', // ☮️
+  'stuck_out_tongue_winking_eye', // 😜
+  'confetti_ball', // 🎊
+  'headphone', // 🎧
 ]
 
 export const CUSTOM_EMOJIS: {
