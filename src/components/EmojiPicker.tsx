@@ -36,9 +36,12 @@ export const Picker = () => {
   const [open, setOpen] = useAtom(isPickerOpenAtom)
   const setSelectedStickerId = useSetAtom(selectedStickerIdAtom)
 
-  const handleClick = (data: EmojiClickData) => {
+  const handleClick = ({
+    isCustom,
+    unified,
+    imageUrl: fallback,
+  }: EmojiClickData) => {
     // TODO Remove debug print
-    const { isCustom, unified, imageUrl: fallback } = data
     const u = isCustom
       ? HIDDEN_EMOJIS[unified as HIDDEN_EMOJIS_ID]
       : convertToValidTwemojiCodepoint(unified)
