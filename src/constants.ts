@@ -35,9 +35,9 @@ export const HIDDEN_EMOJIS = {
   joy: '1f602',
   crown: '1f451',
   relaxed: '263a',
-  // Fire
+  // fire
   // sparkling_heart
-  // peace_symbol IMAGE
+  // peace_symbol
   // stuck_out_tongue_winking_eye
   // confetti_ball
   // headphone
