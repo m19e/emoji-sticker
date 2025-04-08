@@ -37,7 +37,7 @@ export type HIDDEN_EMOJIS_ID = keyof typeof HIDDEN_EMOJIS
 
 export const HIDDEN_EMOJIS_UNICODE = Object.values(HIDDEN_EMOJIS)
 
-export const CUSTOM_EMOJIS_NAMES: { [id in HIDDEN_EMOJIS_ID]: string[] } = {
+const CUSTOM_EMOJIS_NAMES: { [id in HIDDEN_EMOJIS_ID]: string[] } = {
   two_hearts: ['two hearts'],
   innocent: ['innocent', 'smiling face with halo'],
   open_hands: ['open hands', 'open hands sign'],
