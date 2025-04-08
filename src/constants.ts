@@ -33,7 +33,7 @@ export const HIDDEN_EMOJIS = {
   dark_sunglasses: '1f576',
   thumbsup: '1f44d',
   joy: '1f602',
-  // Crown
+  crown: '1f451',
   // Relaxed
   // Fire
   // sparkling_heart
@@ -60,6 +60,7 @@ const CUSTOM_EMOJIS_NAMES: { [id in HIDDEN_EMOJIS_ID]: string[] } = {
   dark_sunglasses: ['sunglasses', 'dark sunglasses'],
   thumbsup: ['+1', 'thumbsup', 'thumbs up sign'],
   joy: ['joy', 'face with tears of joy'],
+  crown: ['crown'],
 }
 
 // TODO 増やす
@@ -76,6 +77,7 @@ const CUSTOM_EMOJIS_IDS: HIDDEN_EMOJIS_ID[] = [
   'dark_sunglasses', // 🕶️
   'thumbsup', // 👍
   'joy', // 😂
+  'crown', // 👑
 ]
 
 export const CUSTOM_EMOJIS: {
