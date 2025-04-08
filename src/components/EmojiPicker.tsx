@@ -37,26 +37,7 @@ export const Picker = () => {
   const setSelectedStickerId = useSetAtom(selectedStickerIdAtom)
 
   const handleClick = (data: EmojiClickData) => {
-    if (!data.isCustom) {
-      // TODO Remove debug print
-      const name = data.names[0].split(' ').join('_')
-      console.log(
-        JSON.stringify(
-          [
-            {
-              [name]: data.unified,
-            },
-            {
-              names: data.names,
-            },
-            [name, `// ${data.emoji}`],
-          ],
-          null,
-          2,
-        ),
-      )
-    }
-
+    // TODO Remove debug print
     const { isCustom, unified, imageUrl: fallback } = data
     const u = isCustom
       ? HIDDEN_EMOJIS[unified as HIDDEN_EMOJIS_ID]
