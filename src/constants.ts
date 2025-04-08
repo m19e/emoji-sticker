@@ -34,7 +34,7 @@ export const HIDDEN_EMOJIS = {
   thumbsup: '1f44d',
   joy: '1f602',
   crown: '1f451',
-  // Relaxed
+  relaxed: '263a',
   // Fire
   // sparkling_heart
   // peace_symbol IMAGE
@@ -61,6 +61,7 @@ const CUSTOM_EMOJIS_NAMES: { [id in HIDDEN_EMOJIS_ID]: string[] } = {
   thumbsup: ['+1', 'thumbsup', 'thumbs up sign'],
   joy: ['joy', 'face with tears of joy'],
   crown: ['crown'],
+  relaxed: ['relaxed', 'white smiling face'],
 }
 
 // TODO 増やす
@@ -78,6 +79,7 @@ const CUSTOM_EMOJIS_IDS: HIDDEN_EMOJIS_ID[] = [
   'thumbsup', // 👍
   'joy', // 😂
   'crown', // 👑
+  'relaxed', // ☺️
 ]
 
 export const CUSTOM_EMOJIS: {
