@@ -33,9 +33,6 @@ const rampart = Rampart_One({
 })
 
 // TODO メタデータ設定
-// TODO faviconにSVG設定
-// TODO OGP
-// TODO Twitter card
 // TODO 画像設定(OGP, Twitter)
 const title = '絵文字ステッカー！ | 画像に絵文字を貼るアプリ'
 const description =
