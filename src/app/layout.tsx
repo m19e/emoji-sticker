@@ -33,6 +33,7 @@ const rampart = Rampart_One({
 })
 
 // TODO メタデータ設定
+// TODO 動的メタデータ設定でランダムfavicon
 export const metadata: Metadata = {
   title: '絵文字ステッカー！ | 画像に絵文字を貼るアプリ',
   description:
