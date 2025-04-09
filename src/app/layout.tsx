@@ -33,12 +33,31 @@ const rampart = Rampart_One({
 })
 
 // TODO メタデータ設定
-// TODO 動的メタデータ設定でランダムfavicon
+// TODO faviconにSVG設定
+// TODO OGP
+// TODO Twitter card
+// TODO 画像設定(OGP, Twitter)
+const title = '絵文字ステッカー！ | 画像に絵文字を貼るアプリ'
+const description =
+  '「絵文字ステッカー！」は画像に絵文字を貼りつけたり情報を隠すことができる画像編集アプリです。'
+
 export const metadata: Metadata = {
-  title: '絵文字ステッカー！ | 画像に絵文字を貼るアプリ',
-  description:
-    '「絵文字ステッカー！」は画像に絵文字を貼りつけたり情報を隠すことができる画像編集アプリです。',
+  title,
+  description,
+  openGraph: {
+    title,
+    description,
+  },
+  twitter: {
+    title,
+    description,
+    card: 'summary',
+  },
+  icons:
+    'https://cdn.jsdelivr.net/gh/jdecked/twemoji@latest/assets/svg/1f3f7.svg', // 🏷️
 }
+
+// TODO 動的メタデータ設定でランダムfavicon
 
 // TODO vercel analytics
 export default function RootLayout({
