@@ -7,8 +7,6 @@ const checkSuffix = (u: string) => u.match(REGEXP) && u.split('-').length === 2
 
 const trimSuffix = (u: string) => (checkSuffix(u) ? u.split('-')[0] : u)
 
-// TODO 対応絵文字増やす
-// TODO ⚛️🕉️☮️⚧️
 const CODEPOINT_MATCH: Record<string, string> = {
   '00a9-fe0f': 'a9', // ©️
   '00ae-fe0f': 'ae', // ®️
