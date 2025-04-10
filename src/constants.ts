@@ -28,19 +28,19 @@ export const HIDDEN_EMOJIS = {
   hundred: '1f4af',
   heart_eyes: '1f60d',
   earth_asia: '1f30f',
-  see_no_evil: '1f648',
   minus: '2796',
-  dark_sunglasses: '1f576',
   thumbsup: '1f44d',
   joy: '1f602',
-  crown: '1f451',
   relaxed: '263a',
   fire: '1f525',
   sparkling_heart: '1f496',
-  peace_symbol: '262e',
-  stuck_out_tongue_winking_eye: '1f61c',
   confetti_ball: '1f38a',
-  headphone: '1f3a7',
+  // see_no_evil: '1f648',
+  // dark_sunglasses: '1f576',
+  // crown: '1f451',
+  // peace_symbol: '262e',
+  // stuck_out_tongue_winking_eye: '1f61c',
+  // headphone: '1f3a7',
 } as const
 
 export type HIDDEN_EMOJIS_ID = keyof typeof HIDDEN_EMOJIS
@@ -55,22 +55,22 @@ const CUSTOM_EMOJIS_NAMES: { [id in HIDDEN_EMOJIS_ID]: string[] } = {
   hundred: ['100', 'hundred points symbol'],
   heart_eyes: ['heart eyes', 'smiling face with heart-shaped eyes'],
   earth_asia: ['earth asia', 'earth globe asia-australia'],
-  see_no_evil: ['see no evil', 'see-no-evil monkey'],
   minus: ['heavy minus sign'],
-  dark_sunglasses: ['sunglasses', 'dark sunglasses'],
   thumbsup: ['+1', 'thumbsup', 'thumbs up sign'],
   joy: ['joy', 'face with tears of joy'],
-  crown: ['crown'],
   relaxed: ['relaxed', 'white smiling face'],
   fire: ['fire'],
   sparkling_heart: ['sparkling heart'],
-  peace_symbol: ['peace symbol'],
-  stuck_out_tongue_winking_eye: [
-    'stuck out tongue winking eye',
-    'face with stuck-out tongue and winking eye',
-  ],
   confetti_ball: ['confetti ball'],
-  headphone: ['headphone', 'headphones'],
+  // see_no_evil: ['see no evil', 'see-no-evil monkey'],
+  // dark_sunglasses: ['sunglasses', 'dark sunglasses'],
+  // crown: ['crown'],
+  // peace_symbol: ['peace symbol'],
+  // stuck_out_tongue_winking_eye: [
+  //   'stuck out tongue winking eye',
+  //   'face with stuck-out tongue and winking eye',
+  // ],
+  // headphone: ['headphone', 'headphones'],
 }
 
 const CUSTOM_EMOJIS_IDS: HIDDEN_EMOJIS_ID[] = [
@@ -81,19 +81,19 @@ const CUSTOM_EMOJIS_IDS: HIDDEN_EMOJIS_ID[] = [
   'hundred', // 💯
   'heart_eyes', // 😍
   'earth_asia', // 🌏
-  'see_no_evil', // 🙈
+  // 'see_no_evil', // 🙈
   'minus', // ➖
-  'dark_sunglasses', // 🕶️
+  // 'dark_sunglasses', // 🕶️
   'thumbsup', // 👍
   'joy', // 😂
-  'crown', // 👑
+  // 'crown', // 👑
   'relaxed', // ☺️
   'fire', // 🔥
   'sparkling_heart', // 💖
-  'peace_symbol', // ☮️
-  'stuck_out_tongue_winking_eye', // 😜
+  // 'peace_symbol', // ☮️
+  // 'stuck_out_tongue_winking_eye', // 😜
   'confetti_ball', // 🎊
-  'headphone', // 🎧
+  // 'headphone', // 🎧
 ]
 
 export const CUSTOM_EMOJIS: {
