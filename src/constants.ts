@@ -35,6 +35,8 @@ export const HIDDEN_EMOJIS = {
   fire: '1f525',
   sparkling_heart: '1f496',
   confetti_ball: '1f38a',
+  partying_face: '1f973',
+  tada: '1f389',
   // see_no_evil: '1f648',
   // dark_sunglasses: '1f576',
   // crown: '1f451',
@@ -62,6 +64,8 @@ const CUSTOM_EMOJIS_NAMES: { [id in HIDDEN_EMOJIS_ID]: string[] } = {
   fire: ['fire'],
   sparkling_heart: ['sparkling heart'],
   confetti_ball: ['confetti ball'],
+  partying_face: ['partying face', 'face with party horn and party hat'],
+  tada: ['tada', 'party popper'],
   // see_no_evil: ['see no evil', 'see-no-evil monkey'],
   // dark_sunglasses: ['sunglasses', 'dark sunglasses'],
   // crown: ['crown'],
@@ -94,6 +98,8 @@ const CUSTOM_EMOJIS_IDS: HIDDEN_EMOJIS_ID[] = [
   // 'stuck_out_tongue_winking_eye', // 😜
   'confetti_ball', // 🎊
   // 'headphone', // 🎧
+  'partying_face', // 🥳
+  'tada', // 🎉
 ]
 
 export const CUSTOM_EMOJIS: {
