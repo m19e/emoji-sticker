@@ -27,3 +27,8 @@ const CODEPOINT_MATCH: Record<string, string> = {
 
 export const convertToValidTwemojiCodepoint = (u: string) =>
   CODEPOINT_MATCH[u] ?? trimSuffix(u)
+
+export const getRandom = <T>(target: T[]): T => {
+  const randomIndex = Math.floor(Math.random() * target.length)
+  return target[randomIndex]
+}

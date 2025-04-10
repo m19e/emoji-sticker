@@ -8,6 +8,7 @@ import {
 } from 'next/font/google'
 import type { ReactNode } from 'react'
 
+import { RandomFavicon } from '@/components/RandomFavicon'
 import { Toaster } from '@/components/ui/sonner'
 import './globals.css'
 
@@ -54,8 +55,6 @@ export const metadata: Metadata = {
     'https://cdn.jsdelivr.net/gh/jdecked/twemoji@latest/assets/svg/1f3f7.svg', // 🏷️
 }
 
-// TODO 動的メタデータ設定でランダムfavicon
-
 // TODO vercel analytics
 export default function RootLayout({
   children,
@@ -64,6 +63,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ja" className="dark">
+      <RandomFavicon />
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${rounded.variable} ${rampart.variable} antialiased`}
       >
