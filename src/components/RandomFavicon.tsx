@@ -4,8 +4,6 @@ import { useEffect } from 'react'
 import { HIDDEN_EMOJIS_UNICODE } from '@/constants'
 import { getRandom, getSvgUrl } from '@/tools'
 
-// TODO Rename
-// TODO DOM操作でランダムfavicon
 // TODO ランダム対象を厳選
 export const RandomFavicon = () => {
   useEffect(() => {
