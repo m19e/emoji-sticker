@@ -1,13 +1,18 @@
 'use client'
 import { useEffect } from 'react'
 
-import { HIDDEN_EMOJIS_UNICODE } from '@/constants'
 import { getRandom, getSvgUrl } from '@/tools'
 
 // TODO ランダム対象を厳選
+const FAVICON_EMOJI_CODES = [
+  '2728', //  ✨ :sparkles:
+  '1f3a8', // 🎨 :art:
+  '1f58c', // 🖌️ :lower_left_paintbrush:
+]
+
 export const RandomFavicon = () => {
   useEffect(() => {
-    const url = getSvgUrl(getRandom(HIDDEN_EMOJIS_UNICODE))
+    const url = getSvgUrl(getRandom(FAVICON_EMOJI_CODES))
 
     const link: HTMLLinkElement =
       document.querySelector("link[rel*='icon']") ||
