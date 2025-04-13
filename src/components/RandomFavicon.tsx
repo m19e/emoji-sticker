@@ -8,6 +8,8 @@ const FAVICON_EMOJI_CODES = [
   '2728', //  ✨ :sparkles:
   '1f3a8', // 🎨 :art:
   '1f58c', // 🖌️ :lower_left_paintbrush:
+  '1f18e', // 🆎 :ab:
+  '1f192', // 🆒 :cool:
 ]
 
 export const RandomFavicon = () => {
