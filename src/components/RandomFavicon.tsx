@@ -4,6 +4,9 @@ import { useEffect } from 'react'
 import { getRandom, getSvgUrl } from '@/tools'
 
 // TODO ランダム対象を厳選
+// TODO Characters追加
+// TODO Medetai追加
+// TODO Kawaii追加
 const FAVICON_EMOJI_CODES = [
   // Medetai
   '2728', //  ✨ :sparkles:
