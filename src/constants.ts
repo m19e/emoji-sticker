@@ -20,8 +20,6 @@ export const DEFAULT_PREVIEW_CONFIG = {
   defaultCaption: '今の気分はどう？',
 }
 
-// TODO add :partying_face:
-// TODO add :party_popper:
 export const HIDDEN_EMOJIS = {
   two_hearts: '1f495',
   innocent: '1f607',
