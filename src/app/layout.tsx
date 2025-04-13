@@ -34,7 +34,7 @@ const rampart = Rampart_One({
 })
 
 // TODO メタデータ設定
-// TODO 画像設定(OGP, Twitter)
+// TODO 画像設定(OGP, Twitter) → 「絵文字」を重ねてロゴに
 const title = '絵文字ステッカー！ | 画像に絵文字を貼るアプリ'
 const description =
   '「絵文字ステッカー！」は画像に絵文字を貼りつけたり情報を隠すことができる画像編集アプリです。'
