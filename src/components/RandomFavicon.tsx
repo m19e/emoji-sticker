@@ -34,10 +34,10 @@ const FAVICON_EMOJI_CODES = [
   '1f23a', // 🈺 :open_for_business:
   '1f250', // 🉐 :bargain:
   '1f251', // 🉑 :acceptable:
-  '3297', // ㊗️ :congratulations:
-  '3299', // ㊙️ :secret:
-  '203c', // ‼️ :bangbang:
-  '2049', // ⁉️ :interrobang:
+  '3297', //  ㊗️ :congratulations:
+  '3299', //  ㊙️ :secret:
+  '203c', //  ‼️ :bangbang:
+  '2049', //  ⁉️ :interrobang:
 ]
 
 export const RandomFavicon = () => {
