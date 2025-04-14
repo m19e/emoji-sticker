@@ -21,19 +21,19 @@ const FAVICON_EMOJI_CODES = [
   '1f197', // 🆗 :ok:
   '1f198', // 🆘 :sos:
   '1f51d', // 🔝 :top:
-  // 🈁 :koko:
-  // サ
-  // 禁
-  // 空
-  // 合
-  // 満
-  // 有
-  // 月
-  // 申
-  // 割
-  // 営
-  // 得
-  // 可
+  '1f201', // 🈁 :koko:
+  '1f202', // 🈂️ :sa:
+  '1f232', // 🈲 :prohibited:
+  '1f233', // 🈳 :vacancy:
+  '1f234', // 🈴 :passing_grade:
+  '1f235', // 🈵 :no_vacancy:
+  '1f236', // 🈶 :not_free_of_charge:
+  '1f237', // 🈷️ :monthly_amount:
+  '1f238', // 🈸 :application:
+  '1f239', // 🈹 :discount:
+  '1f23a', // 🈺 :open_for_business:
+  '1f250', // 🉐 :bargain:
+  '1f251', // 🉑 :acceptable:
   '3297', // ㊗️ :congratulations:
   '3299', // ㊙️ :secret:
   '203c', // ‼️ :bangbang:
