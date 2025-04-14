@@ -16,13 +16,12 @@ const FAVICON_EMOJI_CODES = [
   // Characters
   '1f18e', // 🆎 :ab:
   '1f192', // 🆒 :cool:
-  // FREE
-  // NEW
-  // OK
-  // SOS
-  // UP!
-  // TOP
-  // ｺｺ
+  '1f193', // 🆓 :free:
+  '1f195', // 🆕 :new:
+  '1f197', // 🆗 :ok:
+  '1f198', // 🆘 :sos:
+  '1f51d', // 🔝 :top:
+  // 🈁 :koko:
   // サ
   // 禁
   // 空
