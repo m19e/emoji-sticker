@@ -10,8 +10,10 @@ const FAVICON_EMOJI_CODES = [
   // Medetai
   '2728', //  ✨ :sparkles:
   // Kawaii
-  '1f4db', // 📛 :name_badge:
+  '2728', // ✨ :sparkles:
   '1f408-200d-2b1b', // 🐈‍⬛ :black_cat:
+  '1f4db', // 📛 :name_badge:
+  '1f9f6', // 🧶 :yarn:
   // Characters
   '1f18e', // 🆎 :ab:
   '1f192', // 🆒 :cool:
