@@ -8,7 +8,16 @@ import { getRandom, getSvgUrl } from '@/tools'
 // TODO Kawaii追加
 const FAVICON_EMOJI_CODES = [
   // Medetai
-  '2728', //  ✨ :sparkles:
+  '1f381', // 🎁 :gift:
+  // 🎄 :christmas_tree:
+  // 🎈 :balloon:
+  // 🎉 :tada:
+  // 🎊 :confetti_ball:
+  // 🎋 :tanabata_tree:
+  // 🎍 :bamboo:
+  // 🎯 :dart:
+  // 🎰 :slot_machine:
+  //
   // Kawaii
   '2728', // ✨ :sparkles:
   '1f408-200d-2b1b', // 🐈‍⬛ :black_cat:
