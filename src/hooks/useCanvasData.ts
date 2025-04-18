@@ -13,6 +13,8 @@ type Return = {
   share: () => Promise<void>
 }
 
+// TODO iOSでURLが共有されないらしいのでテキストに含める
+// FIXME typo emoij => emoji
 export const useCanvasData = (): Return => {
   const [canvasRef, setCanvasRef] = useAtom(canvasRefAtom)
   const { pixelRatio } = useCanvasSize()
@@ -67,9 +69,8 @@ export const useCanvasData = (): Return => {
     })) as Blob
     const file = new File([blob], getFileName(), { type: blob.type })
 
-    // TODO iOSでURLが共有されないらしいのでテキストに含める
     const text = '#絵文字ステッカー！\nhttps://emoji-sticker.vercel.app'
-    const url = 'https://emoij-sticker.vercel.app'
+    const url = 'https://emoji-sticker.vercel.app'
 
     navigator
       .share({ text, url, files: [file] })
