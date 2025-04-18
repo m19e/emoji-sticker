@@ -67,7 +67,8 @@ export const useCanvasData = (): Return => {
     })) as Blob
     const file = new File([blob], getFileName(), { type: blob.type })
 
-    const text = '絵文字ステッカー！'
+    // TODO iOSでURLが共有されないらしいのでテキストに含める
+    const text = '#絵文字ステッカー！\nhttps://emoji-sticker.vercel.app'
     const url = 'https://emoij-sticker.vercel.app'
 
     navigator
