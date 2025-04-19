@@ -15,6 +15,8 @@ type Return = {
 
 // TODO iOSでURLが共有されないらしいのでテキストに含める
 // FIXME typo emoij => emoji
+// TODO GA4カスタムイベントの追加(add_emoji, add_rectなど)
+// TODO sendGAEventの共通化
 export const useCanvasData = (): Return => {
   const [canvasRef, setCanvasRef] = useAtom(canvasRefAtom)
   const { pixelRatio } = useCanvasSize()
