@@ -56,7 +56,6 @@ export const metadata: Metadata = {
     'https://cdn.jsdelivr.net/gh/jdecked/twemoji@latest/assets/svg/1f3f7.svg', // 🏷️
 }
 
-// TODO vercel analytics
 export default function RootLayout({
   children,
 }: {
