@@ -32,31 +32,31 @@ const FAVICON_EMOJI_CODES = [
   '1f3b0', // 🎰 :slot_machine:
   // Kawaii
   '2728', // ✨ :sparkles:
+  '23f3', // ⏳ :hourglass_flowing_sand:
+  '2603', // ☃️ :snowman:
+  '2668', // ♨️ :hotsprings:
+  '26e9', // ⛩️ :shinto_shrine:
+  '2744', // ❄️ :snowflake:
   '1f408-200d-2b1b', // 🐈‍⬛ :black_cat:
   '1f4db', // 📛 :name_badge:
+  '1f302', // 🌂 :closed_umbrella:
+  '1f31f', // 🌟 :star2:
+  '1f320', // 🌠 :stars:
+  '1f321', // 🌡️ :thermometer:
+  '1f488', // 💈 :barber:
+  '1f680', // 🚀 :rocket:
+  '1f68f', // 🚏 :busstop:
+  '1f6ce', // 🛎️ :bellhop_bell:
+  '1f6f0', // 🛰️ :satellite:
+  '1f6f4', // 🛴 :scooter:
+  '1f6f6', // 🛶 :canoe:
+  '1f6f8', // 🛸 :flying_saucer:
+  '1f6f9', // 🛹 :skateboard:
+  '1f9ed', // 🧭 :compass:
   '1f9f6', // 🧶 :yarn:
-  // 🌂 :closed_umbrella:
-  // 🌟 :star2:
-  // 🌠 :stars:
-  // 🌡️ :thermometer:
-  // 💈 :barber:
-  // 🚀 :rocket:
-  // 🚏 :busstop:
-  // 🛎️ :bellhop_bell:
-  // 🛰️ :satellite:
-  // 🛴 :scooter:
-  // 🛶 :canoe:
-  // 🛸 :flying_saucer:
-  // 🛹 :skateboard:
-  // 🧭 :compass:
-  // 🪂 :parachute:
-  // 🪐 :ringed_planet:
-  // 🪵 :wood:
-  // ⏳ :hourglass_flowing_sand:
-  // ☃️ :snowman:
-  // ♨️ :hotsprings:
-  // ⛩️ :shinto_shrine:
-  // ❄️ :snowflake:
+  '1fa82', // 🪂 :parachute:
+  '1fa90', // 🪐 :ringed_planet:
+  '1fab5', // 🪵 :wood:
   // Characters
   '1f18e', // 🆎 :ab:
   '1f192', // 🆒 :cool:
