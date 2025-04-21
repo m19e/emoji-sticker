@@ -7,6 +7,19 @@ import { getRandom, getSvgUrl } from '@/tools'
 // TODO Medetai追加
 // TODO Kawaii追加
 const FAVICON_EMOJI_CODES = [
+  // Edit
+  '1f5bc', // 🖼️ :frame_with_picture:
+  '1fa84', // 🪄 :magic_wand:
+  // 🎛️ :control_knobs:
+  // 💾 :floppy_disk:
+  // 📋 :clipboard:
+  // 📎 :paperclip:
+  // 📷 :camera:
+  // 🔍 :mag:
+  // 🕶️ :dark_sunglasses:
+  // 🖨️ :printer:
+  // 🗑️ :wastebasket:
+  //
   // Medetai
   '1f381', // 🎁 :gift:
   // 🎄 :christmas_tree:
