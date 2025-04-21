@@ -10,16 +10,15 @@ const FAVICON_EMOJI_CODES = [
   // Edit
   '1f5bc', // 🖼️ :frame_with_picture:
   '1fa84', // 🪄 :magic_wand:
-  // 🎛️ :control_knobs:
-  // 💾 :floppy_disk:
-  // 📋 :clipboard:
-  // 📎 :paperclip:
-  // 📷 :camera:
-  // 🔍 :mag:
+  '1f39b', // 🎛️ :control_knobs:
+  '1f4be', // 💾 :floppy_disk:
+  '1f4cb', // 📋 :clipboard:
+  '1f4ce', // 📎 :paperclip:
+  '1f4f7', // 📷 :camera:
+  '1f50d', // 🔍 :mag:
+  '1f5a8', // 🖨️ :printer:
+  '1f5d1', // 🗑️ :wastebasket:
   // 🕶️ :dark_sunglasses:
-  // 🖨️ :printer:
-  // 🗑️ :wastebasket:
-  //
   // Medetai
   '1f381', // 🎁 :gift:
   // 🎄 :christmas_tree:
