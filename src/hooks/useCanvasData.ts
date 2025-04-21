@@ -7,6 +7,24 @@ import { OUTPUT_MIME_TYPE } from '@/constants'
 import { useCanvasSize } from '@/hooks/useCanvasSize'
 import { canvasRefAtom } from '@/store/atoms'
 
+const CustomEvent = {
+  save: {
+    e: 'click_save_button',
+    v: 'SAVE',
+  },
+  share: {
+    e: 'click_share_button',
+    v: 'SHARE',
+  },
+} as const
+
+type CustomEventName = keyof typeof CustomEvent
+
+const sendEvent = (event: CustomEventName) => {
+  const { e, v } = CustomEvent[event]
+  sendGAEvent('event', e, { value: v })
+}
+
 type Return = {
   ref: (ref: Konva.Stage) => void
   save: () => void
