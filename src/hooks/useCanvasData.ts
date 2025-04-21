@@ -14,8 +14,6 @@ type Return = {
 }
 
 // TODO GA4カスタムイベントの追加(add_emoji, add_rectなど)
-// TODO sendGAEventの共通化
-// TODO ga.tsに切り出し
 export const useCanvasData = (): Return => {
   const [canvasRef, setCanvasRef] = useAtom(canvasRefAtom)
   const { pixelRatio } = useCanvasSize()
