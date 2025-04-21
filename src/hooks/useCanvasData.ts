@@ -1,29 +1,11 @@
-import { sendGAEvent } from '@next/third-parties/google'
 import { useAtom } from 'jotai'
 import type Konva from 'konva'
 import { toast } from 'sonner'
 
 import { OUTPUT_MIME_TYPE } from '@/constants'
+import { sendEvent } from '@/ga'
 import { useCanvasSize } from '@/hooks/useCanvasSize'
 import { canvasRefAtom } from '@/store/atoms'
-
-const CustomEvent = {
-  save: {
-    e: 'click_save_button',
-    v: 'SAVE',
-  },
-  share: {
-    e: 'click_share_button',
-    v: 'SHARE',
-  },
-} as const
-
-type CustomEventName = keyof typeof CustomEvent
-
-const sendEvent = (event: CustomEventName) => {
-  const { e, v } = CustomEvent[event]
-  sendGAEvent('event', e, { value: v })
-}
 
 type Return = {
   ref: (ref: Konva.Stage) => void
@@ -33,6 +15,7 @@ type Return = {
 
 // TODO GA4カスタムイベントの追加(add_emoji, add_rectなど)
 // TODO sendGAEventの共通化
+// TODO ga.tsに切り出し
 export const useCanvasData = (): Return => {
   const [canvasRef, setCanvasRef] = useAtom(canvasRefAtom)
   const { pixelRatio } = useCanvasSize()
