@@ -41,6 +41,8 @@ export const Picker = () => {
     isCustom,
     unified,
     imageUrl: fallback,
+    names,
+    emoji,
   }: EmojiClickData) => {
     const u = isCustom
       ? HIDDEN_EMOJIS[unified as HIDDEN_EMOJIS_ID]
