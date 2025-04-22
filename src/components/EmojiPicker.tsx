@@ -51,8 +51,12 @@ export const Picker = () => {
     const id = v4()
     setSelectedStickerId(id)
     setEmojis((prev) => [...prev, { id, u, fallback }])
-    sendEvent(CustomEvent.Emoji, emoji)
     setOpen(false)
+
+    // GA4にイベント送信
+    const emojiName = names[0].split(' ').join('_')
+    const payload = `${emoji} ${emojiName} ${u}`
+    sendEvent(CustomEvent.Emoji, payload)
   }
 
   return (
