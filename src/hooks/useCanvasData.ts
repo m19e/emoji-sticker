@@ -3,7 +3,7 @@ import type Konva from 'konva'
 import { toast } from 'sonner'
 
 import { OUTPUT_MIME_TYPE } from '@/constants'
-import { sendEvent } from '@/ga'
+import { CustomEvent, sendEvent } from '@/ga'
 import { useCanvasSize } from '@/hooks/useCanvasSize'
 import { canvasRefAtom } from '@/store/atoms'
 
@@ -42,7 +42,7 @@ export const useCanvasData = (): Return => {
       const fileName = getFileName()
       downloadUri(uri, fileName)
       toast.success('画像を保存しました')
-      sendEvent('save')
+      sendEvent(CustomEvent.Save)
     }
   }
 
@@ -74,7 +74,7 @@ export const useCanvasData = (): Return => {
     navigator
       .share({ text, url, files: [file] })
       .catch((error) => console.error(error))
-    sendEvent('share')
+    sendEvent(CustomEvent.Share)
   }
 
   return { ref: setCanvasRef, save, share }
