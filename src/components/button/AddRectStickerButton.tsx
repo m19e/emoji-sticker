@@ -3,6 +3,7 @@ import { useAtomValue, useSetAtom } from 'jotai'
 import { StickyNoteIcon } from 'lucide-react'
 import { v4 } from 'uuid'
 
+import { CustomEvent, sendEvent } from '@/ga'
 import {
   isBaseImgLoadedAtom,
   rectanglesAtom,
@@ -11,6 +12,7 @@ import {
 
 import { Button } from '@/components/ui/button'
 
+// TODO Rect追加時にGAイベント送信する
 export const AddRectStickerButton = () => {
   const isLoaded = useAtomValue(isBaseImgLoadedAtom)
   const setRectangles = useSetAtom(rectanglesAtom)
@@ -20,6 +22,7 @@ export const AddRectStickerButton = () => {
     const id = v4()
     setSelectedStickerId(id)
     setRectangles((prev) => [...prev, { id }])
+    sendEvent(CustomEvent.Rect)
   }
 
   return (
