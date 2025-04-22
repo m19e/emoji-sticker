@@ -55,7 +55,7 @@ export const Picker = () => {
 
     // GA4にイベント送信
     const emojiName = names[0].split(' ').join('_')
-    const payload = `${emoji} ${emojiName} ${u}`
+    const payload = `${emoji} :${emojiName}: ${u}`
     sendEvent(CustomEvent.Emoji, payload)
   }
 
