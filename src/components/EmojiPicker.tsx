@@ -12,6 +12,7 @@ import {
   type HIDDEN_EMOJIS_ID,
   HIDDEN_EMOJIS_UNICODE,
 } from '@/constants'
+import { CustomEvent, sendEvent } from '@/ga'
 import {
   emojiDatasAtom,
   isPickerOpenAtom,
@@ -48,6 +49,7 @@ export const Picker = () => {
     const id = v4()
     setSelectedStickerId(id)
     setEmojis((prev) => [...prev, { id, u, fallback }])
+    sendEvent(CustomEvent.Emoji, emoji)
     setOpen(false)
   }
 
