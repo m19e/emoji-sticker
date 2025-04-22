@@ -17,7 +17,17 @@ const CustomEventMap: { [key in CustomEvent]: string } = {
   add_rect: 'RECT',
 }
 
-export const sendEvent = (event: CustomEvent) => {
-  const value = CustomEventMap[event]
+type NotEmojiEvent<T extends CustomEvent> = T extends CustomEvent.Emoji
+  ? never
+  : T
+
+type ConditionalArgs<T extends CustomEvent> =
+  | [e: CustomEvent.Emoji, emoji: string]
+  | [e: NotEmojiEvent<T>]
+
+export const sendEvent = <T extends CustomEvent>(
+  ...[event, emoji]: ConditionalArgs<T>
+) => {
+  const value = emoji ?? CustomEventMap[event]
   sendGAEvent('event', event, { value })
 }
