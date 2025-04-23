@@ -77,29 +77,31 @@ const CUSTOM_EMOJIS_NAMES: { [id in HIDDEN_EMOJIS_ID]: string[] } = {
   // headphone: ['headphone', 'headphones'],
 }
 
+// TODO カスタム絵文字の順番を吟味
 const CUSTOM_EMOJIS_IDS: HIDDEN_EMOJIS_ID[] = [
+  'joy', // 😂
+  'heart_eyes', // 😍
+  'relaxed', // ☺️
   'two_hearts', // 💕
+  'thumbsup', // 👍
+  // 'see_no_evil', // 🙈
+  'sparkling_heart', // 💖
+  'tada', // 🎉
+  // 'stuck_out_tongue_winking_eye', // 😜
+  'sunglasses', // 😎
+  'fire', // 🔥
+  'hundred', // 💯
+  'confetti_ball', // 🎊
+  // 'crown', // 👑
+  'minus', // ➖
+  // 'headphone', // 🎧
   'innocent', // 😇
   'open_hands', // 👐
-  'sunglasses', // 😎
-  'hundred', // 💯
-  'heart_eyes', // 😍
   'earth_asia', // 🌏
-  // 'see_no_evil', // 🙈
-  'minus', // ➖
-  // 'dark_sunglasses', // 🕶️
-  'thumbsup', // 👍
-  'joy', // 😂
-  // 'crown', // 👑
-  'relaxed', // ☺️
-  'fire', // 🔥
-  'sparkling_heart', // 💖
-  // 'peace_symbol', // ☮️
-  // 'stuck_out_tongue_winking_eye', // 😜
-  'confetti_ball', // 🎊
-  // 'headphone', // 🎧
   'partying_face', // 🥳
-  'tada', // 🎉
+  // pizza
+  // 'dark_sunglasses', // 🕶️
+  // 'peace_symbol', // ☮️
 ]
 
 export const CUSTOM_EMOJIS: {
