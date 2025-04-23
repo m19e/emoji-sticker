@@ -8,8 +8,7 @@ export enum CustomEvent {
   Rect = 'add_rect',
 }
 
-// TODO GA4上で'select_emoji','add_rect'カスタムイベント追加
-// TODO 'emoji', 'rect'追加
+// FIXME GA4上でemoji, rectが二重計測される
 const CustomEventMap: { [key in CustomEvent]: string } = {
   click_save_button: 'SAVE',
   click_share_button: 'SHARE',

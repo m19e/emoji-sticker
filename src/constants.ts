@@ -77,7 +77,6 @@ const CUSTOM_EMOJIS_NAMES: { [id in HIDDEN_EMOJIS_ID]: string[] } = {
   // headphone: ['headphone', 'headphones'],
 }
 
-// TODO カスタム絵文字の順番を吟味
 const CUSTOM_EMOJIS_IDS: HIDDEN_EMOJIS_ID[] = [
   'joy', // 😂
   'heart_eyes', // 😍
