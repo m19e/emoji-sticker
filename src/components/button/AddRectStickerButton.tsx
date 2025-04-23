@@ -19,10 +19,11 @@ export const AddRectStickerButton = () => {
   const setSelectedStickerId = useSetAtom(selectedStickerIdAtom)
 
   const handleClick = () => {
+    sendEvent(CustomEvent.Rect)
+
     const id = v4()
     setSelectedStickerId(id)
     setRectangles((prev) => [...prev, { id }])
-    sendEvent(CustomEvent.Rect)
   }
 
   return (

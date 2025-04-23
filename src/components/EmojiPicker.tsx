@@ -48,15 +48,15 @@ export const Picker = () => {
       ? HIDDEN_EMOJIS[unified as HIDDEN_EMOJIS_ID]
       : convertToValidTwemojiCodepoint(unified)
 
-    const id = v4()
-    setSelectedStickerId(id)
-    setEmojis((prev) => [...prev, { id, u, fallback }])
-    setOpen(false)
-
     // GA4にイベント送信
     const emojiName = names[0].split(' ').join('_')
     const payload = `${emoji} :${emojiName}: ${u}`
     sendEvent(CustomEvent.Emoji, payload)
+
+    const id = v4()
+    setSelectedStickerId(id)
+    setEmojis((prev) => [...prev, { id, u, fallback }])
+    setOpen(false)
   }
 
   return (

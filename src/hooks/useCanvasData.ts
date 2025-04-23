@@ -39,10 +39,11 @@ export const useCanvasData = (): Return => {
     })
 
     if (uri) {
+      sendEvent(CustomEvent.Save)
+
       const fileName = getFileName()
       downloadUri(uri, fileName)
       toast.success('画像を保存しました')
-      sendEvent(CustomEvent.Save)
     }
   }
 
@@ -62,6 +63,9 @@ export const useCanvasData = (): Return => {
       toast.error('現在の環境では共有機能をご利用いただけません')
       return
     }
+
+    sendEvent(CustomEvent.Share)
+
     const blob = (await canvasRef?.toBlob({
       pixelRatio,
       mimeType: OUTPUT_MIME_TYPE,
@@ -74,7 +78,6 @@ export const useCanvasData = (): Return => {
     navigator
       .share({ text, url, files: [file] })
       .catch((error) => console.error(error))
-    sendEvent(CustomEvent.Share)
   }
 
   return { ref: setCanvasRef, save, share }
