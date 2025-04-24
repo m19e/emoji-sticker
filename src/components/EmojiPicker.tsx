@@ -37,6 +37,32 @@ export const Picker = () => {
   const [open, setOpen] = useAtom(isPickerOpenAtom)
   const setSelectedStickerId = useSetAtom(selectedStickerIdAtom)
 
+  // デバッグ用
+  const _debugPrint = ({
+    names,
+    unified,
+    emoji,
+  }: Pick<EmojiClickData, 'names' | 'unified' | 'emoji'>) => {
+    const name = names[0].split(' ').join('_')
+    // biome-ignore lint/suspicious/noConsoleLog: <explanation>
+    // biome-ignore lint/suspicious/noConsole: <explanation>
+    console.log(
+      JSON.stringify(
+        [
+          {
+            [name]: unified,
+          },
+          {
+            [name]: names,
+          },
+          [name, `// ${emoji}`],
+        ],
+        null,
+        2,
+      ),
+    )
+  }
+
   const handleClick = ({
     isCustom,
     unified,
@@ -44,6 +70,9 @@ export const Picker = () => {
     names,
     emoji,
   }: EmojiClickData) => {
+    // TODO Remove debug print
+    // _debugPrint({ names, unified, emoji })
+
     const u = isCustom
       ? HIDDEN_EMOJIS[unified as HIDDEN_EMOJIS_ID]
       : convertToValidTwemojiCodepoint(unified)
