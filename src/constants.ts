@@ -78,27 +78,26 @@ const CUSTOM_EMOJIS_NAMES: { [id in HIDDEN_EMOJIS_ID]: string[] } = {
 }
 
 const CUSTOM_EMOJIS_IDS: HIDDEN_EMOJIS_ID[] = [
-  'joy', // 😂
-  'heart_eyes', // 😍
-  'relaxed', // ☺️
-  'two_hearts', // 💕
-  'thumbsup', // 👍
-  // 'see_no_evil', // 🙈
+  'joy', //             😂
+  'heart_eyes', //      😍
+  'relaxed', //         ☺️
+  'two_hearts', //      💕
+  'thumbsup', //        👍
+  // 'see_no_evil', //  🙈
   'sparkling_heart', // 💖
-  'tada', // 🎉
+  'tada', //            🎉
   // 'stuck_out_tongue_winking_eye', // 😜
-  'sunglasses', // 😎
-  'fire', // 🔥
-  'hundred', // 💯
-  'confetti_ball', // 🎊
-  // 'crown', // 👑
-  'minus', // ➖
-  // 'headphone', // 🎧
-  'innocent', // 😇
-  'open_hands', // 👐
-  'earth_asia', // 🌏
-  'partying_face', // 🥳
-  // pizza
+  'sunglasses', //      😎
+  'fire', //            🔥
+  'hundred', //         💯
+  'confetti_ball', //   🎊
+  // 'crown', //        👑
+  'minus', //           ➖
+  // 'headphone', //    🎧
+  'innocent', //        😇
+  'open_hands', //      👐
+  'earth_asia', //      🌏
+  'partying_face', //   🥳
   // 'dark_sunglasses', // 🕶️
   // 'peace_symbol', // ☮️
 ]
