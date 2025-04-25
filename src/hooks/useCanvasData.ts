@@ -13,7 +13,6 @@ type Return = {
   share: () => Promise<void>
 }
 
-// TODO GA4カスタムイベントの追加(add_emoji, add_rectなど)
 export const useCanvasData = (): Return => {
   const [canvasRef, setCanvasRef] = useAtom(canvasRefAtom)
   const { pixelRatio } = useCanvasSize()
