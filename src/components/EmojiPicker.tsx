@@ -70,7 +70,6 @@ export const Picker = () => {
     names,
     emoji,
   }: EmojiClickData) => {
-    // TODO Remove debug print
     // _debugPrint({ names, unified, emoji })
 
     const u = isCustom
