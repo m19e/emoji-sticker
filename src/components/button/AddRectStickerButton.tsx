@@ -12,7 +12,6 @@ import {
 
 import { Button } from '@/components/ui/button'
 
-// TODO Rect追加時にGAイベント送信する
 export const AddRectStickerButton = () => {
   const isLoaded = useAtomValue(isBaseImgLoadedAtom)
   const setRectangles = useSetAtom(rectanglesAtom)
