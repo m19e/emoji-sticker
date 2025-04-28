@@ -39,6 +39,7 @@ const rampart = Rampart_One({
 const title = '絵文字ステッカー！ | 画像に絵文字を貼るアプリ'
 const description =
   '「絵文字ステッカー！」は画像に絵文字を貼りつけたり情報を隠すことができる画像編集アプリです。'
+const images = ['https://emoji-sticker.vercel.app/ogp.png']
 
 export const metadata: Metadata = {
   title,
@@ -46,10 +47,12 @@ export const metadata: Metadata = {
   openGraph: {
     title,
     description,
+    images,
   },
   twitter: {
     title,
     description,
+    images,
     card: 'summary',
   },
   icons:
