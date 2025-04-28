@@ -3,10 +3,11 @@ import { useSetAtom } from 'jotai'
 import { useResetAtom } from 'jotai/utils'
 import { SaveIcon, Share2Icon, ShareIcon } from 'lucide-react'
 
-import { useCanvasData } from '@/hooks/useCanvasData'
-import { useMediaQuery } from '@/hooks/useMediaQuery'
 import { isShareDialogOpenAtom, selectedStickerIdAtom } from '@/store/atoms'
 import type { ButtonProps } from '@/types'
+
+import { useCanvasData } from '@/hooks/useCanvasData'
+import { useMediaQuery } from '@/hooks/useMediaQuery'
 
 import { Button } from '@/components/ui/button'
 import {
