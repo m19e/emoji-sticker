@@ -34,6 +34,7 @@ const EmojiPicker = dynamic(() => import('emoji-picker-react'), {
 })
 
 // TODO モバイルではpreviewを非表示にする
+// TODO 検索プレースホルダーはデフォルトに
 export const Picker = () => {
   const setEmojis = useSetAtom(emojiDatasAtom)
   const [open, setOpen] = useAtom(isPickerOpenAtom)
@@ -114,7 +115,6 @@ export const Picker = () => {
             customEmojis={CUSTOM_EMOJIS}
             skinTonesDisabled
             autoFocusSearch={false}
-            searchPlaceholder="絵文字を検索"
             onEmojiClick={handleClick}
           />
         </div>
