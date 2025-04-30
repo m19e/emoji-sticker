@@ -13,6 +13,7 @@ import {
   HIDDEN_EMOJIS_UNICODE,
 } from '@/constants'
 import { CustomEvent, sendEvent } from '@/ga'
+import { useMediaQuery } from '@/hooks/useMediaQuery'
 import {
   emojiDatasAtom,
   isPickerOpenAtom,
@@ -32,10 +33,13 @@ const EmojiPicker = dynamic(() => import('emoji-picker-react'), {
   ssr: false,
 })
 
+// TODO モバイルではpreviewを非表示にする
 export const Picker = () => {
   const setEmojis = useSetAtom(emojiDatasAtom)
   const [open, setOpen] = useAtom(isPickerOpenAtom)
   const setSelectedStickerId = useSetAtom(selectedStickerIdAtom)
+
+  const { isDesktop } = useMediaQuery()
 
   // デバッグ用
   const _debugPrint = ({
@@ -102,7 +106,10 @@ export const Picker = () => {
             theme={Theme.DARK}
             emojiStyle={EmojiStyle.TWITTER}
             categories={EPR_CATEGORIES_JA}
-            previewConfig={DEFAULT_PREVIEW_CONFIG}
+            previewConfig={{
+              ...DEFAULT_PREVIEW_CONFIG,
+              showPreview: isDesktop,
+            }}
             hiddenEmojis={HIDDEN_EMOJIS_UNICODE}
             customEmojis={CUSTOM_EMOJIS}
             skinTonesDisabled
