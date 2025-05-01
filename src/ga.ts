@@ -2,9 +2,10 @@ import { sendGAEvent } from '@next/third-parties/google'
 
 // TODO カスタムイベント追加する
 export enum CustomEvent {
+  // Key Event
   Save = 'click_save_button',
   Share = 'click_share_button',
-  Emoji = 'select_emoji',
+  Emoji = 'add_emoji',
   Rect = 'add_rect',
 }
 
