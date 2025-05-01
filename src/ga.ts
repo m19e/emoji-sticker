@@ -27,9 +27,10 @@ type ConditionalArgs<T extends CustomEvent> =
   | [e: CustomEvent.Emoji, emoji: string]
   | [e: NotEmojiEvent<T>]
 
+// TODO select_emoji以外でvalueを送信しない(でも大丈夫かチェック)
 export const sendEvent = <T extends CustomEvent>(
   ...[event, emoji]: ConditionalArgs<T>
 ) => {
-  const value = emoji ?? CustomEventMap[event]
-  sendGAEvent('event', event, { value })
+  const params = emoji ? { emoji } : {}
+  sendGAEvent('event', event, params)
 }
