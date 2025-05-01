@@ -33,8 +33,6 @@ const EmojiPicker = dynamic(() => import('emoji-picker-react'), {
   ssr: false,
 })
 
-// TODO モバイルではpreviewを非表示にする
-// TODO 検索プレースホルダーはデフォルトに
 export const Picker = () => {
   const setEmojis = useSetAtom(emojiDatasAtom)
   const [open, setOpen] = useAtom(isPickerOpenAtom)
