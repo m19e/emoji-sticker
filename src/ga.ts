@@ -9,12 +9,6 @@ export enum CustomEvent {
 }
 
 // TODO 不要になったので削除
-const CustomEventMap: { [key in CustomEvent]: string } = {
-  click_save_button: 'SAVE',
-  click_share_button: 'SHARE',
-  select_emoji: '絵文字のコードポイントを送る',
-  add_rect: 'RECT',
-}
 
 type NotEmojiEvent<T extends CustomEvent> = T extends CustomEvent.Emoji
   ? never
