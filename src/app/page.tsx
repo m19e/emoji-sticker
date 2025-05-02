@@ -3,8 +3,8 @@ import { Container } from '@/components/Container'
 import { Picker } from '@/components/EmojiPicker'
 import { ShareDrawer } from '@/components/ShareDrawer'
 import { AddRectStickerButton } from '@/components/button/AddRectStickerButton'
-import { DeleteEmojiButton } from '@/components/button/DeleteEmojiButton'
 import { OpenPickerButton } from '@/components/button/OpenPickerButton'
+import { RemoveStickerButton } from '@/components/button/RemoveStickerButton'
 
 export default function Home() {
   return (
@@ -15,7 +15,7 @@ export default function Home() {
           <Container />
         </div>
         <div className="flex justify-between">
-          <DeleteEmojiButton />
+          <RemoveStickerButton />
           <div>
             <AddRectStickerButton />
             <OpenPickerButton />
