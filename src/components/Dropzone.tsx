@@ -5,9 +5,11 @@ import { useCallback } from 'react'
 import { useDropzone } from 'react-dropzone'
 
 import { DROPZONE_ACCEPT_FILE } from '@/constants'
+import { GA4Event, sendEvent } from '@/ga'
 import { baseImgUrlAtom } from '@/store/atoms'
 import { revokeEffect } from '@/store/effects'
 
+// TODO send 'load_image' event
 export const Dropzone = () => {
   useAtom(revokeEffect)
   const setUrl = useSetAtom(baseImgUrlAtom)
@@ -17,6 +19,7 @@ export const Dropzone = () => {
       if (acceptedFiles.length === 0) {
         return
       }
+      sendEvent(GA4Event.LoadImage)
       const [createdUrl] = acceptedFiles.map(URL.createObjectURL)
       setUrl(createdUrl)
     },

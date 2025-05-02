@@ -3,6 +3,7 @@ import { useResetAtom } from 'jotai/utils'
 import { Trash2Icon, XIcon } from 'lucide-react'
 import { toast } from 'sonner'
 
+import { GA4Event, sendEvent } from '@/ga'
 import { useMediaQuery } from '@/hooks/useMediaQuery'
 import { baseImgUrlAtom } from '@/store/atoms'
 import type { ButtonProps } from '@/types'
@@ -25,11 +26,14 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 
+// TODO send 'show_delete_image' event
+// TODO send 'delete_image' event
 export const DeleteBaseImageButton = ({ disabled }: ButtonProps) => {
   const resetBaseImg = useResetAtom(baseImgUrlAtom)
   const { isDesktop } = useMediaQuery()
 
   const handleClick = () => {
+    sendEvent(GA4Event.DeleteImage)
     resetBaseImg()
     toast.warning('画像を削除しました')
   }

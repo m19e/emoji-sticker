@@ -3,6 +3,7 @@ import { useAtomValue, useSetAtom } from 'jotai'
 import { useResetAtom } from 'jotai/utils'
 import { Trash2Icon } from 'lucide-react'
 
+import { GA4Event, sendEvent } from '@/ga'
 import {
   emojiDatasAtom,
   rectanglesAtom,
@@ -11,6 +12,8 @@ import {
 
 import { Button } from '@/components/ui/button'
 
+// TODO send 'remove_sticker' event
+// FIXME Rename component
 export const DeleteEmojiButton = () => {
   const selectedStickerId = useAtomValue(selectedStickerIdAtom)
   const resetSelectedId = useResetAtom(selectedStickerIdAtom)
@@ -18,6 +21,7 @@ export const DeleteEmojiButton = () => {
   const setRectangles = useSetAtom(rectanglesAtom)
 
   const handleClick = () => {
+    sendEvent(GA4Event.Remove)
     resetSelectedId()
     setEmojiDatas((p) => p.filter((e) => e.id !== selectedStickerId))
     setRectangles((p) => p.filter((r) => r.id !== selectedStickerId))
