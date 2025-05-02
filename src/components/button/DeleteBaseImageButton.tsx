@@ -38,9 +38,13 @@ export const DeleteBaseImageButton = ({ disabled }: ButtonProps) => {
     toast.warning('画像を削除しました')
   }
 
+  const handleOpenChange = (open: boolean) => {
+    open && sendEvent(GA4Event.ShowDeleteImage)
+  }
+
   if (isDesktop) {
     return (
-      <DropdownMenu>
+      <DropdownMenu onOpenChange={handleOpenChange}>
         <DropdownMenuTrigger asChild>
           <Button variant="ghost" size="icon" disabled={disabled}>
             <XIcon />
@@ -57,7 +61,7 @@ export const DeleteBaseImageButton = ({ disabled }: ButtonProps) => {
   }
 
   return (
-    <Drawer>
+    <Drawer onOpenChange={handleOpenChange}>
       <DrawerTrigger asChild>
         <Button variant="ghost" size="icon" disabled={disabled}>
           <XIcon />

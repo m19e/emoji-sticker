@@ -3,6 +3,7 @@ import { useSetAtom } from 'jotai'
 import { useResetAtom } from 'jotai/utils'
 import { SaveIcon, Share2Icon, ShareIcon } from 'lucide-react'
 
+import { GA4Event, sendEvent } from '@/ga'
 import { isShareDialogOpenAtom, selectedStickerIdAtom } from '@/store/atoms'
 import type { ButtonProps } from '@/types'
 
@@ -17,6 +18,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 
+// TODO send 'show_share' event
 export const ShareButton = ({ disabled }: ButtonProps) => {
   const setOpenDrawer = useSetAtom(isShareDialogOpenAtom)
   const resetSelectedStickerId = useResetAtom(selectedStickerIdAtom)
@@ -25,13 +27,19 @@ export const ShareButton = ({ disabled }: ButtonProps) => {
   const { save, share } = useCanvasData()
 
   const handleClick = () => {
+    sendEvent(GA4Event.ShowShare)
     resetSelectedStickerId()
     setOpenDrawer(true)
   }
 
+  const handleOpenChange = (open: boolean) => {
+    open && sendEvent(GA4Event.ShowShare)
+    resetSelectedStickerId()
+  }
+
   if (isDesktop) {
     return (
-      <DropdownMenu onOpenChange={resetSelectedStickerId}>
+      <DropdownMenu onOpenChange={handleOpenChange}>
         <DropdownMenuTrigger asChild>
           <Button variant="ghost" size="icon" disabled={disabled}>
             <ShareIcon />
