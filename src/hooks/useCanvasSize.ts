@@ -2,9 +2,10 @@ import { useMemo } from 'react'
 import { useWindowSize } from 'react-use'
 
 import { CANVAS_MARGIN_Y, DESKTOP_CONTENTS_WIDTH } from '@/constants'
+import type { Dimensions } from '@/types'
+
 import { useBaseImageSize } from '@/hooks/useBaseImageSize'
 import { useMediaQuery } from '@/hooks/useMediaQuery'
-import type { Dimensions } from '@/types'
 
 type Args = {
   img: Dimensions
