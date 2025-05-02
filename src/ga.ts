@@ -8,7 +8,8 @@ import { sendGAEvent } from '@next/third-parties/google'
 // TODO Rename click_save_button, click_share_button, select_emoji
 // TODO Renameしたイベントをキーイベント設定
 // TODO Share,Save送信時に貼られてるステッカーの数を含めるか検討
-export enum CustomEvent {
+// FIXME CustomEventが命名衝突している(MDNと)
+export enum GA4Event {
   // Key Event
   Save = 'save_image',
   Share = 'share_image',
@@ -25,18 +26,13 @@ export enum CustomEvent {
   ShowPicker = 'show_picker',
 }
 
-// TODO 不要になったので削除
+type NotEmojiEvent<T extends GA4Event> = T extends GA4Event.Emoji ? never : T
 
-type NotEmojiEvent<T extends CustomEvent> = T extends CustomEvent.Emoji
-  ? never
-  : T
-
-type ConditionalArgs<T extends CustomEvent> =
-  | [e: CustomEvent.Emoji, emoji: string]
+type ConditionalArgs<T extends GA4Event> =
+  | [e: GA4Event.Emoji, emoji: string]
   | [e: NotEmojiEvent<T>]
 
-// TODO select_emoji以外でvalueを送信しない(でも大丈夫かチェック) ←大丈夫でした
-export const sendEvent = <T extends CustomEvent>(
+export const sendEvent = <T extends GA4Event>(
   ...[event, emoji]: ConditionalArgs<T>
 ) => {
   const params = typeof emoji === 'string' ? { emoji } : {}

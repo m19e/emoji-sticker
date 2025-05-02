@@ -12,7 +12,7 @@ import {
   type HIDDEN_EMOJIS_ID,
   HIDDEN_EMOJIS_UNICODE,
 } from '@/constants'
-import { CustomEvent, sendEvent } from '@/ga'
+import { GA4Event, sendEvent } from '@/ga'
 import { useMediaQuery } from '@/hooks/useMediaQuery'
 import {
   emojiDatasAtom,
@@ -82,7 +82,7 @@ export const Picker = () => {
     // GA4にイベント送信
     const emojiName = names[0].split(' ').join('_')
     const payload = `${emoji} :${emojiName}: ${u}`
-    sendEvent(CustomEvent.Emoji, payload)
+    sendEvent(GA4Event.Emoji, payload)
 
     const id = v4()
     setSelectedStickerId(id)

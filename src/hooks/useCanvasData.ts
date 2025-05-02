@@ -3,7 +3,7 @@ import type Konva from 'konva'
 import { toast } from 'sonner'
 
 import { OUTPUT_MIME_TYPE } from '@/constants'
-import { CustomEvent, sendEvent } from '@/ga'
+import { GA4Event, sendEvent } from '@/ga'
 import { useCanvasSize } from '@/hooks/useCanvasSize'
 import { canvasRefAtom } from '@/store/atoms'
 
@@ -38,7 +38,7 @@ export const useCanvasData = (): Return => {
     })
 
     if (uri) {
-      sendEvent(CustomEvent.Save)
+      sendEvent(GA4Event.Save)
 
       const fileName = getFileName()
       downloadUri(uri, fileName)
@@ -63,7 +63,7 @@ export const useCanvasData = (): Return => {
       return
     }
 
-    sendEvent(CustomEvent.Share)
+    sendEvent(GA4Event.Share)
 
     const blob = (await canvasRef?.toBlob({
       pixelRatio,
