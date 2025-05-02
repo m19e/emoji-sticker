@@ -1,6 +1,7 @@
 'use client'
 import { InfoIcon } from 'lucide-react'
-import { useState } from 'react'
+
+import { GA4Event, sendEvent } from '@/ga'
 
 import {
   Accordion,
@@ -19,11 +20,14 @@ import {
 
 import { Logo } from '@/components/Logo'
 
+// TODO send 'show_about' event
+// TODO handle open state with no use-state
 export const AboutDialog = () => {
-  const [open, setOpen] = useState(true)
-
   return (
-    <Dialog open={open} onOpenChange={setOpen}>
+    <Dialog
+      defaultOpen
+      onOpenChange={(open) => open && sendEvent(GA4Event.ShowAbout)}
+    >
       <DialogTrigger asChild>
         <Button variant="ghost" size="icon">
           <InfoIcon />
