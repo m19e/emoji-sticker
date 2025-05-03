@@ -33,6 +33,7 @@ const EmojiPicker = dynamic(() => import('emoji-picker-react'), {
   ssr: false,
 })
 
+// TODO add_emoji送信時に含めるデータを再検討
 export const Picker = () => {
   const setEmojis = useSetAtom(emojiDatasAtom)
   const [open, setOpen] = useAtom(isPickerOpenAtom)
@@ -66,6 +67,22 @@ export const Picker = () => {
     )
   }
 
+  const sendEmojiEvent = ({
+    emoji,
+    names,
+    unified,
+    isCustom,
+  }: Pick<EmojiClickData, 'emoji' | 'names' | 'unified' | 'isCustom'>) => {
+    const name = names[0].split(' ').join('_')
+    const params = {
+      emoji,
+      name,
+      unified,
+      isCustom,
+    }
+    sendEvent(GA4Event.Emoji, params)
+  }
+
   const handleClick = ({
     isCustom,
     unified,
@@ -79,10 +96,12 @@ export const Picker = () => {
       ? HIDDEN_EMOJIS[unified as HIDDEN_EMOJIS_ID]
       : convertToValidTwemojiCodepoint(unified)
 
-    // GA4にイベント送信
-    const emojiName = names[0].split(' ').join('_')
-    const payload = `${emoji} :${emojiName}: ${u}`
-    sendEvent(GA4Event.Emoji, payload)
+    sendEmojiEvent({
+      emoji,
+      names,
+      isCustom,
+      unified: u,
+    })
 
     const id = v4()
     setSelectedStickerId(id)
