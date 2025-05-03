@@ -18,7 +18,6 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 
-// TODO send 'show_share' event
 export const ShareButton = ({ disabled }: ButtonProps) => {
   const setOpenDrawer = useSetAtom(isShareDialogOpenAtom)
   const resetSelectedStickerId = useResetAtom(selectedStickerIdAtom)
@@ -50,7 +49,12 @@ export const ShareButton = ({ disabled }: ButtonProps) => {
             保存する
             <SaveIcon />
           </DropdownMenuItem>
-          <DropdownMenuItem className="justify-between" onClick={share}>
+          <DropdownMenuItem
+            className="justify-between"
+            onClick={share}
+            // TODO リリース前に削除
+            disabled
+          >
             共有する
             <Share2Icon />
           </DropdownMenuItem>
