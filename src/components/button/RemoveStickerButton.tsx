@@ -12,8 +12,6 @@ import {
 
 import { Button } from '@/components/ui/button'
 
-// TODO send 'remove_sticker' event
-// FIXME Rename component
 export const RemoveStickerButton = () => {
   const selectedStickerId = useAtomValue(selectedStickerIdAtom)
   const resetSelectedId = useResetAtom(selectedStickerIdAtom)

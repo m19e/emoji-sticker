@@ -17,9 +17,7 @@ export enum GA4Event {
   ShowShare = 'show_share',
   ShowPicker = 'show_picker',
 }
-// TOOD 不要な型を削除
 
-// TODO paramsをobjectで受け取る
 export const sendEvent = (event: GA4Event, params: object = {}) => {
   sendGAEvent('event', event, params)
 }

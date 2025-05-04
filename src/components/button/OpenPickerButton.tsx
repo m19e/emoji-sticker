@@ -7,7 +7,6 @@ import { isBaseImgLoadedAtom, isPickerOpenAtom } from '@/store/atoms'
 
 import { Button } from '@/components/ui/button'
 
-// TODO send 'show_picker' event
 export const OpenPickerButton = () => {
   const setOpenPicker = useSetAtom(isPickerOpenAtom)
   const isLoaded = useAtomValue(isBaseImgLoadedAtom)

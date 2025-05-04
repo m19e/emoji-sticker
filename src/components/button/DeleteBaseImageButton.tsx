@@ -26,8 +26,6 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 
-// TODO send 'show_delete_image' event
-// TODO send 'delete_image' event
 export const DeleteBaseImageButton = ({ disabled }: ButtonProps) => {
   const resetBaseImg = useResetAtom(baseImgUrlAtom)
   const { isDesktop } = useMediaQuery()

@@ -9,7 +9,6 @@ import { GA4Event, sendEvent } from '@/ga'
 import { baseImgUrlAtom } from '@/store/atoms'
 import { revokeEffect } from '@/store/effects'
 
-// TODO send 'load_image' event
 export const Dropzone = () => {
   useAtom(revokeEffect)
   const setUrl = useSetAtom(baseImgUrlAtom)

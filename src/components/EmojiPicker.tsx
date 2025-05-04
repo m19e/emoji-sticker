@@ -33,7 +33,6 @@ const EmojiPicker = dynamic(() => import('emoji-picker-react'), {
   ssr: false,
 })
 
-// TODO add_emoji送信時に含めるデータを再検討
 export const Picker = () => {
   const setEmojis = useSetAtom(emojiDatasAtom)
   const [open, setOpen] = useAtom(isPickerOpenAtom)

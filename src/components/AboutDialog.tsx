@@ -20,8 +20,6 @@ import {
 
 import { Logo } from '@/components/Logo'
 
-// TODO send 'show_about' event
-// TODO handle open state with no use-state
 export const AboutDialog = () => {
   return (
     <Dialog
