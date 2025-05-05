@@ -17,6 +17,7 @@ type Props = {
   img: Dimensions
 }
 
+// TODO 選択した絵文字を最前面に
 export const StickerLayer = ({ img }: Props) => {
   const [selectedStickerId, setSelectedStickerId] = useAtom(
     selectedStickerIdAtom,
