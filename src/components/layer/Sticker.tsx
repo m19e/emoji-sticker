@@ -22,12 +22,21 @@ export const StickerLayer = ({ img }: Props) => {
   const [selectedStickerId, setSelectedStickerId] = useAtom(
     selectedStickerIdAtom,
   )
-  const emojis = useAtomValue(emojiDatasAtom)
+  const [emojis, setEmojis] = useAtom(emojiDatasAtom)
   const rects = useAtomValue(rectanglesAtom)
 
   const { isDesktop } = useMediaQuery()
 
   const handleSelect = (id: string) => {
+    setSelectedStickerId(id)
+  }
+
+  const handleSelectEmoji = (id: string) => {
+    // 選択された絵文字を最後尾に
+    setEmojis((prev) => [
+      ...prev.filter((e) => e.id !== id),
+      ...prev.filter((e) => e.id === id),
+    ])
     setSelectedStickerId(id)
   }
 
@@ -54,7 +63,7 @@ export const StickerLayer = ({ img }: Props) => {
           u={u}
           fallback={fallback}
           selected={selectedStickerId === id}
-          onSelect={() => handleSelect(id)}
+          onSelect={() => handleSelectEmoji(id)}
           position={initialPosition}
           size={img.width / 5}
           isDesktop={isDesktop}
