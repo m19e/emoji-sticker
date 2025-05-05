@@ -1,11 +1,12 @@
-import { useAtom } from 'jotai'
+import { useAtom, useAtomValue } from 'jotai'
 import type Konva from 'konva'
 import { toast } from 'sonner'
+import { UAParser } from 'ua-parser-js'
 
 import { OUTPUT_MIME_TYPE } from '@/constants'
 import { GA4Event, sendEvent } from '@/ga'
 import { useCanvasSize } from '@/hooks/useCanvasSize'
-import { canvasRefAtom } from '@/store/atoms'
+import { canvasRefAtom, emojiDatasAtom, rectanglesAtom } from '@/store/atoms'
 
 type Return = {
   ref: (ref: Konva.Stage) => void
@@ -13,9 +14,21 @@ type Return = {
   share: () => Promise<void>
 }
 
+// GA4上で確認・集計しやすいようにフラット化する
+type SendEventParams = {
+  count_emoji: number
+  count_rect: number
+  count_all: number
+  os: string
+  browser: string
+}
+
 // TODO save,shareイベント送信時にステッカーの数も集計する?
 export const useCanvasData = (): Return => {
   const [canvasRef, setCanvasRef] = useAtom(canvasRefAtom)
+  const emojis = useAtomValue(emojiDatasAtom)
+  const rects = useAtomValue(rectanglesAtom)
+
   const { pixelRatio } = useCanvasSize()
 
   const downloadUri = (uri: string, name: string) => {
@@ -32,6 +45,19 @@ export const useCanvasData = (): Return => {
     return `censored-${ts}.jpg`
   }
 
+  const getEventParams = () => {
+    const parser = new UAParser()
+    const params: SendEventParams = {
+      count_emoji: emojis.length,
+      count_rect: rects.length,
+      count_all: emojis.length + rects.length,
+      os: parser.getOS().name || '',
+      browser: parser.getBrowser().name || '',
+    }
+
+    return params
+  }
+
   const save = () => {
     const uri = canvasRef?.toDataURL({
       pixelRatio,
@@ -39,7 +65,7 @@ export const useCanvasData = (): Return => {
     })
 
     if (uri) {
-      sendEvent(GA4Event.Save)
+      sendEvent(GA4Event.Save, getEventParams())
 
       const fileName = getFileName()
       downloadUri(uri, fileName)
@@ -66,7 +92,7 @@ export const useCanvasData = (): Return => {
       return
     }
 
-    sendEvent(GA4Event.Share)
+    sendEvent(GA4Event.Share, getEventParams())
 
     const blob = (await canvasRef?.toBlob({
       pixelRatio,
