@@ -1,6 +1,6 @@
 import { sendGAEvent } from '@next/third-parties/google'
 
-// TODO Share,Save送信時に貼られてるステッカーの数を含めるか検討
+// TODO 共有できない環境でのGA4イベント追加、送信
 export enum GA4Event {
   // Key Event
   Save = 'save_image',

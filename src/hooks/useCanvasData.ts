@@ -23,7 +23,6 @@ type SendEventParams = {
   browser: string
 }
 
-// TODO save,shareイベント送信時にステッカーの数も集計する?
 export const useCanvasData = (): Return => {
   const [canvasRef, setCanvasRef] = useAtom(canvasRefAtom)
   const emojis = useAtomValue(emojiDatasAtom)
@@ -85,7 +84,6 @@ export const useCanvasData = (): Return => {
   }
 
   // TODO 共有できない環境でのGA4イベント追加、送信
-  // TODO OS差分が出るためUAもイベント送信に含めたい
   const share = async () => {
     if (!isSupported()) {
       toast.error('現在の環境では共有機能をご利用いただけません')
