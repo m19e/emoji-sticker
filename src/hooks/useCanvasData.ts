@@ -39,11 +39,13 @@ export const useCanvasData = (): Return => {
     document.body.removeChild(link)
   }
 
+  // TODO 見栄えのよいファイル名に
   const getFileName = () => {
     const ts = Date.now().toString(16)
     return `censored-${ts}.jpg`
   }
 
+  // FIXME 共有のたびにnewするの重そうなので先に取得して保持する
   const getEventParams = () => {
     const parser = new UAParser()
     const params: SendEventParams = {
