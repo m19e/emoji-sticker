@@ -102,7 +102,12 @@ export const useCanvasData = (): Return => {
     const url = 'https://emoji-sticker.vercel.app'
 
     navigator
-      .share({ text, url, files: [file] })
+      .share({
+        // TODO リリース時に戻す
+        // text,
+        // url,
+        files: [file],
+      })
       .catch((error) => console.error(error))
   }
 

@@ -53,8 +53,6 @@ export const ShareDrawer = () => {
             size="lg"
             variant="outline"
             onClick={handleShare}
-            // TODO リリース前に削除
-            disabled
           >
             共有する
             <Share2Icon />

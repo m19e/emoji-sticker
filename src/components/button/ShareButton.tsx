@@ -49,12 +49,7 @@ export const ShareButton = ({ disabled }: ButtonProps) => {
             保存する
             <SaveIcon />
           </DropdownMenuItem>
-          <DropdownMenuItem
-            className="justify-between"
-            onClick={share}
-            // TODO リリース前に削除
-            disabled
-          >
+          <DropdownMenuItem className="justify-between" onClick={share}>
             共有する
             <Share2Icon />
           </DropdownMenuItem>
