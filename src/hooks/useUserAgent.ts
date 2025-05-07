@@ -4,6 +4,8 @@ import { UAParser } from 'ua-parser-js'
 
 import { userAgentAtom } from '@/store/atoms'
 
+// TODO isIOS: boolean などを整えて返す
+// TODO そのままUAも返す
 export const useUserAgent = () => {
   const setUA = useSetAtom(userAgentAtom)
 
