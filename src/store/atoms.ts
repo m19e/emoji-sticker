@@ -19,6 +19,11 @@ export const isShareDialogOpenAtom = atom(false)
 
 export const canvasRefAtom = atom<Konva.Stage | null>(null)
 
+export const userAgentAtom = atom({
+  os: '',
+  browser: '',
+})
+
 // Derived atoms
 export const isBaseImgLoadedAtom = atom((get) => {
   const url = get(baseImgUrlAtom)
