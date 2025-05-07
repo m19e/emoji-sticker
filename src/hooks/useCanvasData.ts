@@ -1,12 +1,18 @@
 import { useAtom, useAtomValue } from 'jotai'
 import type Konva from 'konva'
 import { toast } from 'sonner'
-import { UAParser } from 'ua-parser-js'
 
 import { OUTPUT_MIME_TYPE } from '@/constants'
 import { GA4Event, sendEvent } from '@/ga'
+import {
+  canvasRefAtom,
+  emojiDatasAtom,
+  rectanglesAtom,
+  userAgentAtom,
+} from '@/store/atoms'
+
 import { useCanvasSize } from '@/hooks/useCanvasSize'
-import { canvasRefAtom, emojiDatasAtom, rectanglesAtom } from '@/store/atoms'
+import { useUserAgent } from '@/hooks/useUserAgent'
 
 type Return = {
   ref: (ref: Konva.Stage) => void
@@ -30,6 +36,9 @@ export const useCanvasData = (): Return => {
 
   const { pixelRatio } = useCanvasSize()
 
+  useUserAgent()
+  const ua = useAtomValue(userAgentAtom)
+
   const downloadUri = (uri: string, name: string) => {
     const link = document.createElement('a')
     link.download = name
@@ -47,13 +56,12 @@ export const useCanvasData = (): Return => {
 
   // FIXME 共有のたびにnewするの重そうなので先に取得して保持する
   const getEventParams = () => {
-    const parser = new UAParser()
     const params: SendEventParams = {
       count_emoji: emojis.length,
       count_rect: rects.length,
       count_all: emojis.length + rects.length,
-      os: parser.getOS().name || '',
-      browser: parser.getBrowser().name || '',
+      os: ua.os,
+      browser: ua.browser,
     }
 
     return params
