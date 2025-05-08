@@ -1,10 +1,14 @@
 'use client'
-import { useSetAtom } from 'jotai'
+import { useAtomValue, useSetAtom } from 'jotai'
 import { useResetAtom } from 'jotai/utils'
 import { SaveIcon, Share2Icon, ShareIcon } from 'lucide-react'
 
 import { GA4Event, sendEvent } from '@/ga'
-import { isShareDialogOpenAtom, selectedStickerIdAtom } from '@/store/atoms'
+import {
+  isShareDialogOpenAtom,
+  osAtom,
+  selectedStickerIdAtom,
+} from '@/store/atoms'
 import type { ButtonProps } from '@/types'
 
 import { useCanvasData } from '@/hooks/useCanvasData'
@@ -18,7 +22,9 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 
+// TODO iOSの場合、保存ボタンを表示しない
 export const ShareButton = ({ disabled }: ButtonProps) => {
+  const { ios } = useAtomValue(osAtom)
   const setOpenDrawer = useSetAtom(isShareDialogOpenAtom)
   const resetSelectedStickerId = useResetAtom(selectedStickerIdAtom)
 
@@ -45,10 +51,12 @@ export const ShareButton = ({ disabled }: ButtonProps) => {
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent className="bg-zinc-900">
-          <DropdownMenuItem className="justify-between" onClick={save}>
-            保存する
-            <SaveIcon />
-          </DropdownMenuItem>
+          {!ios && (
+            <DropdownMenuItem className="justify-between" onClick={save}>
+              保存する
+              <SaveIcon />
+            </DropdownMenuItem>
+          )}
           <DropdownMenuItem className="justify-between" onClick={share}>
             共有する
             <Share2Icon />

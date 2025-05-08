@@ -1,9 +1,9 @@
 'use client'
-import { useAtom } from 'jotai'
+import { useAtom, useAtomValue } from 'jotai'
 import { SaveIcon, Share2Icon } from 'lucide-react'
 
 import { useCanvasData } from '@/hooks/useCanvasData'
-import { isShareDialogOpenAtom } from '@/store/atoms'
+import { isShareDialogOpenAtom, osAtom } from '@/store/atoms'
 
 import { Button } from '@/components/ui/button'
 import {
@@ -15,8 +15,10 @@ import {
   DrawerTitle,
 } from '@/components/ui/drawer'
 
+// TODO iOSの場合、保存ボタンを表示しない
 export const ShareDrawer = () => {
   const [open, setOpen] = useAtom(isShareDialogOpenAtom)
+  const { ios } = useAtomValue(osAtom)
   const { save, share } = useCanvasData()
 
   const handleSave = () => {
@@ -39,15 +41,17 @@ export const ShareDrawer = () => {
           </DrawerDescription>
         </DrawerHeader>
         <DrawerFooter className="pt-4 pb-8">
-          <Button
-            className="flex justify-between bg-zinc-700 px-4 font-bold text-lg"
-            size="lg"
-            variant="outline"
-            onClick={handleSave}
-          >
-            保存する
-            <SaveIcon />
-          </Button>
+          {!ios && (
+            <Button
+              className="flex justify-between bg-zinc-700 px-4 font-bold text-lg"
+              size="lg"
+              variant="outline"
+              onClick={handleSave}
+            >
+              保存する
+              <SaveIcon />
+            </Button>
+          )}
           <Button
             className="flex justify-between bg-zinc-700 px-4 font-bold text-lg"
             size="lg"
