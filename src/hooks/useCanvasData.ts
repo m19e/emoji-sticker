@@ -4,12 +4,7 @@ import { toast } from 'sonner'
 
 import { OUTPUT_MIME_TYPE } from '@/constants'
 import { GA4Event, sendEvent } from '@/ga'
-import {
-  canvasRefAtom,
-  emojiDatasAtom,
-  rectanglesAtom,
-  userAgentAtom,
-} from '@/store/atoms'
+import { canvasRefAtom, emojiDatasAtom, rectanglesAtom } from '@/store/atoms'
 
 import { useCanvasSize } from '@/hooks/useCanvasSize'
 import { useUserAgent } from '@/hooks/useUserAgent'
@@ -35,9 +30,7 @@ export const useCanvasData = (): Return => {
   const rects = useAtomValue(rectanglesAtom)
 
   const { pixelRatio } = useCanvasSize()
-
-  useUserAgent()
-  const ua = useAtomValue(userAgentAtom)
+  const { os, browser } = useUserAgent()
 
   const downloadUri = (uri: string, name: string) => {
     const link = document.createElement('a')
@@ -60,8 +53,8 @@ export const useCanvasData = (): Return => {
       count_emoji: emojis.length,
       count_rect: rects.length,
       count_all: emojis.length + rects.length,
-      os: ua.os,
-      browser: ua.browser,
+      os,
+      browser,
     }
 
     return params

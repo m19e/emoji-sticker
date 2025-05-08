@@ -1,4 +1,4 @@
-import { useSetAtom } from 'jotai'
+import { useAtom } from 'jotai'
 import { useEffectOnce } from 'react-use'
 import { UAParser } from 'ua-parser-js'
 
@@ -7,7 +7,7 @@ import { userAgentAtom } from '@/store/atoms'
 // TODO isIOS: boolean などを整えて返す
 // TODO そのままUAも返す
 export const useUserAgent = () => {
-  const setUA = useSetAtom(userAgentAtom)
+  const [ua, setUA] = useAtom(userAgentAtom)
 
   useEffectOnce(() => {
     const parser = new UAParser()
@@ -16,4 +16,6 @@ export const useUserAgent = () => {
       browser: parser.getBrowser().name || '',
     })
   })
+
+  return ua
 }
