@@ -47,7 +47,6 @@ export const useCanvasData = (): Return => {
     return `censored-${ts}.jpg`
   }
 
-  // FIXME 共有のたびにnewするの重そうなので先に取得して保持する
   const getEventParams = () => {
     const params: SendEventParams = {
       count_emoji: emojis.length,
