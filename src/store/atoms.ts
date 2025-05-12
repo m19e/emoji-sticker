@@ -30,7 +30,6 @@ export const isBaseImgLoadedAtom = atom((get) => {
   return url !== null
 })
 
-// TODO iOS判定用のderived atom追加
 export const osAtom = atom((get) => {
   const { os } = get(userAgentAtom)
 
