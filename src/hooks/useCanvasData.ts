@@ -44,7 +44,7 @@ export const useCanvasData = (): Return => {
   // TODO 見栄えのよいファイル名に
   const getFileName = () => {
     const ts = Date.now().toString(16)
-    return `censored-${ts}.jpg`
+    return `es-${ts}.jpg`
   }
 
   const getEventParams = () => {
