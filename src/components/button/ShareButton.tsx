@@ -22,7 +22,6 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 
-// TODO iOSの場合、保存ボタンを表示しない
 export const ShareButton = ({ disabled }: ButtonProps) => {
   const { ios } = useAtomValue(osAtom)
   const setOpenDrawer = useSetAtom(isShareDialogOpenAtom)

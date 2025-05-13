@@ -15,7 +15,6 @@ import {
   DrawerTitle,
 } from '@/components/ui/drawer'
 
-// TODO iOSの場合、保存ボタンを表示しない
 export const ShareDrawer = () => {
   const [open, setOpen] = useAtom(isShareDialogOpenAtom)
   const { ios } = useAtomValue(osAtom)
