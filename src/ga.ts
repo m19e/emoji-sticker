@@ -1,6 +1,7 @@
 import { sendGAEvent } from '@next/third-parties/google'
 
 // TODO 共有できない環境でのGA4イベント追加、送信
+// TODO カスタムディメンション保存するプロパティを最終決定
 export enum GA4Event {
   // Key Event
   Save = 'save_image',
