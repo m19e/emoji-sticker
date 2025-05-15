@@ -39,7 +39,6 @@ export const useImageSize = (url: string | null): UseImageSizeResult => {
 
       try {
         const { width, height } = await getImageSize(url)
-
         setDimensions({ width, height })
       } catch (error: unknown) {
         setError((error as string).toString())

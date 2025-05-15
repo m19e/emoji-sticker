@@ -15,7 +15,7 @@ type Return = {
   share: () => Promise<void>
 }
 
-// GA4上で確認・集計しやすいようにフラット化する
+// GA4上で確認・集計しやすいようにフラット化
 type SendEventParams = {
   count_emoji: number
   count_rect: number
