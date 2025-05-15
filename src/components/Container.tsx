@@ -1,6 +1,7 @@
 'use client'
-import { isBaseImgLoadedAtom } from '@/store/atoms'
 import { useAtomValue } from 'jotai'
+
+import { isBaseImgLoadedAtom } from '@/store/atoms'
 
 import { Canvas } from '@/components/Canvas'
 import { Unloaded } from '@/components/Unloaded'
