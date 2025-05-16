@@ -1,12 +1,7 @@
 import { GoogleAnalytics } from '@next/third-parties/google'
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata } from 'next'
-import {
-  Geist,
-  Geist_Mono,
-  M_PLUS_Rounded_1c,
-  Rampart_One,
-} from 'next/font/google'
+import { M_PLUS_Rounded_1c, Rampart_One } from 'next/font/google'
 import type { ReactNode } from 'react'
 
 import { RandomFavicon } from '@/components/RandomFavicon'
@@ -15,14 +10,7 @@ import './globals.css'
 
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID || ''
 
-const geistSans = Geist({
-  variable: '--font-geist-sans',
-  subsets: ['latin'],
-})
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
-  subsets: ['latin'],
-})
+// TODO 不要なフォント削除
 const rounded = M_PLUS_Rounded_1c({
   subsets: ['latin'],
   variable: '--font-rounded',
@@ -65,9 +53,7 @@ export default function RootLayout({
   return (
     <html lang="ja" className="dark">
       <RandomFavicon />
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} ${rounded.variable} ${rampart.variable} antialiased`}
-      >
+      <body className={`${rounded.variable} ${rampart.variable} antialiased`}>
         {children}
         <Toaster richColors />
         <Analytics />
