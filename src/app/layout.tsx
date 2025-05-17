@@ -10,7 +10,6 @@ import './globals.css'
 
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID || ''
 
-// TODO 不要なフォント削除
 const rounded = M_PLUS_Rounded_1c({
   subsets: ['latin'],
   variable: '--font-rounded',
