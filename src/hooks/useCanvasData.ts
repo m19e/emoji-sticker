@@ -41,7 +41,6 @@ export const useCanvasData = (): Return => {
     document.body.removeChild(link)
   }
 
-  // TODO 見栄えのよいファイル名に
   const getFileName = () => {
     const ts = Date.now().toString(16)
     return `es-${ts}.jpg`
