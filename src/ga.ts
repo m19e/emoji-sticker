@@ -17,6 +17,8 @@ export enum GA4Event {
   ShowAbout = 'show_about',
   ShowShare = 'show_share',
   ShowPicker = 'show_picker',
+  // Error
+  ShareNotSupported = 'share_not_supported',
 }
 
 export const sendEvent = (event: GA4Event, params: object = {}) => {
