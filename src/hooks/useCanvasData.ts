@@ -46,7 +46,6 @@ export const useCanvasData = (): Return => {
     return `es-${ts}.jpg`
   }
 
-  // TODO osとbrowserを記録するためのカスタムディメンションを作る
   const getEventParams = () => {
     const params: SendEventParams = {
       count_emoji: emojis.length,
