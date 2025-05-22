@@ -84,7 +84,6 @@ export const useCanvasData = (): Return => {
     )
   }
 
-  // TODO 共有できない環境でのGA4イベント追加、送信
   const share = async () => {
     if (!isSupported()) {
       toast.error('現在の環境では共有機能をご利用いただけません')
