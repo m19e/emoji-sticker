@@ -105,12 +105,16 @@ export const useCanvasData = (): Return => {
     const text = '#絵文字ステッカー！\nhttps://emoji-sticker.vercel.app'
     const url = 'https://emoji-sticker.vercel.app'
 
+    // TODO 共有成功したらトーストする
     navigator
       .share({
         // TODO リリース時に戻す
         // text,
         // url,
         files: [file],
+      })
+      .then(() => {
+        toast.success('共有しました')
       })
       .catch((error) => console.error(error))
   }
