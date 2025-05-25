@@ -88,7 +88,6 @@ export const useCanvasData = (): Return => {
     if (!isSupported()) {
       toast.error('現在の環境では共有機能をご利用いただけません')
 
-      // FIXME パラメータ名をシンプルに
       const env = `${os} / ${browser}`
       sendEvent(GA4Event.ShareNotSupported, { env })
 
