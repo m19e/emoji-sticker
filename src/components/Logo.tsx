@@ -1,9 +1,14 @@
+import Image from 'next/image'
+
+// TODO ロゴを画像に
+// TODO 180pxから240pxに拡大して様子見
 export const Logo = () => {
   return (
-    <div className="logo flex flex-col text-6xl">
-      <span>絵文字</span>
-      <span>ステッ</span>
-      <span>カー！</span>
-    </div>
+    <Image
+      src="/logo.png"
+      alt="絵文字ステッカー！ロゴ"
+      width={240}
+      height={240}
+    />
   )
 }
