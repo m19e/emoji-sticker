@@ -1,7 +1,7 @@
 import Image from 'next/image'
 
 // TODO ロゴを画像に
-// TODO 180pxから240pxに拡大して様子見
+// TODO 180pxから240pxに拡大して様子見 => 200pxでFIX
 export const Logo = () => {
   return (
     <Image
