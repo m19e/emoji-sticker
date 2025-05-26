@@ -1,7 +1,7 @@
 import { GoogleAnalytics } from '@next/third-parties/google'
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata } from 'next'
-import { M_PLUS_Rounded_1c, Rampart_One } from 'next/font/google'
+import { M_PLUS_Rounded_1c } from 'next/font/google'
 import type { ReactNode } from 'react'
 
 import { RandomFavicon } from '@/components/RandomFavicon'
@@ -15,11 +15,7 @@ const rounded = M_PLUS_Rounded_1c({
   variable: '--font-rounded',
   weight: ['400', '700'],
 })
-const rampart = Rampart_One({
-  subsets: ['latin'],
-  variable: '--font-rampart',
-  weight: ['400'],
-})
+// TODO ロゴには画像を使うため削除
 
 const title = '絵文字ステッカー！ | 画像に絵文字を貼るアプリ'
 const description =
@@ -52,7 +48,7 @@ export default function RootLayout({
   return (
     <html lang="ja" className="dark">
       <RandomFavicon />
-      <body className={`${rounded.variable} ${rampart.variable} antialiased`}>
+      <body className={`${rounded.variable} antialiased`}>
         {children}
         <Toaster richColors />
         <Analytics />
