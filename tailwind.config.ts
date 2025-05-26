@@ -71,7 +71,7 @@ export default {
       },
       fontFamily: {
         rounded: ['var(--font-rounded)'],
-        rampart: ['var(--font-rampart)'],
+        // TODO 不要につき削除
       },
       keyframes: {
         'accordion-down': {
