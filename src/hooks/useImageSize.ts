@@ -5,7 +5,7 @@ import type { Dimensions, UseImageSizeResult } from '@/types'
 
 // TODO そもそも持ってきたコードだし共通化やめる(constsから戻す)
 // TODO Camel case
-const ERROR_MESSAGE = {
+const ErrorMessage = {
   WINDOW_IS_NOT_DEFINED: 'Window is not defined',
   URL_IS_NOT_DEFINED: 'Url is not defined',
 }
@@ -13,10 +13,10 @@ const ERROR_MESSAGE = {
 const getImageSize = (url: string | null): Promise<Dimensions> => {
   return new Promise((resolve, reject) => {
     if (typeof window === 'undefined') {
-      return reject(ERROR_MESSAGE.WINDOW_IS_NOT_DEFINED)
+      return reject(ErrorMessage.WINDOW_IS_NOT_DEFINED)
     }
     if (!url) {
-      return reject(ERROR_MESSAGE.URL_IS_NOT_DEFINED)
+      return reject(ErrorMessage.URL_IS_NOT_DEFINED)
     }
 
     const img = new Image()
