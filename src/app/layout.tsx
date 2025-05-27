@@ -15,7 +15,6 @@ const rounded = M_PLUS_Rounded_1c({
   variable: '--font-rounded',
   weight: ['400', '700'],
 })
-// TODO ロゴには画像を使うため削除
 
 const title = '絵文字ステッカー！ | 画像に絵文字を貼るアプリ'
 const description =
