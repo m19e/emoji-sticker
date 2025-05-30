@@ -25,6 +25,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
+import { Dict } from '@/dict'
 
 export const DeleteBaseImageButton = ({ disabled }: ButtonProps) => {
   const resetBaseImg = useResetAtom(baseImgUrlAtom)
@@ -87,7 +88,7 @@ export const DeleteBaseImageButton = ({ disabled }: ButtonProps) => {
               size="lg"
               variant="outline"
             >
-              キャンセル
+              {Dict.cancel}
             </Button>
           </DrawerClose>
         </DrawerFooter>
