@@ -11,6 +11,7 @@ import {
 } from '@/store/atoms'
 
 import { Button } from '@/components/ui/button'
+import { Dict } from '@/dict'
 
 export const RemoveStickerButton = () => {
   const selectedStickerId = useAtomValue(selectedStickerIdAtom)
@@ -36,7 +37,7 @@ export const RemoveStickerButton = () => {
     >
       <Trash2Icon />
       {isSelected && (
-        <span className="font-bold text-xs">ステッカーを削除</span>
+        <span className="font-bold text-xs">{Dict.delete.sticker}</span>
       )}
     </Button>
   )
