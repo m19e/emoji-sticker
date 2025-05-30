@@ -1,5 +1,32 @@
-import { getSvgUrl } from '@/tools'
 import { Categories } from 'emoji-picker-react'
+
+import { getSvgUrl } from '@/tools'
+
+// TODO fix consts order => 処理の実行レイヤー順に
+// Dropzone > Canvas > Emoji Picker > Transformer > Output
+
+// Dropzone
+export const DROPZONE_ACCEPT_FILE = {
+  'image/png': ['.png'],
+  'image/jpeg': ['.jpeg', '.jpg'],
+  'image/webp': ['.webp'],
+}
+
+// Canvas
+// TODO 共通化やめたので削除
+export const ERROR_MESSAGE = {
+  WINDOW_IS_NOT_DEFINED: 'Window is not defined',
+  URL_IS_NOT_DEFINED: 'Url is not defined',
+} as const
+
+export const INITIAL_DIMENSIONS = {
+  width: 0,
+  height: 0,
+} as const
+
+export const DESKTOP_CONTENTS_WIDTH = 640
+
+export const CANVAS_MARGIN_Y = 80
 
 // Emoji Picker
 export const EPR_CATEGORIES_JA = [
@@ -112,32 +139,11 @@ export const CUSTOM_EMOJIS: {
   imgUrl: getSvgUrl(HIDDEN_EMOJIS[id]),
 }))
 
-// Dropzone
-export const DROPZONE_ACCEPT_FILE = {
-  'image/png': ['.png'],
-  'image/jpeg': ['.jpeg', '.jpg'],
-  'image/webp': ['.webp'],
-}
-
-export const OUTPUT_MIME_TYPE = 'image/jpeg'
-
-// Canvas
-export const ERROR_MESSAGE = {
-  WINDOW_IS_NOT_DEFINED: 'Window is not defined',
-  URL_IS_NOT_DEFINED: 'Url is not defined',
-} as const
-
-export const INITIAL_DIMENSIONS = {
-  width: 0,
-  height: 0,
-} as const
-
-export const DESKTOP_CONTENTS_WIDTH = 640
-
-export const CANVAS_MARGIN_Y = 80
-
-// Sticker
+// Transformer
 export const StickerSnap = {
   CENTER: ['top-center', 'bottom-center', 'middle-right', 'middle-left'],
   CORNER: ['top-left', 'top-right', 'bottom-left', 'bottom-right'],
 }
+
+// Output
+export const OUTPUT_MIME_TYPE = 'image/jpeg'
