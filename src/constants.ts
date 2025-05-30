@@ -14,10 +14,6 @@ export const DROPZONE_ACCEPT_FILE = {
 
 // Canvas
 // TODO 共通化やめたので削除
-export const ERROR_MESSAGE = {
-  WINDOW_IS_NOT_DEFINED: 'Window is not defined',
-  URL_IS_NOT_DEFINED: 'Url is not defined',
-} as const
 
 export const INITIAL_DIMENSIONS = {
   width: 0,
