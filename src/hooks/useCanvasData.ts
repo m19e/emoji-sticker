@@ -113,7 +113,8 @@ export const useCanvasData = (): Return => {
         files: [file],
       })
       .then(() => {
-        toast.success('共有しました')
+        // TODO 共有トースト文言修正
+        toast.success('画像を共有しました')
       })
       .catch((error) => console.error(error))
   }
