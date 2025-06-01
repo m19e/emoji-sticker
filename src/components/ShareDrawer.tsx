@@ -2,6 +2,7 @@
 import { useAtom, useAtomValue } from 'jotai'
 import { SaveIcon, Share2Icon } from 'lucide-react'
 
+import { Dict } from '@/dict'
 import { useCanvasData } from '@/hooks/useCanvasData'
 import { isShareDialogOpenAtom, osAtom } from '@/store/atoms'
 
@@ -47,7 +48,7 @@ export const ShareDrawer = () => {
               variant="outline"
               onClick={handleSave}
             >
-              保存する
+              {Dict.save.btn}
               <SaveIcon />
             </Button>
           )}

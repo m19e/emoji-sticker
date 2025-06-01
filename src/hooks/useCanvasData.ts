@@ -3,6 +3,7 @@ import type Konva from 'konva'
 import { toast } from 'sonner'
 
 import { OUTPUT_MIME_TYPE } from '@/constants'
+import { Dict } from '@/dict'
 import { GA4Event, sendEvent } from '@/ga'
 import { canvasRefAtom, emojiDatasAtom, rectanglesAtom } from '@/store/atoms'
 
@@ -69,7 +70,7 @@ export const useCanvasData = (): Return => {
 
       const fileName = getFileName()
       downloadUri(uri, fileName)
-      toast.success('画像を保存しました')
+      toast.success(Dict.save.toast)
     }
   }
 

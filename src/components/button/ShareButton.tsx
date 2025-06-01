@@ -3,6 +3,7 @@ import { useAtomValue, useSetAtom } from 'jotai'
 import { useResetAtom } from 'jotai/utils'
 import { SaveIcon, Share2Icon, ShareIcon } from 'lucide-react'
 
+import { Dict } from '@/dict'
 import { GA4Event, sendEvent } from '@/ga'
 import {
   isShareDialogOpenAtom,
@@ -52,7 +53,7 @@ export const ShareButton = ({ disabled }: ButtonProps) => {
         <DropdownMenuContent className="bg-zinc-900">
           {!ios && (
             <DropdownMenuItem className="justify-between" onClick={save}>
-              保存する
+              {Dict.save.btn}
               <SaveIcon />
             </DropdownMenuItem>
           )}

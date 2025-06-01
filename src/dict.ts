@@ -16,8 +16,8 @@ export const Dict = {
     },
   },
   save: {
-    btn: '',
-    toast: '',
+    btn: '保存する',
+    toast: '画像を保存しました',
   },
   share: {
     btn: '',
