@@ -3,6 +3,7 @@ import { useAtomValue, useSetAtom } from 'jotai'
 import { useResetAtom } from 'jotai/utils'
 import { Trash2Icon } from 'lucide-react'
 
+import { Dict } from '@/dict'
 import { GA4Event, sendEvent } from '@/ga'
 import {
   emojiDatasAtom,
@@ -11,7 +12,6 @@ import {
 } from '@/store/atoms'
 
 import { Button } from '@/components/ui/button'
-import { Dict } from '@/dict'
 
 export const RemoveStickerButton = () => {
   const selectedStickerId = useAtomValue(selectedStickerIdAtom)

@@ -3,6 +3,7 @@ import { useResetAtom } from 'jotai/utils'
 import { Trash2Icon, XIcon } from 'lucide-react'
 import { toast } from 'sonner'
 
+import { Dict } from '@/dict'
 import { GA4Event, sendEvent } from '@/ga'
 import { useMediaQuery } from '@/hooks/useMediaQuery'
 import { baseImgUrlAtom } from '@/store/atoms'
@@ -25,7 +26,6 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
-import { Dict } from '@/dict'
 
 export const DeleteBaseImageButton = ({ disabled }: ButtonProps) => {
   const resetBaseImg = useResetAtom(baseImgUrlAtom)
