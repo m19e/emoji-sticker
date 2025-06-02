@@ -3,8 +3,6 @@ import { useEffect, useState } from 'react'
 import { INITIAL_DIMENSIONS } from '@/constants'
 import type { Dimensions, UseImageSizeResult } from '@/types'
 
-// TODO そもそも持ってきたコードだし共通化やめる(constsから戻す)
-// TODO Camel case
 const ErrorMessage = {
   WINDOW_IS_NOT_DEFINED: 'Window is not defined',
   URL_IS_NOT_DEFINED: 'Url is not defined',
