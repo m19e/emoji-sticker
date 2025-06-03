@@ -51,7 +51,7 @@ export const DeleteBaseImageButton = ({ disabled }: ButtonProps) => {
         </DropdownMenuTrigger>
         <DropdownMenuContent className="bg-zinc-900">
           <DropdownMenuItem className="justify-between" onClick={handleClick}>
-            画像を削除する
+            {Dict.delete.baseImage.btn}
             <Trash2Icon className="ml-4" />
           </DropdownMenuItem>
         </DropdownMenuContent>
@@ -68,7 +68,7 @@ export const DeleteBaseImageButton = ({ disabled }: ButtonProps) => {
       </DrawerTrigger>
       <DrawerContent>
         <DrawerHeader className="sr-only">
-          <DrawerTitle>画像を削除する</DrawerTitle>
+          <DrawerTitle>{Dict.delete.baseImage.btn}</DrawerTitle>
           <DrawerDescription>読み込んだ画像を削除しますか？</DrawerDescription>
         </DrawerHeader>
         <DrawerFooter className="pt-4 pb-8">
@@ -79,7 +79,7 @@ export const DeleteBaseImageButton = ({ disabled }: ButtonProps) => {
               variant="destructive"
               onClick={handleClick}
             >
-              画像を削除する
+              {Dict.delete.baseImage.btn}
             </Button>
           </DrawerClose>
           <DrawerClose asChild>

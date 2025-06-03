@@ -58,7 +58,7 @@ export const ShareDrawer = () => {
             variant="outline"
             onClick={handleShare}
           >
-            共有する
+            {Dict.share.btn}
             <Share2Icon />
           </Button>
         </DrawerFooter>

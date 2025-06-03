@@ -58,7 +58,7 @@ export const ShareButton = ({ disabled }: ButtonProps) => {
             </DropdownMenuItem>
           )}
           <DropdownMenuItem className="justify-between" onClick={share}>
-            共有する
+            {Dict.share.btn}
             <Share2Icon />
           </DropdownMenuItem>
         </DropdownMenuContent>
