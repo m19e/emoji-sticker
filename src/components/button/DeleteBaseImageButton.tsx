@@ -34,7 +34,7 @@ export const DeleteBaseImageButton = ({ disabled }: ButtonProps) => {
   const handleClick = () => {
     sendEvent(GA4Event.DeleteImage)
     resetBaseImg()
-    toast.warning('画像を削除しました')
+    toast.warning(Dict.delete.baseImage.toast)
   }
 
   const handleOpenChange = (open: boolean) => {

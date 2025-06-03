@@ -87,7 +87,7 @@ export const useCanvasData = (): Return => {
 
   const share = async () => {
     if (!isSupported()) {
-      toast.error('現在の環境では共有機能をご利用いただけません')
+      toast.error(Dict.share.toast.error)
 
       const env = `${os} / ${browser}`
       sendEvent(GA4Event.ShareNotSupported, { env })
@@ -115,7 +115,7 @@ export const useCanvasData = (): Return => {
       })
       .then(() => {
         // TODO 共有トースト文言修正
-        toast.success('画像を共有しました')
+        toast.success(Dict.share.toast.success)
       })
       .catch((error) => console.error(error))
   }
