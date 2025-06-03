@@ -13,8 +13,6 @@ export const DROPZONE_ACCEPT_FILE = {
 }
 
 // Canvas
-// TODO 共通化やめたので削除
-
 export const INITIAL_DIMENSIONS = {
   width: 0,
   height: 0,
