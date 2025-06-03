@@ -2,9 +2,6 @@ import { Categories } from 'emoji-picker-react'
 
 import { getSvgUrl } from '@/tools'
 
-// TODO fix consts order => 処理の実行レイヤー順に
-// Dropzone > Canvas > Emoji Picker > Transformer > Output
-
 // Dropzone
 export const DROPZONE_ACCEPT_FILE = {
   'image/png': ['.png'],
