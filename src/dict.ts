@@ -1,6 +1,5 @@
 // TODO グローバル辞書
-// TODO 共通 > キャンセル
-// TODO 削除
+// TODO 削除 > ステッカー,ベース画像
 // TODO 保存
 // TODO 共有
 // TODO トースト
@@ -10,9 +9,8 @@ export const Dict = {
   delete: {
     sticker: 'ステッカーを削除',
     baseImage: {
-      btn: '',
-      confirm: '',
-      toast: '',
+      btn: '画像を削除する',
+      toast: '画像を削除しました',
     },
   },
   save: {
@@ -20,10 +18,10 @@ export const Dict = {
     toast: '画像を保存しました',
   },
   share: {
-    btn: '',
+    btn: '共有する',
     toast: {
-      success: '',
-      error: '',
+      success: '画像を共有しました',
+      error: '現在の環境では共有機能をご利用いただけません',
     },
   },
 } as const
