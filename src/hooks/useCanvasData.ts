@@ -114,7 +114,6 @@ export const useCanvasData = (): Return => {
         files: [file],
       })
       .then(() => {
-        // TODO 共有トースト文言修正
         toast.success(Dict.share.toast.success)
       })
       .catch((error) => console.error(error))
