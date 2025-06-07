@@ -1,8 +1,3 @@
-// TODO グローバル辞書
-// TODO 削除 > ステッカー,ベース画像
-// TODO 保存
-// TODO 共有
-// TODO トースト
 export const Dict = {
   cancel: 'キャンセル',
   delete: {
