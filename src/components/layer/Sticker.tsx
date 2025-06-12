@@ -31,7 +31,7 @@ export const StickerLayer = ({ img }: Props) => {
   }
 
   const handleSelectEmoji = (id: string) => {
-    // 選択された絵文字を最後尾に
+    // 選択された絵文字を最後尾に追加してレイヤー最前面に配置
     setEmojis((prev) => [
       ...prev.filter((e) => e.id !== id),
       ...prev.filter((e) => e.id === id),
