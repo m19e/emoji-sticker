@@ -54,7 +54,7 @@ export const AboutDialog = () => {
           <AccordionItem value="item-2">
             <AccordionTrigger>画像データの取り扱いについて</AccordionTrigger>
             <AccordionContent>
-              このアプリは画像編集処理を利用者の端末内でのみ行っており、読み込んだ画像を外部に送信することはありません。画像の内容がサーバーに保存されたり、外部に漏洩する心配はありません。
+              このアプリは画像編集処理を利用者の端末内でのみ行っており、読み込んだ画像を外部に送信することはありません。画像がサーバーに保存されたり、外部に漏洩する心配はありません。
             </AccordionContent>
           </AccordionItem>
         </Accordion>
