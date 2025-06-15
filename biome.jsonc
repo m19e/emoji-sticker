@@ -74,7 +74,6 @@
   },
   "overrides": [
     {
-      // FIXME lint off config file
       "include": ["src/app/**", "*.config.ts", "*.config.mjs"],
       "linter": {
         "rules": {
