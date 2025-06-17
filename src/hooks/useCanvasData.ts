@@ -107,7 +107,6 @@ export const useCanvasData = (): Return => {
 
     navigator
       .share({
-        // TODO リリース時に戻す
         text,
         url,
         files: [file],
