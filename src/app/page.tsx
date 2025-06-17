@@ -12,7 +12,6 @@ export default function Home() {
         <div className="canvas-section">
           <Container />
         </div>
-        {/* TODO Footer component */}
         <Footer />
       </main>
       <Picker />
