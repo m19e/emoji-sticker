@@ -1,6 +1,6 @@
 import { Separator } from '@/components/ui/separator'
 
-// TODO twitterリンクをリリースツイートのURLに更新
+// TODO githubリンクをリポジトリのURLに
 export const Contact = () => {
   return (
     <div className="flex gap-2 p-1 text-sm text-zinc-200">
