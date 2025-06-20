@@ -11,7 +11,7 @@ export const Contact = () => {
         className="h-4 w-[1.5px] bg-zinc-400 sm:h-5"
       />
       <a
-        href="https://github.com/m19e"
+        href="https://github.com/m19e/emoji-sticker"
         target="_blank"
         rel="noopener noreferrer"
         className="underline hover:text-zinc-400"
