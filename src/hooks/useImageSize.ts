@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 
 import { INITIAL_DIMENSIONS } from '@/constants'
-import type { Dimensions, UseImageSizeResult } from '@/types'
+import type { Dimensions } from '@/types'
 
 const ErrorMessage = {
   WINDOW_IS_NOT_DEFINED: 'Window is not defined',
@@ -30,6 +30,11 @@ const getImageSize = (url: string | null): Promise<Dimensions> => {
     img.src = url
   })
 }
+
+type UseImageSizeResult = [
+  Dimensions,
+  { loading: boolean; error: string | null },
+]
 
 export const useImageSize = (url: string | null): UseImageSizeResult => {
   const [dimensions, setDimensions] = useState<Dimensions>(INITIAL_DIMENSIONS)

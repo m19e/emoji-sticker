@@ -3,10 +3,7 @@ export type Dimensions = {
   height: number
 }
 
-export type UseImageSizeResult = [
-  Dimensions,
-  { loading: boolean; error: string | null },
-]
+// TODO 共通化やめ太郎
 
 export type EmojiData = {
   id: string
