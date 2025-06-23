@@ -1,6 +1,5 @@
 import { Separator } from '@/components/ui/separator'
 
-// TODO githubリンクをリポジトリのURLに
 // FIXME リポジトリのサイトリンクを修正
 export const Contact = () => {
   return (
