@@ -73,7 +73,8 @@ export const useCanvasData = (): Return => {
     }
   }
 
-  const isSupported = () => {
+  // FIXME 関数名をちゃんと
+  const checkIsSupported = () => {
     const testFile = new File(['test'], 'test.txt', { type: 'text/plain' })
     return (
       !!navigator.share &&
@@ -85,7 +86,7 @@ export const useCanvasData = (): Return => {
   }
 
   const share = async () => {
-    if (!isSupported()) {
+    if (!checkIsSupported()) {
       toast.error(Dict.share.toast.error)
 
       const env = `${os} / ${browser}`
