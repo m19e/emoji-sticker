@@ -24,6 +24,11 @@ type SendEventParams = {
   browser: string
 }
 
+const getFileName = () => {
+  const ts = Date.now().toString(16)
+  return `es-${ts}.jpg`
+}
+
 export const useCanvasData = (): Return => {
   const [canvasRef, setCanvasRef] = useAtom(canvasRefAtom)
   const emojis = useAtomValue(emojiDatasAtom)
