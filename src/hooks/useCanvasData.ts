@@ -24,6 +24,7 @@ type SendEventParams = {
   browser: string
 }
 
+// TODO 内部状態に依存しない処理をhooks外へ
 const getFileName = () => {
   const ts = Date.now().toString(16)
   return `es-${ts}.jpg`
@@ -44,11 +45,6 @@ export const useCanvasData = (): Return => {
     document.body.appendChild(link)
     link.click()
     document.body.removeChild(link)
-  }
-
-  const getFileName = () => {
-    const ts = Date.now().toString(16)
-    return `es-${ts}.jpg`
   }
 
   const getEventParams = () => {
