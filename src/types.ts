@@ -3,8 +3,6 @@ export type Dimensions = {
   height: number
 }
 
-// TODO 共通化やめ太郎
-
 export type EmojiData = {
   id: string
   u: string
