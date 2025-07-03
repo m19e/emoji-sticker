@@ -74,7 +74,6 @@ export const useCanvasData = (): Return => {
     }
   }
 
-  // FIXME 関数名をちゃんと
   const checkIsSupported = () => {
     const testFile = new File(['test'], 'test.txt', { type: 'text/plain' })
     return (
