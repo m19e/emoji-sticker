@@ -30,6 +30,17 @@ const getFileName = () => {
   return `es-${ts}.jpg`
 }
 
+const checkIsSupported = () => {
+  const testFile = new File(['test'], 'test.txt', { type: 'text/plain' })
+  return (
+    !!navigator.share &&
+    !!navigator.canShare &&
+    navigator.canShare({
+      files: [testFile],
+    })
+  )
+}
+
 export const useCanvasData = (): Return => {
   const [canvasRef, setCanvasRef] = useAtom(canvasRefAtom)
   const emojis = useAtomValue(emojiDatasAtom)
@@ -72,17 +83,6 @@ export const useCanvasData = (): Return => {
       downloadUri(uri, fileName)
       toast.success(Dict.save.toast)
     }
-  }
-
-  const checkIsSupported = () => {
-    const testFile = new File(['test'], 'test.txt', { type: 'text/plain' })
-    return (
-      !!navigator.share &&
-      !!navigator.canShare &&
-      navigator.canShare({
-        files: [testFile],
-      })
-    )
   }
 
   const share = async () => {
