@@ -24,7 +24,6 @@ type SendEventParams = {
   browser: string
 }
 
-// TODO 内部状態に依存しない処理をhooks外へ
 const getFileName = () => {
   const ts = Date.now().toString(16)
   return `es-${ts}.jpg`
