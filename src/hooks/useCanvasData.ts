@@ -24,6 +24,10 @@ type SendEventParams = {
   browser: string
 }
 
+// FIXME 共有用の定数
+const SHARE_TEXT = '#絵文字ステッカー！\nhttps://emoji-sticker.vercel.app'
+const SHARE_URL = 'https://emoji-sticker.vercel.app'
+
 const getFileName = () => {
   const ts = Date.now().toString(16)
   return `es-${ts}.jpg`
