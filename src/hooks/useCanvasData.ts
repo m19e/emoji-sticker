@@ -106,6 +106,7 @@ export const useCanvasData = (): Return => {
     })) as Blob
     const file = new File([blob], getFileName(), { type: blob.type })
 
+    // TODO 定数をhooks外に出す
     const text = '#絵文字ステッカー！\nhttps://emoji-sticker.vercel.app'
     const url = 'https://emoji-sticker.vercel.app'
 
