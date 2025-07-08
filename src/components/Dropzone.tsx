@@ -9,6 +9,7 @@ import { GA4Event, sendEvent } from '@/ga'
 import { baseImgUrlAtom } from '@/store/atoms'
 import { revokeEffect } from '@/store/effects'
 
+// FIXME ファイルの複数選択をちゃんと禁止する
 export const Dropzone = () => {
   useAtom(revokeEffect)
   const setUrl = useSetAtom(baseImgUrlAtom)
@@ -26,7 +27,7 @@ export const Dropzone = () => {
   )
   const { getRootProps, getInputProps } = useDropzone({
     onDrop,
-    maxFiles: 1,
+    multiple: false,
     accept: DROPZONE_ACCEPT_FILE,
   })
 
