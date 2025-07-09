@@ -112,8 +112,8 @@ export const useCanvasData = (): Return => {
 
     navigator
       .share({
-        text,
-        url,
+        text: SHARE_TEXT,
+        url: SHARE_URL,
         files: [file],
       })
       .then(() => {
