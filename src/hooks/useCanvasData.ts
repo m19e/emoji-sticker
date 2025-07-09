@@ -24,7 +24,7 @@ type SendEventParams = {
   browser: string
 }
 
-// FIXME 共有用の定数
+// FIXME 共有用の定数切り出し
 const SHARE_TEXT = '#絵文字ステッカー！\nhttps://emoji-sticker.vercel.app'
 const SHARE_URL = 'https://emoji-sticker.vercel.app'
 
@@ -106,9 +106,7 @@ export const useCanvasData = (): Return => {
     })) as Blob
     const file = new File([blob], getFileName(), { type: blob.type })
 
-    // TODO 定数をhooks外に出す
-    const text = '#絵文字ステッカー！\nhttps://emoji-sticker.vercel.app'
-    const url = 'https://emoji-sticker.vercel.app'
+    // FIXME 定数をhooks外に出す
 
     navigator
       .share({
