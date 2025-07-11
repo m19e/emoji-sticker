@@ -1,20 +1,21 @@
-import { GoogleAnalytics } from '@next/third-parties/google'
-import { Analytics } from '@vercel/analytics/next'
 import type { Metadata } from 'next'
 import { M_PLUS_Rounded_1c } from 'next/font/google'
 import type { ReactNode } from 'react'
 
+import { GoogleAnalytics } from '@next/third-parties/google'
+import { Analytics } from '@vercel/analytics/next'
+
 import { RandomFavicon } from '@/components/RandomFavicon'
 import { Toaster } from '@/components/ui/sonner'
 import './globals.css'
-
-const GA_ID = process.env.NEXT_PUBLIC_GA_ID || ''
 
 const rounded = M_PLUS_Rounded_1c({
   subsets: ['latin'],
   variable: '--font-rounded',
   weight: ['400', '700'],
 })
+
+const GA_ID = process.env.NEXT_PUBLIC_GA_ID || ''
 
 const title = '絵文字ステッカー！ | 画像に絵文字を貼るアプリ'
 const description =
