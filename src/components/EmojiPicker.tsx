@@ -29,7 +29,8 @@ import {
   DrawerTitle,
 } from '@/components/ui/drawer'
 
-const EmojiPicker = dynamic(() => import('emoji-picker-react'), {
+// TODO Rename
+const DynamicPicker = dynamic(() => import('emoji-picker-react'), {
   ssr: false,
 })
 
@@ -118,7 +119,7 @@ export const Picker = () => {
           </DrawerDescription>
         </DrawerHeader>
         <div className="w-96 max-w-full overflow-x-hidden p-4">
-          <EmojiPicker
+          <DynamicPicker
             className="!flex"
             theme={Theme.DARK}
             emojiStyle={EmojiStyle.TWITTER}
