@@ -1,7 +1,7 @@
 export const Dict = {
   cancel: 'キャンセル',
   delete: {
-    sticker: 'ステッカーを削除',
+    sticker: '削除',
     baseImage: {
       btn: '画像を削除する',
       toast: '画像を削除しました',
