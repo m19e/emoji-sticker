@@ -26,7 +26,8 @@ export const StickerLayer = ({ img }: Props) => {
 
   const { isDesktop } = useMediaQuery()
 
-  const handleSelect = (id: string) => {
+  // FIXME rename to handleSelectRect
+  const handleSelectRect = (id: string) => {
     setSelectedStickerId(id)
   }
 
@@ -50,7 +51,7 @@ export const StickerLayer = ({ img }: Props) => {
         <Rectangle
           key={id}
           selected={selectedStickerId === id}
-          onSelect={() => handleSelect(id)}
+          onSelect={() => handleSelectRect(id)}
           position={initialPosition}
           size={img.width / 3}
           isDesktop={isDesktop}
