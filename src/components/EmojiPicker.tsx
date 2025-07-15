@@ -96,6 +96,7 @@ export const Picker = () => {
       ? HIDDEN_EMOJIS[unified as HIDDEN_EMOJIS_ID]
       : convertToValidTwemojiCodepoint(unified)
 
+    // TODO ステッカー複製時にもGAイベントを送信
     sendEmojiEvent({
       emoji,
       names,
