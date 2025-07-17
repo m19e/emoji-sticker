@@ -26,7 +26,6 @@ export const StickerLayer = ({ img }: Props) => {
 
   const { isDesktop } = useMediaQuery()
 
-  // FIXME rename to handleSelectRect
   const handleSelectRect = (id: string) => {
     setSelectedStickerId(id)
   }
