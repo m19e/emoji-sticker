@@ -29,7 +29,6 @@ import {
   DrawerTitle,
 } from '@/components/ui/drawer'
 
-// TODO Rename
 const DynamicPicker = dynamic(() => import('emoji-picker-react'), {
   ssr: false,
 })
