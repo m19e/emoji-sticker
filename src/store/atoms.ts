@@ -13,6 +13,7 @@ export const emojiDatasAtom = atomWithReset<EmojiData[]>([])
 
 export const rectanglesAtom = atomWithReset<{ id: string }[]>([])
 
+// TODO IDatomを消してselectedStickerAtomに情報をまとめる
 export const selectedStickerIdAtom = atomWithReset<string | null>(null)
 
 // TODO feat:選択ステッカーの複製: ステッカー選択時に更新
