@@ -3,7 +3,6 @@ export type Dimensions = {
   height: number
 }
 
-// TODO ステッカー複製時にサイズを設定
 export type EmojiData = {
   id: string
   u: string
