@@ -23,6 +23,7 @@ export const revokeEffect = atomEffect((get, set) => {
   if (url === null) {
     set(emojiDatasAtom, RESET)
     set(rectanglesAtom, RESET)
+    // TODO selectedDataAtomをリセットする
     set(selectedStickerIdAtom, RESET)
     prevUrl && URL.revokeObjectURL(prevUrl)
   }
