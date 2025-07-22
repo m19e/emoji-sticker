@@ -19,18 +19,19 @@ export const CopyStickerButton = () => {
   const [emojis, setEmojiDatas] = useAtom(emojiDatasAtom)
   const setRectangles = useSetAtom(rectanglesAtom)
 
+  // TODO selected-emojiの構造修正
   const handleCopyEmoji = () => {
     const copyTarget = emojis.findLast((e) => e.id === selectedId)
-    if (!copyTarget || selectedData === null) {
+    if (!copyTarget || selectedData === null || selectedData.type !== 'emoji') {
       return
     }
 
-    const { w } = selectedData
+    const { size } = selectedData
     const { u, fallback } = copyTarget
 
     const id = v4()
     setSelectedId(id)
-    setEmojiDatas((prev) => [...prev, { id, u, fallback, copySize: w }])
+    setEmojiDatas((prev) => [...prev, { id, u, fallback, copySize: size }])
   }
 
   const handleCopyRect = () => {}
