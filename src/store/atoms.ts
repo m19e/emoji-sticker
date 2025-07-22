@@ -2,6 +2,7 @@ import { atom } from 'jotai'
 import { atomWithReset } from 'jotai/utils'
 import type Konva from 'konva'
 
+import type { SelectedSticker } from '@/brand'
 import type { EmojiData } from '@/types'
 
 // Atoms
@@ -18,14 +19,19 @@ export const selectedStickerIdAtom = atomWithReset<string | null>(null)
 
 // TODO feat:選択ステッカーの複製: ステッカー選択時に更新
 // TODO scaleはデータとして持たず、更新時に計算してwidth,heightに含める
+// TODO こちらでIDも持つ
+// TODO 絵文字はw,h両方は要らないのでrectとは使うフィールドを分けたい(branded types?)
+// TODO この型は消す
 type SelectedStickerData = {
   type: 'emoji' | 'rect'
+  id: string
   w: number
   h: number
 }
 
-export const selectedStickerDataAtom =
-  atomWithReset<SelectedStickerData | null>(null)
+export const selectedStickerDataAtom = atomWithReset<SelectedSticker | null>(
+  null,
+)
 
 export const isShareDialogOpenAtom = atom(false)
 

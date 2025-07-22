@@ -4,6 +4,7 @@ import type Konva from 'konva'
 import { useEffect, useRef } from 'react'
 import { Image, Transformer } from 'react-konva'
 
+import { createSelectedEmoji } from '@/brand'
 import { StickerSnap } from '@/constants'
 import { useEmojiImage } from '@/hooks/useEmojiImage'
 import { selectedStickerDataAtom } from '@/store/atoms'
@@ -14,11 +15,20 @@ type Props = {
   data: Omit<EmojiData, 'copySize'>
 } & StickerProps
 
+type Target = {
+  width: () => number
+  scaleX: () => number
+}
+
+// TODO w,h取得処理を共通化
+const getSelectedSize = (target: Target) => {
+  return target.width() * target.scaleX()
+}
+
 // TODO 選択時に絵文字ノードの情報を出力してみる
 // TODO 選択時に選択ノードatomを更新
 // TODO 変形後に選択ノードatomを更新
 // TODO isDesktopでの分岐をまとめる(Transformer)
-// TODO w,h取得処理を共通化
 export const Emoji = ({
   data: { id, u, fallback },
   selected,
@@ -36,12 +46,10 @@ export const Emoji = ({
     if (selected && imageRef.current) {
       transformerRef.current?.nodes([imageRef.current])
 
-      const w = imageRef.current.width() * imageRef.current.scaleX()
-      const h = imageRef.current.height() * imageRef.current.scaleY()
-
-      setSelectedSticker({ type: 'emoji', w, h })
+      const size = getSelectedSize(imageRef.current)
+      setSelectedSticker(createSelectedEmoji({ id, size }))
     }
-  }, [selected, setSelectedSticker])
+  }, [selected, setSelectedSticker, id])
 
   const center = {
     x: position.x - size / 2,
@@ -62,10 +70,9 @@ export const Emoji = ({
         onTap={onSelect}
         onTouchStart={onSelect}
         onTransformEnd={({ target }) => {
-          const w = target.width() * target.scaleX()
-          const h = target.height() * target.scaleY()
+          const size = getSelectedSize(target)
 
-          setSelectedSticker({ type: 'emoji', w, h })
+          setSelectedSticker(createSelectedEmoji({ id, size }))
         }}
         draggable
       />
