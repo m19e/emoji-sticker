@@ -7,14 +7,11 @@ import { Image, Transformer } from 'react-konva'
 import { StickerSnap } from '@/constants'
 import { useEmojiImage } from '@/hooks/useEmojiImage'
 import { selectedStickerDataAtom } from '@/store/atoms'
-import type { StickerProps } from '@/types'
+import type { EmojiData, StickerProps } from '@/types'
 
+// TODO EmojiData(copySize抜き)を`data`で受け取る
 type Props = {
-  /**
-   * Unicode point for Emoji.
-   */
-  u: string
-  fallback: string
+  data: Omit<EmojiData, 'copySize'>
 } & StickerProps
 
 // TODO 選択時に絵文字ノードの情報を出力してみる
@@ -23,8 +20,7 @@ type Props = {
 // TODO isDesktopでの分岐をまとめる(Transformer)
 // TODO w,h取得処理を共通化
 export const Emoji = ({
-  u,
-  fallback,
+  data: { id, u, fallback },
   selected,
   onSelect,
   position,
