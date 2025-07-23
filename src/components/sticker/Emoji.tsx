@@ -1,5 +1,5 @@
 'use client'
-import { useSetAtom } from 'jotai'
+import { useAtom, useSetAtom } from 'jotai'
 import type Konva from 'konva'
 import { useEffect, useRef } from 'react'
 import { Image, Transformer } from 'react-konva'
@@ -7,7 +7,11 @@ import { Image, Transformer } from 'react-konva'
 import { createSelectedEmoji } from '@/brand'
 import { StickerSnap } from '@/constants'
 import { useEmojiImage } from '@/hooks/useEmojiImage'
-import { selectedStickerDataAtom } from '@/store/atoms'
+import {
+  emojiDatasAtom,
+  selectedStickerDataAtom,
+  selectedStickerIdAtom,
+} from '@/store/atoms'
 import type { EmojiData, StickerProps } from '@/types'
 
 // TODO EmojiData(copySize抜き)を`data`で受け取る
@@ -31,8 +35,6 @@ const getSelectedSize = (target: Target) => {
 // TODO isDesktopでの分岐をまとめる(Transformer)
 export const Emoji = ({
   data: { id, u, fallback },
-  selected,
-  onSelect,
   position,
   size,
   isDesktop,
@@ -42,6 +44,13 @@ export const Emoji = ({
   const imageRef = useRef<Konva.Image>(null)
   const setSelectedSticker = useSetAtom(selectedStickerDataAtom)
 
+  const [selectedStickerId, setSelectedStickerId] = useAtom(
+    selectedStickerIdAtom,
+  )
+  const [emojis, setEmojis] = useAtom(emojiDatasAtom)
+
+  const selected = selectedStickerId === id
+
   useEffect(() => {
     if (selected && imageRef.current) {
       transformerRef.current?.nodes([imageRef.current])
@@ -50,6 +59,15 @@ export const Emoji = ({
       setSelectedSticker(createSelectedEmoji({ id, size }))
     }
   }, [selected, setSelectedSticker, id])
+
+  const handleSelect = () => {
+    // 選択された絵文字を最後尾に追加してレイヤー最前面に配置
+    setEmojis((prev) => [
+      ...prev.filter((e) => e.id !== id),
+      ...prev.filter((e) => e.id === id),
+    ])
+    setSelectedStickerId(id)
+  }
 
   const center = {
     x: position.x - size / 2,
@@ -65,10 +83,10 @@ export const Emoji = ({
         height={size}
         x={center.x}
         y={center.y}
-        onClick={onSelect}
-        onDragStart={onSelect}
-        onTap={onSelect}
-        onTouchStart={onSelect}
+        onClick={handleSelect}
+        onDragStart={handleSelect}
+        onTap={handleSelect}
+        onTouchStart={handleSelect}
         onTransformEnd={({ target }) => {
           const size = getSelectedSize(target)
 

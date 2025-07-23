@@ -1,27 +1,38 @@
 'use client'
+import { useAtom } from 'jotai'
 import type Konva from 'konva'
 import { useEffect, useRef } from 'react'
 import { Rect, Transformer } from 'react-konva'
 
 import { StickerSnap } from '@/constants'
+import { selectedStickerIdAtom } from '@/store/atoms'
 import type { StickerProps } from '@/types'
 
+type Props = {
+  id: string
+} & StickerProps
+
 // TODO isDesktopでの分岐をまとめる(Transformer)
-export const Rectangle = ({
-  selected,
-  onSelect,
-  position,
-  size,
-  isDesktop,
-}: StickerProps) => {
+// TODO propsでIDを受け取る
+export const Rectangle = ({ id, position, size, isDesktop }: Props) => {
   const shapeRef = useRef<Konva.Rect>(null)
   const transformerRef = useRef<Konva.Transformer>(null)
+
+  const [selectedStickerId, setSelectedStickerId] = useAtom(
+    selectedStickerIdAtom,
+  )
+
+  const selected = selectedStickerId === id
 
   useEffect(() => {
     if (selected && shapeRef.current) {
       transformerRef.current?.nodes([shapeRef.current])
     }
   }, [selected])
+
+  const handleSelect = () => {
+    setSelectedStickerId(id)
+  }
 
   const width = size
   const height = size / 4
@@ -40,10 +51,10 @@ export const Rectangle = ({
         y={center.y}
         fill="gray"
         cornerRadius={2}
-        onClick={onSelect}
-        onDragStart={onSelect}
-        onTap={onSelect}
-        onTouchStart={onSelect}
+        onClick={handleSelect}
+        onDragStart={handleSelect}
+        onTap={handleSelect}
+        onTouchStart={handleSelect}
         draggable
       />
       {selected && (

@@ -49,8 +49,7 @@ export const StickerLayer = ({ img }: Props) => {
       {rects.map(({ id }) => (
         <Rectangle
           key={id}
-          selected={selectedStickerId === id}
-          onSelect={() => handleSelectRect(id)}
+          id={id}
           position={initialPosition}
           size={img.width / 3}
           isDesktop={isDesktop}
@@ -60,8 +59,6 @@ export const StickerLayer = ({ img }: Props) => {
         <Emoji
           key={e.id}
           data={e}
-          selected={selectedStickerId === e.id}
-          onSelect={() => handleSelectEmoji(e.id)}
           position={initialPosition}
           size={e.copySize ?? img.width / 5}
           isDesktop={isDesktop}

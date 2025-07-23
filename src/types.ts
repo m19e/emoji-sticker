@@ -14,9 +14,8 @@ export type ButtonProps = {
   disabled?: boolean
 }
 
+// TODO selected関連を削除
 export type StickerProps = {
-  selected: boolean
-  onSelect: () => void
   position: {
     x: number
     y: number
