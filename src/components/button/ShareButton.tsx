@@ -8,7 +8,7 @@ import { GA4Event, sendEvent } from '@/ga'
 import {
   isShareDialogOpenAtom,
   osAtom,
-  selectedStickerIdAtom,
+  selectedStickerDataAtom,
 } from '@/store/atoms'
 import type { ButtonProps } from '@/types'
 
@@ -23,23 +23,25 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 
+// TODO selectedStickerDataをリセット
 export const ShareButton = ({ disabled }: ButtonProps) => {
   const { ios } = useAtomValue(osAtom)
   const setOpenDrawer = useSetAtom(isShareDialogOpenAtom)
-  const resetSelectedStickerId = useResetAtom(selectedStickerIdAtom)
+  // TODO ID atom依存箇所を削除
+  const resetSelected = useResetAtom(selectedStickerDataAtom)
 
   const { isDesktop } = useMediaQuery()
   const { save, share } = useCanvasData()
 
   const handleClick = () => {
     sendEvent(GA4Event.ShowShare)
-    resetSelectedStickerId()
+    resetSelected()
     setOpenDrawer(true)
   }
 
   const handleOpenChange = (open: boolean) => {
     open && sendEvent(GA4Event.ShowShare)
-    resetSelectedStickerId()
+    resetSelected()
   }
 
   if (isDesktop) {

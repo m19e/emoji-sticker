@@ -3,11 +3,7 @@ import { useAtom, useAtomValue } from 'jotai'
 import { Layer } from 'react-konva'
 
 import { useMediaQuery } from '@/hooks/useMediaQuery'
-import {
-  emojiDatasAtom,
-  rectanglesAtom,
-  selectedStickerIdAtom,
-} from '@/store/atoms'
+import { emojiDatasAtom, rectanglesAtom } from '@/store/atoms'
 import type { Dimensions } from '@/types'
 
 import { Emoji } from '@/components/sticker/Emoji'
@@ -17,27 +13,13 @@ type Props = {
   img: Dimensions
 }
 
+// TODO ID atom依存箇所を削除
+// TODO Rectのcopy-size
 export const StickerLayer = ({ img }: Props) => {
-  const [selectedStickerId, setSelectedStickerId] = useAtom(
-    selectedStickerIdAtom,
-  )
   const [emojis, setEmojis] = useAtom(emojiDatasAtom)
   const rects = useAtomValue(rectanglesAtom)
 
   const { isDesktop } = useMediaQuery()
-
-  const handleSelectRect = (id: string) => {
-    setSelectedStickerId(id)
-  }
-
-  const handleSelectEmoji = (id: string) => {
-    // 選択された絵文字を最後尾に追加してレイヤー最前面に配置
-    setEmojis((prev) => [
-      ...prev.filter((e) => e.id !== id),
-      ...prev.filter((e) => e.id === id),
-    ])
-    setSelectedStickerId(id)
-  }
 
   const initialPosition = {
     x: img.width / 2,
