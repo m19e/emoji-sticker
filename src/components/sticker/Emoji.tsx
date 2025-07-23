@@ -1,7 +1,7 @@
 'use client'
-import { useAtom, useSetAtom } from 'jotai'
+import { useAtom, useAtomValue, useSetAtom } from 'jotai'
 import type Konva from 'konva'
-import { useEffect, useRef } from 'react'
+import { useCallback, useEffect, useRef } from 'react'
 import { Image, Transformer } from 'react-konva'
 
 import { createSelectedEmoji } from '@/brand'
@@ -42,23 +42,28 @@ export const Emoji = ({
   const { image } = useEmojiImage({ u, fallback })
   const transformerRef = useRef<Konva.Transformer>(null)
   const imageRef = useRef<Konva.Image>(null)
-  const setSelectedSticker = useSetAtom(selectedStickerDataAtom)
-
-  const [selectedStickerId, setSelectedStickerId] = useAtom(
-    selectedStickerIdAtom,
-  )
+  const selectedId = useAtomValue(selectedStickerIdAtom)
+  const setSelected = useSetAtom(selectedStickerDataAtom)
   const [emojis, setEmojis] = useAtom(emojiDatasAtom)
 
-  const selected = selectedStickerId === id
+  const selected = selectedId === id
+
+  // TODO selectedData更新処理共通化
+  const selectEmoji = useCallback(() => {
+    if (imageRef.current) {
+      setSelected(
+        createSelectedEmoji({ id, size: getSelectedSize(imageRef.current) }),
+      )
+    }
+  }, [id, setSelected])
 
   useEffect(() => {
     if (selected && imageRef.current) {
       transformerRef.current?.nodes([imageRef.current])
 
-      const size = getSelectedSize(imageRef.current)
-      setSelectedSticker(createSelectedEmoji({ id, size }))
+      selectEmoji()
     }
-  }, [selected, setSelectedSticker, id])
+  }, [selected, selectEmoji])
 
   const handleSelect = () => {
     // 選択された絵文字を最後尾に追加してレイヤー最前面に配置
@@ -66,7 +71,8 @@ export const Emoji = ({
       ...prev.filter((e) => e.id !== id),
       ...prev.filter((e) => e.id === id),
     ])
-    setSelectedStickerId(id)
+
+    selectEmoji()
   }
 
   const center = {
@@ -88,9 +94,9 @@ export const Emoji = ({
         onTap={handleSelect}
         onTouchStart={handleSelect}
         onTransformEnd={({ target }) => {
-          const size = getSelectedSize(target)
-
-          setSelectedSticker(createSelectedEmoji({ id, size }))
+          setSelected(
+            createSelectedEmoji({ id, size: getSelectedSize(target) }),
+          )
         }}
         draggable
       />
