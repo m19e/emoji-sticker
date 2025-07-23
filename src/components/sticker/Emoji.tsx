@@ -14,11 +14,6 @@ import {
 } from '@/store/atoms'
 import type { EmojiData, StickerProps } from '@/types'
 
-// TODO EmojiData(copySize抜き)を`data`で受け取る
-type Props = {
-  data: Omit<EmojiData, 'copySize'>
-} & StickerProps
-
 type Target = {
   width: () => number
   scaleX: () => number
@@ -29,14 +24,20 @@ const getSelectedSize = (target: Target) => {
   return target.width() * target.scaleX()
 }
 
+// TODO EmojiData(copySize抜き)を`data`で受け取る
+type Props = {
+  data: Omit<EmojiData, 'copySize'>
+  size: number
+} & StickerProps
+
 // TODO 選択時に絵文字ノードの情報を出力してみる
 // TODO 選択時に選択ノードatomを更新
 // TODO 変形後に選択ノードatomを更新
 // TODO isDesktopでの分岐をまとめる(Transformer)
 export const Emoji = ({
   data: { id, u, fallback },
-  position,
   size,
+  position,
   isDesktop,
 }: Props) => {
   const { image } = useEmojiImage({ u, fallback })

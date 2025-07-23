@@ -25,12 +25,14 @@ const getSelectedRect = (target: Target) => {
 
 type Props = {
   id: string
+  w: number
+  h: number
 } & StickerProps
 
 // TODO isDesktopでの分岐をまとめる(Transformer)
 // TODO propsでIDを受け取る
 // TODO propsでw, hを受け取る
-export const Rectangle = ({ id, position, size, isDesktop }: Props) => {
+export const Rectangle = ({ id, w, h, position, isDesktop }: Props) => {
   const shapeRef = useRef<Konva.Rect>(null)
   const transformerRef = useRef<Konva.Transformer>(null)
 
@@ -58,19 +60,17 @@ export const Rectangle = ({ id, position, size, isDesktop }: Props) => {
     selectRect()
   }
 
-  const width = size
-  const height = size / 4
   const center = {
-    x: position.x - width / 2,
-    y: position.y - height / 2,
+    x: position.x - w / 2,
+    y: position.y - h / 2,
   }
 
   return (
     <>
       <Rect
         ref={shapeRef}
-        width={width}
-        height={height}
+        width={w}
+        height={h}
         x={center.x}
         y={center.y}
         fill="gray"

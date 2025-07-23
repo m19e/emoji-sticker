@@ -28,6 +28,5 @@ export type StickerProps = {
     x: number
     y: number
   }
-  size: number
   isDesktop: boolean
 }
