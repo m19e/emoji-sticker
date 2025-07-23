@@ -7,6 +7,7 @@ export enum GA4Event {
   Emoji = 'add_emoji',
   Rect = 'add_rect',
   Remove = 'remove_sticker',
+  Duplicate = 'duplicate_sticker',
   // BaseImage
   LoadImage = 'load_image',
   DeleteImage = 'delete_image',
