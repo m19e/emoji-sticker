@@ -1,5 +1,5 @@
 'use client'
-import { useAtom, useSetAtom } from 'jotai'
+import { useAtom } from 'jotai'
 import { CopyIcon } from 'lucide-react'
 import { v4 } from 'uuid'
 
@@ -18,7 +18,7 @@ import { Button } from '@/components/ui/button'
 export const CopyStickerButton = () => {
   const [selected, setSelected] = useAtom(selectedStickerDataAtom)
   const [emojis, setEmojiDatas] = useAtom(emojiDatasAtom)
-  const setRectangles = useSetAtom(rectanglesAtom)
+  const [rects, setRectangles] = useAtom(rectanglesAtom)
 
   // TODO selected-emojiの構造修正
   const handleCopyEmoji = () => {
@@ -40,7 +40,23 @@ export const CopyStickerButton = () => {
     setEmojiDatas((prev) => [...prev, { id, u, fallback, copySize: size }])
   }
 
-  const handleCopyRect = () => {}
+  const handleCopyRect = () => {
+    if (selected === null || selected.type !== 'rect') {
+      return
+    }
+    const copyTarget = rects.findLast((r) => r.id === selected.id)
+    if (!copyTarget) {
+      return
+    }
+
+    const { type, w, h } = selected
+
+    sendEvent(GA4Event.Duplicate, { type })
+
+    const id = v4()
+    setSelected(createSelectedRect({ id, w, h }))
+    setRectangles((prev) => [...prev, { id, copy: { w, h } }])
+  }
 
   const isSelected = selected !== null
 
