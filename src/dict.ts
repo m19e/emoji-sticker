@@ -1,5 +1,6 @@
 export const Dict = {
   cancel: 'キャンセル',
+  duplicate: '複製',
   delete: {
     sticker: '削除',
     baseImage: {

@@ -4,6 +4,7 @@ import { CopyIcon } from 'lucide-react'
 import { v4 } from 'uuid'
 
 import { createSelectedEmoji, createSelectedRect } from '@/brand'
+import { Dict } from '@/dict'
 import { GA4Event, sendEvent } from '@/ga'
 import {
   emojiDatasAtom,
@@ -75,7 +76,9 @@ export const CopyStickerButton = () => {
       onClick={selected.type === 'emoji' ? handleCopyEmoji : handleCopyRect}
     >
       <CopyIcon />
-      {isSelected && <span className="font-bold text-xs">複製</span>}
+      {isSelected && (
+        <span className="font-bold text-xs">{Dict.duplicate}</span>
+      )}
     </Button>
   )
 }
