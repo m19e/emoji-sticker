@@ -3,8 +3,8 @@ import { useAtom, useSetAtom } from 'jotai'
 import { CopyIcon } from 'lucide-react'
 import { v4 } from 'uuid'
 
-import { createSelectedEmoji } from '@/brand'
-import {} from '@/ga'
+import { createSelectedEmoji, createSelectedRect } from '@/brand'
+import { GA4Event, sendEvent } from '@/ga'
 import {
   emojiDatasAtom,
   rectanglesAtom,
@@ -22,13 +22,18 @@ export const CopyStickerButton = () => {
 
   // TODO selected-emojiの構造修正
   const handleCopyEmoji = () => {
-    const copyTarget = emojis.findLast((e) => e.id === selected?.id)
-    if (!copyTarget || selected === null || selected.type !== 'emoji') {
+    if (selected === null || selected.type !== 'emoji') {
+      return
+    }
+    const copyTarget = emojis.findLast((e) => e.id === selected.id)
+    if (!copyTarget) {
       return
     }
 
-    const { size } = selected
+    const { type, size } = selected
     const { u, fallback } = copyTarget
+
+    sendEvent(GA4Event.Duplicate, { type, u })
 
     const id = v4()
     setSelected(createSelectedEmoji({ id, size }))
