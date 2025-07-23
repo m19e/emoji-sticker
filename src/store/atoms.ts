@@ -3,7 +3,7 @@ import { atomWithReset } from 'jotai/utils'
 import type Konva from 'konva'
 
 import type { SelectedSticker } from '@/brand'
-import type { EmojiData } from '@/types'
+import type { EmojiData, RectData } from '@/types'
 
 // Atoms
 export const baseImgUrlAtom = atomWithReset<string | null>(null)
@@ -12,7 +12,8 @@ export const isPickerOpenAtom = atom(false)
 
 export const emojiDatasAtom = atomWithReset<EmojiData[]>([])
 
-export const rectanglesAtom = atomWithReset<{ id: string }[]>([])
+// TODO Rectsがcopy-sizeを持つ
+export const rectanglesAtom = atomWithReset<RectData[]>([])
 
 // TODO IDatomを消してselectedStickerAtomに情報をまとめる
 // TODO IdAtomをdataAtomに依存するDerived atomにする？

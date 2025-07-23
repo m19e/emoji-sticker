@@ -10,6 +10,14 @@ export type EmojiData = {
   copySize?: number
 }
 
+export type RectData = {
+  id: string
+  copy?: {
+    w: number
+    h: number
+  }
+}
+
 export type ButtonProps = {
   disabled?: boolean
 }
