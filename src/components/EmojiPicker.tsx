@@ -17,7 +17,7 @@ import { useMediaQuery } from '@/hooks/useMediaQuery'
 import {
   emojiDatasAtom,
   isPickerOpenAtom,
-  selectedStickerIdAtom,
+  selectedStickerDataAtom,
 } from '@/store/atoms'
 import { convertToValidTwemojiCodepoint } from '@/tools'
 
@@ -33,10 +33,11 @@ const DynamicPicker = dynamic(() => import('emoji-picker-react'), {
   ssr: false,
 })
 
+// TODO ID atom依存箇所を削除
 export const Picker = () => {
   const setEmojis = useSetAtom(emojiDatasAtom)
   const [open, setOpen] = useAtom(isPickerOpenAtom)
-  const setSelectedStickerId = useSetAtom(selectedStickerIdAtom)
+  const setSelectedSticker = useSetAtom(selectedStickerDataAtom)
 
   const { isDesktop } = useMediaQuery()
 
@@ -103,8 +104,8 @@ export const Picker = () => {
       unified: u,
     })
 
+    // TODO 絵文字追加時に選択しなければID atomを削除できるかも
     const id = v4()
-    setSelectedStickerId(id)
     setEmojis((prev) => [...prev, { id, u, fallback }])
     setOpen(false)
   }
