@@ -1,6 +1,7 @@
 'use client'
 import { type EmojiClickData, EmojiStyle, Theme } from 'emoji-picker-react'
 import { useAtom, useSetAtom } from 'jotai'
+import { useResetAtom } from 'jotai/utils'
 import dynamic from 'next/dynamic'
 import { v4 } from 'uuid'
 
@@ -34,10 +35,11 @@ const DynamicPicker = dynamic(() => import('emoji-picker-react'), {
 })
 
 // TODO ID atom依存箇所を削除
+// TODO 絵文字追加時に選択リセット
 export const Picker = () => {
-  const setEmojis = useSetAtom(emojiDatasAtom)
   const [open, setOpen] = useAtom(isPickerOpenAtom)
-  const setSelectedSticker = useSetAtom(selectedStickerDataAtom)
+  const setEmojis = useSetAtom(emojiDatasAtom)
+  const resetSelected = useResetAtom(selectedStickerDataAtom)
 
   const { isDesktop } = useMediaQuery()
 
@@ -107,6 +109,7 @@ export const Picker = () => {
     // TODO 絵文字追加時に選択しなければID atomを削除できるかも
     const id = v4()
     setEmojis((prev) => [...prev, { id, u, fallback }])
+    resetSelected()
     setOpen(false)
   }
 
