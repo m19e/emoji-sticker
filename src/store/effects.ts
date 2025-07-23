@@ -6,7 +6,7 @@ import {
   baseImgUrlAtom,
   emojiDatasAtom,
   rectanglesAtom,
-  selectedStickerIdAtom,
+  selectedStickerDataAtom,
 } from '@/store/atoms'
 
 const baseImgUrlHistory = withHistory(baseImgUrlAtom, 2)
@@ -24,7 +24,7 @@ export const revokeEffect = atomEffect((get, set) => {
     set(emojiDatasAtom, RESET)
     set(rectanglesAtom, RESET)
     // TODO selectedDataAtomをリセットする
-    set(selectedStickerIdAtom, RESET)
+    set(selectedStickerDataAtom, RESET)
     prevUrl && URL.revokeObjectURL(prevUrl)
   }
 })

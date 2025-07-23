@@ -15,7 +15,8 @@ export const emojiDatasAtom = atomWithReset<EmojiData[]>([])
 export const rectanglesAtom = atomWithReset<{ id: string }[]>([])
 
 // TODO IDatomを消してselectedStickerAtomに情報をまとめる
-export const selectedStickerIdAtom = atomWithReset<string | null>(null)
+// TODO IdAtomをdataAtomに依存するDerived atomにする？
+// export const selectedStickerIdAtom = atomWithReset<string | null>(null)
 
 // TODO feat:選択ステッカーの複製: ステッカー選択時に更新
 // TODO scaleはデータとして持たず、更新時に計算してwidth,heightに含める
@@ -52,4 +53,10 @@ export const osAtom = atom((get) => {
   const { os } = get(userAgentAtom)
 
   return { ios: os === 'iOS', android: os === 'Android' }
+})
+
+export const selectedStickerIdAtom = atom((get) => {
+  const data = get(selectedStickerDataAtom)
+
+  return data === null ? null : data.id
 })
