@@ -22,7 +22,6 @@ export type ButtonProps = {
   disabled?: boolean
 }
 
-// TODO selected関連を削除
 export type StickerProps = {
   position: {
     x: number
