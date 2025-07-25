@@ -35,7 +35,6 @@ type Props = {
 export const Rectangle = ({ id, w, h, position, isDesktop }: Props) => {
   const shapeRef = useRef<Konva.Rect>(null)
   const transformerRef = useRef<Konva.Transformer>(null)
-
   const selectedId = useAtomValue(selectedStickerIdAtom)
   const setSelected = useSetAtom(selectedStickerDataAtom)
 
@@ -51,10 +50,9 @@ export const Rectangle = ({ id, w, h, position, isDesktop }: Props) => {
   useEffect(() => {
     if (selected && shapeRef.current) {
       transformerRef.current?.nodes([shapeRef.current])
-
-      selectRect()
+      // TODO この時点で選択されているので選択不要？
     }
-  }, [selected, selectRect])
+  }, [selected])
 
   const handleSelect = () => {
     selectRect()

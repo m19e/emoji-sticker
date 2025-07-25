@@ -62,9 +62,9 @@ export const Emoji = ({
     if (selected && imageRef.current) {
       transformerRef.current?.nodes([imageRef.current])
 
-      selectEmoji()
+      // TODO この時点で選択されているので選択不要？
     }
-  }, [selected, selectEmoji])
+  }, [selected])
 
   const handleSelect = () => {
     // 選択された絵文字を最後尾に追加してレイヤー最前面に配置
