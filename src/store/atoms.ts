@@ -12,25 +12,13 @@ export const isPickerOpenAtom = atom(false)
 
 export const emojiDatasAtom = atomWithReset<EmojiData[]>([])
 
-// TODO Rectsがcopy-sizeを持つ
 export const rectanglesAtom = atomWithReset<RectData[]>([])
 
 // TODO IDatomを消してselectedStickerAtomに情報をまとめる
 // TODO IdAtomをdataAtomに依存するDerived atomにする？
 // export const selectedStickerIdAtom = atomWithReset<string | null>(null)
 
-// TODO feat:選択ステッカーの複製: ステッカー選択時に更新
-// TODO scaleはデータとして持たず、更新時に計算してwidth,heightに含める
-// TODO こちらでIDも持つ
-// TODO 絵文字はw,h両方は要らないのでrectとは使うフィールドを分けたい(branded types?)
-// TODO この型は消す
-type SelectedStickerData = {
-  type: 'emoji' | 'rect'
-  id: string
-  w: number
-  h: number
-}
-
+// TODO Rename to `selectedStickerAtom`
 export const selectedStickerDataAtom = atomWithReset<SelectedSticker | null>(
   null,
 )
