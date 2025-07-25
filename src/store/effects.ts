@@ -13,9 +13,9 @@ const baseImgUrlHistory = withHistory(baseImgUrlAtom, 2)
 
 /**
  * baseImgUrlがリセットされた時、
- * 1. すべての絵文字を削除
- * 2. すべての図形を削除
- * 3. ステッカーの選択状態をリセット
+ * 1. すべての絵文字をリセット
+ * 2. すべての図形をリセット
+ * 3. 選択状態をリセット
  * 4. ベース画像atomに格納していたblobUrlをrevokeする
  */
 export const revokeEffect = atomEffect((get, set) => {
