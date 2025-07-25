@@ -1,9 +1,9 @@
 'use client'
 import { useAtom } from 'jotai'
+import { RESET } from 'jotai/utils'
 import { CopyIcon } from 'lucide-react'
 import { v4 } from 'uuid'
 
-import { createSelectedEmoji, createSelectedRect } from '@/brand'
 import { Dict } from '@/dict'
 import { GA4Event, sendEvent } from '@/ga'
 import {
@@ -14,8 +14,7 @@ import {
 
 import { Button } from '@/components/ui/button'
 
-// TODO ID atom依存箇所を削除
-// TODO Dict for duplicate
+// TODO 複製時に選択リセットする方がUX良い可能性(選択してるとワンタッチでサイズ変更してしまうので)
 export const CopyStickerButton = () => {
   const [selected, setSelected] = useAtom(selectedStickerDataAtom)
   const [emojis, setEmojiDatas] = useAtom(emojiDatasAtom)
@@ -37,7 +36,8 @@ export const CopyStickerButton = () => {
     sendEvent(GA4Event.Duplicate, { type, u })
 
     const id = v4()
-    setSelected(createSelectedEmoji({ id, size }))
+    // 複製時に選択をリセット(サイズ変更してしまわないように)
+    setSelected(RESET)
     setEmojiDatas((prev) => [...prev, { id, u, fallback, copySize: size }])
   }
 
@@ -55,7 +55,8 @@ export const CopyStickerButton = () => {
     sendEvent(GA4Event.Duplicate, { type })
 
     const id = v4()
-    setSelected(createSelectedRect({ id, w, h }))
+    // 複製時に選択をリセット(サイズ変更してしまわないように)
+    setSelected(RESET)
     setRectangles((prev) => [...prev, { id, copy: { w, h } }])
   }
 
