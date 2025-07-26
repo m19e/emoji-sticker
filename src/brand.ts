@@ -1,5 +1,6 @@
 type Branded<T, Brand> = T & { readonly __brand: Brand }
 
+// Branded Type
 export type SelectedEmoji = Branded<
   {
     type: 'emoji'
@@ -19,6 +20,9 @@ export type SelectedRect = Branded<
   'Rect'
 >
 
+export type SelectedSticker = SelectedEmoji | SelectedRect
+
+// Branded Creator
 export const createSelectedEmoji = ({
   id,
   size,
@@ -31,5 +35,3 @@ export const createSelectedRect = ({
   h,
 }: Pick<SelectedRect, 'id' | 'w' | 'h'>): SelectedRect =>
   ({ type: 'rect', id, w, h }) as SelectedRect
-
-export type SelectedSticker = SelectedEmoji | SelectedRect
