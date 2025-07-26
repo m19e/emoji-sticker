@@ -7,10 +7,10 @@ import { useDropzone } from 'react-dropzone'
 import { DROPZONE_ACCEPT_FILE } from '@/constants'
 import { GA4Event, sendEvent } from '@/ga'
 import { baseImgUrlAtom } from '@/store/atoms'
-import { revokeEffect } from '@/store/effects'
+import { resetEffect } from '@/store/effects'
 
 export const Dropzone = () => {
-  useAtom(revokeEffect)
+  useAtom(resetEffect)
   const setUrl = useSetAtom(baseImgUrlAtom)
 
   const onDrop = useCallback(

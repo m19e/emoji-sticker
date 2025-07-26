@@ -18,7 +18,7 @@ const baseImgUrlHistory = withHistory(baseImgUrlAtom, 2)
  * 3. 選択状態をリセット
  * 4. ベース画像atomに格納していたblobUrlをrevokeする
  */
-export const revokeEffect = atomEffect((get, set) => {
+export const resetEffect = atomEffect((get, set) => {
   const [url, prevUrl] = get(baseImgUrlHistory)
   if (url === null) {
     set(emojiDatasAtom, RESET)
