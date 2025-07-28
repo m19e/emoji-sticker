@@ -11,6 +11,7 @@ import {
 
 const baseImgUrlHistory = withHistory(baseImgUrlAtom, 2)
 
+// TODO rename to `resetEffect`
 /**
  * baseImgUrlがリセットされた時、
  * 1. すべての絵文字をリセット
