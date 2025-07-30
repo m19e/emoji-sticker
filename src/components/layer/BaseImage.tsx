@@ -7,13 +7,10 @@ import { useAnonymousImage } from '@/hooks/useAnonymousImage'
 import { baseImgUrlAtom, selectedStickerDataAtom } from '@/store/atoms'
 
 export const BaseImageLayer = () => {
-  // TODO ID atom依存箇所を削除
-  const resetSelected = useResetAtom(selectedStickerDataAtom)
   const url = useAtomValue(baseImgUrlAtom)
-
+  const resetSelected = useResetAtom(selectedStickerDataAtom)
   const [image] = useAnonymousImage(url ?? '')
 
-  // TODO selectedStickerDataをリセット
   const handleUnselect = () => {
     resetSelected()
   }
