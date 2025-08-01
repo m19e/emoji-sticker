@@ -8,7 +8,7 @@ import { GA4Event, sendEvent } from '@/ga'
 import {
   isBaseImgLoadedAtom,
   rectanglesAtom,
-  selectedStickerDataAtom,
+  selectedStickerAtom,
 } from '@/store/atoms'
 
 import { Button } from '@/components/ui/button'
@@ -18,7 +18,7 @@ import { Button } from '@/components/ui/button'
 export const AddRectStickerButton = () => {
   const isLoaded = useAtomValue(isBaseImgLoadedAtom)
   const setRectangles = useSetAtom(rectanglesAtom)
-  const resetSelected = useResetAtom(selectedStickerDataAtom)
+  const resetSelected = useResetAtom(selectedStickerAtom)
 
   const handleClick = () => {
     sendEvent(GA4Event.Rect)

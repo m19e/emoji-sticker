@@ -19,9 +19,7 @@ export const rectanglesAtom = atomWithReset<RectData[]>([])
 // export const selectedStickerIdAtom = atomWithReset<string | null>(null)
 
 // TODO Rename to `selectedStickerAtom`
-export const selectedStickerDataAtom = atomWithReset<SelectedSticker | null>(
-  null,
-)
+export const selectedStickerAtom = atomWithReset<SelectedSticker | null>(null)
 
 export const isShareDialogOpenAtom = atom(false)
 
@@ -45,7 +43,7 @@ export const osAtom = atom((get) => {
 })
 
 export const selectedStickerIdAtom = atom((get) => {
-  const data = get(selectedStickerDataAtom)
+  const data = get(selectedStickerAtom)
 
   return data === null ? null : data.id
 })

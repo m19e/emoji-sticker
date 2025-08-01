@@ -18,7 +18,7 @@ import { useMediaQuery } from '@/hooks/useMediaQuery'
 import {
   emojiDatasAtom,
   isPickerOpenAtom,
-  selectedStickerDataAtom,
+  selectedStickerAtom,
 } from '@/store/atoms'
 import { convertToValidTwemojiCodepoint } from '@/tools'
 
@@ -39,7 +39,7 @@ const DynamicPicker = dynamic(() => import('emoji-picker-react'), {
 export const Picker = () => {
   const [open, setOpen] = useAtom(isPickerOpenAtom)
   const setEmojis = useSetAtom(emojiDatasAtom)
-  const resetSelected = useResetAtom(selectedStickerDataAtom)
+  const resetSelected = useResetAtom(selectedStickerAtom)
 
   const { isDesktop } = useMediaQuery()
 

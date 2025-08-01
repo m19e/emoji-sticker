@@ -6,7 +6,7 @@ import { Rect, Transformer } from 'react-konva'
 
 import { createSelectedRect } from '@/brand'
 import { StickerSnap } from '@/constants'
-import { selectedStickerDataAtom, selectedStickerIdAtom } from '@/store/atoms'
+import { selectedStickerAtom, selectedStickerIdAtom } from '@/store/atoms'
 import type { StickerProps } from '@/types'
 
 type Target = {
@@ -36,7 +36,7 @@ export const Rectangle = ({ id, w, h, position, isDesktop }: Props) => {
   const shapeRef = useRef<Konva.Rect>(null)
   const transformerRef = useRef<Konva.Transformer>(null)
   const selectedId = useAtomValue(selectedStickerIdAtom)
-  const setSelected = useSetAtom(selectedStickerDataAtom)
+  const setSelected = useSetAtom(selectedStickerAtom)
 
   const selected = selectedId === id
 

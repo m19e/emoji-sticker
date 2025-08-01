@@ -8,7 +8,7 @@ import { GA4Event, sendEvent } from '@/ga'
 import {
   isShareDialogOpenAtom,
   osAtom,
-  selectedStickerDataAtom,
+  selectedStickerAtom,
 } from '@/store/atoms'
 import type { ButtonProps } from '@/types'
 
@@ -27,8 +27,7 @@ import {
 export const ShareButton = ({ disabled }: ButtonProps) => {
   const { ios } = useAtomValue(osAtom)
   const setOpenDrawer = useSetAtom(isShareDialogOpenAtom)
-  // TODO ID atom依存箇所を削除
-  const resetSelected = useResetAtom(selectedStickerDataAtom)
+  const resetSelected = useResetAtom(selectedStickerAtom)
 
   const { isDesktop } = useMediaQuery()
   const { save, share } = useCanvasData()

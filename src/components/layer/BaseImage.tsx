@@ -4,11 +4,11 @@ import { useResetAtom } from 'jotai/utils'
 import { Image, Layer } from 'react-konva'
 
 import { useAnonymousImage } from '@/hooks/useAnonymousImage'
-import { baseImgUrlAtom, selectedStickerDataAtom } from '@/store/atoms'
+import { baseImgUrlAtom, selectedStickerAtom } from '@/store/atoms'
 
 export const BaseImageLayer = () => {
   const url = useAtomValue(baseImgUrlAtom)
-  const resetSelected = useResetAtom(selectedStickerDataAtom)
+  const resetSelected = useResetAtom(selectedStickerAtom)
   const [image] = useAnonymousImage(url ?? '')
 
   const handleUnselect = () => {

@@ -8,7 +8,7 @@ import { GA4Event, sendEvent } from '@/ga'
 import {
   emojiDatasAtom,
   rectanglesAtom,
-  selectedStickerDataAtom,
+  selectedStickerAtom,
   selectedStickerIdAtom,
 } from '@/store/atoms'
 
@@ -17,7 +17,7 @@ import { Button } from '@/components/ui/button'
 // TODO Reset selected data
 export const RemoveStickerButton = () => {
   const selectedId = useAtomValue(selectedStickerIdAtom)
-  const resetSelected = useResetAtom(selectedStickerDataAtom)
+  const resetSelected = useResetAtom(selectedStickerAtom)
   const setEmojiDatas = useSetAtom(emojiDatasAtom)
   const setRectangles = useSetAtom(rectanglesAtom)
 

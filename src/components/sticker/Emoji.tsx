@@ -1,5 +1,5 @@
 'use client'
-import { useAtom, useAtomValue, useSetAtom } from 'jotai'
+import { useAtomValue, useSetAtom } from 'jotai'
 import type Konva from 'konva'
 import { useCallback, useEffect, useRef } from 'react'
 import { Image, Transformer } from 'react-konva'
@@ -9,7 +9,7 @@ import { StickerSnap } from '@/constants'
 import { useEmojiImage } from '@/hooks/useEmojiImage'
 import {
   emojiDatasAtom,
-  selectedStickerDataAtom,
+  selectedStickerAtom,
   selectedStickerIdAtom,
 } from '@/store/atoms'
 import type { EmojiData, StickerProps } from '@/types'
@@ -44,8 +44,8 @@ export const Emoji = ({
   const transformerRef = useRef<Konva.Transformer>(null)
   const imageRef = useRef<Konva.Image>(null)
   const selectedId = useAtomValue(selectedStickerIdAtom)
-  const setSelected = useSetAtom(selectedStickerDataAtom)
-  const [emojis, setEmojis] = useAtom(emojiDatasAtom)
+  const setSelected = useSetAtom(selectedStickerAtom)
+  const setEmojis = useSetAtom(emojiDatasAtom)
 
   const selected = selectedId === id
 

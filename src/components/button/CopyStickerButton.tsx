@@ -9,14 +9,14 @@ import { GA4Event, sendEvent } from '@/ga'
 import {
   emojiDatasAtom,
   rectanglesAtom,
-  selectedStickerDataAtom,
+  selectedStickerAtom,
 } from '@/store/atoms'
 
 import { Button } from '@/components/ui/button'
 
 // TODO 複製時に選択リセットする方がUX良い可能性(選択してるとワンタッチでサイズ変更してしまうので)
 export const CopyStickerButton = () => {
-  const [selected, setSelected] = useAtom(selectedStickerDataAtom)
+  const [selected, setSelected] = useAtom(selectedStickerAtom)
   const [emojis, setEmojiDatas] = useAtom(emojiDatasAtom)
   const [rects, setRectangles] = useAtom(rectanglesAtom)
 
