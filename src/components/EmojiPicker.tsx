@@ -43,8 +43,6 @@ export const Picker = () => {
 
   const { isDesktop } = useMediaQuery()
 
-  // デバッグ用
-
   const sendEmojiEvent = ({
     emoji,
     names,
@@ -72,7 +70,6 @@ export const Picker = () => {
       ? HIDDEN_EMOJIS[unified as HIDDEN_EMOJIS_ID]
       : convertToValidTwemojiCodepoint(unified)
 
-    // TODO ステッカー複製時にもGAイベントを送信
     sendEmojiEvent({
       emoji,
       names,
@@ -80,7 +77,6 @@ export const Picker = () => {
       unified: u,
     })
 
-    // TODO 絵文字追加時に選択しなければID atomを削除できるかも
     const id = v4()
     setEmojis((prev) => [...prev, { id, u, fallback }])
     resetSelected()
