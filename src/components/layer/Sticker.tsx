@@ -1,5 +1,5 @@
 'use client'
-import { useAtom, useAtomValue } from 'jotai'
+import { useAtomValue } from 'jotai'
 import { Layer } from 'react-konva'
 
 import { useMediaQuery } from '@/hooks/useMediaQuery'
@@ -16,7 +16,7 @@ type Props = {
 // TODO ID atom依存箇所を削除
 // TODO Rectのcopy-size
 export const StickerLayer = ({ img }: Props) => {
-  const [emojis, setEmojis] = useAtom(emojiDatasAtom)
+  const emojis = useAtomValue(emojiDatasAtom)
   const rects = useAtomValue(rectanglesAtom)
 
   const { isDesktop } = useMediaQuery()
