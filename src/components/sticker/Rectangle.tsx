@@ -40,6 +40,7 @@ export const Rectangle = ({ id, w, h, position, isDesktop }: Props) => {
 
   const selected = selectedId === id
 
+  // TODO 不要になったので消す
   const selectRect = useCallback(() => {
     if (shapeRef.current) {
       const { w, h } = getSelectedRect(shapeRef.current)
@@ -55,7 +56,10 @@ export const Rectangle = ({ id, w, h, position, isDesktop }: Props) => {
   }, [selected])
 
   const handleSelect = () => {
-    selectRect()
+    if (shapeRef.current) {
+      const { w, h } = getSelectedRect(shapeRef.current)
+      setSelected(createSelectedRect({ id, w, h }))
+    }
   }
 
   const center = {

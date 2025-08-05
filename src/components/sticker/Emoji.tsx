@@ -49,7 +49,7 @@ export const Emoji = ({
 
   const selected = selectedId === id
 
-  // TODO selectedData更新処理共通化
+  // TODO 不要になったので消す
   const selectEmoji = useCallback(() => {
     if (imageRef.current) {
       setSelected(
@@ -73,7 +73,11 @@ export const Emoji = ({
       ...prev.filter((e) => e.id === id),
     ])
 
-    selectEmoji()
+    if (imageRef.current) {
+      setSelected(
+        createSelectedEmoji({ id, size: getSelectedSize(imageRef.current) }),
+      )
+    }
   }
 
   const center = {
