@@ -67,6 +67,12 @@ export const Rectangle = ({ id, w, h, position, isDesktop }: Props) => {
     y: position.y - h / 2,
   }
 
+  const tfProps = {
+    anchorSize: isDesktop ? 10 : 16,
+    anchorCornerRadius: isDesktop ? 5 : 8,
+    rotateAnchorOffset: isDesktop ? 20 : 32,
+  }
+
   return (
     <>
       <Rect
@@ -89,10 +95,8 @@ export const Rectangle = ({ id, w, h, position, isDesktop }: Props) => {
       />
       {selected && (
         <Transformer
+          {...tfProps}
           ref={transformerRef}
-          anchorSize={isDesktop ? 10 : 16}
-          anchorCornerRadius={isDesktop ? 5 : 8}
-          rotateAnchorOffset={isDesktop ? 20 : 32}
           rotationSnaps={[0]}
           keepRatio={false}
           enabledAnchors={isDesktop ? StickerSnap.CORNER : StickerSnap.CENTER}

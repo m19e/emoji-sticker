@@ -85,6 +85,12 @@ export const Emoji = ({
     y: position.y - size / 2,
   }
 
+  const tfProps = {
+    anchorSize: isDesktop ? 10 : 16,
+    anchorCornerRadius: isDesktop ? 5 : 8,
+    rotateAnchorOffset: isDesktop ? 20 : 32,
+  }
+
   return (
     <>
       <Image
@@ -107,11 +113,9 @@ export const Emoji = ({
       />
       {selected && (
         <Transformer
+          {...tfProps}
           ref={transformerRef}
           keepRatio
-          anchorSize={isDesktop ? 10 : 16}
-          anchorCornerRadius={isDesktop ? 5 : 8}
-          rotateAnchorOffset={isDesktop ? 20 : 32}
           rotationSnaps={[0]}
           enabledAnchors={StickerSnap.CORNER}
           boundBoxFunc={(oldBox, newBox) => {
