@@ -41,12 +41,6 @@ export const Rectangle = ({ id, w, h, position, isDesktop }: Props) => {
   const selected = selectedId === id
 
   // TODO 不要になったので消す
-  const selectRect = useCallback(() => {
-    if (shapeRef.current) {
-      const { w, h } = getSelectedRect(shapeRef.current)
-      setSelected(createSelectedRect({ id, w, h }))
-    }
-  }, [id, setSelected])
 
   useEffect(() => {
     if (selected && shapeRef.current) {

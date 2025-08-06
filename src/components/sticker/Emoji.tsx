@@ -50,13 +50,6 @@ export const Emoji = ({
   const selected = selectedId === id
 
   // TODO 不要になったので消す
-  const selectEmoji = useCallback(() => {
-    if (imageRef.current) {
-      setSelected(
-        createSelectedEmoji({ id, size: getSelectedSize(imageRef.current) }),
-      )
-    }
-  }, [id, setSelected])
 
   useEffect(() => {
     if (selected && imageRef.current) {
