@@ -1,7 +1,7 @@
 'use client'
 import { useAtomValue, useSetAtom } from 'jotai'
 import type Konva from 'konva'
-import { useCallback, useEffect, useRef } from 'react'
+import { useEffect, useRef } from 'react'
 import { Rect, Transformer } from 'react-konva'
 
 import { createSelectedRect } from '@/brand'
