@@ -34,8 +34,6 @@ const DynamicPicker = dynamic(() => import('emoji-picker-react'), {
   ssr: false,
 })
 
-// TODO ID atom依存箇所を削除
-// TODO 絵文字追加時に選択リセット
 export const Picker = () => {
   const [open, setOpen] = useAtom(isPickerOpenAtom)
   const setEmojis = useSetAtom(emojiDatasAtom)
