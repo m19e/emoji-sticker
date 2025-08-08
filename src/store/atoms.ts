@@ -14,10 +14,6 @@ export const emojiDatasAtom = atomWithReset<EmojiData[]>([])
 
 export const rectanglesAtom = atomWithReset<RectData[]>([])
 
-// TODO IDatomを消してselectedStickerAtomに情報をまとめる
-// TODO IdAtomをdataAtomに依存するDerived atomにする？
-// export const selectedStickerIdAtom = atomWithReset<string | null>(null)
-
 // TODO Rename to `selectedStickerAtom`
 export const selectedStickerAtom = atomWithReset<SelectedSticker | null>(null)
 
