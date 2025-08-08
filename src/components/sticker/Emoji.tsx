@@ -34,8 +34,9 @@ type Props = {
 // TODO 選択時に選択ノードatomを更新
 // TODO 変形後に選択ノードatomを更新
 // TODO isDesktopでの分岐をまとめる(Transformer)
+// TODO rename to `emojiId`
 export const Emoji = ({
-  data: { id, u, fallback },
+  data: { id: emojiId, u, fallback },
   size,
   position,
   isDesktop,
@@ -47,7 +48,7 @@ export const Emoji = ({
   const setSelected = useSetAtom(selectedStickerAtom)
   const setEmojis = useSetAtom(emojiDatasAtom)
 
-  const selected = selectedId === id
+  const selected = emojiId === selectedId
 
   // TODO 不要になったので消す
 
@@ -62,13 +63,16 @@ export const Emoji = ({
   const handleSelect = () => {
     // 選択された絵文字を最後尾に追加してレイヤー最前面に配置
     setEmojis((prev) => [
-      ...prev.filter((e) => e.id !== id),
-      ...prev.filter((e) => e.id === id),
+      ...prev.filter((e) => e.id !== emojiId),
+      ...prev.filter((e) => e.id === emojiId),
     ])
 
     if (imageRef.current) {
       setSelected(
-        createSelectedEmoji({ id, size: getSelectedSize(imageRef.current) }),
+        createSelectedEmoji({
+          id: emojiId,
+          size: getSelectedSize(imageRef.current),
+        }),
       )
     }
   }
@@ -99,7 +103,7 @@ export const Emoji = ({
         onTouchStart={handleSelect}
         onTransformEnd={({ target }) => {
           setSelected(
-            createSelectedEmoji({ id, size: getSelectedSize(target) }),
+            createSelectedEmoji({ id: emojiId, size: getSelectedSize(target) }),
           )
         }}
         draggable
