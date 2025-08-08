@@ -30,15 +30,14 @@ type Props = {
 } & StickerProps
 
 // TODO isDesktopでの分岐をまとめる(Transformer)
-// TODO propsでIDを受け取る
-// TODO propsでw, hを受け取る
-export const Rectangle = ({ id, w, h, position, isDesktop }: Props) => {
+// TODO rename to `rectId`
+export const Rectangle = ({ id: rectId, w, h, position, isDesktop }: Props) => {
   const shapeRef = useRef<Konva.Rect>(null)
   const transformerRef = useRef<Konva.Transformer>(null)
   const selectedId = useAtomValue(selectedStickerIdAtom)
   const setSelected = useSetAtom(selectedStickerAtom)
 
-  const selected = selectedId === id
+  const selected = rectId === selectedId
 
   // TODO 不要になったので消す
 
@@ -52,7 +51,7 @@ export const Rectangle = ({ id, w, h, position, isDesktop }: Props) => {
   const handleSelect = () => {
     if (shapeRef.current) {
       const { w, h } = getSelectedRect(shapeRef.current)
-      setSelected(createSelectedRect({ id, w, h }))
+      setSelected(createSelectedRect({ id: rectId, w, h }))
     }
   }
 
@@ -83,7 +82,7 @@ export const Rectangle = ({ id, w, h, position, isDesktop }: Props) => {
         onTouchStart={handleSelect}
         onTransformEnd={({ target }) => {
           const { w, h } = getSelectedRect(target)
-          setSelected(createSelectedRect({ id, w, h }))
+          setSelected(createSelectedRect({ id: rectId, w, h }))
         }}
         draggable
       />
