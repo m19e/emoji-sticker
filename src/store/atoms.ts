@@ -14,7 +14,6 @@ export const emojiDatasAtom = atomWithReset<EmojiData[]>([])
 
 export const rectanglesAtom = atomWithReset<RectData[]>([])
 
-// TODO Rename to `selectedStickerAtom`
 export const selectedStickerAtom = atomWithReset<SelectedSticker | null>(null)
 
 export const isShareDialogOpenAtom = atom(false)
