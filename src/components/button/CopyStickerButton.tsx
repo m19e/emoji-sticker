@@ -14,13 +14,11 @@ import {
 
 import { Button } from '@/components/ui/button'
 
-// TODO 複製時に選択リセットする方がUX良い可能性(選択してるとワンタッチでサイズ変更してしまうので)
 export const CopyStickerButton = () => {
   const [selected, setSelected] = useAtom(selectedStickerAtom)
   const [emojis, setEmojiDatas] = useAtom(emojiDatasAtom)
   const [rects, setRectangles] = useAtom(rectanglesAtom)
 
-  // TODO selected-emojiの構造修正
   const handleCopyEmoji = () => {
     if (selected === null || selected.type !== 'emoji') {
       return
