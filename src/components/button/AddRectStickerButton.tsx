@@ -13,8 +13,6 @@ import {
 
 import { Button } from '@/components/ui/button'
 
-// TODO ID atom依存箇所を削除
-// TODO 矩形追加時に選択リセット
 export const AddRectStickerButton = () => {
   const isLoaded = useAtomValue(isBaseImgLoadedAtom)
   const setRectangles = useSetAtom(rectanglesAtom)
@@ -23,7 +21,6 @@ export const AddRectStickerButton = () => {
   const handleClick = () => {
     sendEvent(GA4Event.Rect)
 
-    // TODO 矩形追加時に選択しなければIdAtomを削除できるかも
     const id = v4()
     setRectangles((prev) => [...prev, { id }])
     resetSelected()
