@@ -14,7 +14,6 @@ import {
 
 import { Button } from '@/components/ui/button'
 
-// TODO Reset selected data
 export const RemoveStickerButton = () => {
   const selectedId = useAtomValue(selectedStickerIdAtom)
   const resetSelected = useResetAtom(selectedStickerAtom)
