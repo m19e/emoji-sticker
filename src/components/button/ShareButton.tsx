@@ -23,7 +23,6 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 
-// TODO selectedStickerDataをリセット
 export const ShareButton = ({ disabled }: ButtonProps) => {
   const { ios } = useAtomValue(osAtom)
   const setOpenDrawer = useSetAtom(isShareDialogOpenAtom)
