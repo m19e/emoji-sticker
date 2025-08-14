@@ -13,8 +13,6 @@ type Props = {
   img: Dimensions
 }
 
-// TODO ID atom依存箇所を削除
-// TODO Rectのcopy-size
 export const StickerLayer = ({ img }: Props) => {
   const emojis = useAtomValue(emojiDatasAtom)
   const rects = useAtomValue(rectanglesAtom)
