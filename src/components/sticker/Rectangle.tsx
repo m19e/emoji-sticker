@@ -16,7 +16,6 @@ type Target = {
   scaleY: () => number
 }
 
-// TODO w,h取得処理を共通化
 const getSelectedRect = (target: Target) => {
   const w = target.width() * target.scaleX()
   const h = target.height() * target.scaleY()
