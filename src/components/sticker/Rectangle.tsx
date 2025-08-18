@@ -43,7 +43,6 @@ export const Rectangle = ({ id: rectId, w, h, position, isDesktop }: Props) => {
   useEffect(() => {
     if (selected && shapeRef.current) {
       transformerRef.current?.nodes([shapeRef.current])
-      // TODO この時点で選択されているので選択不要？
     }
   }, [selected])
 
