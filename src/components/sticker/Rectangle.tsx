@@ -38,8 +38,6 @@ export const Rectangle = ({ id: rectId, w, h, position, isDesktop }: Props) => {
 
   const selected = rectId === selectedId
 
-  // TODO 不要になったので消す
-
   useEffect(() => {
     if (selected && shapeRef.current) {
       transformerRef.current?.nodes([shapeRef.current])
