@@ -28,7 +28,6 @@ type Props = {
   h: number
 } & StickerProps
 
-// TODO isDesktopでの分岐をまとめる(Transformer)
 // TODO rename to `rectId`
 export const Rectangle = ({ id: rectId, w, h, position, isDesktop }: Props) => {
   const shapeRef = useRef<Konva.Rect>(null)
