@@ -9,6 +9,9 @@ import { StickerSnap } from '@/constants'
 import { selectedStickerAtom, selectedStickerIdAtom } from '@/store/atoms'
 import type { StickerProps } from '@/types'
 
+// TODO typesに共通化
+// TODO Konva側の型をちゃんと使う
+// FIXME 削除
 type Target = {
   width: () => number
   height: () => number
@@ -16,7 +19,7 @@ type Target = {
   scaleY: () => number
 }
 
-const getSelectedRect = (target: Target) => {
+const getSelectedRect = (target: Konva.KonvaEventObject<Event>['target']) => {
   const w = target.width() * target.scaleX()
   const h = target.height() * target.scaleY()
   return { w, h }
