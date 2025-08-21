@@ -24,9 +24,9 @@ const getSelectedSize = (target: Target) => {
   return target.width() * target.scaleX()
 }
 
-// TODO EmojiData(copySize抜き)を`data`で受け取る
+// TODO 無駄なOmit消す
 type Props = {
-  data: Omit<EmojiData, 'copySize'>
+  data: EmojiData
   size: number
 } & StickerProps
 
