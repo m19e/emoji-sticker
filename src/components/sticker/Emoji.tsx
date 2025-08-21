@@ -19,8 +19,7 @@ type Target = {
   scaleX: () => number
 }
 
-// TODO w,h取得処理を共通化
-const getSelectedSize = (target: Target) => {
+const getSelectedSize = (target: Konva.KonvaEventObject<Event>['target']) => {
   return target.width() * target.scaleX()
 }
 
