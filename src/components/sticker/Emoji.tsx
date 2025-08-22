@@ -14,6 +14,9 @@ import {
 } from '@/store/atoms'
 import type { EmojiData, StickerProps } from '@/types'
 
+// TODO typesに共通化
+// TODO Konva側の型をちゃんと使う
+// FIXME 削除
 type Target = {
   width: () => number
   scaleX: () => number
