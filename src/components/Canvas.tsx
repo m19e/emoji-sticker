@@ -51,8 +51,9 @@ export const Canvas = () => {
     const pointer = stage?.getPointerPosition()
     if (!pointer || !lastPointerPos.current) return
 
-    const dx = pointer.x - lastPointerPos.current.x
-    const dy = pointer.y - lastPointerPos.current.y
+    // TODO スマホ上での移動距離が短くなる問題の対応
+    const dx = (pointer.x - lastPointerPos.current.x) * 1.5
+    const dy = (pointer.y - lastPointerPos.current.y) * 1.5
 
     lastPointerPos.current = pointer
 
