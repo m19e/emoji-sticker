@@ -12,6 +12,7 @@ import { useUserAgent } from '@/hooks/useUserAgent'
 
 type Return = {
   ref: (ref: Konva.Stage) => void
+  stage: Konva.Stage | null
   save: () => void
   share: () => Promise<void>
 }
@@ -117,5 +118,5 @@ export const useCanvasData = (): Return => {
       .catch((error) => console.error(error))
   }
 
-  return { ref: setCanvasRef, save, share }
+  return { ref: setCanvasRef, stage: canvasRef, save, share }
 }
