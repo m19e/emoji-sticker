@@ -26,13 +26,13 @@ export const StickerLayer = ({ img }: Props) => {
 
   return (
     <Layer>
-      {rects.map(({ id, copy }) => (
+      {rects.map(({ id, copy, position }) => (
         <Rectangle
           key={id}
           id={id}
           w={copy ? copy.w : img.width / 3}
           h={copy ? copy.h : img.width / 12}
-          position={initialPosition}
+          position={position ?? initialPosition}
           isDesktop={isDesktop}
         />
       ))}
@@ -41,7 +41,7 @@ export const StickerLayer = ({ img }: Props) => {
           key={e.id}
           data={e}
           size={e.copySize ?? img.width / 5}
-          position={initialPosition}
+          position={e.position ?? initialPosition}
           isDesktop={isDesktop}
         />
       ))}
