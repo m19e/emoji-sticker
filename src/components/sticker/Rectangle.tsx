@@ -82,7 +82,7 @@ export const Rectangle = ({ id: rectId, w, h, position, isDesktop }: Props) => {
           const { w, h } = getSelectedRect(target)
           setSelected(createSelectedRect({ id: rectId, w, h }))
         }}
-        draggable
+        draggable={isDesktop}
       />
       {selected && (
         <Transformer

@@ -108,7 +108,7 @@ export const Emoji = ({
             createSelectedEmoji({ id: emojiId, size: getSelectedSize(target) }),
           )
         }}
-        draggable
+        draggable={isDesktop}
       />
       {selected && (
         <Transformer
