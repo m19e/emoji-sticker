@@ -18,6 +18,7 @@ import { BaseImageLayer } from '@/components/layer/BaseImage'
 import { StickerLayer } from '@/components/layer/Sticker'
 
 // TODO 一旦リリース onTouchでステッカー移動
+// FIXME linterの指摘解消
 export const Canvas = () => {
   const { ref, stage } = useCanvasData()
   const {
@@ -37,19 +38,27 @@ export const Canvas = () => {
   }
 
   const handleTouchStart = () => {
-    if (!selectedData) return
+    if (!selectedData) {
+      return
+    }
     setDragging(true)
 
     const pointer = stage?.getPointerPosition()
-    if (!pointer) return
+    if (!pointer) {
+      return
+    }
     lastPointerPos.current = pointer
   }
 
   const handleTouchMove = () => {
-    if (!dragging || !selectedData) return
+    if (!(dragging && selectedData)) {
+      return
+    }
 
     const pointer = stage?.getPointerPosition()
-    if (!pointer || !lastPointerPos.current) return
+    if (!(pointer && lastPointerPos.current)) {
+      return
+    }
 
     // TODO スマホ上での移動距離が短くなる問題の対応
     const dx = (pointer.x - lastPointerPos.current.x) * (imgSize.width / width)
