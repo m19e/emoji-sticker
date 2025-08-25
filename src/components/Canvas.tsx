@@ -68,8 +68,8 @@ export const Canvas = () => {
     lastPointerPos.current = pointer
 
     if (selectedData.type === 'emoji') {
-      setEmojis((emojis) =>
-        emojis.map((e) => {
+      setEmojis((prev) =>
+        prev.map((e) => {
           if (selectedData.id === e.id) {
             const p = e.position ?? initialPosition
             return {
@@ -85,8 +85,8 @@ export const Canvas = () => {
         }),
       )
     } else {
-      setRects((rects) =>
-        rects.map((r) => {
+      setRects((prev) =>
+        prev.map((r) => {
           if (selectedData.id === r.id) {
             const p = r.position ?? initialPosition
             return {
