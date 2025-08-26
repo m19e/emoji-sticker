@@ -37,6 +37,7 @@ type Props = {
 // TODO 変形後に選択ノードatomを更新
 // TODO isDesktopでの分岐をまとめる(Transformer)
 // TODO rename to `emojiId`
+// TODO Stageのドラッグで絵文字ノードを移動する
 export const Emoji = ({
   data: { id: emojiId, u, fallback },
   size,
