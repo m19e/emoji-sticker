@@ -13,6 +13,7 @@ import {
 
 import { Button } from '@/components/ui/button'
 
+// TODO rect追加時にpositionも設定
 export const AddRectStickerButton = () => {
   const isLoaded = useAtomValue(isBaseImgLoadedAtom)
   const setRectangles = useSetAtom(rectanglesAtom)
