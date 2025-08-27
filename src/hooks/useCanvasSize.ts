@@ -1,11 +1,11 @@
+import { useAtomValue } from 'jotai'
 import { useMemo } from 'react'
 import { useWindowSize } from 'react-use'
 
 import { CANVAS_MARGIN_Y, DESKTOP_CONTENTS_WIDTH } from '@/constants'
-import type { Dimensions } from '@/types'
-
-import { useBaseImageSize } from '@/hooks/useBaseImageSize'
 import { useMediaQuery } from '@/hooks/useMediaQuery'
+import { baseImgSizeAtom } from '@/store/atoms'
+import type { Dimensions } from '@/types'
 
 type Args = {
   img: Dimensions
@@ -36,7 +36,7 @@ const getFullWidth = ({
 export const useCanvasSize = () => {
   const { width, height } = useWindowSize({ initialWidth: 0, initialHeight: 0 })
   const { isDesktop } = useMediaQuery()
-  const { imgSize: img } = useBaseImageSize()
+  const img = useAtomValue(baseImgSizeAtom)
 
   const maxWidth = isDesktop ? DESKTOP_CONTENTS_WIDTH : width
   const maxHeight = height - CANVAS_MARGIN_Y

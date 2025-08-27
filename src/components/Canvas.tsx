@@ -5,12 +5,12 @@ import { useRef, useState } from 'react'
 import { Stage } from 'react-konva'
 
 import {
+  baseImgSizeAtom,
   emojiDatasAtom,
   rectanglesAtom,
   selectedStickerAtom,
 } from '@/store/atoms'
 
-import { useBaseImageSize } from '@/hooks/useBaseImageSize'
 import { useCanvasData } from '@/hooks/useCanvasData'
 import { useCanvasSize } from '@/hooks/useCanvasSize'
 
@@ -18,13 +18,14 @@ import { BaseImageLayer } from '@/components/layer/BaseImage'
 import { StickerLayer } from '@/components/layer/Sticker'
 
 // TODO 一旦リリース onTouchでステッカー移動
+// TODO jotaiからimgSizeを取得
 // FIXME linterの指摘解消
 export const Canvas = () => {
   const { ref, stage } = useCanvasData()
   const {
     canvas: { width, height },
   } = useCanvasSize()
-  const { imgSize } = useBaseImageSize()
+  const imgSize = useAtomValue(baseImgSizeAtom)
   const selectedData = useAtomValue(selectedStickerAtom)
   const setEmojis = useSetAtom(emojiDatasAtom)
   const setRects = useSetAtom(rectanglesAtom)
