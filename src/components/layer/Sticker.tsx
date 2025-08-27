@@ -3,19 +3,24 @@ import { useAtomValue } from 'jotai'
 import { Layer } from 'react-konva'
 
 import { useMediaQuery } from '@/hooks/useMediaQuery'
-import { emojiDatasAtom, rectanglesAtom } from '@/store/atoms'
+import { baseImgSizeAtom, emojiDatasAtom, rectanglesAtom } from '@/store/atoms'
 import type { Dimensions } from '@/types'
 
 import { Emoji } from '@/components/sticker/Emoji'
 import { Rectangle } from '@/components/sticker/Rectangle'
 
+// TODO 不要props削除
 type Props = {
   img: Dimensions
 }
 
-export const StickerLayer = ({ img }: Props) => {
+// TODO ここでだけimgを取得
+// TODO 不要になったprops消す
+// TODO リファクタしたのでimgProps削除してatomから取得する
+export const StickerLayer = () => {
   const emojis = useAtomValue(emojiDatasAtom)
   const rects = useAtomValue(rectanglesAtom)
+  const img = useAtomValue(baseImgSizeAtom)
 
   const { isDesktop } = useMediaQuery()
 

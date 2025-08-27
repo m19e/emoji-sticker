@@ -122,7 +122,7 @@ export const Canvas = () => {
       onTouchEnd={handleTouchEnd}
     >
       <BaseImageLayer />
-      <StickerLayer img={imgSize} />
+      <StickerLayer />
     </Stage>
   )
 }
