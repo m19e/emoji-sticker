@@ -3,10 +3,13 @@ import { atomWithReset } from 'jotai/utils'
 import type Konva from 'konva'
 
 import type { SelectedSticker } from '@/brand'
-import type { EmojiData, RectData } from '@/types'
+import { INITIAL_DIMENSIONS } from '@/constants'
+import type { Dimensions, EmojiData, RectData } from '@/types'
 
 // Atoms
 export const baseImgUrlAtom = atomWithReset<string | null>(null)
+
+export const baseImgSizeAtom = atomWithReset<Dimensions>(INITIAL_DIMENSIONS)
 
 export const isPickerOpenAtom = atom(false)
 
