@@ -1,5 +1,5 @@
 'use client'
-import { useAtom } from 'jotai'
+import { useAtom, useAtomValue } from 'jotai'
 import { RESET } from 'jotai/utils'
 import { CopyIcon } from 'lucide-react'
 import { v4 } from 'uuid'
@@ -10,14 +10,17 @@ import {
   emojiDatasAtom,
   rectanglesAtom,
   selectedStickerAtom,
+  stageCenterAxisAtom,
 } from '@/store/atoms'
 
 import { Button } from '@/components/ui/button'
 
+// TODO ステッカー複製時にセンター座標を設定
 export const CopyStickerButton = () => {
   const [selected, setSelected] = useAtom(selectedStickerAtom)
   const [emojis, setEmojiDatas] = useAtom(emojiDatasAtom)
   const [rects, setRectangles] = useAtom(rectanglesAtom)
+  const position = useAtomValue(stageCenterAxisAtom)
 
   const handleCopyEmoji = () => {
     if (selected === null || selected.type !== 'emoji') {
@@ -36,7 +39,10 @@ export const CopyStickerButton = () => {
     const id = v4()
     // 複製時に選択をリセット(サイズ変更してしまわないように)
     setSelected(RESET)
-    setEmojiDatas((prev) => [...prev, { id, u, fallback, copySize: size }])
+    setEmojiDatas((prev) => [
+      ...prev,
+      { id, u, fallback, copySize: size, position },
+    ])
   }
 
   const handleCopyRect = () => {
@@ -55,7 +61,7 @@ export const CopyStickerButton = () => {
     const id = v4()
     // 複製時に選択をリセット(サイズ変更してしまわないように)
     setSelected(RESET)
-    setRectangles((prev) => [...prev, { id, copy: { w, h } }])
+    setRectangles((prev) => [...prev, { id, copy: { w, h }, position }])
   }
 
   const isSelected = selected !== null

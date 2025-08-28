@@ -1,6 +1,6 @@
 'use client'
 import { type EmojiClickData, EmojiStyle, Theme } from 'emoji-picker-react'
-import { useAtom, useSetAtom } from 'jotai'
+import { useAtom, useAtomValue, useSetAtom } from 'jotai'
 import { useResetAtom } from 'jotai/utils'
 import dynamic from 'next/dynamic'
 import { v4 } from 'uuid'
@@ -19,6 +19,7 @@ import {
   emojiDatasAtom,
   isPickerOpenAtom,
   selectedStickerAtom,
+  stageCenterAxisAtom,
 } from '@/store/atoms'
 import { convertToValidTwemojiCodepoint } from '@/tools'
 
@@ -34,8 +35,10 @@ const DynamicPicker = dynamic(() => import('emoji-picker-react'), {
   ssr: false,
 })
 
+// TODO emoji追加時にpositionも設定
 export const Picker = () => {
   const [open, setOpen] = useAtom(isPickerOpenAtom)
+  const position = useAtomValue(stageCenterAxisAtom)
   const setEmojis = useSetAtom(emojiDatasAtom)
   const resetSelected = useResetAtom(selectedStickerAtom)
 
@@ -76,7 +79,7 @@ export const Picker = () => {
     })
 
     const id = v4()
-    setEmojis((prev) => [...prev, { id, u, fallback }])
+    setEmojis((prev) => [...prev, { id, u, fallback, position }])
     resetSelected()
     setOpen(false)
   }

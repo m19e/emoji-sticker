@@ -9,6 +9,7 @@ import {
   isBaseImgLoadedAtom,
   rectanglesAtom,
   selectedStickerAtom,
+  stageCenterAxisAtom,
 } from '@/store/atoms'
 
 import { Button } from '@/components/ui/button'
@@ -16,6 +17,7 @@ import { Button } from '@/components/ui/button'
 // TODO rect追加時にpositionも設定
 export const AddRectStickerButton = () => {
   const isLoaded = useAtomValue(isBaseImgLoadedAtom)
+  const position = useAtomValue(stageCenterAxisAtom)
   const setRectangles = useSetAtom(rectanglesAtom)
   const resetSelected = useResetAtom(selectedStickerAtom)
 
@@ -23,7 +25,7 @@ export const AddRectStickerButton = () => {
     sendEvent(GA4Event.Rect)
 
     const id = v4()
-    setRectangles((prev) => [...prev, { id }])
+    setRectangles((prev) => [...prev, { id, position }])
     resetSelected()
   }
 
