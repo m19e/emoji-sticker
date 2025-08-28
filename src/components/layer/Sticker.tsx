@@ -17,6 +17,7 @@ type Props = {
 // TODO ここでだけimgを取得
 // TODO 不要になったprops消す
 // TODO リファクタしたのでimgProps削除してatomから取得する
+// TODO センター座標をデフォルトで設定しているのでコンポーネント上から削除
 export const StickerLayer = () => {
   const emojis = useAtomValue(emojiDatasAtom)
   const rects = useAtomValue(rectanglesAtom)
@@ -24,6 +25,7 @@ export const StickerLayer = () => {
 
   const { isDesktop } = useMediaQuery()
 
+  // TODO 初期位置(センター座標)削除
   const initialPosition = {
     x: img.width / 2,
     y: img.height / 2,
@@ -35,19 +37,19 @@ export const StickerLayer = () => {
         <Rectangle
           key={id}
           id={id}
+          position={position}
+          isDesktop={isDesktop}
           w={copy ? copy.w : img.width / 3}
           h={copy ? copy.h : img.width / 12}
-          position={position ?? initialPosition}
-          isDesktop={isDesktop}
         />
       ))}
       {emojis.map((e) => (
         <Emoji
           key={e.id}
           data={e}
-          size={e.copySize ?? img.width / 5}
-          position={e.position ?? initialPosition}
+          position={e.position}
           isDesktop={isDesktop}
+          size={e.copySize ?? img.width / 5}
         />
       ))}
     </Layer>
