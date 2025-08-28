@@ -31,7 +31,8 @@ export const CopyStickerButton = () => {
       return
     }
 
-    const { type, size } = selected
+    // TODO rename
+    const { type, size: copySize } = selected
     const { u, fallback } = copyTarget
 
     sendEvent(GA4Event.Duplicate, { type, u })
@@ -39,10 +40,7 @@ export const CopyStickerButton = () => {
     const id = v4()
     // 複製時に選択をリセット(サイズ変更してしまわないように)
     setSelected(RESET)
-    setEmojiDatas((prev) => [
-      ...prev,
-      { id, u, fallback, copySize: size, position },
-    ])
+    setEmojiDatas((prev) => [...prev, { id, u, fallback, copySize, position }])
   }
 
   const handleCopyRect = () => {
