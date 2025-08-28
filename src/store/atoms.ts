@@ -45,3 +45,12 @@ export const selectedStickerIdAtom = atom((get) => {
 
   return data === null ? null : data.id
 })
+
+export const stageCenterAxisAtom = atom((get) => {
+  const { width, height } = get(baseImgSizeAtom)
+
+  return {
+    x: width / 2,
+    y: height / 2,
+  }
+})
