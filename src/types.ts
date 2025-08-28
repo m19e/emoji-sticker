@@ -8,7 +8,7 @@ export type EmojiData = {
   u: string
   fallback: string
   copySize?: number
-  position?: {
+  position: {
     x: number
     y: number
   }
@@ -20,7 +20,7 @@ export type RectData = {
     w: number
     h: number
   }
-  position?: {
+  position: {
     x: number
     y: number
   }

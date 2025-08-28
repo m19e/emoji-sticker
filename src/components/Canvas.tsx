@@ -33,6 +33,7 @@ export const Canvas = () => {
   const lastPointerPos = useRef<Konva.Vector2d>(null)
   const [dragging, setDragging] = useState(false)
 
+  // TODO センター座標削除
   const initialPosition = {
     x: imgSize.width / 2,
     y: imgSize.height / 2,
@@ -72,12 +73,12 @@ export const Canvas = () => {
       setEmojis((prev) =>
         prev.map((e) => {
           if (selectedData.id === e.id) {
-            const p = e.position ?? initialPosition
+            const { x: px, y: py } = e.position
             return {
               ...e,
               position: {
-                x: p.x + dx,
-                y: p.y + dy,
+                x: px + dx,
+                y: py + dy,
               },
             }
           }
@@ -89,12 +90,12 @@ export const Canvas = () => {
       setRects((prev) =>
         prev.map((r) => {
           if (selectedData.id === r.id) {
-            const p = r.position ?? initialPosition
+            const { x: px, y: py } = r.position
             return {
               ...r,
               position: {
-                x: p.x + dx,
-                y: p.y + dy,
+                x: px + dx,
+                y: py + dy,
               },
             }
           }
