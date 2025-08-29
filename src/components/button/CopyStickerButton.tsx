@@ -4,6 +4,7 @@ import { RESET } from 'jotai/utils'
 import { CopyIcon } from 'lucide-react'
 import { v4 } from 'uuid'
 
+import { createSelectedEmoji, createSelectedRect } from '@/brand'
 import { Dict } from '@/dict'
 import { GA4Event, sendEvent } from '@/ga'
 import {
@@ -38,9 +39,10 @@ export const CopyStickerButton = () => {
     sendEvent(GA4Event.Duplicate, { type, u })
 
     const id = v4()
-    // 複製時に選択をリセット(サイズ変更してしまわないように)
-    setSelected(RESET)
     setEmojiDatas((prev) => [...prev, { id, u, fallback, copySize, position }])
+    // 複製時に選択をリセット(サイズ変更してしまわないように)
+    // TODO やっぱり初期選択
+    setSelected(createSelectedEmoji({ id, size: 0 }))
   }
 
   const handleCopyRect = () => {
@@ -57,9 +59,10 @@ export const CopyStickerButton = () => {
     sendEvent(GA4Event.Duplicate, { type })
 
     const id = v4()
-    // 複製時に選択をリセット(サイズ変更してしまわないように)
-    setSelected(RESET)
     setRectangles((prev) => [...prev, { id, copy: { w, h }, position }])
+    // 複製時に選択をリセット(サイズ変更してしまわないように)
+    // TODO やっぱり初期選択
+    setSelected(createSelectedRect({ id, w: 0, h: 0 }))
   }
 
   const isSelected = selected !== null

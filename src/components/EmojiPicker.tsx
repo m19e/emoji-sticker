@@ -1,10 +1,10 @@
 'use client'
 import { type EmojiClickData, EmojiStyle, Theme } from 'emoji-picker-react'
 import { useAtom, useAtomValue, useSetAtom } from 'jotai'
-import { useResetAtom } from 'jotai/utils'
 import dynamic from 'next/dynamic'
 import { v4 } from 'uuid'
 
+import { createSelectedEmoji } from '@/brand'
 import {
   CUSTOM_EMOJIS,
   DEFAULT_PREVIEW_CONFIG,
@@ -40,7 +40,7 @@ export const Picker = () => {
   const [open, setOpen] = useAtom(isPickerOpenAtom)
   const position = useAtomValue(stageCenterAxisAtom)
   const setEmojis = useSetAtom(emojiDatasAtom)
-  const resetSelected = useResetAtom(selectedStickerAtom)
+  const setSelected = useSetAtom(selectedStickerAtom)
 
   const { isDesktop } = useMediaQuery()
 
@@ -80,7 +80,8 @@ export const Picker = () => {
 
     const id = v4()
     setEmojis((prev) => [...prev, { id, u, fallback, position }])
-    resetSelected()
+    // ノード側でサイズ更新するので`0`を設定
+    setSelected(createSelectedEmoji({ id, size: 0 }))
     setOpen(false)
   }
 

@@ -1,9 +1,9 @@
 'use client'
 import { useAtomValue, useSetAtom } from 'jotai'
-import { useResetAtom } from 'jotai/utils'
 import { StickyNoteIcon } from 'lucide-react'
 import { v4 } from 'uuid'
 
+import { createSelectedRect } from '@/brand'
 import { GA4Event, sendEvent } from '@/ga'
 import {
   isBaseImgLoadedAtom,
@@ -19,14 +19,15 @@ export const AddRectStickerButton = () => {
   const isLoaded = useAtomValue(isBaseImgLoadedAtom)
   const position = useAtomValue(stageCenterAxisAtom)
   const setRectangles = useSetAtom(rectanglesAtom)
-  const resetSelected = useResetAtom(selectedStickerAtom)
+  const setSelected = useSetAtom(selectedStickerAtom)
 
   const handleClick = () => {
     sendEvent(GA4Event.Rect)
 
     const id = v4()
     setRectangles((prev) => [...prev, { id, position }])
-    resetSelected()
+    // ノード側でサイズ更新するので`0`を設定
+    setSelected(createSelectedRect({ id, w: 0, h: 0 }))
   }
 
   return (

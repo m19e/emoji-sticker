@@ -38,8 +38,11 @@ export const Rectangle = ({ id: rectId, w, h, position, isDesktop }: Props) => {
   useEffect(() => {
     if (selected && shapeRef.current) {
       transformerRef.current?.nodes([shapeRef.current])
+
+      const { w, h } = getSelectedRect(shapeRef.current)
+      setSelected(createSelectedRect({ id: rectId, w, h }))
     }
-  }, [selected])
+  }, [selected, setSelected, rectId])
 
   const handleSelect = () => {
     if (shapeRef.current) {

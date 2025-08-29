@@ -57,8 +57,14 @@ export const Emoji = ({
       transformerRef.current?.nodes([imageRef.current])
 
       // TODO この時点で選択されているので選択不要？
+      setSelected(
+        createSelectedEmoji({
+          id: emojiId,
+          size: getSelectedSize(imageRef.current),
+        }),
+      )
     }
-  }, [selected])
+  }, [selected, setSelected, emojiId])
 
   const handleSelect = () => {
     // 選択された絵文字を最後尾に追加してレイヤー最前面に配置
