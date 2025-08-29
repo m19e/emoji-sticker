@@ -12,6 +12,7 @@ import {
   selectedStickerAtom,
   selectedStickerIdAtom,
 } from '@/store/atoms'
+import { getSelectedSize } from '@/tools'
 import type { EmojiData, StickerProps } from '@/types'
 
 // TODO typesに共通化
@@ -20,10 +21,6 @@ import type { EmojiData, StickerProps } from '@/types'
 type Target = {
   width: () => number
   scaleX: () => number
-}
-
-const getSelectedSize = (target: Konva.KonvaEventObject<Event>['target']) => {
-  return target.width() * target.scaleX()
 }
 
 // TODO 無駄なOmit消す

@@ -7,6 +7,7 @@ import { Rect, Transformer } from 'react-konva'
 import { createSelectedRect } from '@/brand'
 import { StickerSnap } from '@/constants'
 import { selectedStickerAtom, selectedStickerIdAtom } from '@/store/atoms'
+import { getSelectedRect } from '@/tools'
 import type { StickerProps } from '@/types'
 
 // TODO typesに共通化
@@ -17,12 +18,6 @@ type Target = {
   height: () => number
   scaleX: () => number
   scaleY: () => number
-}
-
-const getSelectedRect = (target: Konva.KonvaEventObject<Event>['target']) => {
-  const w = target.width() * target.scaleX()
-  const h = target.height() * target.scaleY()
-  return { w, h }
 }
 
 type Props = {

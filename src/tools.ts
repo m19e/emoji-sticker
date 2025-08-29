@@ -1,3 +1,5 @@
+import type Konva from 'konva'
+
 export const getSvgUrl = (u: string) =>
   `https://cdn.jsdelivr.net/gh/jdecked/twemoji@latest/assets/svg/${u}.svg`
 
@@ -31,4 +33,18 @@ export const convertToValidTwemojiCodepoint = (u: string) =>
 export const getRandom = <T>(target: T[]): T => {
   const randomIndex = Math.floor(Math.random() * target.length)
   return target[randomIndex]
+}
+
+export const getSelectedRect = (
+  target: Konva.KonvaEventObject<Event>['target'],
+) => {
+  const w = target.width() * target.scaleX()
+  const h = target.height() * target.scaleY()
+  return { w, h }
+}
+
+export const getSelectedSize = (
+  target: Konva.KonvaEventObject<Event>['target'],
+) => {
+  return target.width() * target.scaleX()
 }
