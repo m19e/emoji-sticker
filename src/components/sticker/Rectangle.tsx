@@ -13,12 +13,6 @@ import type { StickerProps } from '@/types'
 // TODO typesに共通化
 // TODO Konva側の型をちゃんと使う
 // FIXME 削除
-type Target = {
-  width: () => number
-  height: () => number
-  scaleX: () => number
-  scaleY: () => number
-}
 
 type Props = {
   id: string
