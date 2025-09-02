@@ -34,10 +34,6 @@ export const Canvas = () => {
   const [dragging, setDragging] = useState(false)
 
   // TODO センター座標削除
-  const initialPosition = {
-    x: imgSize.width / 2,
-    y: imgSize.height / 2,
-  }
 
   const handleTouchStart = () => {
     if (!selectedData) {

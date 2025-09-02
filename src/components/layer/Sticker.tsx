@@ -26,10 +26,6 @@ export const StickerLayer = () => {
   const { isDesktop } = useMediaQuery()
 
   // TODO 初期位置(センター座標)削除
-  const initialPosition = {
-    x: img.width / 2,
-    y: img.height / 2,
-  }
 
   return (
     <Layer>
