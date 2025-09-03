@@ -4,15 +4,11 @@ import { Layer } from 'react-konva'
 
 import { useMediaQuery } from '@/hooks/useMediaQuery'
 import { baseImgSizeAtom, emojiDatasAtom, rectanglesAtom } from '@/store/atoms'
-import type { Dimensions } from '@/types'
 
 import { Emoji } from '@/components/sticker/Emoji'
 import { Rectangle } from '@/components/sticker/Rectangle'
 
 // TODO 不要props削除
-type Props = {
-  img: Dimensions
-}
 
 // TODO ここでだけimgを取得
 // TODO 不要になったprops消す
