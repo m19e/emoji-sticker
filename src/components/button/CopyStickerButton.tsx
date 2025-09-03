@@ -1,6 +1,5 @@
 'use client'
 import { useAtom, useAtomValue } from 'jotai'
-import { RESET } from 'jotai/utils'
 import { CopyIcon } from 'lucide-react'
 import { v4 } from 'uuid'
 
