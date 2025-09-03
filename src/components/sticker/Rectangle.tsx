@@ -21,6 +21,8 @@ type Props = {
 } & StickerProps
 
 // TODO rename to `rectId`
+// TODO 選択処理共通化
+// TODO 回転スナップ追加
 export const Rectangle = ({ id: rectId, w, h, position, isDesktop }: Props) => {
   const shapeRef = useRef<Konva.Rect>(null)
   const transformerRef = useRef<Konva.Transformer>(null)
@@ -80,7 +82,7 @@ export const Rectangle = ({ id: rectId, w, h, position, isDesktop }: Props) => {
         <Transformer
           {...tfProps}
           ref={transformerRef}
-          rotationSnaps={[0]}
+          rotationSnaps={[0, 90, 180, 270]}
           keepRatio={false}
           enabledAnchors={isDesktop ? StickerSnap.CORNER : StickerSnap.CENTER}
           boundBoxFunc={(oldBox, newBox) => {
