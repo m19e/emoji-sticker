@@ -36,6 +36,7 @@ const DynamicPicker = dynamic(() => import('emoji-picker-react'), {
 })
 
 // TODO emoji追加時にpositionも設定
+// TODO やっぱり初期選択
 export const Picker = () => {
   const [open, setOpen] = useAtom(isPickerOpenAtom)
   const position = useAtomValue(stageCenterAxisAtom)
