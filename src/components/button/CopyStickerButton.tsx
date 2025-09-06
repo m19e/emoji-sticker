@@ -16,6 +16,7 @@ import {
 import { Button } from '@/components/ui/button'
 
 // TODO ステッカー複製時にセンター座標を設定
+// TODO やっぱり初期選択
 export const CopyStickerButton = () => {
   const [selected, setSelected] = useAtom(selectedStickerAtom)
   const [emojis, setEmojiDatas] = useAtom(emojiDatasAtom)
@@ -39,7 +40,7 @@ export const CopyStickerButton = () => {
 
     const id = v4()
     setEmojiDatas((prev) => [...prev, { id, u, fallback, copySize, position }])
-    // 複製時に選択をリセット(サイズ変更してしまわないように)
+    // FIXME 複製時に選択をリセット(サイズ変更してしまわないように)
     // TODO やっぱり初期選択
     setSelected(createSelectedEmoji({ id, size: 0 }))
   }
@@ -59,7 +60,7 @@ export const CopyStickerButton = () => {
 
     const id = v4()
     setRectangles((prev) => [...prev, { id, copy: { w, h }, position }])
-    // 複製時に選択をリセット(サイズ変更してしまわないように)
+    // FIXME 複製時に選択をリセット(サイズ変更してしまわないように)
     // TODO やっぱり初期選択
     setSelected(createSelectedRect({ id, w: 0, h: 0 }))
   }
