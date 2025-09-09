@@ -25,12 +25,10 @@ type Props = {
   size: number
 } & StickerProps
 
-// TODO 選択時に絵文字ノードの情報を出力してみる
-// TODO 選択時に選択ノードatomを更新
-// TODO 変形後に選択ノードatomを更新
 // TODO isDesktopでの分岐をまとめる(Transformer)
 // TODO rename to `emojiId`
 // TODO Stageのドラッグで絵文字ノードを移動する
+// TODO 選択処理共通化
 export const Emoji = ({
   data: { id: emojiId, u, fallback },
   size,
