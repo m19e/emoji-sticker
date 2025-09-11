@@ -14,8 +14,6 @@ import {
 
 import { Button } from '@/components/ui/button'
 
-// TODO rect追加時にpositionも設定
-// TODO やっぱり初期選択
 export const AddRectStickerButton = () => {
   const isLoaded = useAtomValue(isBaseImgLoadedAtom)
   const position = useAtomValue(stageCenterAxisAtom)
