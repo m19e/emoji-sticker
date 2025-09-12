@@ -3,8 +3,6 @@ export type Dimensions = {
   height: number
 }
 
-// TODO モバイルのStageドラッグ移動のためのpositionフィールド追加
-// TODO position to required
 export type EmojiData = {
   id: string
   u: string
@@ -16,8 +14,6 @@ export type EmojiData = {
   }
 }
 
-// TODO モバイルのStageドラッグ移動のためのpositionフィールド追加
-// TODO position to required
 export type RectData = {
   id: string
   copy?: {
