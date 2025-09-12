@@ -32,7 +32,6 @@ export const CopyStickerButton = () => {
       return
     }
 
-    // TODO rename
     const { type, size: copySize } = selected
     const { u, fallback } = copyTarget
 
