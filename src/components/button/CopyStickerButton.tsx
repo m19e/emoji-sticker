@@ -15,7 +15,6 @@ import {
 
 import { Button } from '@/components/ui/button'
 
-// TODO ステッカー複製時にセンター座標を設定
 // TODO やっぱり初期選択
 export const CopyStickerButton = () => {
   const [selected, setSelected] = useAtom(selectedStickerAtom)
