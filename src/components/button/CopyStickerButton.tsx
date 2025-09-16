@@ -15,7 +15,6 @@ import {
 
 import { Button } from '@/components/ui/button'
 
-// TODO やっぱり初期選択
 export const CopyStickerButton = () => {
   const [selected, setSelected] = useAtom(selectedStickerAtom)
   const [emojis, setEmojiDatas] = useAtom(emojiDatasAtom)
