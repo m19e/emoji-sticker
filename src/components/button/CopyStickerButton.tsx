@@ -37,7 +37,6 @@ export const CopyStickerButton = () => {
 
     const id = v4()
     setEmojiDatas((prev) => [...prev, { id, u, fallback, copySize, position }])
-    // TODO やっぱり初期選択
     setSelected(createSelectedEmoji({ id, size: 0 }))
   }
 
@@ -56,7 +55,6 @@ export const CopyStickerButton = () => {
 
     const id = v4()
     setRectangles((prev) => [...prev, { id, copy: { w, h }, position }])
-    // TODO やっぱり初期選択
     setSelected(createSelectedRect({ id, w: 0, h: 0 }))
   }
 
