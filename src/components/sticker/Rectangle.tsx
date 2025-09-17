@@ -10,10 +10,6 @@ import { selectedStickerAtom, selectedStickerIdAtom } from '@/store/atoms'
 import { getSelectedRect } from '@/tools'
 import type { StickerProps } from '@/types'
 
-// TODO typesに共通化
-// TODO Konva側の型をちゃんと使う
-// FIXME 削除
-
 type Props = {
   id: string
   w: number
