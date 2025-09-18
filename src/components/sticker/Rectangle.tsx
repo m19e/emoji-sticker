@@ -16,7 +16,6 @@ type Props = {
   h: number
 } & StickerProps
 
-// TODO rename to `rectId`
 // TODO 選択処理共通化
 // TODO 回転スナップ追加
 export const Rectangle = ({ id: rectId, w, h, position, isDesktop }: Props) => {
