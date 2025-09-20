@@ -16,7 +16,6 @@ type Props = {
   h: number
 } & StickerProps
 
-// TODO 回転スナップ追加
 export const Rectangle = ({ id: rectId, w, h, position, isDesktop }: Props) => {
   const shapeRef = useRef<Konva.Rect>(null)
   const transformerRef = useRef<Konva.Transformer>(null)
