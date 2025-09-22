@@ -19,7 +19,6 @@ import { StickerLayer } from '@/components/layer/Sticker'
 
 // TODO 一旦リリース onTouchでステッカー移動
 // TODO jotaiからimgSizeを取得
-// FIXME linterの指摘解消
 // TODO センター座標の取得処理を共通化、もしくはderived化
 export const Canvas = () => {
   const { ref, stage } = useCanvasData()
