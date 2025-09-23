@@ -17,7 +17,6 @@ import type { EmojiData, StickerProps } from '@/types'
 
 // TODO typesに共通化
 // TODO Konva側の型をちゃんと使う
-// FIXME 削除
 
 // TODO 無駄なOmit消す
 type Props = {
