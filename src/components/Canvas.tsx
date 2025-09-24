@@ -33,8 +33,6 @@ export const Canvas = () => {
   const lastPointerPos = useRef<Konva.Vector2d>(null)
   const [dragging, setDragging] = useState(false)
 
-  // TODO センター座標削除
-
   const handleTouchStart = () => {
     if (!selectedData) {
       return
