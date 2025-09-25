@@ -1,4 +1,5 @@
 'use client'
+import { useAtomValue } from 'jotai'
 import { useResetAtom } from 'jotai/utils'
 import { Trash2Icon, XIcon } from 'lucide-react'
 import { toast } from 'sonner'
@@ -6,8 +7,7 @@ import { toast } from 'sonner'
 import { Dict } from '@/dict'
 import { GA4Event, sendEvent } from '@/ga'
 import { useMediaQuery } from '@/hooks/useMediaQuery'
-import { baseImgUrlAtom } from '@/store/atoms'
-import type { ButtonProps } from '@/types'
+import { baseImgUrlAtom, isBaseImgLoadedAtom } from '@/store/atoms'
 
 import { Button } from '@/components/ui/button'
 import {
@@ -27,7 +27,9 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 
-export const DeleteBaseImageButton = ({ disabled }: ButtonProps) => {
+// TODO disabledを受け取らない
+export const DeleteBaseImageButton = () => {
+  const isLoaded = useAtomValue(isBaseImgLoadedAtom)
   const resetBaseImg = useResetAtom(baseImgUrlAtom)
   const { isDesktop } = useMediaQuery()
 
@@ -45,7 +47,7 @@ export const DeleteBaseImageButton = ({ disabled }: ButtonProps) => {
     return (
       <DropdownMenu onOpenChange={handleOpenChange}>
         <DropdownMenuTrigger asChild>
-          <Button variant="ghost" size="icon" disabled={disabled}>
+          <Button variant="ghost" size="icon" disabled={!isLoaded}>
             <XIcon />
           </Button>
         </DropdownMenuTrigger>
@@ -62,7 +64,7 @@ export const DeleteBaseImageButton = ({ disabled }: ButtonProps) => {
   return (
     <Drawer onOpenChange={handleOpenChange}>
       <DrawerTrigger asChild>
-        <Button variant="ghost" size="icon" disabled={disabled}>
+        <Button variant="ghost" size="icon" disabled={!isLoaded}>
           <XIcon />
         </Button>
       </DrawerTrigger>

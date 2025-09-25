@@ -26,9 +26,7 @@ export type RectData = {
   }
 }
 
-export type ButtonProps = {
-  disabled?: boolean
-}
+// 不要になったので削除
 
 export type StickerProps = {
   position: {

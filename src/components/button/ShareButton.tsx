@@ -6,11 +6,11 @@ import { SaveIcon, Share2Icon, ShareIcon } from 'lucide-react'
 import { Dict } from '@/dict'
 import { GA4Event, sendEvent } from '@/ga'
 import {
+  isBaseImgLoadedAtom,
   isShareDialogOpenAtom,
   osAtom,
   selectedStickerAtom,
 } from '@/store/atoms'
-import type { ButtonProps } from '@/types'
 
 import { useCanvasData } from '@/hooks/useCanvasData'
 import { useMediaQuery } from '@/hooks/useMediaQuery'
@@ -23,8 +23,10 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 
-export const ShareButton = ({ disabled }: ButtonProps) => {
+// TODO disabledを受け取らない
+export const ShareButton = () => {
   const { ios } = useAtomValue(osAtom)
+  const isLoaded = useAtomValue(isBaseImgLoadedAtom)
   const setOpenDrawer = useSetAtom(isShareDialogOpenAtom)
   const resetSelected = useResetAtom(selectedStickerAtom)
 
@@ -46,7 +48,7 @@ export const ShareButton = ({ disabled }: ButtonProps) => {
     return (
       <DropdownMenu onOpenChange={handleOpenChange}>
         <DropdownMenuTrigger asChild>
-          <Button variant="ghost" size="icon" disabled={disabled}>
+          <Button variant="ghost" size="icon" disabled={!isLoaded}>
             <ShareIcon />
           </Button>
         </DropdownMenuTrigger>
@@ -71,7 +73,7 @@ export const ShareButton = ({ disabled }: ButtonProps) => {
       variant="ghost"
       size="icon"
       onClick={handleClick}
-      disabled={disabled}
+      disabled={!isLoaded}
     >
       <ShareIcon />
     </Button>
