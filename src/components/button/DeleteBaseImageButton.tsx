@@ -27,7 +27,6 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 
-// TODO disabledを受け取らない
 export const DeleteBaseImageButton = () => {
   const isLoaded = useAtomValue(isBaseImgLoadedAtom)
   const resetBaseImg = useResetAtom(baseImgUrlAtom)

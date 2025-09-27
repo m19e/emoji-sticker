@@ -23,7 +23,6 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 
-// TODO disabledを受け取らない
 export const ShareButton = () => {
   const { ios } = useAtomValue(osAtom)
   const isLoaded = useAtomValue(isBaseImgLoadedAtom)
