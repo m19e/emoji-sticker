@@ -56,7 +56,6 @@ export const Canvas = () => {
       return
     }
 
-    // TODO スマホ上での移動距離が短くなる問題の対応
     const dx = (pointer.x - lastPointerPos.current.x) * (imgSize.width / width)
     const dy =
       (pointer.y - lastPointerPos.current.y) * (imgSize.height / height)
