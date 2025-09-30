@@ -43,8 +43,6 @@ export const Emoji = ({
 
   const selected = emojiId === selectedId
 
-  // TODO 不要になったので消す
-
   useEffect(() => {
     if (selected && imageRef.current) {
       transformerRef.current?.nodes([imageRef.current])
