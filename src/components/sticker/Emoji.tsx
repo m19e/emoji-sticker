@@ -23,8 +23,6 @@ type Props = {
   size: number
 } & StickerProps
 
-
-
 // TODO isDesktopでの分岐をまとめる(Transformer)
 // TODO rename to `emojiId`
 // TODO Stageのドラッグで絵文字ノードを移動する
