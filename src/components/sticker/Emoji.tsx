@@ -18,11 +18,12 @@ import type { EmojiData, StickerProps } from '@/types'
 // TODO typesに共通化
 // TODO Konva側の型をちゃんと使う
 
-// TODO 無駄なOmit消す
 type Props = {
   data: EmojiData
   size: number
 } & StickerProps
+
+
 
 // TODO isDesktopでの分岐をまとめる(Transformer)
 // TODO rename to `emojiId`
