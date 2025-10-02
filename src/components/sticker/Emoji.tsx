@@ -46,7 +46,6 @@ export const Emoji = ({
     if (selected && imageRef.current) {
       transformerRef.current?.nodes([imageRef.current])
 
-      // TODO この時点で選択されているので選択不要？
       setSelected(
         createSelectedEmoji({
           id: emojiId,
