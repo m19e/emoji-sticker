@@ -16,7 +16,6 @@ import { getSelectedSize } from '@/tools'
 import type { EmojiData, StickerProps } from '@/types'
 
 // TODO typesに共通化
-// TODO Konva側の型をちゃんと使う
 
 type Props = {
   data: EmojiData
