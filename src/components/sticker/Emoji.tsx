@@ -15,8 +15,6 @@ import {
 import { getSelectedSize } from '@/tools'
 import type { EmojiData, StickerProps } from '@/types'
 
-// TODO typesに共通化
-
 type Props = {
   data: EmojiData
   size: number
