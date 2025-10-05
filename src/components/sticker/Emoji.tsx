@@ -21,7 +21,6 @@ type Props = {
 } & StickerProps
 
 // TODO isDesktopでの分岐をまとめる(Transformer)
-// TODO rename to `emojiId`
 // TODO Stageのドラッグで絵文字ノードを移動する
 // TODO 選択処理共通化
 export const Emoji = ({
