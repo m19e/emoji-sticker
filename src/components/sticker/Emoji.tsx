@@ -20,7 +20,6 @@ type Props = {
   size: number
 } & StickerProps
 
-// TODO isDesktopでの分岐をまとめる(Transformer)
 // TODO Stageのドラッグで絵文字ノードを移動する
 // TODO 選択処理共通化
 export const Emoji = ({
