@@ -21,7 +21,6 @@ type Props = {
 } & StickerProps
 
 // TODO Stageのドラッグで絵文字ノードを移動する
-// TODO 選択処理共通化
 export const Emoji = ({
   data: { id: emojiId, u, fallback },
   size,
