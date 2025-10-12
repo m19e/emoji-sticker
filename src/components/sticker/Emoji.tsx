@@ -20,7 +20,6 @@ type Props = {
   size: number
 } & StickerProps
 
-// TODO Stageのドラッグで絵文字ノードを移動する
 export const Emoji = ({
   data: { id: emojiId, u, fallback },
   size,
