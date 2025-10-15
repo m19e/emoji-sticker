@@ -20,6 +20,7 @@ import {
 
 import { Logo } from '@/components/Logo'
 
+// TODO 共通テキストをDictに移す
 export const AboutDialog = () => {
   return (
     <Dialog
