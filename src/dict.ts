@@ -1,3 +1,4 @@
+// TODO aboutフィールド追加
 export const Dict = {
   cancel: 'キャンセル',
   duplicate: '複製',
@@ -18,5 +19,8 @@ export const Dict = {
       success: '画像を共有しました',
       error: '現在の環境では共有機能をご利用いただけません',
     },
+  },
+  about: {
+    title: 'このアプリについて',
   },
 } as const
