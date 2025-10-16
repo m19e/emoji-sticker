@@ -1,6 +1,7 @@
 'use client'
 import { InfoIcon } from 'lucide-react'
 
+import { Dict } from '@/dict'
 import { GA4Event, sendEvent } from '@/ga'
 
 import {
@@ -38,7 +39,7 @@ export const AboutDialog = () => {
         onCloseAutoFocus={(e) => e.preventDefault()}
       >
         <DialogHeader className="sr-only">
-          <DialogTitle>このアプリについて</DialogTitle>
+          <DialogTitle>{Dict.about.title}</DialogTitle>
         </DialogHeader>
         <Logo />
         <Accordion
@@ -47,7 +48,7 @@ export const AboutDialog = () => {
           className="w-full max-w-80"
         >
           <AccordionItem value="item-1">
-            <AccordionTrigger>このアプリについて</AccordionTrigger>
+            <AccordionTrigger>{Dict.about.title}</AccordionTrigger>
             <AccordionContent>
               「絵文字ステッカー！」は画像に絵文字を貼りつけて装飾したり、情報を隠すことのできる画像編集アプリです。
             </AccordionContent>
