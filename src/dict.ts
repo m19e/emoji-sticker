@@ -1,4 +1,3 @@
-// TODO aboutフィールド追加
 export const Dict = {
   cancel: 'キャンセル',
   duplicate: '複製',
