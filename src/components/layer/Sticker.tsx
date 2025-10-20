@@ -19,8 +19,6 @@ export const StickerLayer = () => {
 
   const { isDesktop } = useMediaQuery()
 
-  // TODO 初期位置(センター座標)削除
-
   return (
     <Layer>
       {rects.map(({ id, copy, position }) => (
