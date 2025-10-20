@@ -9,7 +9,6 @@ import { Emoji } from '@/components/sticker/Emoji'
 import { Rectangle } from '@/components/sticker/Rectangle'
 
 // TODO ここでだけimgを取得
-// TODO 不要になったprops消す
 // TODO リファクタしたのでimgProps削除してatomから取得する
 // TODO センター座標をデフォルトで設定しているのでコンポーネント上から削除
 export const StickerLayer = () => {
