@@ -8,7 +8,6 @@ import { baseImgSizeAtom, emojiDatasAtom, rectanglesAtom } from '@/store/atoms'
 import { Emoji } from '@/components/sticker/Emoji'
 import { Rectangle } from '@/components/sticker/Rectangle'
 
-// TODO リファクタしたのでimgProps削除してatomから取得する
 // TODO センター座標をデフォルトで設定しているのでコンポーネント上から削除
 export const StickerLayer = () => {
   const emojis = useAtomValue(emojiDatasAtom)
